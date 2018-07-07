@@ -22,15 +22,19 @@ class NominaEmpleado
         puts "cumplio con los 15 dias? 1=si 2=no"
         dias=gets.chomp
         dias=dias.to_i
-        if dias==1 
-            pre=salario_basico+(h_extra*4068)-r_aportes+100000
-        elsif dias==2
-            pre=salario_basico+(h_extra*4068)-r_aportes-500000
-            puts pre
+        case dias
+        when 1 then pre=salario_basico+(h_extra*4068)-r_aportes+100000; imprimir_nomina(nombres,apellidos,pre)
+        when 2 then pre=salario_basico+(h_extra*4068)-r_aportes-50000; imprimir_nomina(nombres,apellidos,pre)
+        else puts "opcion no valida"; registrar_datos
         end
+    end
+    def imprimir_nomina nombres, apellidos, pre
+        puts "\n"
+        puts "\n"
         puts "nomina para el empleado: #{nombres} #{apellidos}"
         puts "salario neto a pagar #{pre}"
     end
+
 end
 objNominaEmpleado= NominaEmpleado.new
 objNominaEmpleado.registrar_datos
