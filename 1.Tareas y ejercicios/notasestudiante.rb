@@ -2,32 +2,25 @@
 #El alumno en total tiene 5 notas. Imprimir si aprobó o reprobó las notas, también debe contar las 
 #ganadas y perdidas, imprimir al final cuantas gano y cuantas perdio. Se entiende como reprobado una 
 #nota menor a 3.0
-class hola
+class Estudiantes
     def initialize
     end
     def calcularnotas 
-        *nota
-        puts "ingrese nota 1"
-        nota[0]=gets.chomp.to_i
-        puts "ingrese nota 2"
-        nota[1]=gets.chomp.to_i
-        puts "ingrese nota 3"
-        nota[2]=gets.chomp.to_i
-        puts "ingrese nota 4"
-        nota[3]=gets.chomp.to_i
-        puts "ingrese nota 5"
-        nota[4]=gets.chomp.to_i
-        i=1
+        nota=[]
+        for i in (0..4)
+            puts "ingrese nota #{i+1}"
+            nota[i]=gets.chomp.to_i
+        end
         suma=0
         reprobadas=0
         aprobadas=0
-        for i in nota
-            suma=suma+nota[i]
-            if nota[i]<3
+        nota.each do |elemento|
+            suma=suma+elemento
+            if elemento<3
                 reprobadas=reprobadas+1
-            elsif nota[i]>=3
+            elsif elemento>=3
                 aprobadas=aprobadas+1
-            end
+            end 
         end
         promedio=suma/nota.length
         if promedio >= 3
@@ -39,8 +32,7 @@ class hola
         end
     end
 end
-
-objnotas= hola.new
+objnotas= Estudiantes.new
 objnotas.calcularnotas
 gets()
 
