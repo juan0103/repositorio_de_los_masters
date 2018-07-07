@@ -11,17 +11,13 @@ class NominaEmpleado
         puts "ingrese apellidos"
         apellidos=gets.chomp
         puts "ingrese salario basico"
-        salario_basico=gets.chomp
-        salario_basico=salario_basico.to_i
+        salario_basico=gets.chomp.to_i
         puts "ingrese horas extra"
-        h_extra=gets.chomp
-        h_extra=h_extra.to_i
+        h_extra=gets.chomp.to_i
         puts "ingrese retencion por aportes"
-        r_aportes=gets.chomp
-        r_aportes=r_aportes.to_i
+        r_aportes=gets.chomp.to_i
         puts "cumplio con los 15 dias? 1=si 2=no"
-        dias=gets.chomp
-        dias=dias.to_i
+        dias=gets.chomp.to_i
         case dias
         when 1 then pre=salario_basico+(h_extra*4068)-r_aportes+100000; imprimir_nomina(nombres,apellidos,pre)
         when 2 then pre=salario_basico+(h_extra*4068)-r_aportes-50000; imprimir_nomina(nombres,apellidos,pre)
