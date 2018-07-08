@@ -14,8 +14,6 @@ class Menu
 
   
     def seleccionarMenu
-        puts"hola wey"
-        
             while $i < 1 do
                 puts "seleccione una opcion del menu"
                 menu=["1 menu basico (1500)", "2 Menu especial (3000)", "3 Menu Romantico (5000), 4 cobrar"]
