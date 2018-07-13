@@ -1,0 +1,38 @@
+<% if @message != nil %>
+<input type="text" id="txtMensaje" hidden='' value="<%= @message %>" />
+<input type="text" id="txtTipo" hidden='' value="<%= @tipo %>" />
+    <script>
+        swal("Mensaje",
+        document.getElementById("txtMensaje").value,
+        document.getElementById("txtTipo").value
+        )
+    </script>
+<% end %>
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Login</div>
+            <div class="card-body">
+                <%= form_tag(:controller => "users", :action => "login", :method => "post") do |f| %>
+                    <div class="form-group">
+                        <label for="lbluser">User</label>
+                        <input class="form-control" id="txtuser" name="txtuser" type="tewxt" aria-describedby="emailHelp" placeholder="Enter user">
+                    </div>
+                    <div class="form-group">
+                        <label for="lblpassword">Password</label>
+                        <input class="form-control" id="txtpassword" name="txtpassword" type="password" 
+                        placeholder=" Enter Password">
+                    </div>
+                    <input type= "submit" class="btn btn-primary btn-block" value="login"/>
+                    
+                <% end %>
+            <div class="text-center">
+                <a class="d-block small mt-3" href="register.html">Register an Account</a>
+                <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

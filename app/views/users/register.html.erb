@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="mx-auto mt-5">
+        <div class="card-header">Registrar usuario</div>
+        <div class="card-body">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label id="lblLogin"></label>
+                        <input type="text" id="txtlogin" name="txtlogin" placeholder="ingrese login" class="form-control"/>
+                    </div>
+                    <div class="col-md-6">
+                        <label id="lblPerfil">Perfil:</label>
+                        <select id="ddlPerfiles" name="ddlPerfiles" class="form-control">
+                            <% @perfiles.each |item| do %>
+                                <option value="<%= item.id%>"><%= item.descripcion%> </option>
+                            <% end %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label id="lblPassword">Password:</label>
+                        <input type="password" id="txtpassword" name="txtpassword" class="form-control"/>
+                    </div>
+                    <div class="col-md-6">
+                            <label id="lblConfirmarPassword">Confirmar Password:</label>
+                            <input type="password" id="txtConfirmarPassword" name="txtConfirmarPassword" class="form-control"/>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
