@@ -1,17 +1,26 @@
+<% if @mensaje != nil %>
+<input type ="text" id = "txtMensaje"  value ="<%= @mensaje %>" />
+<input type ="text" id = "txtTipo"  value ="<%= @tipo %>" />
+    <script >
+        swal("Mensaje",document.getElementById("txtMensaje").value,
+        document.getElementById("txtTipo").value);
+    </script>
+<% end %>
 <div class="container">
-    <div class="mx-auto mt-5">
+    <div class="card mx-auto mt-5">
         <div class="card-header">Registrar usuario</div>
         <div class="card-body">
+            <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
             <div class="form-group">
                 <div class="form-row">
                     <div class="col-md-6">
-                        <label id="lblLogin"></label>
+                        <label id="lblLogin">Login:</label>
                         <input type="text" id="txtlogin" name="txtlogin" placeholder="ingrese login" class="form-control"/>
                     </div>
                     <div class="col-md-6">
                         <label id="lblPerfil">Perfil:</label>
                         <select id="ddlPerfiles" name="ddlPerfiles" class="form-control">
-                            <% @perfiles.each |item| do %>
+                            <% @perfiles.each do |item| %>
                                 <option value="<%= item.id%>"><%= item.descripcion%> </option>
                             <% end %>
                         </select>
@@ -30,6 +39,15 @@
                         </div>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <input type="submit" id="btnAceptar" name="btnAceptar"
+                        class="btn btn-primary" value="Aceptar">
+                    </div>
+                </div>
+            </div>
+            <% end %>
         </div>
     </div>
 </div>

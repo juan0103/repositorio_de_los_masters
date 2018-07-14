@@ -1,5 +1,5 @@
 class User < ApplicationRecord
     def self.table_name
-        "seguridad.user"
+        "seguridad.tbusuario"
     end
 end

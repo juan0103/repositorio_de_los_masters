@@ -17,25 +17,42 @@ class UsersController < ApplicationController
         @perfiles = Profile.all
         render 'register'
     end
-    def saveregister
-    mensaje=""
-        if params.presence?(params[:txtLogin]) mensaje=mensaje+"ingrese login,"
-        if params[:txtLogin].eql?("")  mensaje=mensaje+"ingrese login,"
-        if params[:ddlPerfil].eql?("") mensaje=mensaje+"seleccione perfil,"
-        if params[:txtPassword].eql?("") mensaje=mensaje+"ingrese password,"
-        if params[:txtPassword].eql?(params[:txtConfirmarPassword]) mensaje=mensaje+"password no coincide,"
+    def save_register
+        @perfiles = Profile.all
+        mensaje=""
+        if params[:txtlogin].strip.empty?
+            mensaje += "ingrese login,"
+        end
+        if params[:ddlPerfiles].empty?
+             mensaje += "seleccione perfil,"
+        end
+        if params[:txtpassword].strip.empty?
+             mensaje += "ingrese password,"
+        end
+        if !params[:txtpassword].strip.eql?(params[:txtConfirmarPassword].strip) 
+            mensaje += "password no coincide,"
+        end
+            if !mensaje.eql?("")
+                @mensaje=mensaje.slice 0..-2
+                @tipo = 'error'
+                return
+            end
 
-        user_search= User.order_by("id").last
-        id = user_search.id +1
+        id= User.maximum('id')+1
         user = User.new
-        user.login = params[:txtLogin]
-        user.password = params[:txtPassword]
-        user.perfil_id= params[:ddlPerfil]
+        user.id = id
+        user.login = params[:txtlogin]
+        user.password = params[:txtpassword]
+        user.perfil_id= params[:ddlPerfiles]
 
-        if user.save?
-    
+        if user.save
+        @mensaje = 'se realizo proceso con exito'
+        @tipo = 'success'
+        render = 'register' 
         else
-    
+        @mensaje = 'hubo un error durante el procedimiento'
+        @tipo = 'error'
+        render 'register'
         end
     end
 
