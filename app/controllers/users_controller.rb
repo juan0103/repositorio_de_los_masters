@@ -20,6 +20,18 @@ class UsersController < ApplicationController
     def save_register
         @perfiles = Profile.all
         mensaje=''
+        if params[:txtnombre].strip.empty?
+            mensaje += 'ingrese nombres,'
+        end
+        if params[:txtapellidos].strip.empty?
+            mensaje += 'ingrese apellidos,'
+        end
+        if params[:txtcedula].strip.empty?
+            mensaje += 'ingrese cedula,'
+        end
+        if params[:fecha].eql?('')
+            mensaje += 'ingrese fecha de ingreso,'
+        end
         if params[:txtlogin].strip.empty?
             mensaje += 'ingrese login,'
         end
@@ -34,7 +46,6 @@ class UsersController < ApplicationController
         end
         if !mensaje.eql?('')
             @mensaje=mensaje.slice 0..-2
-            puts "#{@mensaje}"
             @tipo = 'error'
             render 'register'
         else 
@@ -42,9 +53,13 @@ class UsersController < ApplicationController
         end
     end
            def save_2 
-            puts "entro al dos"
+        
         user = User.new
         user.id = User.maximum('id')+1
+        user.nombre = params[:txtnombre]
+        user.apellido = params[:txtapellidos]
+        user.cedula = params[:txtcedula]
+        user.fecha_ingreso = params[:fecha]
         user.login = params[:txtlogin]
         user.password = params[:txtpassword]
         user.perfil_id= params[:ddlPerfiles]

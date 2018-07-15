@@ -6,7 +6,7 @@
 </br>
 <div class="container">
     <div class="row">
-        <div class="container col-md-4 .col-aligncenter  card shadow p-3 mb-5 bg-white rounded">
+        <div class="container col-md-6 .col-aligncenter  card shadow p-3 mb-5 bg-white rounded">
             <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
                 <table>
                     <tr>
@@ -28,10 +28,32 @@
                         <hr>
                     </tr>
                     <tr>
-                        <td >
-                        </br></br>
+                        <td>	
+                            <div class="wrap-input100 m-b-35">
+                                <input class="input100" type="text" name="txtnombre" id="txtnombre" placeholder="Nombre">
+                                <span class="focus-input100"></span>
+                            </div>
+                        </td>
+                        <td>	
+                             <div class="wrap-input100 m-b-35">
+                                    <input class="input100" type="text" name="txtapellidos" id="txtapellidos" placeholder="Apellidos">
+                                    <span class="focus-input100"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="wrap-input100">
+                                <input class="input100" type="text" name="txtcedula" id="txtcedula" placeholder="Cedula">
+                                <span class="focus-input100"></span>
+                            </div>
+                        </td>
+                        <td>
+                            </br></br>
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label id="lblPerfil" class="focus-input100">Fecha de ingreso:</label> 
+                                    </br>
                                     <div class="input-group date" id="datetimepicker1">
                                         <input type='text' class="form-control" />
                                         <span class="input-group-addon">
