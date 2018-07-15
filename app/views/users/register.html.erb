@@ -3,72 +3,94 @@
         swal("mensaje","<%= @mensaje %>","<%= @tipo %>"); 
     </script>
 <% end %>
-
-</br></br></br>
-<div class="container-fluid">
-        <div class="row">
-<div class="container col-md-5 .col-aligncenter card shadow p-3 mb-5 bg-white rounded">
-    
-        <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
-            <table>
-                <tr>
-                    <td colspan="2">
-                        <div class="login100-form-title">
-                        <span class="login100-form-title">
-			                Registro
-                        </span>
-                        <hr>
-                        <span class="login100-form-avatar ">
+</br>
+<div class="container">
+    <div class="row">
+        <div class="container col-md-4 .col-aligncenter  card shadow p-3 mb-5 bg-white rounded">
+            <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <div class="login100-form-title">
+                                <span class="login100-form-title">
+			                        Registro
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                            <span class="login100-form-avatar">
                                 <img src="/images/register.png" alt="AVATAR">
                             </span>
+                        </td>
+                        <hr>
+                    </tr>
+                    <tr>
+                        <td >
+                        </br></br>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <hr>
-                    </td>
-                </tr>
-                <tr>
-                    <td>	
-                        <div class="wrap-input100 m-b-35">
-					        <input class="input100" type="text" name="txtlogin" id="txtlogin" placeholder="Login">
-					        <span class="focus-input100"></span>
-				        </div>
-                    </td>
-                    <td>
-                        <div class="wrap-input100 m-b-35">
-                            <label id="lblPerfil" class="focus-input100"  >Perfil:</label> 
-                            </br>
-                            <select id="ddlPerfiles" name="ddlPerfiles" class="form-control" >
-                                <% @perfiles.each do |item| %>
-                                    <option value="<%= item.id%>"><%= item.descripcion%> </option>
-                                <% end %>
-                            </select>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="wrap-input100 m-b-35">
-                            <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Contraseña">
-                            <span class="focus-input100"></span>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="wrap-input100 m-b-35" >
-                            <input class="input100" type="password" name="txtConfirmarPassword" id="txtConfirmarPassword" placeholder="Confirmar Contraseña">
-                            <span class="focus-input100"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-			            <div class="container-login100-form-btn">
-				            <button class="login100-form-btn" value="login" type="submit">
-					            Registrar
-				            </button>
-			            </div>
-                    </td>
-                </tr>
-            </table>
-        <% end %>
+                            <script type="text/javascript">
+                                $(function () {
+                                $('#datetimepicker1').datetimepicker();
+                                });
+                            </script>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>	
+                            <div class="wrap-input100 m-b-35">
+			    		        <input class="input100" type="text" name="txtlogin" id="txtlogin" placeholder="Login">
+			    		        <span class="focus-input100"></span>
+			    	        </div>
+                        </td>
+                        <td>
+                            <div class="wrap-input100 m-b-25">
+                                <label id="lblPerfil" class="focus-input100">Perfil:</label> 
+                                </br>
+                                <select id="ddlPerfiles" name="ddlPerfiles" class="form-control" >
+                                    <% @perfiles.each do |item| %>
+                                        <option value="<%= item.id%>"><%= item.descripcion%> </option>
+                                    <% end %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="wrap-input100 m-b-35">
+                                <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Contraseña">
+                                <span class="focus-input100"></span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="wrap-input100 m-b-35" >
+                                <input class="input100" type="password" name="txtConfirmarPassword" id="txtConfirmarPassword" placeholder="Confirmar Contraseña">
+                                <span class="focus-input100"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+			                <div class="container-login100-form-btn">
+			    	            <button class="login100-form-btn" value="login" type="submit">
+			    		            Registrar
+			    	            </button>
+			                </div>
+                        </td>
+                    </tr>
+                </table>
+            <% end %>
+        </div>
     </div>
-</div>
 </div>
