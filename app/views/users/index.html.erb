@@ -1,5 +1,5 @@
-<% if @message != nil %>
-<input type="text" id="txtMensaje" hidden='' value="<%= @message %>" />
+<% if @mensaje != nil %>
+<input type="text" id="txtMensaje" hidden='' value="<%= @mensaje %>" />
 <input type="text" id="txtTipo" hidden='' value="<%= @tipo %>" />
     <script>
         swal("Mensaje",
@@ -8,26 +8,31 @@
         )
     </script>
 <% end %>
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100 p-t-85 p-b-20">
+</br>
+</br>
+</br>
+<div class="container-fluid">
+<div class="row">
+	<div class="container col-md-4 .col-aligncenter card shadow p-3 mb-5 bg-white rounded" style="width: 35rem;">
+		
+			
                 <%= form_tag(:controller => "users", :action => "login", :method => "post") do |f| %>
 				
-					<span class="login100-form-title p-b-70">
-						Welcome
+					<span class="login100-form-title p-b-20">
+						Bienvenido
 					</span>
 					<span class="login100-form-avatar">
-						<img src="images/avatar-01.jpg" alt="AVATAR">
+						<img src="/images/avatar.jpg" alt="AVATAR">
 					</span>
                     
-					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-						<input class="input100" type="text" name="txtuser" id="txtuser">
-						<span class="focus-input100" data-placeholder="Username"></span>
+					<div class="wrap-input100 m-b-30">
+						<input class="input100" type="text" name="txtuser" id="txtuser" placeholder="Usuario">
+						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-						<input class="input100" type="password" name="txtpassword" id="txtpassword">
-						<span class="focus-input100" data-placeholder="Password"></span>
+					<div class="wrap-input100 validate-input m-b-30">
+						<input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Contraseña">
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
@@ -36,29 +41,31 @@
 						</button>
 					</div>
                    
-					<ul class="login-more p-t-190">
+					<ul class="login-more p-t-20">
 						<li class="m-b-8">
 							<span class="txt1">
-								Forgot
+								Olvidó
 							</span>
 
 							<a href="#" class="txt2">
-								Username / Password?
+								Usuario / Contraseña?
 							</a>
 						</li>
 
 						<li>
 							<span class="txt1">
-								Don’t have an account?
+								No tiene una cuenta?
 							</span>
 
-							<a href="#" class="txt2">
-								Sign up
+							<a href="users/register" class="txt2">
+								registrarse
 							</a>
 						</li>
 					</ul>
 				 <% end %>
-			</div>
-		</div>
-	</div>
+			
+		
+    </div>
+</div>
+
    

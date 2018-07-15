@@ -1,53 +1,74 @@
-<% if @mensaje != nil %>
-<input type ="text" id = "txtMensaje"  value ="<%= @mensaje %>" />
-<input type ="text" id = "txtTipo"  value ="<%= @tipo %>" />
+<% if (@mensaje !=nil) %>
     <script >
-        swal("Mensaje",document.getElementById("txtMensaje").value,
-        document.getElementById("txtTipo").value);
+        swal("mensaje","<%= @mensaje %>","<%= @tipo %>"); 
     </script>
 <% end %>
-<div class="container">
-    <div class="card mx-auto mt-5">
-        <div class="card-header">Registrar usuario</div>
-        <div class="card-body">
-            <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label id="lblLogin">Login:</label>
-                        <input type="text" id="txtlogin" name="txtlogin" placeholder="ingrese login" class="form-control"/>
-                    </div>
-                    <div class="col-md-6">
-                        <label id="lblPerfil">Perfil:</label>
-                        <select id="ddlPerfiles" name="ddlPerfiles" class="form-control">
-                            <% @perfiles.each do |item| %>
-                                <option value="<%= item.id%>"><%= item.descripcion%> </option>
-                            <% end %>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label id="lblPassword">Password:</label>
-                        <input type="password" id="txtpassword" name="txtpassword" class="form-control"/>
-                    </div>
-                    <div class="col-md-6">
-                            <label id="lblConfirmarPassword">Confirmar Password:</label>
-                            <input type="password" id="txtConfirmarPassword" name="txtConfirmarPassword" class="form-control"/>
+
+</br></br></br>
+<div class="container-fluid">
+        <div class="row">
+<div class="container col-md-5 .col-aligncenter card shadow p-3 mb-5 bg-white rounded">
+    
+        <%= form_tag(:controller => "users", :action => "save_register", :method => "post") do |f| %>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div class="login100-form-title">
+                        <span class="login100-form-title">
+			                Registro
+                        </span>
+                        <hr>
+                        <span class="login100-form-avatar ">
+                                <img src="/images/register.png" alt="AVATAR">
+                            </span>
+                            </div>
+                            <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>	
+                        <div class="wrap-input100 m-b-35">
+					        <input class="input100" type="text" name="txtlogin" id="txtlogin" placeholder="Login">
+					        <span class="focus-input100"></span>
+				        </div>
+                    </td>
+                    <td>
+                        <div class="wrap-input100 m-b-35">
+                            <label id="lblPerfil" class="focus-input100"  >Perfil:</label> 
+                            </br>
+                            <select id="ddlPerfiles" name="ddlPerfiles" class="form-control" >
+                                <% @perfiles.each do |item| %>
+                                    <option value="<%= item.id%>"><%= item.descripcion%> </option>
+                                <% end %>
+                            </select>
                         </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-12">
-                        <input type="submit" id="btnAceptar" name="btnAceptar"
-                        class="btn btn-primary" value="Aceptar">
-                    </div>
-                </div>
-            </div>
-            <% end %>
-        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="wrap-input100 m-b-35">
+                            <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Contraseña">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="wrap-input100 m-b-35" >
+                            <input class="input100" type="password" name="txtConfirmarPassword" id="txtConfirmarPassword" placeholder="Confirmar Contraseña">
+                            <span class="focus-input100"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+			            <div class="container-login100-form-btn">
+				            <button class="login100-form-btn" value="login" type="submit">
+					            Registrar
+				            </button>
+			            </div>
+                    </td>
+                </tr>
+            </table>
+        <% end %>
     </div>
+</div>
 </div>
