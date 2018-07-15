@@ -1,11 +1,11 @@
-<% if @mensaje != nil %>
-<input type="text" id="txtMensaje" hidden='' value="<%= @mensaje %>" />
+<% if @message != nil %>
+<input type="text" id="txtMensaje" hidden='' value="<%= @message %>" />
 <input type="text" id="txtTipo" hidden='' value="<%= @tipo %>" />
     <script>
         swal("Mensaje",
         document.getElementById("txtMensaje").value,
         document.getElementById("txtTipo").value
-        )
+        );
     </script>
 <% end %>
 </br>
