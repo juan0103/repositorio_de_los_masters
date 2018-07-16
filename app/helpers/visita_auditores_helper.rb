@@ -1,0 +1,2 @@
+module VisitaAuditoresHelper
+end

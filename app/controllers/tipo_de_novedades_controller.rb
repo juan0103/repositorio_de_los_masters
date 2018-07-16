@@ -1,0 +1,2 @@
+class TipoDeNovedadesController < ApplicationController
+end

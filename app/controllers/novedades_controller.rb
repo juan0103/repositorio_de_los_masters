@@ -1,0 +1,2 @@
+class NovedadesController < ApplicationController
+end

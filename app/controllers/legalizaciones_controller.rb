@@ -1,0 +1,2 @@
+class LegalizacionesController < ApplicationController
+end
