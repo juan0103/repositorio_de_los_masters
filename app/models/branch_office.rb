@@ -1,2 +1,0 @@
-class BranchOffice < ApplicationRecord
-end

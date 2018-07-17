@@ -2,16 +2,17 @@ class UsersController < ApplicationController
     def index
         render 'index', layout: 'application'
     end
-    def login     
-       # if(User.exists?(:login => params[:txtUser],:password=> params[:txtPassword]))            
-            render 'home', layout: 'mailer'            
-        #else
-         #   @message = "Usuario o contraseña incorrecta"
-          #  @tipo="error"
-           # render 'index'
-        #end                           
+    def login
+        if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])
+           
+            render 'home', layout: 'home'
+            
+        else
+            @message = "Usuario o contraseña incorrecta"
+            @tipo="error"
+            render 'index'
+        end
     end
-
     def register
         @perfiles = Profile.all
         render 'register'
