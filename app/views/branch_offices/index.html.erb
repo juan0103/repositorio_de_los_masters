@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Branch Offices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id sucursal</th>
+      <th>Id ciudad</th>
+      <th>Nombre sucursal</th>
+      <th>Direccion sucursal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @branch_offices.each do |branch_office| %>
+      <tr>
+        <td><%= branch_office.id_sucursal %></td>
+        <td><%= branch_office.id_ciudad %></td>
+        <td><%= branch_office.nombre_sucursal %></td>
+        <td><%= branch_office.direccion_sucursal %></td>
+        <td><%= link_to 'Show', branch_office %></td>
+        <td><%= link_to 'Edit', edit_branch_office_path(branch_office) %></td>
+        <td><%= link_to 'Destroy', branch_office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Branch Office', new_branch_office_path %>

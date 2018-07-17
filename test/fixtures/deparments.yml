@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_departamento: 1
+  id_pais: 1
+  nombre_departamento: MyString
+
+two:
+  id_departamento: 1
+  id_pais: 1
+  nombre_departamento: MyString
