@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     def login
         if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])
            
-            render 'home', layout: 'home'
+            render 'home', layout: 'mailer'
             
         else
             @message = "Usuario o contraseña incorrecta"
