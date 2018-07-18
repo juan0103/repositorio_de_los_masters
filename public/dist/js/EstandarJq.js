@@ -6,6 +6,8 @@ $( document ).ready(function() {
         this.value = (this.value + '').replace(/[-]/g, '');
     });
 
+    $('.date').datetimepicker();
+
     $('.filterTable').DataTable({
         "language": {
             "lengthMenu": "Ver _MENU_ Por Pagina",

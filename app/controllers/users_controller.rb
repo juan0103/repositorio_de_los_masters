@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+   def initialize
+      @user=User.new 
+    end
+   
+   
     def index
         render 'index', layout: 'application'
     end
@@ -73,7 +78,11 @@ class UsersController < ApplicationController
             render 'register'
         end
     end
-        
+       
+    def prueba
+        @mensaje="ejemplo"        
+        render 'home', layout: 'mailer'
+    end
    
     
 

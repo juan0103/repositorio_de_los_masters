@@ -1,56 +1,22 @@
 
-       <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>
-                <strong>Titulo formulario</strong></h4>
-        </div>
-        <div class="panel-body">            
-                    <div class="form-horizontal">                      
-                        <div class="form-group">
-                            <label class="col-md-2 col-sm-4">
-                                Campo de Texto</label>
-                            <div class="col-md-6">
-                                <input type="text" id="Txt0" class="form-control   validator "  group-validator="grupo1" requiredFm="true" validatorMssg="error en el campo Txt0" />
-                            </div>
-                        </div>
-						
-                        <div class="form-group">
-                            <label class="col-md-2 col-sm-4">
-                                Campo Numerico</label>
-                            <div class="col-md-6">
-                                <input type="text" id="Txt1" class="form-control   number validator" group-validator="grupo1" requiredFm="true"  validatorMssg="error en el campo Txt1"/>
-                            </div>
-                        </div>
-                        
-						<div class="form-group">
-                            <label class="col-md-2 col-sm-4">
-                                Campo Moneda</label>
-                            <div class="col-md-6">
-                                <input type="text" id="Txt2" class="form-control   number  validator money" group-validator="grupo2" requiredFm="true" validatorMssg="error en digitar el campo moneda" />
-                            </div>
-                        </div>
-                        
-						<div class="form-group">
-                            <label class="col-md-2 col-sm-4">
-                                Email</label>
-                            <div class="col-md-6">
-                                <input type="text" id="Txt3" class="form-control  validator " group-validator="grupo2" requiredFm="true"  validatorMssg="error en digitar el correo" email="true"/>
-                            </div>
-                        </div>
+<% if (@mensaje !=nil) %>
+    <script >
+        swal("mensaje","<%= @mensaje %>","success"); 
+    </script>
+<% end %>
 
-                    </div>
-                
-					
-        </div>
-		 <div class="modal-footer FmHeadFooterModal">				
-					<input type="submit" class="btn btn-success" value="Enviar"    onclick="return Fmvalidators('grupo1');"  /> 
-					<input type="submit" class="btn btn-success" value="Enviar"    onclick="return Fmvalidators('grupo2');"  /> 
-				</div>
-    </div>
+ <%= form_tag(:controller => "users", :action => "prueba", :method => "post") do |f| %>
+    <input type="text" value="<%=@user.login%>" />
+    <input type="submit" value="prueba" />
+  <% end %>
 
-	
-	
+<div class="container">	
+<button type="button" class="btn btn-default fa  fa-user" onclick="showModal('ventana');"></button>	
+</br></br>
+</div>
           <div class="box">
+
+
             <div class="box-header">
               <h3 class="box-title">Data Table With Full Features</h3>
             </div>
@@ -488,3 +454,73 @@
             </div>
             <!-- /.box-body -->
           </div>
+
+</div>
+
+
+          <!--Ventana Modal-->
+<div class="modal fade" tabindex="-1" role="dialog" id="ventana">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+            
+       <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>
+                <strong>Titulo formulario</strong></h4>
+        </div>
+        <div class="panel-body">            
+                    <div class="form-horizontal">                      
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-4">
+                                Campo de Texto</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Txt0" class="form-control   validator "  group-validator="grupo1" requiredFm="true" validatorMssg="error en el campo Txt0" />
+                            </div>
+                        </div>
+						
+                        <div class="form-group">
+                            <label class="col-md-2 col-sm-4">
+                                Campo Numerico</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Txt1" class="form-control   number validator" group-validator="grupo1" requiredFm="true"  validatorMssg="error en el campo Txt1"/>
+                            </div>
+                        </div>
+                        
+						<div class="form-group">
+                            <label class="col-md-2 col-sm-4">
+                                Campo Moneda</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Txt2" class="form-control   number  validator money" group-validator="grupo2" requiredFm="true" validatorMssg="error en digitar el campo moneda" />
+                            </div>
+                        </div>
+                        
+						<div class="form-group">
+                            <label class="col-md-2 col-sm-4">
+                                Email</label>
+                            <div class="col-md-6">
+                                <input type="text" id="Txt3" class="form-control  validator " group-validator="grupo2" requiredFm="true"  validatorMssg="error en digitar el correo" email="true"/>
+                            </div>
+                        </div>
+
+                    </div>
+                
+					
+        
+		 <div class="modal-footer FmHeadFooterModal">				
+					<input type="submit" class="btn btn-success" value="Enviar"    onclick="return Fmvalidators('grupo1');"  /> 
+					<input type="submit" class="btn btn-success" value="Enviar"    onclick="return Fmvalidators('grupo2');"  />           
+				</div>
+    </div>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

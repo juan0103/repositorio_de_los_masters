@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "users/login" #indico directo el controlador y la accion
   post "users/save_register"
   get "users/register"
+  post "users/prueba"
 end
