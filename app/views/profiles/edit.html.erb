@@ -1,6 +1,17 @@
-<h1>Editing Profile</h1>
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Nuevo perfil</div>
+    <div class="card-body">
+        <%= render 'form', profile: @profile %>
 
-<%= render 'form', profile: @profile %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                <%= link_to 'Ver', @profile,{ class: "btn btn-info btn-sm" } %> 
+                <%= link_to 'Volver', profiles_path,{ class: "btn btn-info btn-sm" } %>
+                </div>
+            </div>
+        </div>
+   </div>
+  </div>
+</div>
