@@ -1,5 +1,15 @@
-<h1>New Profile</h1>
-
-<%= render 'form', profile: @profile %>
-
-<%= link_to 'Back', profiles_path %>
+<div class="container">
+  <div class="card mx-auto mt-5">
+    <div class="card-header">Nuevo perfil</div>
+    <div class="card-body">
+        <%= render 'form', profile: @profile %>
+          <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <%= link_to 'Volver', profiles_path,{ class: "btn btn-info btn-sm" } %>
+                </div>
+            </div>
+        </div>
+   </div>
+  </div>
+</div>
