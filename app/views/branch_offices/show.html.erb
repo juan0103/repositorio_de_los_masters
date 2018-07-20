@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id sucursal:</strong>
+  <%= @branch_office.id_sucursal %>
+</p>
+
+<p>
+  <strong>Desc sucursal:</strong>
+  <%= @branch_office.desc_sucursal %>
+</p>
+
+<p>
+  <strong>Dir sucursal:</strong>
+  <%= @branch_office.dir_sucursal %>
+</p>
+
+<p>
+  <strong>Id ciudad:</strong>
+  <%= @branch_office.id_ciudad %>
+</p>
+
+<%= link_to 'Edit', edit_branch_office_path(@branch_office) %> |
+<%= link_to 'Back', branch_offices_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_sucursal: 1
+  desc_sucursal: MyString
+  dir_sucursal: MyString
+  id_ciudad: 1
+
+two:
+  id_sucursal: 1
+  desc_sucursal: MyString
+  dir_sucursal: MyString
+  id_ciudad: 1
