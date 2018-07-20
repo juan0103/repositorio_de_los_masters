@@ -6,6 +6,8 @@ $( document ).ready(function() {
         this.value = (this.value + '').replace(/[-]/g, '');
     });
 
+    //$('.date').datetimepicker();
+
     $('.filterTable').DataTable({
         "language": {
             "lengthMenu": "Ver _MENU_ Por Pagina",
@@ -77,6 +79,27 @@ function  fmConfirmar(texto){
      return resp;
  }
 
+
+
+ $( "#btn1" ).click(function() {
+    $.ajax({        
+        url : '/users/prueba',     
+        data : {},    
+        type : 'POST',     
+        dataType : 'json',     
+        success : function(json) {
+            alert(json);
+        },     
+        error : function(xhr, status) {
+            alert('Disculpe, existió un problema');
+           console.log(xhr);
+        },     
+        complete : function(xhr, status) {
+            alert('Petición realizada');
+        }
+    });
+    
+  });
 
 
  function Fmvalidators(grupo){
