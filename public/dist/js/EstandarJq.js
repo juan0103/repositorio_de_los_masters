@@ -1,25 +1,45 @@
-﻿
-$( document ).ready(function() {
-   $('.number').numeric(",");
+﻿function validator(){
+	$('.validator').keyup(function () {
+	   if (!this.value == "") {            
+		   this.style.border = "";
+		   this.style.borderColor = ""
+	   } 
+   });
+	   
+   
+   $('.validator').select(function () {
+	if (!this.value == "") {            
+		this.style.border = "";
+		this.style.borderColor = ""
+	} 
+});
+}
 
-    $('.positive').keyup(function () {
+function positive(){
+	$('.positive').keyup(function () {
         this.value = (this.value + '').replace(/[-]/g, '');
     });
-
-    //$('.date').datetimepicker();
-
-    $('.filterTable').DataTable({
+}
+ 
+function filterTable(){
+	$('.filterTable').DataTable({
         "language": {
             "lengthMenu": "Ver _MENU_ Por Pagina",
             "zeroRecords": "Nothing found - sorry",
             "info": "Ver Pagina _PAGE_  De _PAGES_",
-            "infoEmpty": "No records available",
+            "infoEmpty": "No hay resultados",
             "infoFiltered": "(filtered from _MAX_ total records)"
         }
     });
+}
+   
 
+function datePicker(){
+	$('.datePicker').datetimepicker();
+}
 
-    $('.money').keyup(function () {
+function money(){
+	$('.money').keyup(function () {
         var num = this.value.replace(/\./g, "");
         if (!isNaN(num)) {
             num = num.toString().split("").reverse().join("").replace(/(?=\d*\.?)(\d{3})/g, "$1.");
@@ -31,78 +51,27 @@ $( document ).ready(function() {
 
         this.value = entrada;
     });
-
-
-    $('.validator').keyup(function () {
-        if (!this.value == "") {            
-			this.style.border = "";
-            this.style.borderColor = ""
-        } 
-    });
-
-});
-
-
+}
+function number(ventana) {
+	$('.number').numeric(",");
+}
 function showModal(ventana) {
     $('#' + ventana).modal();
 }
 
 function msgBasico(titulo, mensaje, tipo) { swal(titulo, mensaje, tipo); }
 
-
-function  fmConfirmar(texto){
-    var resp = true;
-    swal({
-        title: "¿Deseas unirte al lado oscuro?",
-        text: "Este paso marcará el resto de tu vida...",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "¡Claro!",
-        cancelButtonText: "No, jamás",
-        closeOnConfirm: false,
-        closeOnCancel: false
-    },
-
-		function (isConfirm) {
-		    if (isConfirm) {
-		        swal("¡Hecho!",
-					"Ahora eres uno de los nuestros",
-					"success"); resp = true;
-		    } else {
-		        swal("¡Gallina!",
-					"Tu te lo pierdes...",
-				"error");
-		    }
-		});
-
-     return resp;
- }
-
-
-
- $( "#btn1" ).click(function() {
-    $.ajax({        
-        url : '/users/prueba',     
-        data : {},    
-        type : 'POST',     
-        dataType : 'json',     
-        success : function(json) {
-            alert(json);
-        },     
-        error : function(xhr, status) {
-            alert('Disculpe, existió un problema');
-           console.log(xhr);
-        },     
-        complete : function(xhr, status) {
-            alert('Petición realizada');
-        }
+function validator(){
+    $('.validator').keyup(function () {
+        if (!this.value == "") {            
+        this.style.border = "";
+        this.style.borderColor = ""
+        }   
     });
-    
-  });
+}
 
 
- function Fmvalidators(grupo){
+function Fmvalidators(grupo){
      var response=true;	 
 	 //se obtienen todos los controles requeiren validacion
 	 $('.validator').each(function(key, element){         
@@ -133,34 +102,23 @@ function  fmConfirmar(texto){
 		   		   
 		}		 
      });
-	 /*
-     var aux = true;
-     //se obtiene un array de los controles a validar
-     var arrayControles = controles.split(",");
-     //se recorren los controles para validarlos
-     for (x = 0; x < arrayControles.length; x++) {
-     //obtenemos el id enviado para saber que tipo de validacion debe hacerce 
-         var id = arrayControles[x]
-         var valor;
-         if(id.substring(id.length - 1, id.length) == '@') {
-            //se obtiene el valor digitado           
-			valor = document.getElementById(id.substring(0, id.length - 1)).value;
-            emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-             
-			//se valida si el texto corresponde al de un correo
-			if (!emailRegex.test(valor)) {
-                 aux = false;
-                 document.getElementById(id.substring(0, id.length - 1)).style.border = "1px solid red";
-             }
-         }else{//en este caso es si se valida un campo de texto no valla vacio         
-            //se obtiene el textboxt  
-            valor=document.getElementById(arrayControles[x]).value;
-             if(valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
-                aux = false;
-                document.getElementById(master + arrayControles[x]).style.border = "1px solid red";
-             }
-         }
-     }*/
-     return true;
+	 
+     return response;
  }
 
+function requestAjax(urlRequest,dataRequest,typeRequest,functionSuccess){
+	$.ajax({        
+		url : urlRequest,     
+		data : dataRequest,    
+		type : typeRequest,     
+		dataType : 'json',     
+		success :functionSuccess,     
+		error : function(xhr, status) {						
+			swal("Mensaje","Sucedio un error procesando su solicitud por favor intentelo de nuevo","error");
+		},     
+		complete : function(xhr, status) {     
+			console.log("Peticion completada");           
+		}
+	});
+
+}

@@ -1,19 +1,18 @@
 class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-   def initialize
-        @listUsers = User.all
+   def initialize        
+    @perfiles = Profile.all
+    @listUsers = User.all
     end
-   
    
     def index
         render 'index', layout: 'application'
     end
+   
     def login
-        if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])
-           
-            render 'home', layout: 'mailer'
-            
+        if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])        
+            render 'home', layout: 'mailer'            
         else
             @message = "Usuario o contraseña incorrecta"
             @tipo="error"
@@ -22,32 +21,50 @@ class UsersController < ApplicationController
     end
 
     def register
-        @perfiles = Profile.all
         render 'register'
     end
 
     def save_register
-        @perfiles = Profile.all
-        
-        user = User.new
-        user.id = User.maximum('id')+1
-        user.login = params[:txtLogin]
-        user.password = params[:txPassword]
+       if(params[:id]!=nil and  !params[:id].eql?(""))
+          user=User.find(params[:id])
+       else
+          user = User.new         
+          user.id = User.maximum('id')+1
+       end                
+        user.login = params[:login]
+        user.password = params[:password]
+        user.nombre=params[:nombre ]
+        user.apellido=params[:apellido]
+        user.cedula=params[:cedula]
+        user.perfil_id=params[:perfil]
+
         if (user.save==true)
-            @mensaje = "se realizo proceso con exito"
-            @tipo = "success"
-            render  'home', layout:"home" 
+            respond_to do |format|           
+               format.html 
+               format.json do
+                render json:{title: "Registro", mensaje:"Registro Exitoso",tipo:"success",users:User.all}.to_json
+                end
+            end
         else
-            @mensaje = "hubo un error durante el procedimiento"
-            @tipo = "error"
-            render  'home', layout:"home"
+            respond_to do |format|           
+                format.html 
+                format.json do
+                    render json:{title: "Error", mensaje:"Sucedio un Problema Procesando su solictud por favor intentelo de nuevo",tipo:"error"}.to_json
+                 end
+             end
         end
     end
        
-    def prueba
-        respond_to do |format|            
-            format.json { mensaje:"mensaje" }
-        end
+ 
+    def getInfo
+        respond_to do |format|           
+            format.html 
+            format.json do
+                render json:{users:User.all,profiles:Profile.all}.to_json
+             end
+         end
     end
 
-end
+
+
+end 
