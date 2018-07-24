@@ -65,6 +65,8 @@ class UsersController < ApplicationController
          end
     end
 
-
+    def restorekey 
+        NotifyMailer.send_mail('juandiegoesja@hotmail.com', 'Restauracion de Contraseña').deliver
+    end
 
 end 

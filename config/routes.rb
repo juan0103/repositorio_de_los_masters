@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get "users/register"
   post "users/prueba"
   get "users/getInfo"
+  post "users/restorekey"
   
 end
