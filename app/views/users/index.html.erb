@@ -78,7 +78,7 @@
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
-			<%= form_tag(:controller => "users", :action => "restorekey", :method => "post") do |f| %>
+			<%= form_tag(:controller => "users", :action => "restorekey", :method => "get") do |g| %>
         <div class="modal-header">
           <h4 class="modal-title">Recuperar Contraseña</h4>
         </div>
@@ -86,7 +86,7 @@
 				
 						<div class="form-group">
 						  <label for="email">Email</label>
-						  <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp" placeholder="Ingresar email">
+						  <input type="text" class="form-control" id="txtemail" name="txtemail" aria-describedby="emailHelp" placeholder="Ingresar email">
 						  <small id="emailHelp" class="form-text text-muted">debe ingresar el email con el que se ha registrado</small>
 						</div>
 						<div class="form-check">

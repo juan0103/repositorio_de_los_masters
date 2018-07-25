@@ -66,7 +66,10 @@ class UsersController < ApplicationController
     end
 
     def restorekey 
-        NotifyMailer.send_mail('juandiegoesja@hotmail.com', 'Restauracion de Contraseña').deliver
+        NotifyMailer.send_mail(params[:txtemail], 'Restauracion de Contraseña').deliver
+        @message = "Por favor revise el correo que le ha sido enviado"
+        @tipo="success"
+        render 'index', layout: 'application'
     end
 
 end 

@@ -6,6 +6,7 @@ class NotifyMailer < ApplicationMailer
   #   en.notify_mailer.send_mail.subject
   #
   def send_mail to_user, subject
+    @greeting='miller lite'
     mail(to: to_user, subject: subject)
   end
 end
