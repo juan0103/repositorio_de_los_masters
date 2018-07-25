@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         else
             @message = "Usuario o contraseña incorrecta"
             @tipo="error"
-            render 'index'
+            render 'users', layout: 'mailer'
         end
     end
 
@@ -66,10 +66,19 @@ class UsersController < ApplicationController
     end
 
     def restorekey 
-        NotifyMailer.send_mail(params[:txtemail], 'Restauracion de Contraseña').deliver
+        NotifyMailer.send_mail(params[:txtusuario]).deliver
         @message = "Por favor revise el correo que le ha sido enviado"
         @tipo="success"
         render 'index', layout: 'application'
     end
 
+    def insertpass
+        usuario_code=RestorePassword.where(:codigo_url => params[:code])                 
+
+        @id_usuario_code=usuario_code[0].id_usuario       
+        User.update(@id_usuario_code, :password => params[:txtcontraseña])
+        @message = "Su contraseña ha sido reestablecida correctamente"
+        @tipo="success"                  
+        render 'index', layout: 'application'
+    end
 end 
