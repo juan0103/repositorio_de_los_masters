@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get "users/restaurarkey"
   post "users/insertpass"
  
+  post "users/delete_user"
+  
 end

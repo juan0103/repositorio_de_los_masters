@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-   def initialize        
-    @perfiles = Profile.all
-    @listUsers = User.all
-    end
+   def initialize            
+   end
    
     def index
         render 'index', layout: 'application'
@@ -39,10 +37,11 @@ class UsersController < ApplicationController
         user.perfil_id=params[:perfil]
 
         if (user.save==true)
+            listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
             respond_to do |format|           
                format.html 
                format.json do
-                render json:{title: "Registro", mensaje:"Registro Exitoso",tipo:"success",users:User.all}.to_json
+                render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success",users:listUsers}.to_json
                 end
             end
         else
@@ -55,12 +54,24 @@ class UsersController < ApplicationController
         end
     end
        
+    def delete_user
+     user=User.find(params[:txtId])
+     user.destroy()
+     listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
+     respond_to do |format|           
+        format.html 
+        format.json do
+            render json:{title: "Elimino", mensaje:"Se elimino correctamente el registro",tipo:"success",users:listUsers}.to_json
+           end
+        end
+    end
  
     def getInfo
+        listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')
         respond_to do |format|           
             format.html 
             format.json do
-                render json:{users:User.all,profiles:Profile.all}.to_json
+                render json:{users:listUsers,profiles:Profile.all}.to_json
              end
          end
     end
