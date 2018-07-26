@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Restaurar Contraseña</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    </br>
+</br>
+</br>
+  <%= form_tag(:controller => "users", :action => "insertpass", :method => "get") do |g| %>
+    <input type="text" id="code" hidden="true" name="code">
+    <script>
+      function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    $("#code").val(getParameterByName("codigo"));
+    </script>
+    <div class="container">
+      <div class="form-group row col-lg-6 col-lg-offset-3 ">
+        <div class="form-group row">
+          <label for="txtcontraseña" class="col-sm-4 col-form-label">Nueva Contraseña</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control"  id="txtcontraseña" placeholder="Contraseña" name="txtcontraseña">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="txtconfirmar" class="col-sm-4 col-form-label">Confirmar Contraseña</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="txtconfirmar" placeholder="Confirmar Contraseña">
+          </div>
+        </div>
+                  <button type="submit" class="btn btn-success" id="sendbtn">Enviar</button>
+      </div>
+    </div>
+  <% end %>
+</body>
+</html>

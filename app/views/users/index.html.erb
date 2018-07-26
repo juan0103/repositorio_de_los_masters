@@ -8,6 +8,9 @@
         );
     </script>
 <% end %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </br>
 </br>
 </br>
@@ -44,12 +47,10 @@
 					<ul class="login-more p-t-20">
 						<li class="m-b-8">
 							<span class="txt1">
-								Olvidó
+								Olvidó su contraseña?
 							</span>
 
-							<a href="#" class="txt2">
-								Usuario / Contraseña?
-							</a>
+							  <a href="#myModal" data-toggle="modal" data-target="#myModal">Load me</a>
 						</li>
 
 						<li>
@@ -68,4 +69,54 @@
     </div>
 </div>
 
-   
+
+
+<div class="container">
+  <!-- Modal -->
+  
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+			<%= form_tag(:controller => "users", :action => "restorekey", :method => "get") do |g| %>
+        <div class="modal-header">
+          <h4 class="modal-title">Recuperar Contraseña</h4>
+        </div>
+        <div class="modal-body">
+				
+						<div class="form-group">
+						  <label for="email">Usuario</label>
+						  <input type="text" class="form-control" id="txtusuario" name="txtusuario" aria-describedby="emailHelp" placeholder="Ingresar Usuario">
+						  <small id="emailHelp" class="form-text text-muted">Debe ingresar el usuario con el que inicia sesion</small>
+						</div>
+						<div class="form-check">
+						  <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="aceptar_correo()">
+						  <label class="form-check-label" for="exampleCheck1">Acepto me sea enviado un correo para la recuperacion de mi contraseña</label>
+						</div>
+					
+        </div>
+        <div class="modal-footer">
+				<button type="submit" class="btn btn-success" disabled="true" id="sendbtn">Enviar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+	  </div>
+	  <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+function aceptar_correo(){
+	document.getElementById('sendbtn').disabled=false;
+	}
+	
+	function validarletras(e){
+		tecla = (document.all) ? e.keyCode : e.which;
+		if (tecla==8 /*borrar*/|| tecla==32/*espaciadora*/){
+			return true;
+		}
+		patron =/[A-z]/;
+		tecla_final = String.fromCharCode(tecla);
+		return patron.test(tecla_final);
+	}
+	</script>
