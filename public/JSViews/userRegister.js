@@ -57,7 +57,7 @@ $(document).ready(function() {
           },
           function(isConfirm) {
             if (isConfirm) {
-              requestAjax('/users/delete_user',{id:idUser},'DELETE',deleteUser);
+              requestAjax('/users/delete_user',{id:idUser},'POST',deleteUser);
             }else{
                 swal("Cancelado", "La accion fue cancelada", "error");
               }

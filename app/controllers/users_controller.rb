@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     end
        
     def delete_user
-     user=User.find(params[:txtId])
+     user=User.find(params[:id])
      user.destroy()
      listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
      respond_to do |format|           
