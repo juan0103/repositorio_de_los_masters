@@ -14,8 +14,7 @@ class NotifyMailer < ApplicationMailer
 
     @id_usuario=datos[0].id                             # saco en @id_usuario el identificador de mi usuario
     @email=datos[0].email                               #saco en @email el correo a donde enviare el link de restauracion
-    puts @id_usuario
-    puts @email
+   
     @Newrestore = RestorePassword.new                    #creo un objeto para usar la tabla RESTORE_PASSWORD
           @Newrestore.id_usuario=@id_usuario             #inserto en la tabla el id del usuario que solicito el reestablecimiento
           @Newrestore.codigo_url = RestorePassword.maximum('codigo_url')+1 #envio un codigo de restablecimiento para llevar un control
@@ -37,13 +36,13 @@ class NotifyMailer < ApplicationMailer
     mail(to: @email, subject: 'Restauracion de Contraseña')
   end
 
-  def send_mail_register to_user
+  def send_mail_register to_email
     @greeting=''
     @greeting='Te damos la bienvenida a la plataforma 
     Hola! #####
     
     Gracias por registrar tus datos.'
-    mail(to: @email, subject: 'Bienvenido!')
+    mail(to: to_email, subject: 'Bienvenido!')
   end
 
 end
