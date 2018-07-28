@@ -163,6 +163,11 @@
   
     <li><a href="../../config_ru.html">config.ru</a>
   
+<<<<<<< HEAD
+=======
+    <li><a href="../../log/development_log.html">development.log</a>
+  
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
     <li><a href="../../package_json.html">package.json</a>
   
     <li><a href="../../public/404_html.html">404.html</a>
@@ -2183,6 +2188,11 @@
   
     <li><a href="../../public/vendor/select2/select2_min_js.html">select2.min.js</a>
   
+<<<<<<< HEAD
+=======
+    <li><a href="../../tmp/pids/server_pid.html">server.pid</a>
+  
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
     <li><a href="../../tmp/restart_txt.html">restart</a>
   
   </ul>
@@ -2209,7 +2219,11 @@ $( &quot;#btnRegister&quot; ).click(function() {//evento para registrar o modifi
          return;
        }
        var dataRequest= {id:$(&quot;#txtId&quot;).val(),cedula:$(&quot;#txtCedula&quot;).val(),nombre:$(&quot;#txtNombre&quot;).val(),apellido:$(&quot;#txtApellido&quot;).val(),
+<<<<<<< HEAD
                          login:$(&quot;#txtLogin&quot;).val(),password:$(&quot;#txtPass&quot;).val(),perfil:$(&#39;#slProfiles&#39;).val()};
+=======
+                         login:$(&quot;#txtLogin&quot;).val(),password:$(&quot;#txtPass&quot;).val(),perfil:$(&#39;#slProfiles&#39;).val(),email:$(&#39;#txtEmail&#39;).val()};
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
        requestAjax(&#39;/users/save_register&#39;,dataRequest,&#39;POST&#39;,saveRegister);           
        clean();
     }
@@ -2237,7 +2251,10 @@ $(document).delegate( &quot;.delete&quot;, &quot;click&quot;, function() {//even
     var row = $d.parent().parent().children().index($d.parent())+1;
     var Grid_Table = document.getElementById(&#39;tableUser&#39;);        
     var idUser=Grid_Table.rows[row].cells[0].textContent;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
     swal({
         title: &quot;Esta Seguro&quot;,
         text: &quot;Desea eliminar el usuario&quot;,
@@ -2251,7 +2268,11 @@ $(document).delegate( &quot;.delete&quot;, &quot;click&quot;, function() {//even
       },
       function(isConfirm) {
         if (isConfirm) {
+<<<<<<< HEAD
           requestAjax(&#39;/users/delete_user&#39;,{id:idUser},&#39;POST&#39;,deleteUser);
+=======
+          requestAjax(&#39;/users/delete_user&#39;,{id:idUser},&#39;DELETE&#39;,deleteUser);
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
         }else{
             swal(&quot;Cancelado&quot;, &quot;La accion fue cancelada&quot;, &quot;error&quot;);
           }
@@ -2292,7 +2313,11 @@ informacion inicial</p>
    for (i = 0; i &lt; jsonResponse.length; i++) { //se llenan los perfiles           
            table.row.add( [jsonResponse[i].id,jsonResponse[i].login,jsonResponse[i].password,
                          jsonResponse[i].nombre,jsonResponse[i].apellido,jsonResponse[i].cedula,jsonResponse[i].perfil,
+<<<<<<< HEAD
                          jsonResponse[i].perfilid,jsonResponse[i].email,
+=======
+                         jsonResponse[i].perfilid,
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
                          &quot;&lt;button type=&#39;button&#39; class=&#39;btn btn-success edit&#39; &gt;&lt;i class=&#39;fa  fa-pencil&#39; /&gt;&lt;/button&gt;&quot;,
                          &quot;&lt;button type=&#39;button&#39; class=&#39;btn btn-danger delete&#39;&gt;&lt;i class=&#39;fa   fa-remove&#39; /&gt;&lt;/button&gt;&quot;]).draw(false);
     }</pre>

@@ -13,7 +13,7 @@ $(document).ready(function() {
              return;
            }
            var dataRequest= {id:$("#txtId").val(),cedula:$("#txtCedula").val(),nombre:$("#txtNombre").val(),apellido:$("#txtApellido").val(),
-                             login:$("#txtLogin").val(),password:$("#txtPass").val(),perfil:$('#slProfiles').val()};
+                             login:$("#txtLogin").val(),password:$("#txtPass").val(),perfil:$('#slProfiles').val(),email:$('#txtEmail').val()};
            requestAjax('/users/save_register',dataRequest,'POST',saveRegister);           
            clean();
         }
