@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class NominaEmpleado - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-imprimir_nomina">#imprimir_nomina</a>
+    
+    <li ><a href="#method-i-registrar_datos">#registrar_datos</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-NominaEmpleado">
+  <h1 id="class-NominaEmpleado" class="class">
+    class NominaEmpleado
+  </h1>
+
+  <section class="description">
+    
+<p>Algoritmo para calcular la nómina de un trabajador, se debe tener en cuenta
+nombres y apellidos ,salario básico, horas extras,  y retención por
+aportes, si el trabajador laboró los 15 días entonces tiene derecho a
+100.000 pesos por asistencia y cumplimiento;  si no se le descontará 50.000
+por incumplimiento, imprimir por pantalla la información del trabajador y
+el valor neto a pagar.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File 1.Tareas y ejercicios/nomina.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-imprimir_nomina" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">imprimir_nomina</span><span
+            class="method-args">(nombres, apellidos, pre)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="imprimir_nomina-source">
+            <pre><span class="ruby-comment"># File 1.Tareas y ejercicios/nomina.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">imprimir_nomina</span> <span class="ruby-identifier">nombres</span>, <span class="ruby-identifier">apellidos</span>, <span class="ruby-identifier">pre</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;nomina para el empleado: #{nombres} #{apellidos}&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;salario neto a pagar #{pre}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-registrar_datos" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">registrar_datos</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="registrar_datos-source">
+            <pre><span class="ruby-comment"># File 1.Tareas y ejercicios/nomina.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">registrar_datos</span> 
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ingrese nombres&quot;</span>
+    <span class="ruby-identifier">nombres</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ingrese apellidos&quot;</span>
+    <span class="ruby-identifier">apellidos</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ingrese salario basico&quot;</span>
+    <span class="ruby-identifier">salario_basico</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ingrese horas extra&quot;</span>
+    <span class="ruby-identifier">h_extra</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;ingrese retencion por aportes&quot;</span>
+    <span class="ruby-identifier">r_aportes</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;cumplio con los 15 dias? 1=si 2=no&quot;</span>
+    <span class="ruby-identifier">dias</span>=<span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">dias</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">pre</span>=<span class="ruby-identifier">salario_basico</span><span class="ruby-operator">+</span>(<span class="ruby-identifier">h_extra</span><span class="ruby-operator">*</span><span class="ruby-value">4068</span>)<span class="ruby-operator">-</span><span class="ruby-identifier">r_aportes</span><span class="ruby-value">+100000</span>; <span class="ruby-identifier">imprimir_nomina</span>(<span class="ruby-identifier">nombres</span>,<span class="ruby-identifier">apellidos</span>,<span class="ruby-identifier">pre</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">pre</span>=<span class="ruby-identifier">salario_basico</span><span class="ruby-operator">+</span>(<span class="ruby-identifier">h_extra</span><span class="ruby-operator">*</span><span class="ruby-value">4068</span>)<span class="ruby-operator">-</span><span class="ruby-identifier">r_aportes</span><span class="ruby-value">-50000</span>; <span class="ruby-identifier">imprimir_nomina</span>(<span class="ruby-identifier">nombres</span>,<span class="ruby-identifier">apellidos</span>,<span class="ruby-identifier">pre</span>)
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;opcion no valida&quot;</span>; <span class="ruby-identifier">registrar_datos</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

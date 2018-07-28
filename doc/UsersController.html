@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class UsersController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-delete_user">#delete_user</a>
+    
+    <li ><a href="#method-i-getInfo">#getInfo</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-insertpass">#insertpass</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-register">#register</a>
+    
+    <li ><a href="#method-i-restorekey">#restorekey</a>
+    
+    <li ><a href="#method-i-save_register">#save_register</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-UsersController">
+  <h1 id="class-UsersController" class="class">
+    class UsersController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>            
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-delete_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_user</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_user-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_user</span>
+ <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:txtId</span>])
+ <span class="ruby-identifier">user</span>.<span class="ruby-identifier">destroy</span>()
+ <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)  
+ <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>{<span class="ruby-value">title:</span> <span class="ruby-string">&quot;Elimino&quot;</span>, <span class="ruby-value">mensaje:</span><span class="ruby-string">&quot;Se elimino correctamente el registro&quot;</span>,<span class="ruby-value">tipo:</span><span class="ruby-string">&quot;success&quot;</span>,<span class="ruby-value">users:</span><span class="ruby-identifier">listUsers</span>}.<span class="ruby-identifier">to_json</span>
+       <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getInfo" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getInfo</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getInfo-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getInfo</span>
+    <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> <span class="ruby-keyword">do</span>
+            <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>{<span class="ruby-value">users:</span><span class="ruby-identifier">listUsers</span>,<span class="ruby-value">profiles:</span><span class="ruby-constant">Profile</span>.<span class="ruby-identifier">all</span>}.<span class="ruby-identifier">to_json</span>
+         <span class="ruby-keyword">end</span>
+     <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;application&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-insertpass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insertpass</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="insertpass-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insertpass</span>
+    <span class="ruby-identifier">usuario_code</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:codigo_url</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])                 
+    <span class="ruby-ivar">@id_usuario_code</span>=<span class="ruby-identifier">usuario_code</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">id_usuario</span>       
+    <span class="ruby-constant">User</span>.<span class="ruby-identifier">update</span>(<span class="ruby-ivar">@id_usuario_code</span>, <span class="ruby-value">:password</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:txtcontraseña</span>])
+    <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Su contraseña ha sido reestablecida correctamente&quot;</span>
+    <span class="ruby-ivar">@tipo</span>=<span class="ruby-string">&quot;success&quot;</span>                  
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;application&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:login</span><span class="ruby-operator">=&gt;</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtuser</span>],<span class="ruby-value">:password</span><span class="ruby-operator">=&gt;</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtpassword</span>])        
+        <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;home&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;mailer&#39;</span>            
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Usuario o contraseña incorrecta&quot;</span>
+        <span class="ruby-ivar">@tipo</span>=<span class="ruby-string">&quot;error&quot;</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;mailer&#39;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;register&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-restorekey" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">restorekey</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="restorekey-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">restorekey</span> 
+<span class="ruby-comment">#consulta de datos necesarios para enviar el correo al usuario</span>
+    <span class="ruby-ivar">@codigo</span>=<span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-ivar">@id_usuario</span>=<span class="ruby-string">&#39;0&#39;</span> 
+    <span class="ruby-identifier">atos</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:login</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:txtusuario</span>]) <span class="ruby-comment">#primero guardo en datos toda la info del usuario para usarla</span>
+    <span class="ruby-ivar">@id_usuario</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">id</span>                             <span class="ruby-comment"># saco en @id_usuario el identificador de mi usuario</span>
+    <span class="ruby-ivar">@email</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">email</span>                               <span class="ruby-comment">#saco en @email el correo a donde enviare el link de restauracion</span>
+    <span class="ruby-ivar">@Newrestore</span> = <span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">new</span>                    <span class="ruby-comment">#creo un objeto para usar la tabla RESTORE_PASSWORD</span>
+        <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">id_usuario</span>=<span class="ruby-ivar">@id_usuario</span>             <span class="ruby-comment">#inserto en la tabla el id del usuario que solicito el reestablecimiento</span>
+        <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">codigo_url</span> = <span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">&#39;codigo_url&#39;</span>)<span class="ruby-value">+1</span> <span class="ruby-comment">#envio un codigo de restablecimiento para llevar un control</span>
+    <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">save</span>                                     <span class="ruby-comment">#guardo las sentencias para la tabla RESTORE_PASSWORD y ejecuto la insercion</span>
+    <span class="ruby-identifier">res</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id_usuario</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@id_usuario</span>) 
+    <span class="ruby-ivar">@codigo</span>=<span class="ruby-identifier">res</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">codigo_url</span>                            <span class="ruby-comment">#saco el odigo generado para enviarlo en el link</span>
+    <span class="ruby-identifier">codigostring</span>=<span class="ruby-ivar">@codigo</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">cuerpo</span>=<span class="ruby-string">&#39;Hemos recibido una solicitud de restablecimiento de contraseña asociada a esta dirección de correo electrónico. Si has realizado esta solicitud, sigue las siguientes instrucciones.
+    Para restablecer la contraseña de tu cuenta, simplemente tienes que hacer clic en el siguiente vínculo.
+    http://localhost:3000/users/restaurarkey?codigo=&#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">codigostring</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+    Este vínculo te dirigirá a una página Web en la que podrás establecer una nueva contraseña. 
+    Ten en cuenta que el vínculo caducará en 24 horas a partir del momento en el que se envió este correo electrónico. Si el vínculo no funciona cuando haces clic en él, puedes copiarlo y pegarlo en la barra de direcciones del navegador. 
+    Ha sido un placer ayudarte.&#39;</span>
+<span class="ruby-comment">#una vez que ya tengo los datos email con el codigo generado y todo, llamo la acccion que envia el correo</span>
+    <span class="ruby-constant">NotifyMailer</span>.<span class="ruby-identifier">send_mail</span>(<span class="ruby-ivar">@email</span>, <span class="ruby-string">&#39;Restauracion de Contraseña&#39;</span>, <span class="ruby-identifier">cuerpo</span> ).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Por favor revise el correo que le ha sido enviado&quot;</span>
+    <span class="ruby-ivar">@tipo</span>=<span class="ruby-string">&quot;success&quot;</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;application&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save_register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_register</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save_register-source">
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_register</span>
+
+   
+   <span class="ruby-keyword">if</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]<span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span> <span class="ruby-keyword">and</span>  <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>))
+      <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+   <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>         
+      <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">&#39;id&#39;</span>)<span class="ruby-value">+1</span>
+   <span class="ruby-keyword">end</span>                
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">login</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:login</span>]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">nombre</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:nombre</span> ]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">apellido</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:apellido</span>]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">cedula</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:cedula</span>]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">perfil_id</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:perfil</span>]
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
+    <span class="ruby-identifier">cuerpoemail</span>=<span class="ruby-string">&#39;Te damos la bienvenida a la plataforma 
+    Hola! #####
+    recuerda que tus datos para la plataforma son:
+    usuario: &#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">login</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+    nombre: &#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">nombre</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+    appellido: &#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">apellido</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+    numero de cedula: &#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">cedula</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+    Gracias por registrar tus datos.&#39;</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span>)
+        <span class="ruby-constant">NotifyMailer</span>.<span class="ruby-identifier">send_mail</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>], <span class="ruby-string">&#39;BIENVENIDO!&#39;</span>, <span class="ruby-identifier">cuerpoemail</span>).<span class="ruby-identifier">deliver</span>
+        <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)  
+        <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
+           <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+           <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> <span class="ruby-keyword">do</span>
+            <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>{<span class="ruby-value">title:</span> <span class="ruby-string">&quot;Registro&quot;</span>, <span class="ruby-value">mensaje:</span><span class="ruby-string">&quot;Se guardo correctamente&quot;</span>,<span class="ruby-value">tipo:</span><span class="ruby-string">&quot;success&quot;</span>,<span class="ruby-value">users:</span><span class="ruby-identifier">listUsers</span>}.<span class="ruby-identifier">to_json</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
+            <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
+            <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">render</span> <span class="ruby-value">json:</span>{<span class="ruby-value">title:</span> <span class="ruby-string">&quot;Error&quot;</span>, <span class="ruby-value">mensaje:</span><span class="ruby-string">&quot;Sucedio un Problema Procesando su solictud por favor intentelo de nuevo&quot;</span>,<span class="ruby-value">tipo:</span><span class="ruby-string">&quot;error&quot;</span>}.<span class="ruby-identifier">to_json</span>
+             <span class="ruby-keyword">end</span>
+         <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

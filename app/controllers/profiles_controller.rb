@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   # GET /profiles.json
   def index
     @profiles = Profile.all
+    render 'index', layout: 'mailer'
   end
 
   # GET /profiles/1

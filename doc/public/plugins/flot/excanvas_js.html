@@ -1,0 +1,3632 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>excanvas.js - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../README_md.html">README</a>
+  
+    <li><a href="../../../README_txt.html">README</a>
+  
+    <li><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../app/assets/config/manifest_js.html">manifest.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/branch_offices_coffee.html">branch_offices.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/cable_js.html">cable.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/ciudades_coffee.html">ciudades.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/countries_coffee.html">countries.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/departamentos_coffee.html">departamentos.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/empresas_coffee.html">empresas.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/imagenes_coffee.html">imagenes.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/interesados_coffee.html">interesados.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/legalizaciones_coffee.html">legalizaciones.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/novedades_coffee.html">novedades.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/paises_coffee.html">paises.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/profiles_coffee.html">profiles.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/restore_passwords_coffee.html">restore_passwords.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/sucursales_coffee.html">sucursales.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/tipo_de_novedades_coffee.html">tipo_de_novedades.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/users_coffee.html">users.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/visita_auditores_coffee.html">visita_auditores.coffee</a>
+  
+    <li><a href="../../../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../app/assets/stylesheets/branch_offices_scss.html">branch_offices.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/ciudades_scss.html">ciudades.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/countries_scss.html">countries.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/departamentos_scss.html">departamentos.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/empresas_scss.html">empresas.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/imagenes_scss.html">imagenes.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/interesados_scss.html">interesados.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/legalizaciones_scss.html">legalizaciones.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/novedades_scss.html">novedades.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/paises_scss.html">paises.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/profiles_scss.html">profiles.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/restore_passwords_scss.html">restore_passwords.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/scaffolds_scss.html">scaffolds.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/sucursales_scss.html">sucursales.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/tipo_de_novedades_scss.html">tipo_de_novedades.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/users_scss.html">users.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/visita_auditores_scss.html">visita_auditores.scss</a>
+  
+    <li><a href="../../../app/views/branch_offices/_branch_office_json_jbuilder.html">_branch_office.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/branch_offices/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/branch_offices/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/countries/_country_json_jbuilder.html">_country.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/countries/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/countries/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/profiles/_profile_json_jbuilder.html">_profile.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/profiles/index_json_jbuilder.html">index.json.jbuilder</a>
+  
+    <li><a href="../../../app/views/profiles/show_json_jbuilder.html">show.json.jbuilder</a>
+  
+    <li><a href="../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../log/development_log.html">development.log</a>
+  
+    <li><a href="../../../package_json.html">package.json</a>
+  
+    <li><a href="../../../public/404_html.html">404.html</a>
+  
+    <li><a href="../../../public/422_html.html">422.html</a>
+  
+    <li><a href="../../../public/500_html.html">500.html</a>
+  
+    <li><a href="../../../public/JSViews/userRegister_js.html">userRegister.js</a>
+  
+    <li><a href="../../../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  
+    <li><a href="../../../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  
+    <li><a href="../../../public/bootstrap/css/bootstrap_css.html">bootstrap.css</a>
+  
+    <li><a href="../../../public/bootstrap/css/bootstrap_css_map.html">bootstrap.css.map</a>
+  
+    <li><a href="../../../public/bootstrap/css/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../public/bootstrap/css/bootstrap_min_css_map.html">bootstrap.min.css.map</a>
+  
+    <li><a href="../../../public/bootstrap/js/bootstrap_js.html">bootstrap.js</a>
+  
+    <li><a href="../../../public/bootstrap/js/bootstrap_min_js.html">bootstrap.min.js</a>
+  
+    <li><a href="../../../public/bootstrap/js/npm_js.html">npm.js</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins_less.html">mixins.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/alerts_less.html">alerts.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/background-variant_less.html">background-variant.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/border-radius_less.html">border-radius.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/buttons_less.html">buttons.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/center-block_less.html">center-block.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/clearfix_less.html">clearfix.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/forms_less.html">forms.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/gradients_less.html">gradients.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/grid-framework_less.html">grid-framework.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/grid_less.html">grid.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/hide-text_less.html">hide-text.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/image_less.html">image.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/labels_less.html">labels.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/list-group_less.html">list-group.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/nav-divider_less.html">nav-divider.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/nav-vertical-align_less.html">nav-vertical-align.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/opacity_less.html">opacity.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/pagination_less.html">pagination.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/panels_less.html">panels.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/progress-bar_less.html">progress-bar.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/reset-filter_less.html">reset-filter.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/reset-text_less.html">reset-text.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/resize_less.html">resize.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/responsive-visibility_less.html">responsive-visibility.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/size_less.html">size.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/tab-focus_less.html">tab-focus.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/table-row_less.html">table-row.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/text-emphasis_less.html">text-emphasis.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/text-overflow_less.html">text-overflow.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/mixins/vendor-prefixes_less.html">vendor-prefixes.less</a>
+  
+    <li><a href="../../../public/build/bootstrap-less/variables_less.html">variables.less</a>
+  
+    <li><a href="../../../public/build/less/404_500_errors_less.html">404_500_errors.less</a>
+  
+    <li><a href="../../../public/build/less/AdminLTE_less.html">AdminLTE.less</a>
+  
+    <li><a href="../../../public/build/less/alerts_less.html">alerts.less</a>
+  
+    <li><a href="../../../public/build/less/bootstrap-social_less.html">bootstrap-social.less</a>
+  
+    <li><a href="../../../public/build/less/boxes_less.html">boxes.less</a>
+  
+    <li><a href="../../../public/build/less/buttons_less.html">buttons.less</a>
+  
+    <li><a href="../../../public/build/less/callout_less.html">callout.less</a>
+  
+    <li><a href="../../../public/build/less/carousel_less.html">carousel.less</a>
+  
+    <li><a href="../../../public/build/less/control-sidebar_less.html">control-sidebar.less</a>
+  
+    <li><a href="../../../public/build/less/core_less.html">core.less</a>
+  
+    <li><a href="../../../public/build/less/direct-chat_less.html">direct-chat.less</a>
+  
+    <li><a href="../../../public/build/less/dropdown_less.html">dropdown.less</a>
+  
+    <li><a href="../../../public/build/less/forms_less.html">forms.less</a>
+  
+    <li><a href="../../../public/build/less/fullcalendar_less.html">fullcalendar.less</a>
+  
+    <li><a href="../../../public/build/less/header_less.html">header.less</a>
+  
+    <li><a href="../../../public/build/less/info-box_less.html">info-box.less</a>
+  
+    <li><a href="../../../public/build/less/invoice_less.html">invoice.less</a>
+  
+    <li><a href="../../../public/build/less/labels_less.html">labels.less</a>
+  
+    <li><a href="../../../public/build/less/lockscreen_less.html">lockscreen.less</a>
+  
+    <li><a href="../../../public/build/less/login_and_register_less.html">login_and_register.less</a>
+  
+    <li><a href="../../../public/build/less/mailbox_less.html">mailbox.less</a>
+  
+    <li><a href="../../../public/build/less/miscellaneous_less.html">miscellaneous.less</a>
+  
+    <li><a href="../../../public/build/less/mixins_less.html">mixins.less</a>
+  
+    <li><a href="../../../public/build/less/modal_less.html">modal.less</a>
+  
+    <li><a href="../../../public/build/less/navs_less.html">navs.less</a>
+  
+    <li><a href="../../../public/build/less/print_less.html">print.less</a>
+  
+    <li><a href="../../../public/build/less/products_less.html">products.less</a>
+  
+    <li><a href="../../../public/build/less/profile_less.html">profile.less</a>
+  
+    <li><a href="../../../public/build/less/progress-bars_less.html">progress-bars.less</a>
+  
+    <li><a href="../../../public/build/less/select2_less.html">select2.less</a>
+  
+    <li><a href="../../../public/build/less/sidebar-mini_less.html">sidebar-mini.less</a>
+  
+    <li><a href="../../../public/build/less/sidebar_less.html">sidebar.less</a>
+  
+    <li><a href="../../../public/build/less/skins/_all-skins_less.html">_all-skins.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-black-light_less.html">skin-black-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-black_less.html">skin-black.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-blue-light_less.html">skin-blue-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-blue_less.html">skin-blue.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-green-light_less.html">skin-green-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-green_less.html">skin-green.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-purple-light_less.html">skin-purple-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-purple_less.html">skin-purple.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-red-light_less.html">skin-red-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-red_less.html">skin-red.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-yellow-light_less.html">skin-yellow-light.less</a>
+  
+    <li><a href="../../../public/build/less/skins/skin-yellow_less.html">skin-yellow.less</a>
+  
+    <li><a href="../../../public/build/less/small-box_less.html">small-box.less</a>
+  
+    <li><a href="../../../public/build/less/social-widgets_less.html">social-widgets.less</a>
+  
+    <li><a href="../../../public/build/less/table_less.html">table.less</a>
+  
+    <li><a href="../../../public/build/less/timeline_less.html">timeline.less</a>
+  
+    <li><a href="../../../public/build/less/users-list_less.html">users-list.less</a>
+  
+    <li><a href="../../../public/build/less/variables_less.html">variables.less</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_css.html">bootstrap-datepicker.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_css_map.html">bootstrap-datepicker.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_min_css.html">bootstrap-datepicker.min.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_min_css_map.html">bootstrap-datepicker.min.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_standalone_css.html">bootstrap-datepicker.standalone.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_standalone_css_map.html">bootstrap-datepicker.standalone.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_standalone_min_css.html">bootstrap-datepicker.standalone.min.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker_standalone_min_css_map.html">bootstrap-datepicker.standalone.min.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_css.html">bootstrap-datepicker3.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_css_map.html">bootstrap-datepicker3.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_min_css.html">bootstrap-datepicker3.min.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_min_css_map.html">bootstrap-datepicker3.min.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_standalone_css.html">bootstrap-datepicker3.standalone.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_standalone_css_map.html">bootstrap-datepicker3.standalone.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_standalone_min_css.html">bootstrap-datepicker3.standalone.min.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-datepicker3_standalone_min_css_map.html">bootstrap-datepicker3.standalone.min.css.map</a>
+  
+    <li><a href="../../../public/css/bootstrap-rtl_css.html">bootstrap-rtl.css</a>
+  
+    <li><a href="../../../public/css/bootstrap-rtl_min_css.html">bootstrap-rtl.min.css</a>
+  
+    <li><a href="../../../public/css/bootstrap_css.html">bootstrap.css</a>
+  
+    <li><a href="../../../public/css/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../public/css/main_css.html">main.css</a>
+  
+    <li><a href="../../../public/css/plugins/morris_css.html">morris.css</a>
+  
+    <li><a href="../../../public/css/sb-admin-rtl_css.html">sb-admin-rtl.css</a>
+  
+    <li><a href="../../../public/css/sb-admin_css.html">sb-admin.css</a>
+  
+    <li><a href="../../../public/css/sb-admin_min_css.html">sb-admin.min.css</a>
+  
+    <li><a href="../../../public/css/sweetalert_css.html">sweetalert.css</a>
+  
+    <li><a href="../../../public/css/util_css.html">util.css</a>
+  
+    <li><a href="../../../public/dist/css/AdminLTE_css.html">AdminLTE.css</a>
+  
+    <li><a href="../../../public/dist/css/AdminLTE_min_css.html">AdminLTE.min.css</a>
+  
+    <li><a href="../../../public/dist/css/alertify_core_css.html">alertify.core.css</a>
+  
+    <li><a href="../../../public/dist/css/alertify_default_css.html">alertify.default.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/_all-skins_css.html">_all-skins.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/_all-skins_min_css.html">_all-skins.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-black-light_css.html">skin-black-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-black-light_min_css.html">skin-black-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-black_css.html">skin-black.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-black_min_css.html">skin-black.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-blue-light_css.html">skin-blue-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-blue-light_min_css.html">skin-blue-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-blue_css.html">skin-blue.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-blue_min_css.html">skin-blue.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-green-light_css.html">skin-green-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-green-light_min_css.html">skin-green-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-green_css.html">skin-green.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-green_min_css.html">skin-green.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-purple-light_css.html">skin-purple-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-purple-light_min_css.html">skin-purple-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-purple_css.html">skin-purple.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-purple_min_css.html">skin-purple.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-red-light_css.html">skin-red-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-red-light_min_css.html">skin-red-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-red_css.html">skin-red.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-red_min_css.html">skin-red.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-yellow-light_css.html">skin-yellow-light.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-yellow-light_min_css.html">skin-yellow-light.min.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-yellow_css.html">skin-yellow.css</a>
+  
+    <li><a href="../../../public/dist/css/skins/skin-yellow_min_css.html">skin-yellow.min.css</a>
+  
+    <li><a href="../../../public/dist/css/sweetalert_css.html">sweetalert.css</a>
+  
+    <li><a href="../../../public/dist/js/EstandarJq_js.html">EstandarJq.js</a>
+  
+    <li><a href="../../../public/dist/js/app_js.html">app.js</a>
+  
+    <li><a href="../../../public/dist/js/app_min_js.html">app.min.js</a>
+  
+    <li><a href="../../../public/dist/js/bootstrap_js.html">bootstrap.js</a>
+  
+    <li><a href="../../../public/dist/js/demo_js.html">demo.js</a>
+  
+    <li><a href="../../../public/dist/js/pages/dashboard_js.html">dashboard.js</a>
+  
+    <li><a href="../../../public/dist/js/pages/dashboard2_js.html">dashboard2.js</a>
+  
+    <li><a href="../../../public/documentation/build/include/adminlte-options_html.html">adminlte-options.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/advice_html.html">advice.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/browsers_html.html">browsers.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/components_html.html">components.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/dependencies_html.html">dependencies.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/download_html.html">download.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/faq_html.html">faq.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/implementations_html.html">implementations.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/introduction_html.html">introduction.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/layout_html.html">layout.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/license_html.html">license.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/plugins_html.html">plugins.html</a>
+  
+    <li><a href="../../../public/documentation/build/include/upgrade_html.html">upgrade.html</a>
+  
+    <li><a href="../../../public/documentation/build/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/documentation/docs_js.html">docs.js</a>
+  
+    <li><a href="../../../public/documentation/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/documentation/style_css.html">style.css</a>
+  
+    <li><a href="../../../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/HELP-US-OUT_txt.html">HELP-US-OUT</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/css/font-awesome_css.html">font-awesome.css</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/css/font-awesome_min_css.html">font-awesome.min.css</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/animated_less.html">animated.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/bordered-pulled_less.html">bordered-pulled.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/core_less.html">core.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/fixed-width_less.html">fixed-width.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/font-awesome_less.html">font-awesome.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/icons_less.html">icons.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/larger_less.html">larger.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/list_less.html">list.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/mixins_less.html">mixins.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/path_less.html">path.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/rotated-flipped_less.html">rotated-flipped.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/screen-reader_less.html">screen-reader.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/stacked_less.html">stacked.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/less/variables_less.html">variables.less</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_animated_scss.html">_animated.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_bordered-pulled_scss.html">_bordered-pulled.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_core_scss.html">_core.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_fixed-width_scss.html">_fixed-width.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_icons_scss.html">_icons.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_larger_scss.html">_larger.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_list_scss.html">_list.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_mixins_scss.html">_mixins.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_path_scss.html">_path.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_rotated-flipped_scss.html">_rotated-flipped.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_screen-reader_scss.html">_screen-reader.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_stacked_scss.html">_stacked.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/_variables_scss.html">_variables.scss</a>
+  
+    <li><a href="../../../public/fonts/font-awesome-4_7_0/scss/font-awesome_scss.html">font-awesome.scss</a>
+  
+    <li><a href="../../../public/fonts/iconic/css/material-design-iconic-font_css.html">material-design-iconic-font.css</a>
+  
+    <li><a href="../../../public/fonts/iconic/css/material-design-iconic-font_min_css.html">material-design-iconic-font.min.css</a>
+  
+    <li><a href="../../../public/js/main_js.html">main.js</a>
+  
+    <li><a href="../../../public/js/sb-admin-charts_js.html">sb-admin-charts.js</a>
+  
+    <li><a href="../../../public/js/sb-admin-charts_min_js.html">sb-admin-charts.min.js</a>
+  
+    <li><a href="../../../public/js/sb-admin-datatables_js.html">sb-admin-datatables.js</a>
+  
+    <li><a href="../../../public/js/sb-admin-datatables_min_js.html">sb-admin-datatables.min.js</a>
+  
+    <li><a href="../../../public/js/sb-admin_js.html">sb-admin.js</a>
+  
+    <li><a href="../../../public/js/sb-admin_min_js.html">sb-admin.min.js</a>
+  
+    <li><a href="../../../public/js/sweetalert_js.html">sweetalert.js</a>
+  
+    <li><a href="../../../public/js/sweetalert_min_js.html">sweetalert.min.js</a>
+  
+    <li><a href="../../../public/js/users_js.html">users.js</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-slider/bootstrap-slider_js.html">bootstrap-slider.js</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-slider/slider_css.html">slider.css</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5_all_js.html">bootstrap3-wysihtml5.all.js</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5_all_min_js.html">bootstrap3-wysihtml5.all.min.js</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5_css.html">bootstrap3-wysihtml5.css</a>
+  
+    <li><a href="../../../public/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5_min_css.html">bootstrap3-wysihtml5.min.css</a>
+  
+    <li><a href="../../../public/plugins/chartjs/Chart_js.html">Chart.js</a>
+  
+    <li><a href="../../../public/plugins/chartjs/Chart_min_js.html">Chart.min.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/CHANGES_md.html">CHANGES</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/README_md.html">README</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/adapters/jquery_js.html">jquery.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/build-config_js.html">build-config.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/ckeditor_js.html">ckeditor.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/config_js.html">config.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/contents_css.html">contents.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/af_js.html">af.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ar_js.html">ar.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/bg_js.html">bg.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/bn_js.html">bn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/bs_js.html">bs.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ca_js.html">ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/cs_js.html">cs.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/cy_js.html">cy.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/da_js.html">da.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/de-ch_js.html">de-ch.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/de_js.html">de.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/el_js.html">el.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/en-au_js.html">en-au.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/en-ca_js.html">en-ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/en-gb_js.html">en-gb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/en_js.html">en.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/eo_js.html">eo.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/es_js.html">es.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/et_js.html">et.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/eu_js.html">eu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/fa_js.html">fa.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/fi_js.html">fi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/fo_js.html">fo.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/fr-ca_js.html">fr-ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/fr_js.html">fr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/gl_js.html">gl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/gu_js.html">gu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/he_js.html">he.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/hi_js.html">hi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/hr_js.html">hr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/hu_js.html">hu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/id_js.html">id.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/is_js.html">is.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/it_js.html">it.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ja_js.html">ja.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ka_js.html">ka.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/km_js.html">km.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ko_js.html">ko.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ku_js.html">ku.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/lt_js.html">lt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/lv_js.html">lv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/mk_js.html">mk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/mn_js.html">mn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ms_js.html">ms.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/nb_js.html">nb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/nl_js.html">nl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/no_js.html">no.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/pl_js.html">pl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/pt-br_js.html">pt-br.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/pt_js.html">pt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ro_js.html">ro.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ru_js.html">ru.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/si_js.html">si.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sk_js.html">sk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sl_js.html">sl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sq_js.html">sq.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sr-latn_js.html">sr-latn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sr_js.html">sr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/sv_js.html">sv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/th_js.html">th.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/tr_js.html">tr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/tt_js.html">tt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/ug_js.html">ug.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/uk_js.html">uk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/vi_js.html">vi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/zh-cn_js.html">zh-cn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/lang/zh_js.html">zh.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/a11yhelp_js.html">a11yhelp.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/_translationstatus_txt.html">_translationstatus</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/af_js.html">af.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ar_js.html">ar.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/bg_js.html">bg.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ca_js.html">ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cs_js.html">cs.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/cy_js.html">cy.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/da_js.html">da.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/de-ch_js.html">de-ch.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/de_js.html">de.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/el_js.html">el.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en-gb_js.html">en-gb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/en_js.html">en.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/eo_js.html">eo.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/es_js.html">es.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/et_js.html">et.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/eu_js.html">eu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fa_js.html">fa.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fi_js.html">fi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fo_js.html">fo.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr-ca_js.html">fr-ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/fr_js.html">fr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gl_js.html">gl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/gu_js.html">gu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/he_js.html">he.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hi_js.html">hi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hr_js.html">hr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/hu_js.html">hu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/id_js.html">id.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/it_js.html">it.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ja_js.html">ja.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/km_js.html">km.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ko_js.html">ko.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ku_js.html">ku.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lt_js.html">lt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/lv_js.html">lv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mk_js.html">mk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/mn_js.html">mn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nb_js.html">nb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/nl_js.html">nl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/no_js.html">no.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pl_js.html">pl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt-br_js.html">pt-br.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/pt_js.html">pt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ro_js.html">ro.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ru_js.html">ru.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/si_js.html">si.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sk_js.html">sk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sl_js.html">sl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sq_js.html">sq.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr-latn_js.html">sr-latn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sr_js.html">sr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/sv_js.html">sv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/th_js.html">th.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/tr_js.html">tr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/tt_js.html">tt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/ug_js.html">ug.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/uk_js.html">uk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/vi_js.html">vi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh-cn_js.html">zh-cn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/a11yhelp/dialogs/lang/zh_js.html">zh.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/about/dialogs/about_js.html">about.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/clipboard/dialogs/paste_js.html">paste.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/dialog/dialogDefinition_js.html">dialogDefinition.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/image/dialogs/image_js.html">image.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/link/dialogs/anchor_js.html">anchor.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/link/dialogs/link_js.html">link.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/pastefromword/filter/default_js.html">default.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/scayt/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/scayt/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/scayt/README_md.html">README</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/scayt/dialogs/options_js.html">options.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/scayt/dialogs/toolbar_css.html">toolbar.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/_translationstatus_txt.html">_translationstatus</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/af_js.html">af.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ar_js.html">ar.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/bg_js.html">bg.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ca_js.html">ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/cs_js.html">cs.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/cy_js.html">cy.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/da_js.html">da.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/de-ch_js.html">de-ch.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/de_js.html">de.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/el_js.html">el.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/en-gb_js.html">en-gb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/en_js.html">en.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/eo_js.html">eo.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/es_js.html">es.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/et_js.html">et.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/eu_js.html">eu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/fa_js.html">fa.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/fi_js.html">fi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr-ca_js.html">fr-ca.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/fr_js.html">fr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/gl_js.html">gl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/he_js.html">he.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/hr_js.html">hr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/hu_js.html">hu.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/id_js.html">id.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/it_js.html">it.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ja_js.html">ja.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/km_js.html">km.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ko_js.html">ko.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ku_js.html">ku.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/lt_js.html">lt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/lv_js.html">lv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/nb_js.html">nb.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/nl_js.html">nl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/no_js.html">no.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/pl_js.html">pl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt-br_js.html">pt-br.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/pt_js.html">pt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ru_js.html">ru.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/si_js.html">si.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/sk_js.html">sk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/sl_js.html">sl.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/sq_js.html">sq.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/sv_js.html">sv.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/th_js.html">th.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/tr_js.html">tr.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/tt_js.html">tt.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/ug_js.html">ug.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/uk_js.html">uk.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/vi_js.html">vi.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh-cn_js.html">zh-cn.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/lang/zh_js.html">zh.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/specialchar/dialogs/specialchar_js.html">specialchar.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/table/dialogs/table_js.html">table.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/tabletools/dialogs/tableCell_js.html">tableCell.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/LICENSE_md.html">LICENSE</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/README_md.html">README</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/dialogs/ciframe_html.html">ciframe.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/dialogs/tmpFrameset_html.html">tmpFrameset.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/dialogs/wsc_css.html">wsc.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/dialogs/wsc_js.html">wsc.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/plugins/wsc/dialogs/wsc_ie_js.html">wsc_ie.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/css/samples_css.html">samples.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/js/sample_js.html">sample.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/js/sf_js.html">sf.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/ajax_html.html">ajax.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/api_html.html">api.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/appendto_html.html">appendto.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/assets/outputxhtml/outputxhtml_css.html">outputxhtml.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/assets/posteddata_php.html">posteddata.php</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/assets/uilanguages/languages_js.html">languages.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/datafiltering_html.html">datafiltering.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/dialog/assets/my_dialog_js.html">my_dialog.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/dialog/dialog_html.html">dialog.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/divreplace_html.html">divreplace.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/enterkey/enterkey_html.html">enterkey.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/htmlwriter/assets/outputforflash/swfobject_js.html">swfobject.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/htmlwriter/outputforflash_html.html">outputforflash.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/htmlwriter/outputhtml_html.html">outputhtml.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/inlineall_html.html">inlineall.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/inlinebycode_html.html">inlinebycode.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/inlinetextarea_html.html">inlinetextarea.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/jquery_html.html">jquery.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/magicline/magicline_html.html">magicline.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/readonly_html.html">readonly.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/replacebyclass_html.html">replacebyclass.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/replacebycode_html.html">replacebycode.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/sample_css.html">sample.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/sample_js.html">sample.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/sample_posteddata_php.html">sample_posteddata.php</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/tabindex_html.html">tabindex.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/toolbar/toolbar_html.html">toolbar.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/uicolor_html.html">uicolor.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/uilanguages_html.html">uilanguages.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/wysiwygarea/fullpage_html.html">fullpage.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/old/xhtmlstyle_html.html">xhtmlstyle.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/css/fontello_css.html">fontello.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/font/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/font/config_json.html">config.json</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/js/abstracttoolbarmodifier_js.html">abstracttoolbarmodifier.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/js/fulltoolbareditor_js.html">fulltoolbareditor.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/js/toolbarmodifier_js.html">toolbarmodifier.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/js/toolbartextmodifier_js.html">toolbartextmodifier.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/LICENSE.html">LICENSE</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror_css.html">codemirror.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/codemirror_js.html">codemirror.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/javascript_js.html">javascript.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo_css.html">neo.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint_css.html">show-hint.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/samples/toolbarconfigurator/lib/codemirror/show-hint_js.html">show-hint.js</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/dialog_css.html">dialog.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/dialog_ie_css.html">dialog_ie.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/dialog_ie7_css.html">dialog_ie7.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/dialog_ie8_css.html">dialog_ie8.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/dialog_iequirks_css.html">dialog_iequirks.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_css.html">editor.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_gecko_css.html">editor_gecko.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_ie_css.html">editor_ie.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_ie7_css.html">editor_ie7.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_ie8_css.html">editor_ie8.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/editor_iequirks_css.html">editor_iequirks.css</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/skins/moono/readme_md.html">readme</a>
+  
+    <li><a href="../../../public/plugins/ckeditor/styles_js.html">styles.js</a>
+  
+    <li><a href="../../../public/plugins/colorpicker/bootstrap-colorpicker_css.html">bootstrap-colorpicker.css</a>
+  
+    <li><a href="../../../public/plugins/colorpicker/bootstrap-colorpicker_js.html">bootstrap-colorpicker.js</a>
+  
+    <li><a href="../../../public/plugins/colorpicker/bootstrap-colorpicker_min_css.html">bootstrap-colorpicker.min.css</a>
+  
+    <li><a href="../../../public/plugins/colorpicker/bootstrap-colorpicker_min_js.html">bootstrap-colorpicker.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/dataTables_bootstrap_css.html">dataTables.bootstrap.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/dataTables_bootstrap_js.html">dataTables.bootstrap.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/dataTables_bootstrap_min_js.html">dataTables.bootstrap.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/Readme_txt.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/css/dataTables_autoFill_css.html">dataTables.autoFill.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/css/dataTables_autoFill_min_css.html">dataTables.autoFill.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/columns_html.html">columns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/complete-callback_html.html">complete-callback.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/fill-both_html.html">fill-both.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/fill-horizontal_html.html">fill-horizontal.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/scrolling_html.html">scrolling.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/examples/step-callback_html.html">step-callback.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/js/dataTables_autoFill_js.html">dataTables.autoFill.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/AutoFill/js/dataTables_autoFill_min_js.html">dataTables.autoFill.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/License_txt.html">License</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/Readme_md.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/css/dataTables_colReorder_css.html">dataTables.colReorder.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/css/dataTables_colReorder_min_css.html">dataTables.colReorder.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/alt_insert_html.html">alt_insert.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/col_filter_html.html">col_filter.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/colvis_html.html">colvis.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/fixedcolumns_html.html">fixedcolumns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/fixedheader_html.html">fixedheader.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/jqueryui_html.html">jqueryui.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/new_init_html.html">new_init.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/predefined_html.html">predefined.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/realtime_html.html">realtime.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/reset_html.html">reset.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/scrolling_html.html">scrolling.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/server_side_html.html">server_side.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/examples/state_save_html.html">state_save.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/js/dataTables_colReorder_js.html">dataTables.colReorder.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColReorder/js/dataTables_colReorder_min_js.html">dataTables.colReorder.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/License_txt.html">License</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/Readme_md.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/css/dataTables_colVis_css.html">dataTables.colVis.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/css/dataTables_colVis_min_css.html">dataTables.colVis.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/css/dataTables_colvis_jqueryui_css.html">dataTables.colvis.jqueryui.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/button_order_html.html">button_order.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/exclude_columns_html.html">exclude_columns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/group_columns_html.html">group_columns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/jqueryui_html.html">jqueryui.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/mouseover_html.html">mouseover.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/new_init_html.html">new_init.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/restore_html.html">restore.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/text_html.html">text.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/title_callback_html.html">title_callback.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/two_tables_html.html">two_tables.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/examples/two_tables_identical_html.html">two_tables_identical.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/js/dataTables_colVis_js.html">dataTables.colVis.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/ColVis/js/dataTables_colVis_min_js.html">dataTables.colVis.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/License_txt.html">License</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/Readme_md.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/css/dataTables_fixedColumns_css.html">dataTables.fixedColumns.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/css/dataTables_fixedColumns_min_css.html">dataTables.fixedColumns.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/bootstrap_html.html">bootstrap.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/col_filter_html.html">col_filter.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/colvis_html.html">colvis.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/css_size_html.html">css_size.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/index_column_html.html">index_column.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/left_right_columns_html.html">left_right_columns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/right_column_html.html">right_column.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/rowspan_html.html">rowspan.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/server-side-processing_html.html">server-side-processing.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/size_fixed_html.html">size_fixed.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/size_fluid_html.html">size_fluid.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/examples/two_columns_html.html">two_columns.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/js/dataTables_fixedColumns_js.html">dataTables.fixedColumns.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedColumns/js/dataTables_fixedColumns_min_js.html">dataTables.fixedColumns.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/Readme_txt.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/css/dataTables_fixedHeader_css.html">dataTables.fixedHeader.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/css/dataTables_fixedHeader_min_css.html">dataTables.fixedHeader.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/header_footer_html.html">header_footer.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/top_left_right_html.html">top_left_right.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/two_tables_html.html">two_tables.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/examples/zIndexes_html.html">zIndexes.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/js/dataTables_fixedHeader_js.html">dataTables.fixedHeader.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/FixedHeader/js/dataTables_fixedHeader_min_js.html">dataTables.fixedHeader.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/Readme_txt.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/css/dataTables_keyTable_css.html">dataTables.keyTable.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/css/dataTables_keyTable_min_css.html">dataTables.keyTable.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/examples/events_html.html">events.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/examples/html_html.html">html.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/examples/scrolling_html.html">scrolling.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/js/dataTables_keyTable_js.html">dataTables.keyTable.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/KeyTable/js/dataTables_keyTable_min_js.html">dataTables.keyTable.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/License_txt.html">License</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/Readme_md.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/css/dataTables_responsive_css.html">dataTables.responsive.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/css/dataTables_responsive_scss.html">dataTables.responsive.scss</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/column-control_html.html">column-control.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/custom-renderer_html.html">custom-renderer.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/disable-child-rows_html.html">disable-child-rows.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/right-column_html.html">right-column.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/child-rows/whole-row-control_html.html">whole-row-control.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/auto_html.html">auto.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/classes_html.html">classes.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/complexHeader_html.html">complexHeader.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/fixedHeader_html.html">fixedHeader.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/display-control/init-classes_html.html">init-classes.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/ajax_html.html">ajax.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/className_html.html">className.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/default_html.html">default.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/new_html.html">new.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/initialisation/option_html.html">option.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/styling/bootstrap_html.html">bootstrap.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/styling/compact_html.html">compact.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/styling/foundation_html.html">foundation.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/styling/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/examples/styling/scrolling_html.html">scrolling.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/js/dataTables_responsive_js.html">dataTables.responsive.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Responsive/js/dataTables_responsive_min_js.html">dataTables.responsive.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/Readme_txt.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/css/dataTables_scroller_css.html">dataTables.scroller.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/css/dataTables_scroller_min_css.html">dataTables.scroller.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/api_scrolling_html.html">api_scrolling.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/data/2500_txt.html">2500</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/data/ssp_php.html">ssp.php</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/large_js_source_html.html">large_js_source.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/server-side_processing_html.html">server-side_processing.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/examples/state_saving_html.html">state_saving.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/js/dataTables_scroller_js.html">dataTables.scroller.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/Scroller/js/dataTables_scroller_min_js.html">dataTables.scroller.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/Readme_md.html">Readme</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/css/dataTables_tableTools_css.html">dataTables.tableTools.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/css/dataTables_tableTools_min_css.html">dataTables.tableTools.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/ajax_html.html">ajax.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/alter_buttons_html.html">alter_buttons.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/bootstrap_html.html">bootstrap.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/button_text_html.html">button_text.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/collection_html.html">collection.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/defaults_html.html">defaults.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/index_html.html">index.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/jqueryui_html.html">jqueryui.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/multi_instance_html.html">multi_instance.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/multiple_tables_html.html">multiple_tables.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/new_init_html.html">new_init.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/pdf_message_html.html">pdf_message.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/plug-in_html.html">plug-in.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/select_column_html.html">select_column.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/select_multi_html.html">select_multi.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/select_os_html.html">select_os.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/select_single_html.html">select_single.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/simple_html.html">simple.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/examples/swf_path_html.html">swf_path.html</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/js/dataTables_tableTools_js.html">dataTables.tableTools.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/extensions/TableTools/js/dataTables_tableTools_min_js.html">dataTables.tableTools.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/jquery_dataTables_css.html">jquery.dataTables.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/jquery_dataTables_js.html">jquery.dataTables.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/jquery_dataTables_min_css.html">jquery.dataTables.min.css</a>
+  
+    <li><a href="../../../public/plugins/datatables/jquery_dataTables_min_js.html">jquery.dataTables.min.js</a>
+  
+    <li><a href="../../../public/plugins/datatables/jquery_dataTables_themeroller_css.html">jquery.dataTables_themeroller.css</a>
+  
+    <li><a href="../../../public/plugins/datepicker/bootstrap-datepicker_js.html">bootstrap-datepicker.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/datepicker3_css.html">datepicker3.css</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ar_js.html">bootstrap-datepicker.ar.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_az_js.html">bootstrap-datepicker.az.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_bg_js.html">bootstrap-datepicker.bg.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ca_js.html">bootstrap-datepicker.ca.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_cs_js.html">bootstrap-datepicker.cs.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_cy_js.html">bootstrap-datepicker.cy.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_da_js.html">bootstrap-datepicker.da.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_de_js.html">bootstrap-datepicker.de.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_el_js.html">bootstrap-datepicker.el.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_es_js.html">bootstrap-datepicker.es.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_et_js.html">bootstrap-datepicker.et.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_fa_js.html">bootstrap-datepicker.fa.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_fi_js.html">bootstrap-datepicker.fi.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_fr_js.html">bootstrap-datepicker.fr.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_gl_js.html">bootstrap-datepicker.gl.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_he_js.html">bootstrap-datepicker.he.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_hr_js.html">bootstrap-datepicker.hr.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_hu_js.html">bootstrap-datepicker.hu.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_id_js.html">bootstrap-datepicker.id.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_is_js.html">bootstrap-datepicker.is.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_it_js.html">bootstrap-datepicker.it.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ja_js.html">bootstrap-datepicker.ja.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ka_js.html">bootstrap-datepicker.ka.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_kk_js.html">bootstrap-datepicker.kk.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_kr_js.html">bootstrap-datepicker.kr.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_lt_js.html">bootstrap-datepicker.lt.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_lv_js.html">bootstrap-datepicker.lv.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_mk_js.html">bootstrap-datepicker.mk.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ms_js.html">bootstrap-datepicker.ms.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_nb_js.html">bootstrap-datepicker.nb.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_nl-BE_js.html">bootstrap-datepicker.nl-BE.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_nl_js.html">bootstrap-datepicker.nl.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_no_js.html">bootstrap-datepicker.no.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_pl_js.html">bootstrap-datepicker.pl.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_pt-BR_js.html">bootstrap-datepicker.pt-BR.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_pt_js.html">bootstrap-datepicker.pt.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ro_js.html">bootstrap-datepicker.ro.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_rs-latin_js.html">bootstrap-datepicker.rs-latin.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_rs_js.html">bootstrap-datepicker.rs.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ru_js.html">bootstrap-datepicker.ru.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_sk_js.html">bootstrap-datepicker.sk.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_sl_js.html">bootstrap-datepicker.sl.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_sq_js.html">bootstrap-datepicker.sq.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_sv_js.html">bootstrap-datepicker.sv.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_sw_js.html">bootstrap-datepicker.sw.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_th_js.html">bootstrap-datepicker.th.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_tr_js.html">bootstrap-datepicker.tr.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_ua_js.html">bootstrap-datepicker.ua.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_vi_js.html">bootstrap-datepicker.vi.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_zh-CN_js.html">bootstrap-datepicker.zh-CN.js</a>
+  
+    <li><a href="../../../public/plugins/datepicker/locales/bootstrap-datepicker_zh-TW_js.html">bootstrap-datepicker.zh-TW.js</a>
+  
+    <li><a href="../../../public/plugins/daterangepicker/daterangepicker_css.html">daterangepicker.css</a>
+  
+    <li><a href="../../../public/plugins/daterangepicker/daterangepicker_js.html">daterangepicker.js</a>
+  
+    <li><a href="../../../public/plugins/daterangepicker/moment_js.html">moment.js</a>
+  
+    <li><a href="../../../public/plugins/daterangepicker/moment_min_js.html">moment.min.js</a>
+  
+    <li><a href="../../../public/plugins/fastclick/fastclick_js.html">fastclick.js</a>
+  
+    <li><a href="../../../public/plugins/fastclick/fastclick_min_js.html">fastclick.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/excanvas_js.html">excanvas.js</a>
+  
+    <li><a href="../../../public/plugins/flot/excanvas_min_js.html">excanvas.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_colorhelpers_js.html">jquery.colorhelpers.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_colorhelpers_min_js.html">jquery.colorhelpers.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_canvas_js.html">jquery.flot.canvas.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_canvas_min_js.html">jquery.flot.canvas.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_categories_js.html">jquery.flot.categories.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_categories_min_js.html">jquery.flot.categories.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_crosshair_js.html">jquery.flot.crosshair.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_crosshair_min_js.html">jquery.flot.crosshair.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_errorbars_js.html">jquery.flot.errorbars.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_errorbars_min_js.html">jquery.flot.errorbars.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_fillbetween_js.html">jquery.flot.fillbetween.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_fillbetween_min_js.html">jquery.flot.fillbetween.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_image_js.html">jquery.flot.image.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_image_min_js.html">jquery.flot.image.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_js.html">jquery.flot.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_min_js.html">jquery.flot.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_navigate_js.html">jquery.flot.navigate.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_navigate_min_js.html">jquery.flot.navigate.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_pie_js.html">jquery.flot.pie.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_pie_min_js.html">jquery.flot.pie.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_resize_js.html">jquery.flot.resize.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_resize_min_js.html">jquery.flot.resize.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_selection_js.html">jquery.flot.selection.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_selection_min_js.html">jquery.flot.selection.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_stack_js.html">jquery.flot.stack.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_stack_min_js.html">jquery.flot.stack.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_symbol_js.html">jquery.flot.symbol.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_symbol_min_js.html">jquery.flot.symbol.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_threshold_js.html">jquery.flot.threshold.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_threshold_min_js.html">jquery.flot.threshold.min.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_time_js.html">jquery.flot.time.js</a>
+  
+    <li><a href="../../../public/plugins/flot/jquery_flot_time_min_js.html">jquery.flot.time.min.js</a>
+  
+    <li><a href="../../../public/plugins/fullcalendar/fullcalendar_css.html">fullcalendar.css</a>
+  
+    <li><a href="../../../public/plugins/fullcalendar/fullcalendar_js.html">fullcalendar.js</a>
+  
+    <li><a href="../../../public/plugins/fullcalendar/fullcalendar_min_css.html">fullcalendar.min.css</a>
+  
+    <li><a href="../../../public/plugins/fullcalendar/fullcalendar_min_js.html">fullcalendar.min.js</a>
+  
+    <li><a href="../../../public/plugins/fullcalendar/fullcalendar_print_css.html">fullcalendar.print.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/all_css.html">all.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/_all_css.html">_all.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/aero_css.html">aero.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/blue_css.html">blue.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/flat_css.html">flat.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/green_css.html">green.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/grey_css.html">grey.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/orange_css.html">orange.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/pink_css.html">pink.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/purple_css.html">purple.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/red_css.html">red.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/flat/yellow_css.html">yellow.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/futurico/futurico_css.html">futurico.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/icheck_js.html">icheck.js</a>
+  
+    <li><a href="../../../public/plugins/iCheck/icheck_min_js.html">icheck.min.js</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/_all_css.html">_all.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/aero_css.html">aero.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/blue_css.html">blue.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/green_css.html">green.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/grey_css.html">grey.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/line_css.html">line.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/orange_css.html">orange.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/pink_css.html">pink.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/purple_css.html">purple.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/red_css.html">red.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/line/yellow_css.html">yellow.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/_all_css.html">_all.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/aero_css.html">aero.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/blue_css.html">blue.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/green_css.html">green.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/grey_css.html">grey.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/minimal_css.html">minimal.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/orange_css.html">orange.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/pink_css.html">pink.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/purple_css.html">purple.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/red_css.html">red.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/minimal/yellow_css.html">yellow.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/polaris/polaris_css.html">polaris.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/_all_css.html">_all.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/aero_css.html">aero.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/blue_css.html">blue.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/green_css.html">green.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/grey_css.html">grey.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/orange_css.html">orange.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/pink_css.html">pink.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/purple_css.html">purple.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/red_css.html">red.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/square_css.html">square.css</a>
+  
+    <li><a href="../../../public/plugins/iCheck/square/yellow_css.html">yellow.css</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_date_extensions_js.html">jquery.inputmask.date.extensions.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_extensions_js.html">jquery.inputmask.extensions.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_js.html">jquery.inputmask.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_numeric_extensions_js.html">jquery.inputmask.numeric.extensions.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_phone_extensions_js.html">jquery.inputmask.phone.extensions.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/jquery_inputmask_regex_extensions_js.html">jquery.inputmask.regex.extensions.js</a>
+  
+    <li><a href="../../../public/plugins/input-mask/phone-codes/phone-be_json.html">phone-be.json</a>
+  
+    <li><a href="../../../public/plugins/input-mask/phone-codes/phone-codes_json.html">phone-codes.json</a>
+  
+    <li><a href="../../../public/plugins/input-mask/phone-codes/readme_txt.html">readme</a>
+  
+    <li><a href="../../../public/plugins/ionslider/ion_rangeSlider_css.html">ion.rangeSlider.css</a>
+  
+    <li><a href="../../../public/plugins/ionslider/ion_rangeSlider_min_js.html">ion.rangeSlider.min.js</a>
+  
+    <li><a href="../../../public/plugins/ionslider/ion_rangeSlider_skinFlat_css.html">ion.rangeSlider.skinFlat.css</a>
+  
+    <li><a href="../../../public/plugins/ionslider/ion_rangeSlider_skinNice_css.html">ion.rangeSlider.skinNice.css</a>
+  
+    <li><a href="../../../public/plugins/jQuery/jquery-2_2_3_min_js.html">jquery-2.2.3.min.js</a>
+  
+    <li><a href="../../../public/plugins/jQueryUI/jquery-ui_js.html">jquery-ui.js</a>
+  
+    <li><a href="../../../public/plugins/jQueryUI/jquery-ui_min_js.html">jquery-ui.min.js</a>
+  
+    <li><a href="../../../public/plugins/jvectormap/jquery-jvectormap-1_2_2_css.html">jquery-jvectormap-1.2.2.css</a>
+  
+    <li><a href="../../../public/plugins/jvectormap/jquery-jvectormap-1_2_2_min_js.html">jquery-jvectormap-1.2.2.min.js</a>
+  
+    <li><a href="../../../public/plugins/jvectormap/jquery-jvectormap-usa-en_js.html">jquery-jvectormap-usa-en.js</a>
+  
+    <li><a href="../../../public/plugins/jvectormap/jquery-jvectormap-world-mill-en_js.html">jquery-jvectormap-world-mill-en.js</a>
+  
+    <li><a href="../../../public/plugins/knob/jquery_knob_js.html">jquery.knob.js</a>
+  
+    <li><a href="../../../public/plugins/mensajes/alertify_min_js.html">alertify.min.js</a>
+  
+    <li><a href="../../../public/plugins/mensajes/sweetalert_min_js.html">sweetalert.min.js</a>
+  
+    <li><a href="../../../public/plugins/morris/morris_css.html">morris.css</a>
+  
+    <li><a href="../../../public/plugins/morris/morris_js.html">morris.js</a>
+  
+    <li><a href="../../../public/plugins/morris/morris_min_js.html">morris.min.js</a>
+  
+    <li><a href="../../../public/plugins/numeric/jquery_numeric_js.html">jquery.numeric.js</a>
+  
+    <li><a href="../../../public/plugins/pace/pace_css.html">pace.css</a>
+  
+    <li><a href="../../../public/plugins/pace/pace_js.html">pace.js</a>
+  
+    <li><a href="../../../public/plugins/pace/pace_min_css.html">pace.min.css</a>
+  
+    <li><a href="../../../public/plugins/pace/pace_min_js.html">pace.min.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ar_js.html">ar.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/az_js.html">az.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/bg_js.html">bg.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ca_js.html">ca.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/cs_js.html">cs.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/da_js.html">da.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/de_js.html">de.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/el_js.html">el.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/en_js.html">en.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/es_js.html">es.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/et_js.html">et.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/eu_js.html">eu.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/fa_js.html">fa.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/fi_js.html">fi.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/fr_js.html">fr.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/gl_js.html">gl.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/he_js.html">he.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/hi_js.html">hi.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/hr_js.html">hr.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/hu_js.html">hu.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/id_js.html">id.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/is_js.html">is.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/it_js.html">it.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ja_js.html">ja.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/km_js.html">km.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ko_js.html">ko.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/lt_js.html">lt.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/lv_js.html">lv.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/mk_js.html">mk.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ms_js.html">ms.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/nb_js.html">nb.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/nl_js.html">nl.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/pl_js.html">pl.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/pt-BR_js.html">pt-BR.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/pt_js.html">pt.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ro_js.html">ro.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/ru_js.html">ru.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/sk_js.html">sk.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/sr-Cyrl_js.html">sr-Cyrl.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/sr_js.html">sr.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/sv_js.html">sv.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/th_js.html">th.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/tr_js.html">tr.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/uk_js.html">uk.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/vi_js.html">vi.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/zh-CN_js.html">zh-CN.js</a>
+  
+    <li><a href="../../../public/plugins/select2/i18n/zh-TW_js.html">zh-TW.js</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_css.html">select2.css</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_full_js.html">select2.full.js</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_full_min_js.html">select2.full.min.js</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_js.html">select2.js</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_min_css.html">select2.min.css</a>
+  
+    <li><a href="../../../public/plugins/select2/select2_min_js.html">select2.min.js</a>
+  
+    <li><a href="../../../public/plugins/slimScroll/jquery_slimscroll_js.html">jquery.slimscroll.js</a>
+  
+    <li><a href="../../../public/plugins/slimScroll/jquery_slimscroll_min_js.html">jquery.slimscroll.min.js</a>
+  
+    <li><a href="../../../public/plugins/sparkline/jquery_sparkline_js.html">jquery.sparkline.js</a>
+  
+    <li><a href="../../../public/plugins/sparkline/jquery_sparkline_min_js.html">jquery.sparkline.min.js</a>
+  
+    <li><a href="../../../public/plugins/timepicker/bootstrap-timepicker_css.html">bootstrap-timepicker.css</a>
+  
+    <li><a href="../../../public/plugins/timepicker/bootstrap-timepicker_js.html">bootstrap-timepicker.js</a>
+  
+    <li><a href="../../../public/plugins/timepicker/bootstrap-timepicker_min_css.html">bootstrap-timepicker.min.css</a>
+  
+    <li><a href="../../../public/plugins/timepicker/bootstrap-timepicker_min_js.html">bootstrap-timepicker.min.js</a>
+  
+    <li><a href="../../../public/robots_txt.html">robots</a>
+  
+    <li><a href="../../../public/vendor/animate/animate_css.html">animate.css</a>
+  
+    <li><a href="../../../public/vendor/animsition/css/animsition_css.html">animsition.css</a>
+  
+    <li><a href="../../../public/vendor/animsition/css/animsition_min_css.html">animsition.min.css</a>
+  
+    <li><a href="../../../public/vendor/animsition/js/animsition_js.html">animsition.js</a>
+  
+    <li><a href="../../../public/vendor/animsition/js/animsition_min_js.html">animsition.min.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-grid_css.html">bootstrap-grid.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-grid_css_map.html">bootstrap-grid.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-grid_min_css.html">bootstrap-grid.min.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-grid_min_css_map.html">bootstrap-grid.min.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-reboot_css.html">bootstrap-reboot.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-reboot_css_map.html">bootstrap-reboot.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-reboot_min_css.html">bootstrap-reboot.min.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap-reboot_min_css_map.html">bootstrap-reboot.min.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap_css.html">bootstrap.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap_css_map.html">bootstrap.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap_min_css.html">bootstrap.min.css</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/css/bootstrap_min_css_map.html">bootstrap.min.css.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_bundle_js.html">bootstrap.bundle.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_bundle_js_map.html">bootstrap.bundle.js.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_bundle_min_js.html">bootstrap.bundle.min.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_bundle_min_js_map.html">bootstrap.bundle.min.js.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_js.html">bootstrap.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_js_map.html">bootstrap.js.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_min_js.html">bootstrap.min.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/bootstrap_min_js_map.html">bootstrap.min.js.map</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/popper_js.html">popper.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/popper_min_js.html">popper.min.js</a>
+  
+    <li><a href="../../../public/vendor/bootstrap/js/tooltip_js.html">tooltip.js</a>
+  
+    <li><a href="../../../public/vendor/chart_js/Chart_bundle_js.html">Chart.bundle.js</a>
+  
+    <li><a href="../../../public/vendor/chart_js/Chart_bundle_min_js.html">Chart.bundle.min.js</a>
+  
+    <li><a href="../../../public/vendor/chart_js/Chart_js.html">Chart.js</a>
+  
+    <li><a href="../../../public/vendor/chart_js/Chart_min_js.html">Chart.min.js</a>
+  
+    <li><a href="../../../public/vendor/countdowntime/countdowntime_js.html">countdowntime.js</a>
+  
+    <li><a href="../../../public/vendor/css-hamburgers/hamburgers_css.html">hamburgers.css</a>
+  
+    <li><a href="../../../public/vendor/css-hamburgers/hamburgers_min_css.html">hamburgers.min.css</a>
+  
+    <li><a href="../../../public/vendor/datatables/dataTables_bootstrap4_css.html">dataTables.bootstrap4.css</a>
+  
+    <li><a href="../../../public/vendor/datatables/dataTables_bootstrap4_js.html">dataTables.bootstrap4.js</a>
+  
+    <li><a href="../../../public/vendor/datatables/jquery_dataTables_js.html">jquery.dataTables.js</a>
+  
+    <li><a href="../../../public/vendor/daterangepicker/daterangepicker_css.html">daterangepicker.css</a>
+  
+    <li><a href="../../../public/vendor/daterangepicker/daterangepicker_js.html">daterangepicker.js</a>
+  
+    <li><a href="../../../public/vendor/daterangepicker/moment_js.html">moment.js</a>
+  
+    <li><a href="../../../public/vendor/daterangepicker/moment_min_js.html">moment.min.js</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/css/font-awesome_css.html">font-awesome.css</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/css/font-awesome_css_map.html">font-awesome.css.map</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/css/font-awesome_min_css.html">font-awesome.min.css</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/animated_less.html">animated.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/bordered-pulled_less.html">bordered-pulled.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/core_less.html">core.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/fixed-width_less.html">fixed-width.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/font-awesome_less.html">font-awesome.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/icons_less.html">icons.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/larger_less.html">larger.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/list_less.html">list.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/mixins_less.html">mixins.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/path_less.html">path.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/rotated-flipped_less.html">rotated-flipped.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/screen-reader_less.html">screen-reader.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/stacked_less.html">stacked.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/less/variables_less.html">variables.less</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_animated_scss.html">_animated.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_bordered-pulled_scss.html">_bordered-pulled.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_core_scss.html">_core.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_fixed-width_scss.html">_fixed-width.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_icons_scss.html">_icons.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_larger_scss.html">_larger.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_list_scss.html">_list.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_mixins_scss.html">_mixins.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_path_scss.html">_path.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_rotated-flipped_scss.html">_rotated-flipped.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_screen-reader_scss.html">_screen-reader.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_stacked_scss.html">_stacked.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/_variables_scss.html">_variables.scss</a>
+  
+    <li><a href="../../../public/vendor/font-awesome/scss/font-awesome_scss.html">font-awesome.scss</a>
+  
+    <li><a href="../../../public/vendor/jquery-easing/jquery_easing_compatibility_js.html">jquery.easing.compatibility.js</a>
+  
+    <li><a href="../../../public/vendor/jquery-easing/jquery_easing_js.html">jquery.easing.js</a>
+  
+    <li><a href="../../../public/vendor/jquery-easing/jquery_easing_min_js.html">jquery.easing.min.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery-3_2_1_min_js.html">jquery-3.2.1.min.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_js.html">jquery.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_min_map.html">jquery.min.map</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_slim_js.html">jquery.slim.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_slim_min_js.html">jquery.slim.min.js</a>
+  
+    <li><a href="../../../public/vendor/jquery/jquery_slim_min_map.html">jquery.slim.min.map</a>
+  
+    <li><a href="../../../public/vendor/perfect-scrollbar/perfect-scrollbar_css.html">perfect-scrollbar.css</a>
+  
+    <li><a href="../../../public/vendor/perfect-scrollbar/perfect-scrollbar_min_js.html">perfect-scrollbar.min.js</a>
+  
+    <li><a href="../../../public/vendor/select2/select2_css.html">select2.css</a>
+  
+    <li><a href="../../../public/vendor/select2/select2_js.html">select2.js</a>
+  
+    <li><a href="../../../public/vendor/select2/select2_min_css.html">select2.min.css</a>
+  
+    <li><a href="../../../public/vendor/select2/select2_min_js.html">select2.min.js</a>
+  
+    <li><a href="../../../tmp/pids/server_pid.html">server.pid</a>
+  
+    <li><a href="../../../tmp/restart_txt.html">restart</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page public/plugins/flot/excanvas.js">
+
+<p>// Copyright 2006 Google Inc. // // Licensed under the Apache <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a>,
+Version 2.0 (the “License”); // you may not use this file except in
+compliance with the <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a>. //
+You may obtain a copy of the <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a> at
+// //   <a
+href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a>
+// // Unless required by applicable law or agreed to in writing, software
+// distributed under the <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a> is
+distributed on an “AS IS” BASIS, // WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. // See the <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a> for
+the specific language governing permissions and // limitations under the <a
+href="../datatables/extensions/ColReorder/License_txt.html">License</a>.</p>
+
+<p>// Known Issues: // // * Patterns only support repeat. // * Radial gradient
+are not implemented. The VML version of these look very //   different from
+the canvas one. // * Clipping paths are not implemented. // * Coordsize.
+The width and height attribute have higher priority than the //   width and
+height style values which isn&#39;t correct. // * Painting mode isn&#39;t
+implemented. // * Canvas width/height should is using content-box by
+default. IE in //   Quirks mode will draw the canvas using border-box.
+Either change your //   doctype to HTML5 //   (<a
+href="http://www.whatwg.org/specs/web-apps/current-work/#the-doctype">www.whatwg.org/specs/web-apps/current-work/#the-doctype</a>)
+//   or use Box Sizing Behavior from WebFX //   (<a
+href="http://webfx.eae.net/dhtml/boxsizing/boxsizing.html">webfx.eae.net/dhtml/boxsizing/boxsizing.html</a>)
+// * Non uniform scaling does not correctly scale strokes. // * Filling
+very large shapes (above 5000 points) is buggy. // * Optimize. There is
+always room for speed improvements.</p>
+
+<p>// Only add this code if we do not already have a canvas implementation if
+(!document.createElement(&#39;canvas&#39;).getContext) {</p>
+
+<p>(function() {</p>
+
+<pre>// alias some functions to make (compiled) code shorter
+var m = Math;
+var mr = m.round;
+var ms = m.sin;
+var mc = m.cos;
+var abs = m.abs;
+var sqrt = m.sqrt;
+
+// this is used for sub pixel precision
+var Z = 10;
+var Z2 = Z / 2;
+
+var IE_VERSION = +navigator.userAgent.match(/MSIE ([\d.]+)?/)[1];
+
+   This funtion is assigned to the &lt;canvas&gt; elements as element.getContext().
+   @this {HTMLElement}
+   @return {CanvasRenderingContext2D_}
+
+function getContext() {
+  return this.context_ ||
+      (this.context_ = new CanvasRenderingContext2D_(this));
+}
+
+var slice = Array.prototype.slice;
+
+   Binds a function to an object. The returned function will always use the
+   passed in {@code obj} as {@code this}.
+
+   Example:
+
+     g = bind(f, obj, a, b)
+     g(c, d) // will do f.call(obj, a, b, c, d)
+
+   @param {Function} f The function to bind the object to
+   @param {Object} obj The object that should act as this when the function
+       is called
+   @param {*} var_args Rest arguments that will be used as the initial
+       arguments when the function is called
+   @return {Function} A new function that has bound this
+  /
+function bind(f, obj, var_args) {
+  var a = slice.call(arguments, 2);
+  return function() {
+    return f.apply(obj, a.concat(slice.call(arguments)));
+  };
+}
+
+function encodeHtmlAttribute(s) {
+  return String(s).replace(/&amp;/g, &#39;&amp;amp;&#39;).replace(/&quot;/g, &#39;&amp;quot;&#39;);
+}
+
+function addNamespace(doc, prefix, urn) {
+  if (!doc.namespaces[prefix]) {
+    doc.namespaces.add(prefix, urn, &#39;#default#VML&#39;);
+  }
+}
+
+function addNamespacesAndStylesheet(doc) {
+  addNamespace(doc, &#39;g_vml_&#39;, &#39;urn:schemas-microsoft-com:vml&#39;);
+  addNamespace(doc, &#39;g_o_&#39;, &#39;urn:schemas-microsoft-com:office:office&#39;);
+
+  // Setup default CSS.  Only add one style sheet per document
+  if (!doc.styleSheets[&#39;ex_canvas_&#39;]) {
+    var ss = doc.createStyleSheet();
+    ss.owningElement.id = &#39;ex_canvas_&#39;;
+    ss.cssText = &#39;canvas{display:inline-block;overflow:hidden;&#39; +
+        // default size is 300x150 in Gecko and Opera
+        &#39;text-align:left;width:300px;height:150px}&#39;;
+  }
+}
+
+// Add namespaces and stylesheet at startup.
+addNamespacesAndStylesheet(document);
+
+var G_vmlCanvasManager_ = {
+  init: function(opt_doc) {
+    var doc = opt_doc || document;
+    // Create a dummy element so that IE will allow canvas elements to be
+    // recognized.
+    doc.createElement(&#39;canvas&#39;);
+    doc.attachEvent(&#39;onreadystatechange&#39;, bind(this.init_, this, doc));
+  },
+
+  init_: function(doc) {
+    // find all canvas elements
+    var els = doc.getElementsByTagName(&#39;canvas&#39;);
+    for (var i = 0; i &lt; els.length; i++) {
+      this.initElement(els[i]);
+    }
+  },
+
+  /**
+     Public initializes a canvas element so that it can be used as canvas
+     element from now on. This is called automatically before the page is
+     loaded but if you are creating elements using createElement you need to
+     make sure this is called on the element.
+     @param {HTMLElement} el The canvas element to initialize.
+     @return {HTMLElement} the element that was created.
+    /
+  initElement: function(el) {
+    if (!el.getContext) {
+      el.getContext = getContext;
+
+      // Add namespaces and stylesheet to document of the element.
+      addNamespacesAndStylesheet(el.ownerDocument);
+
+      // Remove fallback content. There is no way to hide text nodes so we
+      // just remove all childNodes. We could hide all elements and remove
+      // text nodes but who really cares about the fallback content.
+      el.innerHTML = &#39;&#39;;
+
+      // do not use inline function because that will leak memory
+      el.attachEvent(&#39;onpropertychange&#39;, onPropertyChange);
+      el.attachEvent(&#39;onresize&#39;, onResize);
+
+      var attrs = el.attributes;
+      if (attrs.width &amp;&amp; attrs.width.specified) {
+        // TODO: use runtimeStyle and coordsize
+        // el.getContext().setWidth_(attrs.width.nodeValue);
+        el.style.width = attrs.width.nodeValue + &#39;px&#39;;
+      } else {
+        el.width = el.clientWidth;
+      }
+      if (attrs.height &amp;&amp; attrs.height.specified) {
+        // TODO: use runtimeStyle and coordsize
+        // el.getContext().setHeight_(attrs.height.nodeValue);
+        el.style.height = attrs.height.nodeValue + &#39;px&#39;;
+      } else {
+        el.height = el.clientHeight;
+      }
+      //el.getContext().setCoordsize_()
+    }
+    return el;
+  }
+};
+
+function onPropertyChange(e) {
+  var el = e.srcElement;
+
+  switch (e.propertyName) {
+    case &#39;width&#39;:
+      el.getContext().clearRect();
+      el.style.width = el.attributes.width.nodeValue + &#39;px&#39;;
+      // In IE8 this does not trigger onresize.
+      el.firstChild.style.width =  el.clientWidth + &#39;px&#39;;
+      break;
+    case &#39;height&#39;:
+      el.getContext().clearRect();
+      el.style.height = el.attributes.height.nodeValue + &#39;px&#39;;
+      el.firstChild.style.height = el.clientHeight + &#39;px&#39;;
+      break;
+  }
+}
+
+function onResize(e) {
+  var el = e.srcElement;
+  if (el.firstChild) {
+    el.firstChild.style.width =  el.clientWidth + &#39;px&#39;;
+    el.firstChild.style.height = el.clientHeight + &#39;px&#39;;
+  }
+}
+
+G_vmlCanvasManager_.init();
+
+// precompute &quot;00&quot; to &quot;FF&quot;
+var decToHex = [];
+for (var i = 0; i &lt; 16; i++) {
+  for (var j = 0; j &lt; 16; j++) {
+    decToHex[i * 16 + j] = i.toString(16) + j.toString(16);
+  }
+}
+
+function createMatrixIdentity() {
+  return [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+  ];
+}
+
+function matrixMultiply(m1, m2) {
+  var result = createMatrixIdentity();
+
+  for (var x = 0; x &lt; 3; x++) {
+    for (var y = 0; y &lt; 3; y++) {
+      var sum = 0;
+
+      for (var z = 0; z &lt; 3; z++) {
+        sum += m1[x][z] * m2[z][y];
+      }
+
+      result[x][y] = sum;
+    }
+  }
+  return result;
+}
+
+function copyState(o1, o2) {
+  o2.fillStyle     = o1.fillStyle;
+  o2.lineCap       = o1.lineCap;
+  o2.lineJoin      = o1.lineJoin;
+  o2.lineWidth     = o1.lineWidth;
+  o2.miterLimit    = o1.miterLimit;
+  o2.shadowBlur    = o1.shadowBlur;
+  o2.shadowColor   = o1.shadowColor;
+  o2.shadowOffsetX = o1.shadowOffsetX;
+  o2.shadowOffsetY = o1.shadowOffsetY;
+  o2.strokeStyle   = o1.strokeStyle;
+  o2.globalAlpha   = o1.globalAlpha;
+  o2.font          = o1.font;
+  o2.textAlign     = o1.textAlign;
+  o2.textBaseline  = o1.textBaseline;
+  o2.arcScaleX_    = o1.arcScaleX_;
+  o2.arcScaleY_    = o1.arcScaleY_;
+  o2.lineScale_    = o1.lineScale_;
+}
+
+var colorData = {
+  aliceblue: &#39;#F0F8FF&#39;,
+  antiquewhite: &#39;#FAEBD7&#39;,
+  aquamarine: &#39;#7FFFD4&#39;,
+  azure: &#39;#F0FFFF&#39;,
+  beige: &#39;#F5F5DC&#39;,
+  bisque: &#39;#FFE4C4&#39;,
+  black: &#39;#000000&#39;,
+  blanchedalmond: &#39;#FFEBCD&#39;,
+  blueviolet: &#39;#8A2BE2&#39;,
+  brown: &#39;#A52A2A&#39;,
+  burlywood: &#39;#DEB887&#39;,
+  cadetblue: &#39;#5F9EA0&#39;,
+  chartreuse: &#39;#7FFF00&#39;,
+  chocolate: &#39;#D2691E&#39;,
+  coral: &#39;#FF7F50&#39;,
+  cornflowerblue: &#39;#6495ED&#39;,
+  cornsilk: &#39;#FFF8DC&#39;,
+  crimson: &#39;#DC143C&#39;,
+  cyan: &#39;#00FFFF&#39;,
+  darkblue: &#39;#00008B&#39;,
+  darkcyan: &#39;#008B8B&#39;,
+  darkgoldenrod: &#39;#B8860B&#39;,
+  darkgray: &#39;#A9A9A9&#39;,
+  darkgreen: &#39;#006400&#39;,
+  darkgrey: &#39;#A9A9A9&#39;,
+  darkkhaki: &#39;#BDB76B&#39;,
+  darkmagenta: &#39;#8B008B&#39;,
+  darkolivegreen: &#39;#556B2F&#39;,
+  darkorange: &#39;#FF8C00&#39;,
+  darkorchid: &#39;#9932CC&#39;,
+  darkred: &#39;#8B0000&#39;,
+  darksalmon: &#39;#E9967A&#39;,
+  darkseagreen: &#39;#8FBC8F&#39;,
+  darkslateblue: &#39;#483D8B&#39;,
+  darkslategray: &#39;#2F4F4F&#39;,
+  darkslategrey: &#39;#2F4F4F&#39;,
+  darkturquoise: &#39;#00CED1&#39;,
+  darkviolet: &#39;#9400D3&#39;,
+  deeppink: &#39;#FF1493&#39;,
+  deepskyblue: &#39;#00BFFF&#39;,
+  dimgray: &#39;#696969&#39;,
+  dimgrey: &#39;#696969&#39;,
+  dodgerblue: &#39;#1E90FF&#39;,
+  firebrick: &#39;#B22222&#39;,
+  floralwhite: &#39;#FFFAF0&#39;,
+  forestgreen: &#39;#228B22&#39;,
+  gainsboro: &#39;#DCDCDC&#39;,
+  ghostwhite: &#39;#F8F8FF&#39;,
+  gold: &#39;#FFD700&#39;,
+  goldenrod: &#39;#DAA520&#39;,
+  grey: &#39;#808080&#39;,
+  greenyellow: &#39;#ADFF2F&#39;,
+  honeydew: &#39;#F0FFF0&#39;,
+  hotpink: &#39;#FF69B4&#39;,
+  indianred: &#39;#CD5C5C&#39;,
+  indigo: &#39;#4B0082&#39;,
+  ivory: &#39;#FFFFF0&#39;,
+  khaki: &#39;#F0E68C&#39;,
+  lavender: &#39;#E6E6FA&#39;,
+  lavenderblush: &#39;#FFF0F5&#39;,
+  lawngreen: &#39;#7CFC00&#39;,
+  lemonchiffon: &#39;#FFFACD&#39;,
+  lightblue: &#39;#ADD8E6&#39;,
+  lightcoral: &#39;#F08080&#39;,
+  lightcyan: &#39;#E0FFFF&#39;,
+  lightgoldenrodyellow: &#39;#FAFAD2&#39;,
+  lightgreen: &#39;#90EE90&#39;,
+  lightgrey: &#39;#D3D3D3&#39;,
+  lightpink: &#39;#FFB6C1&#39;,
+  lightsalmon: &#39;#FFA07A&#39;,
+  lightseagreen: &#39;#20B2AA&#39;,
+  lightskyblue: &#39;#87CEFA&#39;,
+  lightslategray: &#39;#778899&#39;,
+  lightslategrey: &#39;#778899&#39;,
+  lightsteelblue: &#39;#B0C4DE&#39;,
+  lightyellow: &#39;#FFFFE0&#39;,
+  limegreen: &#39;#32CD32&#39;,
+  linen: &#39;#FAF0E6&#39;,
+  magenta: &#39;#FF00FF&#39;,
+  mediumaquamarine: &#39;#66CDAA&#39;,
+  mediumblue: &#39;#0000CD&#39;,
+  mediumorchid: &#39;#BA55D3&#39;,
+  mediumpurple: &#39;#9370DB&#39;,
+  mediumseagreen: &#39;#3CB371&#39;,
+  mediumslateblue: &#39;#7B68EE&#39;,
+  mediumspringgreen: &#39;#00FA9A&#39;,
+  mediumturquoise: &#39;#48D1CC&#39;,
+  mediumvioletred: &#39;#C71585&#39;,
+  midnightblue: &#39;#191970&#39;,
+  mintcream: &#39;#F5FFFA&#39;,
+  mistyrose: &#39;#FFE4E1&#39;,
+  moccasin: &#39;#FFE4B5&#39;,
+  navajowhite: &#39;#FFDEAD&#39;,
+  oldlace: &#39;#FDF5E6&#39;,
+  olivedrab: &#39;#6B8E23&#39;,
+  orange: &#39;#FFA500&#39;,
+  orangered: &#39;#FF4500&#39;,
+  orchid: &#39;#DA70D6&#39;,
+  palegoldenrod: &#39;#EEE8AA&#39;,
+  palegreen: &#39;#98FB98&#39;,
+  paleturquoise: &#39;#AFEEEE&#39;,
+  palevioletred: &#39;#DB7093&#39;,
+  papayawhip: &#39;#FFEFD5&#39;,
+  peachpuff: &#39;#FFDAB9&#39;,
+  peru: &#39;#CD853F&#39;,
+  pink: &#39;#FFC0CB&#39;,
+  plum: &#39;#DDA0DD&#39;,
+  powderblue: &#39;#B0E0E6&#39;,
+  rosybrown: &#39;#BC8F8F&#39;,
+  royalblue: &#39;#4169E1&#39;,
+  saddlebrown: &#39;#8B4513&#39;,
+  salmon: &#39;#FA8072&#39;,
+  sandybrown: &#39;#F4A460&#39;,
+  seagreen: &#39;#2E8B57&#39;,
+  seashell: &#39;#FFF5EE&#39;,
+  sienna: &#39;#A0522D&#39;,
+  skyblue: &#39;#87CEEB&#39;,
+  slateblue: &#39;#6A5ACD&#39;,
+  slategray: &#39;#708090&#39;,
+  slategrey: &#39;#708090&#39;,
+  snow: &#39;#FFFAFA&#39;,
+  springgreen: &#39;#00FF7F&#39;,
+  steelblue: &#39;#4682B4&#39;,
+  tan: &#39;#D2B48C&#39;,
+  thistle: &#39;#D8BFD8&#39;,
+  tomato: &#39;#FF6347&#39;,
+  turquoise: &#39;#40E0D0&#39;,
+  violet: &#39;#EE82EE&#39;,
+  wheat: &#39;#F5DEB3&#39;,
+  whitesmoke: &#39;#F5F5F5&#39;,
+  yellowgreen: &#39;#9ACD32&#39;
+};
+
+function getRgbHslContent(styleString) {
+  var start = styleString.indexOf(&#39;(&#39;, 3);
+  var end = styleString.indexOf(&#39;)&#39;, start + 1);
+  var parts = styleString.substring(start + 1, end).split(&#39;,&#39;);
+  // add alpha if needed
+  if (parts.length != 4 || styleString.charAt(3) != &#39;a&#39;) {
+    parts[3] = 1;
+  }
+  return parts;
+}
+
+function percent(s) {
+  return parseFloat(s) / 100;
+}
+
+function clamp(v, min, max) {
+  return Math.min(max, Math.max(min, v));
+}
+
+function hslToRgb(parts){
+  var r, g, b, h, s, l;
+  h = parseFloat(parts[0]) / 360 % 360;
+  if (h &lt; 0)
+    h++;
+  s = clamp(percent(parts[1]), 0, 1);
+  l = clamp(percent(parts[2]), 0, 1);
+  if (s == 0) {
+    r = g = b = l; // achromatic
+  } else {
+    var q = l &lt; 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hueToRgb(p, q, h + 1 / 3);
+    g = hueToRgb(p, q, h);
+    b = hueToRgb(p, q, h - 1 / 3);
+  }
+
+  return &#39;#&#39; + decToHex[Math.floor(r * 255)] +
+      decToHex[Math.floor(g * 255)] +
+      decToHex[Math.floor(b * 255)];
+}
+
+function hueToRgb(m1, m2, h) {
+  if (h &lt; 0)
+    h++;
+  if (h &gt; 1)
+    h--;
+
+  if (6 * h &lt; 1)
+    return m1 + (m2 - m1) * 6 * h;
+  else if (2 * h &lt; 1)
+    return m2;
+  else if (3 * h &lt; 2)
+    return m1 + (m2 - m1) * (2 / 3 - h) * 6;
+  else
+    return m1;
+}
+
+var processStyleCache = {};
+
+function processStyle(styleString) {
+  if (styleString in processStyleCache) {
+    return processStyleCache[styleString];
+  }
+
+  var str, alpha = 1;
+
+  styleString = String(styleString);
+  if (styleString.charAt(0) == &#39;#&#39;) {
+    str = styleString;
+  } else if (/^rgb/.test(styleString)) {
+    var parts = getRgbHslContent(styleString);
+    var str = &#39;#&#39;, n;
+    for (var i = 0; i &lt; 3; i++) {
+      if (parts[i].indexOf(&#39;%&#39;) != -1) {
+        n = Math.floor(percent(parts[i]) * 255);
+      } else {
+        n = +parts[i];
+      }
+      str += decToHex[clamp(n, 0, 255)];
+    }
+    alpha = +parts[3];
+  } else if (/^hsl/.test(styleString)) {
+    var parts = getRgbHslContent(styleString);
+    str = hslToRgb(parts);
+    alpha = parts[3];
+  } else {
+    str = colorData[styleString] || styleString;
+  }
+  return processStyleCache[styleString] = {color: str, alpha: alpha};
+}
+
+var DEFAULT_STYLE = {
+  style: &#39;normal&#39;,
+  variant: &#39;normal&#39;,
+  weight: &#39;normal&#39;,
+  size: 10,
+  family: &#39;sans-serif&#39;
+};
+
+// Internal text style cache
+var fontStyleCache = {};
+
+function processFontStyle(styleString) {
+  if (fontStyleCache[styleString]) {
+    return fontStyleCache[styleString];
+  }
+
+  var el = document.createElement(&#39;div&#39;);
+  var style = el.style;
+  try {
+    style.font = styleString;
+  } catch (ex) {
+    // Ignore failures to set to invalid font.
+  }
+
+  return fontStyleCache[styleString] = {
+    style: style.fontStyle || DEFAULT_STYLE.style,
+    variant: style.fontVariant || DEFAULT_STYLE.variant,
+    weight: style.fontWeight || DEFAULT_STYLE.weight,
+    size: style.fontSize || DEFAULT_STYLE.size,
+    family: style.fontFamily || DEFAULT_STYLE.family
+  };
+}
+
+function getComputedStyle(style, element) {
+  var computedStyle = {};
+
+  for (var p in style) {
+    computedStyle[p] = style[p];
+  }
+
+  // Compute the size
+  var canvasFontSize = parseFloat(element.currentStyle.fontSize),
+      fontSize = parseFloat(style.size);
+
+  if (typeof style.size == &#39;number&#39;) {
+    computedStyle.size = style.size;
+  } else if (style.size.indexOf(&#39;px&#39;) != -1) {
+    computedStyle.size = fontSize;
+  } else if (style.size.indexOf(&#39;em&#39;) != -1) {
+    computedStyle.size = canvasFontSize * fontSize;
+  } else if(style.size.indexOf(&#39;%&#39;) != -1) {
+    computedStyle.size = (canvasFontSize / 100) * fontSize;
+  } else if (style.size.indexOf(&#39;pt&#39;) != -1) {
+    computedStyle.size = fontSize / .75;
+  } else {
+    computedStyle.size = canvasFontSize;
+  }
+
+  // Different scaling between normal text and VML text. This was found using
+  // trial and error to get the same size as non VML text.
+  computedStyle.size *= 0.981;
+
+  return computedStyle;
+}
+
+function buildStyle(style) {
+  return style.style + &#39; &#39; + style.variant + &#39; &#39; + style.weight + &#39; &#39; +
+      style.size + &#39;px &#39; + style.family;
+}
+
+var lineCapMap = {
+  &#39;butt&#39;: &#39;flat&#39;,
+  &#39;round&#39;: &#39;round&#39;
+};
+
+function processLineCap(lineCap) {
+  return lineCapMap[lineCap] || &#39;square&#39;;
+}
+
+/**
+   This class implements CanvasRenderingContext2D interface as described by
+   the WHATWG.
+   @param {HTMLElement} canvasElement The element that the 2D context should
+   be associated with
+  /
+function CanvasRenderingContext2D_(canvasElement) {
+  this.m_ = createMatrixIdentity();
+
+  this.mStack_ = [];
+  this.aStack_ = [];
+  this.currentPath_ = [];
+
+  // Canvas context properties
+  this.strokeStyle = &#39;#000&#39;;
+  this.fillStyle = &#39;#000&#39;;
+
+  this.lineWidth = 1;
+  this.lineJoin = &#39;miter&#39;;
+  this.lineCap = &#39;butt&#39;;
+  this.miterLimit = Z * 1;
+  this.globalAlpha = 1;
+  this.font = &#39;10px sans-serif&#39;;
+  this.textAlign = &#39;left&#39;;
+  this.textBaseline = &#39;alphabetic&#39;;
+  this.canvas = canvasElement;
+
+  var cssText = &#39;width:&#39; + canvasElement.clientWidth + &#39;px;height:&#39; +
+      canvasElement.clientHeight + &#39;px;overflow:hidden;position:absolute&#39;;
+  var el = canvasElement.ownerDocument.createElement(&#39;div&#39;);
+  el.style.cssText = cssText;
+  canvasElement.appendChild(el);
+
+  var overlayEl = el.cloneNode(false);
+  // Use a non transparent background.
+  overlayEl.style.backgroundColor = &#39;red&#39;;
+  overlayEl.style.filter = &#39;alpha(opacity=0)&#39;;
+  canvasElement.appendChild(overlayEl);
+
+  this.element_ = el;
+  this.arcScaleX_ = 1;
+  this.arcScaleY_ = 1;
+  this.lineScale_ = 1;
+}
+
+var contextPrototype = CanvasRenderingContext2D_.prototype;
+contextPrototype.clearRect = function() {
+  if (this.textMeasureEl_) {
+    this.textMeasureEl_.removeNode(true);
+    this.textMeasureEl_ = null;
+  }
+  this.element_.innerHTML = &#39;&#39;;
+};
+
+contextPrototype.beginPath = function() {
+  // TODO: Branch current matrix so that save/restore has no effect
+  //       as per safari docs.
+  this.currentPath_ = [];
+};
+
+contextPrototype.moveTo = function(aX, aY) {
+  var p = getCoords(this, aX, aY);
+  this.currentPath_.push({type: &#39;moveTo&#39;, x: p.x, y: p.y});
+  this.currentX_ = p.x;
+  this.currentY_ = p.y;
+};
+
+contextPrototype.lineTo = function(aX, aY) {
+  var p = getCoords(this, aX, aY);
+  this.currentPath_.push({type: &#39;lineTo&#39;, x: p.x, y: p.y});
+
+  this.currentX_ = p.x;
+  this.currentY_ = p.y;
+};
+
+contextPrototype.bezierCurveTo = function(aCP1x, aCP1y,
+                                          aCP2x, aCP2y,
+                                          aX, aY) {
+  var p = getCoords(this, aX, aY);
+  var cp1 = getCoords(this, aCP1x, aCP1y);
+  var cp2 = getCoords(this, aCP2x, aCP2y);
+  bezierCurveTo(this, cp1, cp2, p);
+};
+
+// Helper function that takes the already fixed cordinates.
+function bezierCurveTo(self, cp1, cp2, p) {
+  self.currentPath_.push({
+    type: &#39;bezierCurveTo&#39;,
+    cp1x: cp1.x,
+    cp1y: cp1.y,
+    cp2x: cp2.x,
+    cp2y: cp2.y,
+    x: p.x,
+    y: p.y
+  });
+  self.currentX_ = p.x;
+  self.currentY_ = p.y;
+}
+
+contextPrototype.quadraticCurveTo = function(aCPx, aCPy, aX, aY) {
+  // the following is lifted almost directly from
+  // http://developer.mozilla.org/en/docs/Canvas_tutorial:Drawing_shapes
+
+  var cp = getCoords(this, aCPx, aCPy);
+  var p = getCoords(this, aX, aY);
+
+  var cp1 = {
+    x: this.currentX_ + 2.0 / 3.0 * (cp.x - this.currentX_),
+    y: this.currentY_ + 2.0 / 3.0 * (cp.y - this.currentY_)
+  };
+  var cp2 = {
+    x: cp1.x + (p.x - this.currentX_) / 3.0,
+    y: cp1.y + (p.y - this.currentY_) / 3.0
+  };
+
+  bezierCurveTo(this, cp1, cp2, p);
+};
+
+contextPrototype.arc = function(aX, aY, aRadius,
+                                aStartAngle, aEndAngle, aClockwise) {
+  aRadius *= Z;
+  var arcType = aClockwise ? &#39;at&#39; : &#39;wa&#39;;
+
+  var xStart = aX + mc(aStartAngle) * aRadius - Z2;
+  var yStart = aY + ms(aStartAngle) * aRadius - Z2;
+
+  var xEnd = aX + mc(aEndAngle) * aRadius - Z2;
+  var yEnd = aY + ms(aEndAngle) * aRadius - Z2;
+
+  // IE won&#39;t render arches drawn counter clockwise if xStart == xEnd.
+  if (xStart == xEnd &amp;&amp; !aClockwise) {
+    xStart += 0.125; // Offset xStart by 1/80 of a pixel. Use something
+                     // that can be represented in binary
+  }
+
+  var p = getCoords(this, aX, aY);
+  var pStart = getCoords(this, xStart, yStart);
+  var pEnd = getCoords(this, xEnd, yEnd);
+
+  this.currentPath_.push({type: arcType,
+                         x: p.x,
+                         y: p.y,
+                         radius: aRadius,
+                         xStart: pStart.x,
+                         yStart: pStart.y,
+                         xEnd: pEnd.x,
+                         yEnd: pEnd.y});
+
+};
+
+contextPrototype.rect = function(aX, aY, aWidth, aHeight) {
+  this.moveTo(aX, aY);
+  this.lineTo(aX + aWidth, aY);
+  this.lineTo(aX + aWidth, aY + aHeight);
+  this.lineTo(aX, aY + aHeight);
+  this.closePath();
+};
+
+contextPrototype.strokeRect = function(aX, aY, aWidth, aHeight) {
+  var oldPath = this.currentPath_;
+  this.beginPath();
+
+  this.moveTo(aX, aY);
+  this.lineTo(aX + aWidth, aY);
+  this.lineTo(aX + aWidth, aY + aHeight);
+  this.lineTo(aX, aY + aHeight);
+  this.closePath();
+  this.stroke();
+
+  this.currentPath_ = oldPath;
+};
+
+contextPrototype.fillRect = function(aX, aY, aWidth, aHeight) {
+  var oldPath = this.currentPath_;
+  this.beginPath();
+
+  this.moveTo(aX, aY);
+  this.lineTo(aX + aWidth, aY);
+  this.lineTo(aX + aWidth, aY + aHeight);
+  this.lineTo(aX, aY + aHeight);
+  this.closePath();
+  this.fill();
+
+  this.currentPath_ = oldPath;
+};
+
+contextPrototype.createLinearGradient = function(aX0, aY0, aX1, aY1) {
+  var gradient = new CanvasGradient_(&#39;gradient&#39;);
+  gradient.x0_ = aX0;
+  gradient.y0_ = aY0;
+  gradient.x1_ = aX1;
+  gradient.y1_ = aY1;
+  return gradient;
+};
+
+contextPrototype.createRadialGradient = function(aX0, aY0, aR0,
+                                                 aX1, aY1, aR1) {
+  var gradient = new CanvasGradient_(&#39;gradientradial&#39;);
+  gradient.x0_ = aX0;
+  gradient.y0_ = aY0;
+  gradient.r0_ = aR0;
+  gradient.x1_ = aX1;
+  gradient.y1_ = aY1;
+  gradient.r1_ = aR1;
+  return gradient;
+};
+
+contextPrototype.drawImage = function(image, var_args) {
+  var dx, dy, dw, dh, sx, sy, sw, sh;
+
+  // to find the original width we overide the width and height
+  var oldRuntimeWidth = image.runtimeStyle.width;
+  var oldRuntimeHeight = image.runtimeStyle.height;
+  image.runtimeStyle.width = &#39;auto&#39;;
+  image.runtimeStyle.height = &#39;auto&#39;;
+
+  // get the original size
+  var w = image.width;
+  var h = image.height;
+
+  // and remove overides
+  image.runtimeStyle.width = oldRuntimeWidth;
+  image.runtimeStyle.height = oldRuntimeHeight;
+
+  if (arguments.length == 3) {
+    dx = arguments[1];
+    dy = arguments[2];
+    sx = sy = 0;
+    sw = dw = w;
+    sh = dh = h;
+  } else if (arguments.length == 5) {
+    dx = arguments[1];
+    dy = arguments[2];
+    dw = arguments[3];
+    dh = arguments[4];
+    sx = sy = 0;
+    sw = w;
+    sh = h;
+  } else if (arguments.length == 9) {
+    sx = arguments[1];
+    sy = arguments[2];
+    sw = arguments[3];
+    sh = arguments[4];
+    dx = arguments[5];
+    dy = arguments[6];
+    dw = arguments[7];
+    dh = arguments[8];
+  } else {
+    throw Error(&#39;Invalid number of arguments&#39;);
+  }
+
+  var d = getCoords(this, dx, dy);
+
+  var w2 = sw / 2;
+  var h2 = sh / 2;
+
+  var vmlStr = [];
+
+  var W = 10;
+  var H = 10;
+
+  // For some reason that I&#39;ve now forgotten, using divs didn&#39;t work
+  vmlStr.push(&#39; &lt;g_vml_:group&#39;,
+              &#39; coordsize=&quot;&#39;, Z * W, &#39;,&#39;, Z * H, &#39;&quot;&#39;,
+              &#39; coordorigin=&quot;0,0&quot;&#39; ,
+              &#39; style=&quot;width:&#39;, W, &#39;px;height:&#39;, H, &#39;px;position:absolute;&#39;);
+
+  // If filters are necessary (rotation exists), create them
+  // filters are bog-slow, so only create them if abbsolutely necessary
+  // The following check doesn&#39;t account for skews (which don&#39;t exist
+  // in the canvas spec (yet) anyway.
+
+  if (this.m_[0][0] != 1 || this.m_[0][1] ||
+      this.m_[1][1] != 1 || this.m_[1][0]) {
+    var filter = [];
+
+    // Note the 12/21 reversal
+    filter.push(&#39;M11=&#39;, this.m_[0][0], &#39;,&#39;,
+                &#39;M12=&#39;, this.m_[1][0], &#39;,&#39;,
+                &#39;M21=&#39;, this.m_[0][1], &#39;,&#39;,
+                &#39;M22=&#39;, this.m_[1][1], &#39;,&#39;,
+                &#39;Dx=&#39;, mr(d.x / Z), &#39;,&#39;,
+                &#39;Dy=&#39;, mr(d.y / Z), &#39;&#39;);
+
+    // Bounding box calculation (need to minimize displayed area so that
+    // filters don&#39;t waste time on unused pixels.
+    var max = d;
+    var c2 = getCoords(this, dx + dw, dy);
+    var c3 = getCoords(this, dx, dy + dh);
+    var c4 = getCoords(this, dx + dw, dy + dh);
+
+    max.x = m.max(max.x, c2.x, c3.x, c4.x);
+    max.y = m.max(max.y, c2.y, c3.y, c4.y);
+
+    vmlStr.push(&#39;padding:0 &#39;, mr(max.x / Z), &#39;px &#39;, mr(max.y / Z),
+                &#39;px 0;filter:progid:DXImageTransform.Microsoft.Matrix(&#39;,
+                filter.join(&#39;&#39;), &quot;, sizingmethod=&#39;clip&#39;);&quot;);
+
+  } else {
+    vmlStr.push(&#39;top:&#39;, mr(d.y / Z), &#39;px;left:&#39;, mr(d.x / Z), &#39;px;&#39;);
+  }
+
+  vmlStr.push(&#39; &quot;&gt;&#39; ,
+              &#39;&lt;g_vml_:image src=&quot;&#39;, image.src, &#39;&quot;&#39;,
+              &#39; style=&quot;width:&#39;, Z * dw, &#39;px;&#39;,
+              &#39; height:&#39;, Z * dh, &#39;px&quot;&#39;,
+              &#39; cropleft=&quot;&#39;, sx / w, &#39;&quot;&#39;,
+              &#39; croptop=&quot;&#39;, sy / h, &#39;&quot;&#39;,
+              &#39; cropright=&quot;&#39;, (w - sx - sw) / w, &#39;&quot;&#39;,
+              &#39; cropbottom=&quot;&#39;, (h - sy - sh) / h, &#39;&quot;&#39;,
+              &#39; /&gt;&#39;,
+              &#39;&lt;/g_vml_:group&gt;&#39;);
+
+  this.element_.insertAdjacentHTML(&#39;BeforeEnd&#39;, vmlStr.join(&#39;&#39;));
+};
+
+contextPrototype.stroke = function(aFill) {
+  var W = 10;
+  var H = 10;
+  // Divide the shape into chunks if it&#39;s too long because IE has a limit
+  // somewhere for how long a VML shape can be. This simple division does
+  // not work with fills, only strokes, unfortunately.
+  var chunkSize = 5000;
+
+  var min = {x: null, y: null};
+  var max = {x: null, y: null};
+
+  for (var j = 0; j &lt; this.currentPath_.length; j += chunkSize) {
+    var lineStr = [];
+    var lineOpen = false;
+
+    lineStr.push(&#39;&lt;g_vml_:shape&#39;,
+                 &#39; filled=&quot;&#39;, !!aFill, &#39;&quot;&#39;,
+                 &#39; style=&quot;position:absolute;width:&#39;, W, &#39;px;height:&#39;, H, &#39;px;&quot;&#39;,
+                 &#39; coordorigin=&quot;0,0&quot;&#39;,
+                 &#39; coordsize=&quot;&#39;, Z * W, &#39;,&#39;, Z * H, &#39;&quot;&#39;,
+                 &#39; stroked=&quot;&#39;, !aFill, &#39;&quot;&#39;,
+                 &#39; path=&quot;&#39;);
+
+    var newSeq = false;
+
+    for (var i = j; i &lt; Math.min(j + chunkSize, this.currentPath_.length); i++) {
+      if (i % chunkSize == 0 &amp;&amp; i &gt; 0) { // move into position for next chunk
+        lineStr.push(&#39; m &#39;, mr(this.currentPath_[i-1].x), &#39;,&#39;, mr(this.currentPath_[i-1].y));
+      }
+
+      var p = this.currentPath_[i];
+      var c;
+
+      switch (p.type) {
+        case &#39;moveTo&#39;:
+          c = p;
+          lineStr.push(&#39; m &#39;, mr(p.x), &#39;,&#39;, mr(p.y));
+          break;
+        case &#39;lineTo&#39;:
+          lineStr.push(&#39; l &#39;, mr(p.x), &#39;,&#39;, mr(p.y));
+          break;
+        case &#39;close&#39;:
+          lineStr.push(&#39; x &#39;);
+          p = null;
+          break;
+        case &#39;bezierCurveTo&#39;:
+          lineStr.push(&#39; c &#39;,
+                       mr(p.cp1x), &#39;,&#39;, mr(p.cp1y), &#39;,&#39;,
+                       mr(p.cp2x), &#39;,&#39;, mr(p.cp2y), &#39;,&#39;,
+                       mr(p.x), &#39;,&#39;, mr(p.y));
+          break;
+        case &#39;at&#39;:
+        case &#39;wa&#39;:
+          lineStr.push(&#39; &#39;, p.type, &#39; &#39;,
+                       mr(p.x - this.arcScaleX_ * p.radius), &#39;,&#39;,
+                       mr(p.y - this.arcScaleY_ * p.radius), &#39; &#39;,
+                       mr(p.x + this.arcScaleX_ * p.radius), &#39;,&#39;,
+                       mr(p.y + this.arcScaleY_ * p.radius), &#39; &#39;,
+                       mr(p.xStart), &#39;,&#39;, mr(p.yStart), &#39; &#39;,
+                       mr(p.xEnd), &#39;,&#39;, mr(p.yEnd));
+          break;
+      }
+
+      // TODO: Following is broken for curves due to
+      //       move to proper paths.
+
+      // Figure out dimensions so we can do gradient fills
+      // properly
+      if (p) {
+        if (min.x == null || p.x &lt; min.x) {
+          min.x = p.x;
+        }
+        if (max.x == null || p.x &gt; max.x) {
+          max.x = p.x;
+        }
+        if (min.y == null || p.y &lt; min.y) {
+          min.y = p.y;
+        }
+        if (max.y == null || p.y &gt; max.y) {
+          max.y = p.y;
+        }
+      }
+    }
+    lineStr.push(&#39; &quot;&gt;&#39;);
+
+    if (!aFill) {
+      appendStroke(this, lineStr);
+    } else {
+      appendFill(this, lineStr, min, max);
+    }
+
+    lineStr.push(&#39;&lt;/g_vml_:shape&gt;&#39;);
+
+    this.element_.insertAdjacentHTML(&#39;beforeEnd&#39;, lineStr.join(&#39;&#39;));
+  }
+};
+
+function appendStroke(ctx, lineStr) {
+  var a = processStyle(ctx.strokeStyle);
+  var color = a.color;
+  var opacity = a.alpha * ctx.globalAlpha;
+  var lineWidth = ctx.lineScale_ * ctx.lineWidth;
+
+  // VML cannot correctly render a line if the width is less than 1px.
+  // In that case, we dilute the color to make the line look thinner.
+  if (lineWidth &lt; 1) {
+    opacity *= lineWidth;
+  }
+
+  lineStr.push(
+    &#39;&lt;g_vml_:stroke&#39;,
+    &#39; opacity=&quot;&#39;, opacity, &#39;&quot;&#39;,
+    &#39; joinstyle=&quot;&#39;, ctx.lineJoin, &#39;&quot;&#39;,
+    &#39; miterlimit=&quot;&#39;, ctx.miterLimit, &#39;&quot;&#39;,
+    &#39; endcap=&quot;&#39;, processLineCap(ctx.lineCap), &#39;&quot;&#39;,
+    &#39; weight=&quot;&#39;, lineWidth, &#39;px&quot;&#39;,
+    &#39; color=&quot;&#39;, color, &#39;&quot; /&gt;&#39;
+  );
+}
+
+function appendFill(ctx, lineStr, min, max) {
+  var fillStyle = ctx.fillStyle;
+  var arcScaleX = ctx.arcScaleX_;
+  var arcScaleY = ctx.arcScaleY_;
+  var width = max.x - min.x;
+  var height = max.y - min.y;
+  if (fillStyle instanceof CanvasGradient_) {
+    // TODO: Gradients transformed with the transformation matrix.
+    var angle = 0;
+    var focus = {x: 0, y: 0};
+
+    // additional offset
+    var shift = 0;
+    // scale factor for offset
+    var expansion = 1;
+
+    if (fillStyle.type_ == &#39;gradient&#39;) {
+      var x0 = fillStyle.x0_ / arcScaleX;
+      var y0 = fillStyle.y0_ / arcScaleY;
+      var x1 = fillStyle.x1_ / arcScaleX;
+      var y1 = fillStyle.y1_ / arcScaleY;
+      var p0 = getCoords(ctx, x0, y0);
+      var p1 = getCoords(ctx, x1, y1);
+      var dx = p1.x - p0.x;
+      var dy = p1.y - p0.y;
+      angle = Math.atan2(dx, dy) * 180 / Math.PI;
+
+      // The angle should be a non-negative number.
+      if (angle &lt; 0) {
+        angle += 360;
+      }
+
+      // Very small angles produce an unexpected result because they are
+      // converted to a scientific notation string.
+      if (angle &lt; 1e-6) {
+        angle = 0;
+      }
+    } else {
+      var p0 = getCoords(ctx, fillStyle.x0_, fillStyle.y0_);
+      focus = {
+        x: (p0.x - min.x) / width,
+        y: (p0.y - min.y) / height
+      };
+
+      width  /= arcScaleX * Z;
+      height /= arcScaleY * Z;
+      var dimension = m.max(width, height);
+      shift = 2 * fillStyle.r0_ / dimension;
+      expansion = 2 * fillStyle.r1_ / dimension - shift;
+    }
+
+    // We need to sort the color stops in ascending order by offset,
+    // otherwise IE won&#39;t interpret it correctly.
+    var stops = fillStyle.colors_;
+    stops.sort(function(cs1, cs2) {
+      return cs1.offset - cs2.offset;
+    });
+
+    var length = stops.length;
+    var color1 = stops[0].color;
+    var color2 = stops[length - 1].color;
+    var opacity1 = stops[0].alpha * ctx.globalAlpha;
+    var opacity2 = stops[length - 1].alpha * ctx.globalAlpha;
+
+    var colors = [];
+    for (var i = 0; i &lt; length; i++) {
+      var stop = stops[i];
+      colors.push(stop.offset * expansion + shift + &#39; &#39; + stop.color);
+    }
+
+    // When colors attribute is used, the meanings of opacity and o:opacity2
+    // are reversed.
+    lineStr.push(&#39;&lt;g_vml_:fill type=&quot;&#39;, fillStyle.type_, &#39;&quot;&#39;,
+                 &#39; method=&quot;none&quot; focus=&quot;100%&quot;&#39;,
+                 &#39; color=&quot;&#39;, color1, &#39;&quot;&#39;,
+                 &#39; color2=&quot;&#39;, color2, &#39;&quot;&#39;,
+                 &#39; colors=&quot;&#39;, colors.join(&#39;,&#39;), &#39;&quot;&#39;,
+                 &#39; opacity=&quot;&#39;, opacity2, &#39;&quot;&#39;,
+                 &#39; g_o_:opacity2=&quot;&#39;, opacity1, &#39;&quot;&#39;,
+                 &#39; angle=&quot;&#39;, angle, &#39;&quot;&#39;,
+                 &#39; focusposition=&quot;&#39;, focus.x, &#39;,&#39;, focus.y, &#39;&quot; /&gt;&#39;);
+  } else if (fillStyle instanceof CanvasPattern_) {
+    if (width &amp;&amp; height) {
+      var deltaLeft = -min.x;
+      var deltaTop = -min.y;
+      lineStr.push(&#39;&lt;g_vml_:fill&#39;,
+                   &#39; position=&quot;&#39;,
+                   deltaLeft / width * arcScaleX * arcScaleX, &#39;,&#39;,
+                   deltaTop / height * arcScaleY * arcScaleY, &#39;&quot;&#39;,
+                   &#39; type=&quot;tile&quot;&#39;,
+                   // TODO: Figure out the correct size to fit the scale.
+                   //&#39; size=&quot;&#39;, w, &#39;px &#39;, h, &#39;px&quot;&#39;,
+                   &#39; src=&quot;&#39;, fillStyle.src_, &#39;&quot; /&gt;&#39;);
+     }
+  } else {
+    var a = processStyle(ctx.fillStyle);
+    var color = a.color;
+    var opacity = a.alpha * ctx.globalAlpha;
+    lineStr.push(&#39;&lt;g_vml_:fill color=&quot;&#39;, color, &#39;&quot; opacity=&quot;&#39;, opacity,
+                 &#39;&quot; /&gt;&#39;);
+  }
+}
+
+contextPrototype.fill = function() {
+  this.stroke(true);
+};
+
+contextPrototype.closePath = function() {
+  this.currentPath_.push({type: &#39;close&#39;});
+};
+
+function getCoords(ctx, aX, aY) {
+  var m = ctx.m_;
+  return {
+    x: Z * (aX * m[0][0] + aY * m[1][0] + m[2][0]) - Z2,
+    y: Z * (aX * m[0][1] + aY * m[1][1] + m[2][1]) - Z2
+  };
+}
+  contextPrototype.save = function() {
+  var o = {};
+  copyState(this, o);
+  this.aStack_.push(o);
+  this.mStack_.push(this.m_);
+  this.m_ = matrixMultiply(createMatrixIdentity(), this.m_);
+};
+
+contextPrototype.restore = function() {
+  if (this.aStack_.length) {
+    copyState(this.aStack_.pop(), this);
+    this.m_ = this.mStack_.pop();
+  }
+};
+
+function matrixIsFinite(m) {
+  return isFinite(m[0][0]) &amp;&amp; isFinite(m[0][1]) &amp;&amp;
+      isFinite(m[1][0]) &amp;&amp; isFinite(m[1][1]) &amp;&amp;
+      isFinite(m[2][0]) &amp;&amp; isFinite(m[2][1]);
+}
+
+function setM(ctx, m, updateLineScale) {
+  if (!matrixIsFinite(m)) {
+    return;
+  }
+  ctx.m_ = m;
+
+  if (updateLineScale) {
+    // Get the line scale.
+    // Determinant of this.m_ means how much the area is enlarged by the
+    // transformation. So its square root can be used as a scale factor
+    // for width.
+    var det = m[0][0] * m[1][1] - m[0][1] * m[1][0];
+    ctx.lineScale_ = sqrt(abs(det));
+  }
+}
+
+contextPrototype.translate = function(aX, aY) {
+  var m1 = [
+    [1,  0,  0],
+    [0,  1,  0],
+    [aX, aY, 1]
+  ];
+
+  setM(this, matrixMultiply(m1, this.m_), false);
+};
+
+contextPrototype.rotate = function(aRot) {
+  var c = mc(aRot);
+  var s = ms(aRot);
+
+  var m1 = [
+    [c,  s, 0],
+    [-s, c, 0],
+    [0,  0, 1]
+  ];
+
+  setM(this, matrixMultiply(m1, this.m_), false);
+};
+
+contextPrototype.scale = function(aX, aY) {
+  this.arcScaleX_ *= aX;
+  this.arcScaleY_ *= aY;
+  var m1 = [
+    [aX, 0,  0],
+    [0,  aY, 0],
+    [0,  0,  1]
+  ];
+
+  setM(this, matrixMultiply(m1, this.m_), true);
+};
+
+contextPrototype.transform = function(m11, m12, m21, m22, dx, dy) {
+  var m1 = [
+    [m11, m12, 0],
+    [m21, m22, 0],
+    [dx,  dy,  1]
+  ];
+
+  setM(this, matrixMultiply(m1, this.m_), true);
+};
+
+contextPrototype.setTransform = function(m11, m12, m21, m22, dx, dy) {
+  var m = [
+    [m11, m12, 0],
+    [m21, m22, 0],
+    [dx,  dy,  1]
+  ];
+
+  setM(this, m, true);
+};
+
+/**
+   The text drawing function.
+   The maxWidth argument isn&#39;t taken in account, since no browser supports
+   it yet.
+  /
+contextPrototype.drawText_ = function(text, x, y, maxWidth, stroke) {
+  var m = this.m_,
+      delta = 1000,
+      left = 0,
+      right = delta,
+      offset = {x: 0, y: 0},
+      lineStr = [];
+
+  var fontStyle = getComputedStyle(processFontStyle(this.font),
+                                   this.element_);
+
+  var fontStyleString = buildStyle(fontStyle);
+
+  var elementStyle = this.element_.currentStyle;
+  var textAlign = this.textAlign.toLowerCase();
+  switch (textAlign) {
+    case &#39;left&#39;:
+    case &#39;center&#39;:
+    case &#39;right&#39;:
+      break;
+    case &#39;end&#39;:
+      textAlign = elementStyle.direction == &#39;ltr&#39; ? &#39;right&#39; : &#39;left&#39;;
+      break;
+    case &#39;start&#39;:
+      textAlign = elementStyle.direction == &#39;rtl&#39; ? &#39;right&#39; : &#39;left&#39;;
+      break;
+    default:
+      textAlign = &#39;left&#39;;
+  }
+
+  // 1.75 is an arbitrary number, as there is no info about the text baseline
+  switch (this.textBaseline) {
+    case &#39;hanging&#39;:
+    case &#39;top&#39;:
+      offset.y = fontStyle.size / 1.75;
+      break;
+    case &#39;middle&#39;:
+      break;
+    default:
+    case null:
+    case &#39;alphabetic&#39;:
+    case &#39;ideographic&#39;:
+    case &#39;bottom&#39;:
+      offset.y = -fontStyle.size / 2.25;
+      break;
+  }
+
+  switch(textAlign) {
+    case &#39;right&#39;:
+      left = delta;
+      right = 0.05;
+      break;
+    case &#39;center&#39;:
+      left = right = delta / 2;
+      break;
+  }
+
+  var d = getCoords(this, x + offset.x, y + offset.y);
+
+  lineStr.push(&#39;&lt;g_vml_:line from=&quot;&#39;, -left ,&#39; 0&quot; to=&quot;&#39;, right ,&#39; 0.05&quot; &#39;,
+               &#39; coordsize=&quot;100 100&quot; coordorigin=&quot;0 0&quot;&#39;,
+               &#39; filled=&quot;&#39;, !stroke, &#39;&quot; stroked=&quot;&#39;, !!stroke,
+               &#39;&quot; style=&quot;position:absolute;width:1px;height:1px;&quot;&gt;&#39;);
+
+  if (stroke) {
+    appendStroke(this, lineStr);
+  } else {
+    // TODO: Fix the min and max params.
+    appendFill(this, lineStr, {x: -left, y: 0},
+               {x: right, y: fontStyle.size});
+  }
+
+  var skewM = m[0][0].toFixed(3) + &#39;,&#39; + m[1][0].toFixed(3) + &#39;,&#39; +
+              m[0][1].toFixed(3) + &#39;,&#39; + m[1][1].toFixed(3) + &#39;,0,0&#39;;
+
+  var skewOffset = mr(d.x / Z) + &#39;,&#39; + mr(d.y / Z);
+
+  lineStr.push(&#39;&lt;g_vml_:skew on=&quot;t&quot; matrix=&quot;&#39;, skewM ,&#39;&quot; &#39;,
+               &#39; offset=&quot;&#39;, skewOffset, &#39;&quot; origin=&quot;&#39;, left ,&#39; 0&quot; /&gt;&#39;,
+               &#39;&lt;g_vml_:path textpathok=&quot;true&quot; /&gt;&#39;,
+               &#39;&lt;g_vml_:textpath on=&quot;true&quot; string=&quot;&#39;,
+               encodeHtmlAttribute(text),
+               &#39;&quot; style=&quot;v-text-align:&#39;, textAlign,
+               &#39;;font:&#39;, encodeHtmlAttribute(fontStyleString),
+               &#39;&quot; /&gt;&lt;/g_vml_:line&gt;&#39;);
+
+  this.element_.insertAdjacentHTML(&#39;beforeEnd&#39;, lineStr.join(&#39;&#39;));
+};
+
+contextPrototype.fillText = function(text, x, y, maxWidth) {
+  this.drawText_(text, x, y, maxWidth, false);
+};
+
+contextPrototype.strokeText = function(text, x, y, maxWidth) {
+  this.drawText_(text, x, y, maxWidth, true);
+};
+
+contextPrototype.measureText = function(text) {
+  if (!this.textMeasureEl_) {
+    var s = &#39;&lt;span style=&quot;position:absolute;&#39; +
+        &#39;top:-20000px;left:0;padding:0;margin:0;border:none;&#39; +
+        &#39;white-space:pre;&quot;&gt;&lt;/span&gt;&#39;;
+    this.element_.insertAdjacentHTML(&#39;beforeEnd&#39;, s);
+    this.textMeasureEl_ = this.element_.lastChild;
+  }
+  var doc = this.element_.ownerDocument;
+  this.textMeasureEl_.innerHTML = &#39;&#39;;
+  this.textMeasureEl_.style.font = this.font;
+  // Don&#39;t use innerHTML or innerText because they allow markup/whitespace.
+  this.textMeasureEl_.appendChild(doc.createTextNode(text));
+  return {width: this.textMeasureEl_.offsetWidth};
+};
+
+/******** STUBS          
+contextPrototype.clip = function() {
+  // TODO: Implement
+};
+
+contextPrototype.arcTo = function() {
+  // TODO: Implement
+};
+
+contextPrototype.createPattern = function(image, repetition) {
+  return new CanvasPattern_(image, repetition);
+};
+
+// Gradient / Pattern Stubs
+function CanvasGradient_(aType) {
+  this.type_ = aType;
+  this.x0_ = 0;
+  this.y0_ = 0;
+  this.r0_ = 0;
+  this.x1_ = 0;
+  this.y1_ = 0;
+  this.r1_ = 0;
+  this.colors_ = [];
+}
+
+CanvasGradient_.prototype.addColorStop = function(aOffset, aColor) {
+  aColor = processStyle(aColor);
+  this.colors_.push({offset: aOffset,
+                     color: aColor.color,
+                     alpha: aColor.alpha});
+};
+
+function CanvasPattern_(image, repetition) {
+  assertImageIsValid(image);
+  switch (repetition) {
+    case &#39;repeat&#39;:
+    case null:
+    case &#39;&#39;:
+      this.repetition_ = &#39;repeat&#39;;
+      break;
+    case &#39;repeat-x&#39;:
+    case &#39;repeat-y&#39;:
+    case &#39;no-repeat&#39;:
+      this.repetition_ = repetition;
+      break;
+    default:
+      throwException(&#39;SYNTAX_ERR&#39;);
+  }
+
+  this.src_ = image.src;
+  this.width_ = image.width;
+  this.height_ = image.height;
+}
+
+function throwException(s) {
+  throw new DOMException_(s);
+}
+
+function assertImageIsValid(img) {
+  if (!img || img.nodeType != 1 || img.tagName != &#39;IMG&#39;) {
+    throwException(&#39;TYPE_MISMATCH_ERR&#39;);
+  }
+  if (img.readyState != &#39;complete&#39;) {
+    throwException(&#39;INVALID_STATE_ERR&#39;);
+  }
+}
+
+function DOMException_(s) {
+  this.code = this[s];
+  this.message = s +&#39;: DOM Exception &#39; + this.code;
+}
+var p = DOMException_.prototype = new Error;
+p.INDEX_SIZE_ERR = 1;
+p.DOMSTRING_SIZE_ERR = 2;
+p.HIERARCHY_REQUEST_ERR = 3;
+p.WRONG_DOCUMENT_ERR = 4;
+p.INVALID_CHARACTER_ERR = 5;
+p.NO_DATA_ALLOWED_ERR = 6;
+p.NO_MODIFICATION_ALLOWED_ERR = 7;
+p.NOT_FOUND_ERR = 8;
+p.NOT_SUPPORTED_ERR = 9;
+p.INUSE_ATTRIBUTE_ERR = 10;
+p.INVALID_STATE_ERR = 11;
+p.SYNTAX_ERR = 12;
+p.INVALID_MODIFICATION_ERR = 13;
+p.NAMESPACE_ERR = 14;
+p.INVALID_ACCESS_ERR = 15;
+p.VALIDATION_ERR = 16;
+p.TYPE_MISMATCH_ERR = 17;
+
+// set up externs
+G_vmlCanvasManager = G_vmlCanvasManager_;
+CanvasRenderingContext2D = CanvasRenderingContext2D_;
+CanvasGradient = CanvasGradient_;
+CanvasPattern = CanvasPattern_;
+DOMException = DOMException_;</pre>
+
+<p>})();</p>
+
+<p>} // if</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
