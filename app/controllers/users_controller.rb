@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     end
    
     def login
+       #byebug
         if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])        
             render 'home', layout: 'mailer'            
         else

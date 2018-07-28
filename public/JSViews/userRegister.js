@@ -44,6 +44,7 @@ $(document).ready(function() {
         var row = $d.parent().parent().children().index($d.parent())+1;
         var Grid_Table = document.getElementById('tableUser');        
         var idUser=Grid_Table.rows[row].cells[0].textContent;
+
         swal({
             title: "Esta Seguro",
             text: "Desea eliminar el usuario",
@@ -82,6 +83,7 @@ $(document).ready(function() {
         $("#txtLogin").val("");
         $("#txtPass").val("");
         $("#txtConfirm").val("");
+        $("#txtEmail").val("");
         $('#slProfiles').val("");
     }
 
@@ -97,7 +99,7 @@ function getInfoInicial(jsonResponse){  //funcion para cargar la informacion ini
     for (i = 0; i < jsonResponse.length; i++) { //se llenan los perfiles           
             table.row.add( [jsonResponse[i].id,jsonResponse[i].login,jsonResponse[i].password,
                           jsonResponse[i].nombre,jsonResponse[i].apellido,jsonResponse[i].cedula,jsonResponse[i].perfil,
-                          jsonResponse[i].perfilid,
+                          jsonResponse[i].perfilid,jsonResponse[i].email,
                           "<button type='button' class='btn btn-success edit' ><i class='fa  fa-pencil' /></button>",
                           "<button type='button' class='btn btn-danger delete'><i class='fa   fa-remove' /></button>"]).draw(false);
      }                

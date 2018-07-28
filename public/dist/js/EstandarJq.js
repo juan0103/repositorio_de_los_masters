@@ -73,7 +73,7 @@ function validator(){
 
 function Fmvalidators(grupo){
      var response=true;	 
-	 //se obtienen todos los controles requeiren validacion
+	 //se obtienen todos los controles requieren validacion
 	 $('.validator').each(function(key, element){         
 	   var validaacionCampo=true;
 	    if(element.getAttribute("group-validator")!=null && element.getAttribute("group-validator")==grupo){//si pertenecen al control de validacion
