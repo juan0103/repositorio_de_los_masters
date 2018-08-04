@@ -1,2 +1,0 @@
-class PaisesController < ApplicationController
-end
