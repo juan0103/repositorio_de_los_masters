@@ -9,7 +9,16 @@ class UsersController < ApplicationController
     end
    
     def login
-        if User.exists?(:login=>params[:txtuser],:password=>params[:txtpassword])        
+       #byebug
+       user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
+        if user!=nil 
+            if(user.perfil_id==1)
+               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Usuarios","register"],["pais","Gestion Pais","index"],
+               ["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],["users","Salir","index"] ]
+            else
+                session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
+            end
+
             render 'home', layout: 'mailer'            
         else
             @message = "Usuario o contraseña incorrecta"
@@ -19,7 +28,7 @@ class UsersController < ApplicationController
     end
 
     def register
-        render 'register'
+        render 'home', layout:"mailer"
     end
 
     def save_register
@@ -66,7 +75,7 @@ class UsersController < ApplicationController
     end
        
     def delete_user
-     user=User.find(params[:txtId])
+     user=User.find(params[:id])
      user.destroy()
      listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
      respond_to do |format|           

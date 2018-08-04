@@ -73,6 +73,11 @@
     
     <li ><a href="#method-i-send_mail">#send_mail</a>
     
+<<<<<<< HEAD
+    <li ><a href="#method-i-send_mail_register">#send_mail_register</a>
+    
+=======
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
   </ul>
 </div>
 
@@ -109,7 +114,11 @@
         
         <div class="method-heading">
           <span class="method-name">send_mail</span><span
+<<<<<<< HEAD
+            class="method-args">(to_user)</span>
+=======
             class="method-args">(to_user, subject, cuerpo)</span>
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -124,10 +133,77 @@
 
           
           <div class="method-source-code" id="send_mail-source">
+<<<<<<< HEAD
+            <pre><span class="ruby-comment"># File app/mailers/notify_mailer.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_mail</span> <span class="ruby-identifier">to_user</span>
+  <span class="ruby-identifier">datos</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:login</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">to_user</span>)                 <span class="ruby-comment">#primero guardo en datos toda la info del usuario para usarla</span>
+
+  <span class="ruby-ivar">@id_usuario</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">id</span>                             <span class="ruby-comment"># saco en @id_usuario el identificador de mi usuario</span>
+  <span class="ruby-ivar">@email</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">email</span>                               <span class="ruby-comment">#saco en @email el correo a donde enviare el link de restauracion</span>
+ 
+  <span class="ruby-ivar">@Newrestore</span> = <span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">new</span>                    <span class="ruby-comment">#creo un objeto para usar la tabla RESTORE_PASSWORD</span>
+        <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">id_usuario</span>=<span class="ruby-ivar">@id_usuario</span>             <span class="ruby-comment">#inserto en la tabla el id del usuario que solicito el reestablecimiento</span>
+        <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">codigo_url</span> = <span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">maximum</span>(<span class="ruby-string">&#39;codigo_url&#39;</span>)<span class="ruby-value">+1</span> <span class="ruby-comment">#envio un codigo de restablecimiento para llevar un control</span>
+  <span class="ruby-ivar">@Newrestore</span>.<span class="ruby-identifier">save</span>                                     <span class="ruby-comment">#guardo las sentencias para la tabla RESTORE_PASSWORD y ejecuto la insercion</span>
+
+  <span class="ruby-identifier">res</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id_usuario</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@id_usuario</span>) 
+  <span class="ruby-ivar">@codigo</span>=<span class="ruby-identifier">res</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">codigo_url</span>                            <span class="ruby-comment">#saco el odigo generado para enviarlo en el link</span>
+  
+ 
+
+  <span class="ruby-identifier">codigostring</span>=<span class="ruby-ivar">@codigo</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@greeting</span>=<span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@greeting</span>=<span class="ruby-string">&#39;Hemos recibido una solicitud de restablecimiento de contraseña asociada a esta dirección de correo electrónico. Si has realizado esta solicitud, sigue las siguientes instrucciones.
+  Para restablecer la contraseña de tu cuenta, simplemente tienes que hacer clic en el siguiente vínculo.
+  http://localhost:3000/users/restaurarkey?codigo=&#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">codigostring</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
+  Este vínculo te dirigirá a una página Web en la que podrás establecer una nueva contraseña. 
+  Ten en cuenta que el vínculo caducará en 24 horas a partir del momento en el que se envió este correo electrónico. Si el vínculo no funciona cuando haces clic en él, puedes copiarlo y pegarlo en la barra de direcciones del navegador. 
+  Ha sido un placer ayudarte.&#39;</span>
+  <span class="ruby-identifier">mail</span>(<span class="ruby-value">to:</span> <span class="ruby-ivar">@email</span>, <span class="ruby-value">subject:</span> <span class="ruby-string">&#39;Restauracion de Contraseña&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send_mail_register" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send_mail_register</span><span
+            class="method-args">(to_email)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send_mail_register-source">
+            <pre><span class="ruby-comment"># File app/mailers/notify_mailer.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_mail_register</span> <span class="ruby-identifier">to_email</span>
+  <span class="ruby-ivar">@greeting</span>=<span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@greeting</span>=<span class="ruby-string">&#39;Te damos la bienvenida a la plataforma 
+  Hola! #####
+  
+  Gracias por registrar tus datos.&#39;</span>
+  <span class="ruby-identifier">mail</span>(<span class="ruby-value">to:</span> <span class="ruby-identifier">to_email</span>, <span class="ruby-value">subject:</span> <span class="ruby-string">&#39;Bienvenido!&#39;</span>)
+=======
             <pre><span class="ruby-comment"># File app/mailers/notify_mailer.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_mail</span> <span class="ruby-identifier">to_user</span>, <span class="ruby-identifier">subject</span>, <span class="ruby-identifier">cuerpo</span>
   <span class="ruby-ivar">@greeting</span> = <span class="ruby-identifier">cuerpo</span>
   <span class="ruby-identifier">mail</span>(<span class="ruby-value">to:</span> <span class="ruby-identifier">to_user</span>, <span class="ruby-value">subject:</span> <span class="ruby-identifier">subject</span>)
+>>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
 <span class="ruby-keyword">end</span></pre>
           </div>
           

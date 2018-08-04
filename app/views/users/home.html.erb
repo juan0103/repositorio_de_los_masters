@@ -24,6 +24,7 @@
                   <th style="text-align:center">Cedula</th>
                   <th style="text-align:center">Perfil</th> 
                   <th style="text-align:center;">Perfil Id</th> 
+                  <th style="text-align:center;">Email</th> 
                   <th style="text-align:center; width:12px"></th>  
                   <th style="text-align:center;width:12px"></th>                  
                 </tr>
@@ -90,6 +91,15 @@
                                 <input type="text" id="txtLogin" class="form-control    validator" group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar login"/>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2">
+                                Email</label>
+                            <div class="col-md-8">
+                                <input type="text" id="txtEmail" class="form-control    validator" group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar el email" email="true"/>
+                            </div>
+                        </div>
+
                         
 						<div class="form-group">
                             <label class="col-md-2">

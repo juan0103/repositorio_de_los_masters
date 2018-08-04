@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :empresas
+  resources :pais
   resources :branch_offices
   resources :countries
   resources :profiles

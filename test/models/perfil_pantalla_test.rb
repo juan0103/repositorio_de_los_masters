@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PaisesControllerTest < ActionDispatch::IntegrationTest
+class PerfilPantallaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
