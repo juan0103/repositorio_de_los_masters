@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         else
             @message = "Usuario o contraseña incorrecta"
             @tipo="error"
-            render 'users', layout: 'mailer'
+            render 'index', layout: 'application'
         end
     end
 

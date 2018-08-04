@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "users/restorekey"
   get "users/restaurarkey"
   post "users/insertpass"
- 
+  get "index" => "landing_pages#index"
   post "users/delete_user"
   
 end
