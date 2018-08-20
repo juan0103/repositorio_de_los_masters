@@ -180,15 +180,9 @@
 
           
           <div class="method-source-code" id="delete_user-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 58</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_user</span>
  <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 68</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_user</span>
- <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:txtId</span>])
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">destroy</span>()
  <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)  
  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
@@ -227,11 +221,7 @@
 
           
           <div class="method-source-code" id="getInfo-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 70</span>
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 80</span>
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getInfo</span>
     <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)
     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
@@ -303,16 +293,9 @@
 
           
           <div class="method-source-code" id="insertpass-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 87</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 121</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insertpass</span>
     <span class="ruby-identifier">usuario_code</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:codigo_url</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])                 
-
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 117</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">insertpass</span>
-    <span class="ruby-identifier">usuario_code</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:codigo_url</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>])                 
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
     <span class="ruby-ivar">@id_usuario_code</span>=<span class="ruby-identifier">usuario_code</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">id_usuario</span>       
     <span class="ruby-constant">User</span>.<span class="ruby-identifier">update</span>(<span class="ruby-ivar">@id_usuario_code</span>, <span class="ruby-value">:password</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:txtcontraseña</span>])
     <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Su contraseña ha sido reestablecida correctamente&quot;</span>
@@ -350,16 +333,21 @@
           <div class="method-source-code" id="login-source">
             <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>
-<<<<<<< HEAD
-    <span class="ruby-identifier">byebug</span>
-=======
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
-    <span class="ruby-keyword">if</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-value">:login</span><span class="ruby-operator">=&gt;</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtuser</span>],<span class="ruby-value">:password</span><span class="ruby-operator">=&gt;</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtpassword</span>])        
+   <span class="ruby-comment">#byebug</span>
+   <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;login=:nombre and password=:pass &quot;</span>,{<span class="ruby-value">nombre:</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtuser</span>],<span class="ruby-value">pass:</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:txtpassword</span>]}).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span><span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span> 
+        <span class="ruby-keyword">if</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">perfil_id</span><span class="ruby-operator">==</span><span class="ruby-value">1</span>)
+           <span class="ruby-identifier">session</span>[<span class="ruby-value">:menu</span>]=[[<span class="ruby-string">&quot;profiles&quot;</span>,<span class="ruby-string">&quot;Gestion Perfiles&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],[<span class="ruby-string">&quot;empresas&quot;</span>,<span class="ruby-string">&quot;Gestion Empresa&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],[<span class="ruby-string">&quot;users&quot;</span>,<span class="ruby-string">&quot;Usuarios&quot;</span>,<span class="ruby-string">&quot;register&quot;</span>],[<span class="ruby-string">&quot;pais&quot;</span>,<span class="ruby-string">&quot;Gestion Pais&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],
+           [<span class="ruby-string">&quot;users&quot;</span>,<span class="ruby-string">&quot;Gestion Departamentos&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],[<span class="ruby-string">&quot;users&quot;</span>,<span class="ruby-string">&quot;Gestion Ciudades&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],[<span class="ruby-string">&quot;users&quot;</span>,<span class="ruby-string">&quot;Salir&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>] ]
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">session</span>[<span class="ruby-value">:menu</span>]=[[<span class="ruby-string">&quot;profiles&quot;</span>,<span class="ruby-string">&quot;Gestionar  Auditorias&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>],[<span class="ruby-string">&quot;users&quot;</span>,<span class="ruby-string">&quot;Salir&quot;</span>,<span class="ruby-string">&quot;index&quot;</span>]]
+        <span class="ruby-keyword">end</span>
+
         <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;home&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;mailer&#39;</span>            
     <span class="ruby-keyword">else</span>
         <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Usuario o contraseña incorrecta&quot;</span>
         <span class="ruby-ivar">@tipo</span>=<span class="ruby-string">&quot;error&quot;</span>
-        <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;mailer&#39;</span>
+        <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;application&#39;</span>
     <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -391,13 +379,9 @@
 
           
           <div class="method-source-code" id="register-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 22</span>
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 21</span>
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">register</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;register&#39;</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;home&#39;</span>, <span class="ruby-value">layout:</span><span class="ruby-string">&quot;mailer&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -428,17 +412,12 @@
 
           
           <div class="method-source-code" id="restorekey-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 80</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">restorekey</span> 
-    <span class="ruby-constant">NotifyMailer</span>.<span class="ruby-identifier">send_mail</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:txtusuario</span>]).<span class="ruby-identifier">deliver</span>
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 90</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">restorekey</span> 
 <span class="ruby-comment">#consulta de datos necesarios para enviar el correo al usuario</span>
     <span class="ruby-ivar">@codigo</span>=<span class="ruby-string">&#39;&#39;</span>
     <span class="ruby-ivar">@id_usuario</span>=<span class="ruby-string">&#39;0&#39;</span> 
-    <span class="ruby-identifier">atos</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:login</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:txtusuario</span>]) <span class="ruby-comment">#primero guardo en datos toda la info del usuario para usarla</span>
+    <span class="ruby-identifier">datos</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:login</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:txtusuario</span>]) <span class="ruby-comment">#primero guardo en datos toda la info del usuario para usarla</span>
     <span class="ruby-ivar">@id_usuario</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">id</span>                             <span class="ruby-comment"># saco en @id_usuario el identificador de mi usuario</span>
     <span class="ruby-ivar">@email</span>=<span class="ruby-identifier">datos</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">email</span>                               <span class="ruby-comment">#saco en @email el correo a donde enviare el link de restauracion</span>
     <span class="ruby-ivar">@Newrestore</span> = <span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">new</span>                    <span class="ruby-comment">#creo un objeto para usar la tabla RESTORE_PASSWORD</span>
@@ -448,15 +427,9 @@
     <span class="ruby-identifier">res</span>=<span class="ruby-constant">RestorePassword</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id_usuario</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@id_usuario</span>) 
     <span class="ruby-ivar">@codigo</span>=<span class="ruby-identifier">res</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">codigo_url</span>                            <span class="ruby-comment">#saco el odigo generado para enviarlo en el link</span>
     <span class="ruby-identifier">codigostring</span>=<span class="ruby-ivar">@codigo</span>.<span class="ruby-identifier">to_s</span>
-    <span class="ruby-identifier">cuerpo</span>=<span class="ruby-string">&#39;Hemos recibido una solicitud de restablecimiento de contraseña asociada a esta dirección de correo electrónico. Si has realizado esta solicitud, sigue las siguientes instrucciones.
-    Para restablecer la contraseña de tu cuenta, simplemente tienes que hacer clic en el siguiente vínculo.
-    http://localhost:3000/users/restaurarkey?codigo=&#39;</span><span class="ruby-operator">+</span><span class="ruby-identifier">codigostring</span><span class="ruby-operator">+</span><span class="ruby-string">&#39;
-    Este vínculo te dirigirá a una página Web en la que podrás establecer una nueva contraseña. 
-    Ten en cuenta que el vínculo caducará en 24 horas a partir del momento en el que se envió este correo electrónico. Si el vínculo no funciona cuando haces clic en él, puedes copiarlo y pegarlo en la barra de direcciones del navegador. 
-    Ha sido un placer ayudarte.&#39;</span>
-<span class="ruby-comment">#una vez que ya tengo los datos email con el codigo generado y todo, llamo la acccion que envia el correo</span>
+    <span class="ruby-identifier">cuerpo</span>=<span class="ruby-node">&quot;http://localhost:3000/users/restaurarkey?codigo=#{codigostring}&quot;</span>
+    <span class="ruby-comment">#una vez que ya tengo los datos email con el codigo generado y todo, llamo la acccion que envia el correo</span>
     <span class="ruby-constant">NotifyMailer</span>.<span class="ruby-identifier">send_mail</span>(<span class="ruby-ivar">@email</span>, <span class="ruby-string">&#39;Restauracion de Contraseña&#39;</span>, <span class="ruby-identifier">cuerpo</span> ).<span class="ruby-identifier">deliver</span>
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
     <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Por favor revise el correo que le ha sido enviado&quot;</span>
     <span class="ruby-ivar">@tipo</span>=<span class="ruby-string">&quot;success&quot;</span>
     <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-value">layout:</span> <span class="ruby-string">&#39;application&#39;</span>
@@ -490,15 +463,10 @@
 
           
           <div class="method-source-code" id="save_register-source">
-<<<<<<< HEAD
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_register</span>
-=======
-            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">save_register</span>
 
    
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
    <span class="ruby-keyword">if</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]<span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span> <span class="ruby-keyword">and</span>  <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>))
       <span class="ruby-identifier">user</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
    <span class="ruby-keyword">else</span>
@@ -511,10 +479,6 @@
     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">apellido</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:apellido</span>]
     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">cedula</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:cedula</span>]
     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">perfil_id</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:perfil</span>]
-<<<<<<< HEAD
-
-    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span>)
-=======
     <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>=<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
     <span class="ruby-identifier">cuerpoemail</span>=<span class="ruby-string">&#39;Te damos la bienvenida a la plataforma 
     Hola! #####
@@ -526,7 +490,6 @@
     Gracias por registrar tus datos.&#39;</span>
     <span class="ruby-keyword">if</span> (<span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span>)
         <span class="ruby-constant">NotifyMailer</span>.<span class="ruby-identifier">send_mail</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>], <span class="ruby-string">&#39;BIENVENIDO!&#39;</span>, <span class="ruby-identifier">cuerpoemail</span>).<span class="ruby-identifier">deliver</span>
->>>>>>> 32e535584f9a7046265d2b05ca61a0a0c22392e7
         <span class="ruby-identifier">listUsers</span>=<span class="ruby-constant">User</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;tbU.*,tbP.descripcion perfil,tbP.id perfilId&#39;</span>).<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;tbU JOIN &quot;seguridad&quot;.&quot;tbperfil&quot;  tbP ON tbP.id=tbU.perfil_id&#39;</span>)  
         <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>           
            <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> 
