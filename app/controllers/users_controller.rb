@@ -8,6 +8,9 @@ class UsersController < ApplicationController
         render 'index', layout: 'application'
     end
    
+    def ganadoresTemplodelamoda
+        render 'ganadoresTemplodelaModa'
+    end
     def login
        #byebug
        user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
@@ -15,12 +18,16 @@ class UsersController < ApplicationController
             if(user.perfil_id==1)
                session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Usuarios","register"],["pais","Gestion Pais","index"],
                ["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],["users","Salir","index"] ]
-            else
-                session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
+            elsif(user.perfil_id==3)
+                session[:menu]=[["novedades","Gestionar  Novedades","index"],["users","Salir","index"]]
+              #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
-
+            duser=Interesado.where(:id_interesado => user.id_interesado) 
+            session[:area]=duser[0].desc_interesado
+            session[:usuario]=user.login.to_s
             render 'home', layout: 'mailer'            
         else
+            
             @message = "Usuario o contraseña incorrecta"
             @tipo="error"
             render 'index', layout: 'application'

@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+
+
+<!-- Current language: es  Current user: AnonymousUser-->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Deja que el azar tome una decision por ti. Olvídate de los papelitos, números, listas, rifas, etc... Esta es tu página, y cada uno desde su ordenador!" />
+    
+        <meta name="keywords" content="echaloasuerte, suerte, dados, cara, cruz, aleatorio, distribuido, a distancia, azar, echalo, pick, ban, cara o cruz, loteria, random, draw" />
+    
+    <script src="/cdn-cgi/apps/head/Pzwi1A8fY0Sxix9Qft3XZy7kHHQ.js"></script><link rel="alternate" hreflang="es" href="https://echaloasuerte.com/draw/new/item/" />
+    <link rel="alternate" hreflang="en" href="https://chooserandom.com/draw/new/item/" />
+    <title>Elemento aleatorio | Echalo A Suerte</title>
+
+    <!-- Manifest for homescreen android apps -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" sizes="192x192" href="/static/img/icon192x192.png"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/static/img/icon192x192.png"/>
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico"/>
+
+    <!-- JQuery -->
+    <script src="/static/js/jquery-1.11.2.min.5790ead7ad3b.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.44541f44fd8e.css" rel="stylesheet">
+    <script src="/static/js/bootstrap.586d382bcde5.js"></script>
+
+    <!-- JQueryUI -->
+    <link href="/static/css/jquery-ui.min.28901698026c.css" rel="stylesheet" />
+    <script src="/static/js/jquery-ui.min.5085a9090f1b.js"></script>
+
+    <link href="/static/css/eas-base.897afe35e3c5.css" rel="stylesheet">
+    <link href="/static/css/fonts.cf2db6a1d95c.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="/static/css/font-awesome.3f05a51a1e52.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    <link href="/static/css/eas-draw-base.4269e48ee212.css" rel="stylesheet">
+    <script src="/static/js/autoGrowArea.a16430b58969.js"></script>
+    <script src="/static/js/moment.0b11669608a9.js"></script>
+    <!-- Bootstrap TokenField -->
+    <script src="/static/js/bootstrap-tokenfield.5adbf9605b48.js"></script>
+    <link href="/static/css/bootstrap-tokenfield.min.a6adb41d15d2.css" rel="stylesheet">
+
+    <link href="/static/css/jquery.bracket.6831760c8b5f.css" rel="stylesheet" />
+    <script src="/static/js/jquery.bracket.4254f9b44a0e.js"></script>
+    <script src="/static/js/card.f542645ed2bb.js"></script>
+    <script src="/static/js/coin.e8c84a07ca35.js"></script>
+    <script src="/static/js/dice.5b45e12c97b8.js"></script>
+    <script src="/static/js/spinable.ab54bc1b8e5a.js"></script>
+    <script src="/static/js/raffle.ef55149c064b.js"></script>
+    <script src="/static/js/photo.ae7cc7971761.js"></script>
+    <script src="/static/js/draw_manager.cbcc38a26848.js"></script>
+    <script src="/static/js/csphotoselector.9e373746f5ce.js"></script>
+    <link href="/static/css/csphotoselector.4a45ae9bdd02.css" rel="stylesheet">
+    
+
+    <script>
+        
+        function place_lateral_columns(){
+            var $site_frame = $('#site-frame');
+            var site_frame_pos = $site_frame.offset();
+            var site_frame_width = $site_frame.outerWidth();
+            var window_width = $(window).width();
+
+            // Left lateral column
+            var left_column = {};
+            left_column.left = 0;
+            left_column.top = site_frame_pos.top;
+            left_column.width = site_frame_pos.left;
+            $("#column-left").css({
+                position: "absolute",
+                width: left_column.width + "px",
+                top: left_column.top + "px",
+                left: left_column.left + "px"
+            });
+
+            // Right lateral column
+            var right_column = {};
+            right_column.left = site_frame_pos.left + site_frame_width;
+            right_column.top = site_frame_pos.top;
+            right_column.width = window_width - right_column.left - 3; // 3 pixels to avoid crossing the window edge
+            $("#column-right").css({
+                position: "absolute",
+                width: right_column.width + "px",
+                top: right_column.top + "px",
+                left: right_column.left + "px"
+            });
+        }
+
+        function setCookie(cname, cvalue) {
+            var d = new Date();
+            d.setTime(d.getTime() + (366*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        $( window ).resize(function() {
+            //place_right_column();
+            place_lateral_columns();
+        });
+
+        $(document).ready(function () {
+            // tooltips!
+            $(document).tooltip({
+                track: true,
+                items: ".eas-tooltip[title]"
+            });
+
+            // Collapsed navbar
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event){
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+
+            // Closes collapsed navbar when items are clicked
+            $('.nav a').on('click', function(){
+                $(".navbar-toggle").click();
+            });
+
+            // Resize the window to avoid problems with wrong width
+            $(window).resize();
+            place_lateral_columns();
+
+            $("#keep-logged").click(function(){
+                var cookie_value = $(this).prop('checked');
+                setCookie("keep-logged", cookie_value || "");
+            });
+
+            $("#keep-logged").attr('checked', getCookie("keep-logged") != "");
+
+            // Returns the browser's version
+            navigator.sayswho= (function(){
+                var ua= navigator.userAgent, tem,
+                M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                if(/trident/i.test(M[1])){
+                    tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
+                    return 'IE '+(tem[1] || '');
+                }
+                if(M[1]=== 'Chrome'){
+                    tem= ua.match(/\bOPR\/(\d+)/);
+                    if(tem!= null) return 'Opera '+tem[1];
+                }
+                M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+                return M.join(' ');
+            })();
+
+            // Add animation to suggestion box
+            $('#suggestion-box').mouseenter(function(){
+                $('#suggestion-box').stop(true,false).animate({
+                    left: 0
+                    }, 500 );
+                });
+            $('#suggestion-box').mouseleave(function(){
+                $('#suggestion-box').stop(true,false).animate({
+                    left: -150
+                    }, 500 );
+                });
+
+            $('input[type=radio][name=suggestion-type]').change(function() {
+                if (this.value == 'suggestion') {
+                    $('#info-suggestion-idea').removeClass('hidden');
+                    $('#info-suggestion-bug').addClass('hidden');
+                }
+                else if (this.value == 'bug') {
+                    $('#info-suggestion-idea').addClass('hidden');
+                    $('#info-suggestion-bug').removeClass('hidden');
+                }
+            });
+
+            $('#send-suggestion').click(function(){
+                $('.suggestion-step-form').addClass('hidden');
+                $('.suggestion-step-email').removeClass('hidden');
+            });
+
+            $('#send-suggestion-finish').click(function(){
+                var browser = navigator.sayswho;
+                var suggestion_type = $('input[type=radio][name=suggestion-type]:checked').val();;
+                var comment = $('#suggestion-comment').val();
+                var email = $('#suggestion-email').val();
+                $.ajax({
+                    method : "POST",
+                    url   : "/ws/feedback/",
+                    data  : {
+                         email : email,
+                         type : suggestion_type,
+                         browser : browser,
+                         comment : comment,
+                         csrfmiddlewaretoken : "fwsWiEG3Nyd9unXfiChaRn3FNWFXiHc2"
+                    }
+                }).done(function (){
+                    // TODO some feedback here
+                    //DAVID?
+                })
+                .fail(function () {
+                    alert("There was an error when sending the feedback :(")
+                });
+
+                $('.suggestion-step-email').addClass('hidden');
+                $('.suggestion-step-final').removeClass('hidden');
+            });
+
+            var user_login = function(credentials, callback_done, callback_fail){
+                var data = JSON.stringify(credentials);
+                $.ajax({
+                    type : 'POST',
+                    contentType : 'application/json',
+                    url : "/api/v1/user/login/",
+                    data: data
+                }).done(callback_done).fail(callback_fail);
+            };
+            var user_logout = function(){
+                $.ajax({
+                    type : 'POST',
+                    contentType : 'application/json',
+                    url : "/api/v1/user/logout/",
+                }).done(function(){
+                    window.location = "/accounts/login/";
+                }).fail(function(){
+                    console.log("Impossible to logout");
+                });
+            };
+            var $login_dropdown = $('#login-dropdown');
+            $login_dropdown.find('#login-button').click(function(){
+                var credentials = {
+                    'email': $login_dropdown.find('#email').val(),
+                    'password': $login_dropdown.find('#password').val(),
+                };
+                var callback_done = function(){
+                    window.location.reload();
+                };
+                var callback_fail = function(){
+                    window.location = "/accounts/login/";
+                };
+               user_login(credentials,callback_done, callback_fail) ;
+            });
+            $('#logout').click(user_logout);
+
+            
+    moment.locale('es');
+    
+
+    $('.eas-tokenfield').tokenfield({createTokensOnBlur:true});
+
+    // When fields are focused, all the content is pre-selected
+    $('.form-control').click(function() {
+        $(this).select();
+    });
+
+
+    var $draw_maneger = $('#draw-form').drawManager({
+        draw_type: "item",
+        default_title: "Elemento aleatorio",
+        is_shared: false,
+        url_try: "/api/v1/draw/try/",
+        url_create: "/api/v1/draw/",
+        url_shared_draw: "/draw/new/item/shared/",
+        msg_result: "Resultado",
+        msg_generated_on: "generado",
+        translations: {
+            head: "cara",
+            tail: "cruz",
+        }
+    });
+
+    
+        $("#create-and-toss").click( function() {
+            $draw_maneger.drawManager('create_and_toss');
+        });
+        
+            $("#normal-to-shared").click( function() {
+                $('#warning-login').modal('show');
+            });
+            $("#normal-to-shared-confirm").click( function() {
+                $draw_maneger.drawManager('normal_to_shared');
+            });
+        
+        $( '#help-shared-draw' ).tooltip({
+            content: function() {
+                return "¡Deja que otros accedan a la tirada, vean los <b>resultados en directo</b> y usen <b>el chat</b> creando una tirada compartida!";
+            }
+        });
+    
+
+
+            // disable tooltips in mobile
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+                $(document).tooltip("disable");
+            }
+        });
+        window.onload = function (){
+            
+        }
+
+        /* Register service workers */
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("/service-worker.js").then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+            }).catch(function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        }
+    </script>
+    <style>
+        
+    </style>
+
+</head>
+
+<body class="background">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '413351792206207',
+          xfbml      : true,
+          version    : 'v2.7'
+        });
+        
+    
+
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+
+<div id="wrapper" class="container">
+    <!-- Static navbar -->
+    <div class="row navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse-side" data-target=".side-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img id="brand"
+                    
+                        src="/static/img/brand/brand_es.81c5215c957b.png"
+                    
+                alt="Echalo A Suerte"/>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="side-collapse in">
+            <div class="navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="visible-xs">
+                        
+                            <a id="login-dropdown-link" href="/accounts/login/">
+                                <span class="fa fa-user"></span>
+                                Acceder
+                            </a>
+                        
+                        <li class="nav-divider"></li>
+                    </li>
+
+                    
+                    </li>
+
+                    
+                        <li id="login-dropdown" class="hidden-xs dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="fa fa-user" aria-hidden="true"></span> Acceder<b class="caret"></b>
+                            </a>
+                            <!-- Login panel -->
+                            <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form class="form" role="form" method="post" action="/accounts/login/" accept-charset="UTF-8" id="login-nav">
+                                                <input type='hidden' name='csrfmiddlewaretoken' value='fwsWiEG3Nyd9unXfiChaRn3FNWFXiHc2' />
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="email">Email</label>
+                                                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="sr-only" for="password">Contraseña</label>
+                                                    <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" required>
+                                                </div>
+                                                <div class="form-group checkbox">
+                                                    <label>
+                                                        <input type="checkbox" class="checkboxinput checkbox" id="keep-logged" name="keep-logged"> No cerrar sesión
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button id="login-button" type="button" class="btn btn-success btn-block">Acceder</button>
+                                                    <a class="forgot-password"
+                                                       href="/accounts/forgot_password/">¿No recuerdas tu contraseña?</a>
+                                                </div>
+                                                <li class="nav-divider"></li>
+                                                <div class="register-now text-center">
+                                                    ¿Aún no tienes cuenta?<br>
+                                                    <a id="sign-up-link" href="/accounts/register/">¡Regístrate!</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- End login panel -->
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="site-frame" class="col-sm-10 col-md-10 col-lg-8 col-lg-offset-2 col-md-offset-1 col-sm-offset-1">
+        
+
+        
+    
+    <form id="draw-form" class="clearfix" method="post">
+        <!-- Draw Heading -->
+        <div class="clearfix draw-heading step-configure ">
+            
+                <a href="/" class="back-arrow col-xs-2 col-sm-2 text-center">
+                    <img src="/static/img/back_arrow.de0105e98016.png" alt="Atrás"/>
+                </a>
+            
+            <div id="draw-title-container" class="col-xs-12 col-sm-8 text-center eas-tooltip" title="Haz clic en el título de la tirada para cambiarlo">
+                <textarea name="title" class="form-control autogrow draw-title-area text-center" rows="1">Elemento aleatorio</textarea>
+            </div>
+        </div>
+        <!-- End Draw Heading -->
+
+        
+        
+        <div class="step-configure col-sm-8 col-sm-offset-2 ">
+            <!-- Errors -->
+            <div id="general-errors" class="alert alert-danger hidden" role="alert">
+                <span class="fa fa-exclamation-triangle " aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                <span class="error-message"></span>
+            </div>
+            <!-- Input Form -->
+            
+
+<input type='hidden' name='csrfmiddlewaretoken' value='fwsWiEG3Nyd9unXfiChaRn3FNWFXiHc2' /> <div  
+    class="row" ><div id='info-comma-separated' class='alert alert-info' role='alert'>Separa los elementos por comas. p.ej: Maria, David S, Leo, ...</div><div id="div_id_items" class="form-group clearfix"><label for="id_items" class="control-label  col-sm-4 col-lg-3 text-right  requiredField">
+                    Elementos
+                </label><div class="controls  col-sm-8 col-lg-9 "><input class="protected eas-tokenfield textinput textInput form-control" id="id_items" name="items" type="text" /> </div></div><div  
+    class="row" ><div id="div_id_number_of_results" class="form-group clearfix"><label for="id_number_of_results" class="control-label col-xs-6 text-right requiredField">
+                    Número de resultados
+                </label><div class="controls col-xs-6"><input class="protected numberinput form-control" id="id_number_of_results" min="1" name="number_of_results" type="number" value="1" /> </div></div></div><div id="div_id_allow_repeat" class="form-group clearfix"><div id="div_id_allow_repeat" class="checkbox"><div class="col-xs-6 text-right"><span class="checkbox_label" for="id_allow_repeat">Permitir repeticiones</span></div><div class="controls checkbox-div col-xs-6"><input class="protected checkboxinput checkbox" id="id_allow_repeat" name="allow_repeat" type="checkbox" /> </div></div></div></div><input id="id_is_shared" name="is_shared" type="hidden" value="False" />
+
+            <!-- End Input Form -->
+        </div>
+
+        
+        
+
+        
+        <div class="col-xs-12 text-center">
+            
+                
+                <div class="row ">
+                    <button type="button" id="create-and-toss" class="btn btn-success submit-lockable">¡Tirar!</button>
+                    <button type="button" id="normal-to-shared" class="btn btn-primary submit-lockable">Crear tirada compartida</button>
+                    <span id="help-shared-draw" class="fa fa-question-circle" aria-hidden="true" title=""></span>
+                </div>
+            
+        </div>
+    </form>
+
+    
+
+    
+
+    </div>
+    <div id="footer">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-xs-7 col-sm-4 col-md-5 text-left">
+                © 2016 EchaloASuerte
+            </div>
+            <div class="hidden-xs col-sm-3 col-md-2">
+                <a href="/about.html">Acerca de</a>
+            </div>
+            <!-- Language dropdown menu for SM, MD and LG -->
+            <div id="change-language-link" class="hidden-xs col-sm-5 text-right">
+                Elige un idioma:
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <span class="fa fa-flag"></span>
+                    Spanish ▾
+                </a>
+                <ul id="language-dropdown" class="dropdown-menu pull-right drop-up" role="menu">
+                    <li><a href="//chooserandom.com" > Inglés</a></li>
+                    <li><a href="//echaloasuerte.com" > Español</a></li>
+                </ul>
+            </div>
+            <!-- Language dropdown menu for XS -->
+            <div class="visible-xs col-xs-5 text-right">
+            <form action="#">
+                <select id="language-selector" name="language" onchange="location = this.options[this.selectedIndex].value;">
+                    <option  value="//chooserandom.com" > Inglés</option>
+                    <option SELECTED="selected" value="//echaloasuerte.com"> Español</option>
+                </select>
+            </form>
+            </div>
+
+        </div>
+    </div><!-- #footer -->
+</div>
+<!-- end container -->
+<div id="column-left" class="lateral-column">
+    
+        <div id="social-box">
+            <div class="fb-like" data-href="https://www.facebook.com/EchaloASuerte-202874843092116/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+        </div>
+        <div id="suggestion-box">
+            <a data-toggle="modal" href="#suggestion-box-panel">
+                <div id="suggestion-box-text" class="text-center">
+                    <p>¿Alguna sugerencia?</p>
+                    <span>Tell us!</span>
+                </div>
+            </a>
+            <div id="suggestion-box-icon">
+                <img src="/static/img/suggestion_box.784dada0a70a.png" alt="Buzón de sugerencias"/>
+            </div>
+        </div>
+    
+</div>
+
+<div id="column-right" class="lateral-column">
+    
+    
+</div>
+
+<!-- Suggestion box modal -->
+<div class="modal fade" id="suggestion-box-panel" tabindex="-1" role="dialog" aria-labelledby="SuggestionBox">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title suggestion-step-form suggestion-step-final">Buzón de sugerencias</h4>
+                <h4 class="modal-title suggestion-step-email hidden">Solo una cosa más</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="suggestion-step-form">
+                    <div class="col-md-10 col-md-offset-1">
+                        <p>Ante todo, gracias por tomar tiempo para ayudarnos a mejorar.</p>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="suggestion-type" id="suggestion-idea" value="suggestion" checked>
+                                Quiero dejar una sugerencia o idea
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="suggestion-type" id="suggestion-bug" value="bug">
+                                Quiero informar sobre un error
+                            </label>
+                        </div>
+                        <div id="info-suggestion-idea" class="alert alert-info">Por favor, describe la idea, puedes darnos enlaces, imágenes, ...</div>
+                        <div id="info-suggestion-bug" class="alert alert-info hidden">Por favor, danos mas detalles sobre el bug. ¿Como lo encontraste?</div>
+                        <textarea id="suggestion-comment" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-md-10 col-md-offset-1 suggestion-step-email hidden">
+                    <p>Si deseas, puedes darnos tu correo en caso de que tengamos alguna duda, o para agradecerte :)</p>
+                    <label for="suggestion-email" class="col-sm-4 control-label text-right">Email (opcional)</label>
+                    <div class="col-sm-6">
+                      <input type="email" class="form-control" id="suggestion-email" name="email">
+                    </div>
+                </div>
+                <div class="alert alert-success col-md-10 col-md-offset-1 text-center suggestion-step-final hidden">
+                    El mensaje ha sido enviado!<br>
+                    De nuevo, gracias por tu ayuda. Nos es muy útil
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="suggestion-step-form">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <a id="send-suggestion" href="#" type="button" class="btn btn-primary">Enviar</a>
+                </div>
+                <a id="send-suggestion-finish" href="#" type="button" class="btn btn-primary suggestion-step-email hidden">Enviar</a>
+                <a href="#" type="button" data-dismiss="modal" class="btn btn-primary suggestion-step-final hidden">Terminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Warning "Log in" modal -->
+    <div class="modal fade" id="warning-login" tabindex="-1" role="dialog" aria-labelledby="WarningLogin">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">¿Puedo dar un consejo?</h4>
+                </div>
+                <div class="modal-body">
+                    Parece que no estás registrado.<br> Los usuarios registrados tienen varios beneficios cuando crean tiradas públicas: 
+                    <ul>
+                        <li>Sólo tu puedes tirar</li>
+                        <li>Nadie más puede editar los detalles de la tirada</li>
+                        <li>Sólo tu puedes invitar a gente</li>
+                        <li>La tirada permanecerá en tu historial para facilitar el acceso</li>
+                    </ul>
+                    <div class="text-center" >
+                        <a href="/accounts/login/" type="button" class="btn btn-success">Acceder</a>
+                        <div id="create-account">
+                            <p>¿Aún no tienes cuenta?<br/>
+                            Sólo tardarás 30 segundos, y <strong>es totalmente GRATIS!</strong></p>
+                            <a href="/accounts/register/" type="button" >Crea una cuenta</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="normal-to-shared-confirm" type="button" class="btn btn-default" data-dismiss="modal">No gracias, sé lo que hago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62791775-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

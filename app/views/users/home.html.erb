@@ -1,50 +1,45 @@
 <script src="/JsViews/userRegister.js" type="text/javascript"></script>
 
 
-
-<div class="col-lg-12">
-    <div class="panel panel-default box">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-users"></i>Administracion De Usuarios</h3>
-        </div>
-        <div class="panel-body box-body">
-            <div class="table-responsive">
-                <div id="divGrid" style="overflow: auto; height: auto; max-height: 420px" >
-                    <!-- /.box-header -->
-                    <table id="tableUser" class="bs-table table table-bordered table-striped filterTable">
-                        <thead>
-                            <tr>
-                                <th style="text-align:center">Id</th>
-                                <th style="text-align:center">Login</th>  
-                                <th style="text-align:center">Password</th>                  
-                                <th style="text-align:center">Nombre</th>                  
-                                <th style="text-align:center">Apellido</th>                  
-                                <th style="text-align:center">Cedula</th>
-                                <th style="text-align:center">Perfil</th> 
-                                <th style="text-align:center;">Perfil Id</th> 
-                                <th style="text-align:center;">Email</th> 
-                                <th style="text-align:center; width:12px"></th>  
-                                <th style="text-align:center;width:12px"></th>                  
-                            </tr>
-                        </thead>
-                        <tbody>                            
-                        </tfoot>
-                    </table>
-                </div>
-                <!-- /.box-body -->
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>Registro Usuarios</h1>      
-    </section>    
- <br/>
-<div class="container">	
-<button type="button" class="btn btn-default fa  fa-user" onclick="showModal('ventana');clean();"></button>	
-</br></br>
+<div class="panel panel-default box-body">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-users"></i>  Administracion De Usuarios</h3>   
+    </div>   
+    <br/>
+    
+   
+        <!-- /.box-header -->
+        
+            <table id="tableUser" class="table table-bordered table-striped filterTable">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Login</th>  
+                    <th style="text-align:center">Password</th>                  
+                    <th style="text-align:center">Nombre</th>                  
+                    <th style="text-align:center">Apellido</th>                  
+                    <th style="text-align:center">Cedula</th>
+                    <th style="text-align:center">Perfil</th> 
+                    <th style="text-align:center;">Perfil Id</th> 
+                    <th style="text-align:center;">Email</th> 
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table>
+        
+        <!-- /.box-body -->
+        <div class="container">	
+        <button type="button" class="btn btn-default fa  fa-user" onclick="showModal('ventana');clean();"></button>	
+        </br></br>
+    </div>
+    
 </div>
+
+
 
           <!--Ventana Modal-->
 <div class="modal  fade" tabindex="-1" role="dialog" id="ventana">
@@ -145,5 +140,3 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
- 
