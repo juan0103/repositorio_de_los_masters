@@ -1,153 +1,135 @@
 
-<p><h1><bolt>Novedades Reportadas Para el Area: <%= session[:area] %></bolt></h1></p>
+<script> 
+		function actimagenes() 
+		{
+			document.getElementById("divdocumentos").style.display = 'none';
+			document.getElementById("divimagenes").style.display = 'block';
+		}
+	</script>
+	<script> 
+		function actdocumentos() 
+		{
+			document.getElementById("divdocumentos").style.display = 'block';
+			document.getElementById("divimagenes").style.display = 'none';
+		}
+	</script>
 
+
+<p><h1><bolt>Novedades Reportadas Para el Area: <%= session[:area] %></bolt></h1></p>
+<br style="clear:both;">
+<br style="clear:both;">
 <%= form_tag(:controller => "novedades", :action => "getnovedades", :method => "post") do |j| %>			                 
     <div class="col-sm-3" >
-       <span class="focus-input100"><b>Fecha Inicio</b></span>
-        <input class="input100" type="text" name="txtuser" id="txtuser" placeholder="Usuario">
+       <span class="focus-input100"><b>Fecha Inicio  </b></span>
+        <input class="input100" type="text" name="fecha_inicio" id="fecha_inicio" >
 	</div>
 	<div class="col-sm-3" >
-        <span class="focus-input100"><b>Fecha Final</b></span>
-        <input class="input100" type="text" name="txtuser" id="txtuser" placeholder="Usuario">
+        <span class="focus-input100"><b>Fecha Final  </b></span>
+        <input class="input100" type="text" name="fecha_final" id="fecha_final" >
     </div>
-    </br>
+	<br style="clear:both;">
+	<br style="clear:both;">
  
-    <div class="col-md-2 " style="display: block">
-        <button type="button" class="btn btn-light">Light</button>
-    </div>
-	
-                   
-	
-	
-		
+    <div class="col-md-1 " >
+        <button type="submit" class="btn btn-light">Ver Hoy</button>
+	</div>
+
+	<div class="dropdown col-md-2">
+		<select class="btn btn-default dropdown-toggle"  id="dropdownMenu1"  >
+			<option>Todas</option>
+			<option>Abiertas</option>
+			<option>Cerradas</option>
+		</select>
+	</div>
+ 
+	<div class="col-md-1 " >
+			<button type="button" class="btn btn-success">Generar</button>
+	</div>	
 <% end %>
-			
 
-
-
-
-
-
-
-
-
-
-    <button type="button" id="Crear" class="btn btn-primary">
-        <span class="fa fa-plus"></span> Agregar
-    </button>
-
+<br style="clear:both;">
+<br style="clear:both;">
+<br style="clear:both;">
+<br style="clear:both;">
+<button type="button" id="Crear" class="btn btn-primary">
+    <span class="fa fa-plus"></span> Novedad # Titulo ... Sitio... Fecha...
+</button>
     <div id="ModalCrear" class="modal fade" role="dialog" style="overflow-y: scroll;"> 
     	<div class="modal-dialog">
     		<div class="modal-content">
     			<div class="modal-header"> 
-    				<h4 class="modal-tittle">Crear</h4> 
+    				<h4 class="modal-tittle">Novedad: # Origen:...</h4> 
     			</div> 
     			<form class="form-horizontal" role="form" id="form-crear">
     				<div class="modal-body"> 
+
     					<div class="row form-group col-md-12">
-    						<label for="crear_codigo" class="control-label col-sm-2 col-xs-12">Código: </label>
-    						<div class="col-sm-4 col-xs-6">
-    							<input type="number" class="form-control" id="crear_codigo" name="crear_codigo">
+							<div class="col-md-4">
+							<label></label><i class="fa fa-user"></i><b>  Autor: </b></label>
+							</div>
+    						<div class="col-md-8">
+    							<label id="Autor" >Autor </label>
     						</div>
-    					</div>  
-    					<div class="row form-group col-md-12">
-    						<label for="crear_nombre" class="control-label col-sm-2 col-xs-12">Nombre: </label>
-    						<div class="col-sm-6 col-xs-10 selectContainer">
-    							<select id="crear_nombre" name="crear_nombre" class="form-control" style="width: 100%;">
-                                        <option value="0">Seleccione...</option>
-                                        <option value="1">Clorace</option>
-                                        <option value="2">Miovit</option>
-    							</select>
+						</div> 
+						<div class="row form-group col-md-12">
+							<div class="col-md-4">
+    							<label><i class="fa fa-calendar-o"></i><b>  Fecha: </b></label>
+							</div>
+							<div class="col-md-8">
+    							<label id="Fecha" >Fecha </label>
     						</div>
-    						<div class="col-sm-2 col-xs-2">
-    							<button type="button" class="btn btn-primary" id="agregar_nombres">
-    								<span class="fa fa-plus"></span>
-                        			<span class="hidden-xs"> Agregar Items</span> 
-    							</button>
+						</div> 
+						<div class="row form-group col-md-12">
+							<div class="col-md-4">
+								<label><i class="fa fa-exclamation-circle"></i><b>  Tipo de Novedad: </b></label>
+							</div>
+    						<div class="col-md-8">
+    							<label id="TNovedad" >TNovedad </label>
     						</div>
     					</div> 
-    					<div class="row form-group col-md-12">
-    						<label for="crear_formas_farmaceuticas" class="control-label col-sm-2 col-xs-12">Forma Farmacéutica: </label>
-    						<div class="col-sm-6 col-xs-10 selectContainer">
-    							<select id="crear_formas_farmaceuticas" class="form-control" name="crear_formas_farmaceuticas" style="width: 100%;">
-                                        <option value="0">Seleccione...</option>
-                                        <option value="1">Inyección</option>
-                                        <option value="2">Jarabe</option>
-    							</select>
+						<div class="row form-group col-md-12">
+							<div class="col-md-4">
+    							<label><b>Estado: </b></label>
+							</div>
+								<div class="col-md-8">
+    							<label id="Estado">Estado </label>
     						</div>
-    						<div class="col-sm-1 col-xs-2">
-    							<button type="button" class="btn btn-primary" id="agregar_formas">
-    								<span class="fa fa-plus"></span>
-                        			<span class="hidden-xs"> Agregar Items</span> 
-    							</button>
-    						</div>
-    					</div>
-    					<div class="row form-group col-md-12">
-    						<label for="crear_presentacion" class="control-label col-sm-2 col-xs-12">Presentación: </label>
-    						<div class="col-sm-3 col-xs-5">
-    							<input type="number" class="form-control" id="crear_presentacion" name="crear_presentacion">
-    						</div> 
-    						<div class="col-sm-4 col-xs-7 selectContainer">
-    							<select id="crear_unidad_de_medicion_p" class="form-control" name="crear_unidad_de_medicion_p" style="width: 100%;">
-                                        <option value="0">Seleccione...</option>
-                                        <option value="1">(und) Unidad</option>
-                                        <option value="2">(ml) Mililitro</option>
-                                        <option value="2">(mg) Miligramo</option>
-    							</select>
-    						</div>
-    					</div>
-    					<div class="row form-group col-md-12">
-    						<label for="crear_unidad_teorica" class="control-label col-sm-2 col-xs-12">Unidad Teórica: </label>
-    						<div class="col-sm-5 col-xs-5">
-    							<input type="number" class="form-control" id="crear_unidad_teorica" name="crear_unidad_teorica">
-    						</div> 
-    						<div class="col-sm-4 col-xs-7 selectContainer">
-    							<select id="crear_unidad_de_medicion_u" class="form-control" name="crear_unidad_de_medicion_u" style="width: 100%;">
-                                        <option value="0">Seleccione...</option>
-                                        <option value="1">(und) Unidad</option>
-                                        <option value="2">(ml) Mililitro</option>
-                                        <option value="2">(mg) Miligramo</option>
-    							</select>
-    						</div>
-    					</div>
-    					<div class="row form-group col-md-12">
-    						<label for="crear_velocidad" class="control-label col-sm-2 col-xs-12">Velocidad del Producto: </label>
-    						<div class="col-sm-3 col-xs-5">
-    							<input type="number" class="form-control" id="crear_velocidad" name="crear_velocidad">
-    						</div> 
-    						<label class="col-sm-5 col-xs-7">
-    							<h4>
-    								<sup id="crear_unidad_de_medicion_v_u" name="crear_unidad_de_medicion_v_u">
-    									
-    								</sup>
-    								/
-    								<sub id="crear_unidad_de_medicion_v_t" name="crear_unidad_de_medicion_v_t">
-    									min
-    								</sub>
-    							</h4>
-    						</label>
-    					</div>
-    					<div class="row form-group col-md-12">
-    						<label class="control-label col-sm-2 col-xs-12">Tiempo Teórico: </label>
-    						<label class="col-sm-7 col-xs-7">
-    							<h4>
-    								<sub id="crear_tiempo_teorico" name="crear_tiempo_teorico">
-    									
-    								</sub>
-    							</h4>
-    						</label>
-    					</div>
-    					<div class="row form-group col-md-12">
-    						<label for="crear_linea_de_produccion" class="control-label col-sm-2">Linea de Producción:</label>
-    						<div class="col-sm-8 selectContainer">
-    							<select id="crear_linea_de_produccion" class="form-control" name="crear_linea_de_produccion" style="width: 100%;">
-                                        <option value="0">Seleccione...</option>
-                                        <option value="1">Liquidos Esteriles</option>
-                                        <option value="2">Liquidos No Esteriles</option>
-                                        <option value="2">Solidos</option>
-    							</select>
-    						</div>
-    					</div>
+    					</div> 
+						<br style="clear:both;">
+						<div class="panel panel-default box-body">
+							<div class="panel-heading">
+								<h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Descripcion </b></label></h3>   
+							</div>
+							<div class="panel-body">
+								Panel content
+							</div>
+						</div>
+						<div class="panel panel-default box-body">
+							<div class="panel-heading">
+								<label ><i class="fa fa-clipboard"></i><b>  Adjuntos </b></label>
+							</div>
+							<div class="panel-body">
+								<div class="col-md-8">
+									<ul class="nav nav-tabs">
+								  		<li role="presentation" class="active"><button class="btn btn-light" onclick="actimagenes()">Imagenes</button></li>
+								  		<li role="presentation"><button class="btn btn-light" onclick="actdocumentos()">Documentos</button></li>
+									</ul>
+									<br style="clear:both;">
+									<div id="divimagenes" >
+										<p>hola mundo imagenes  <a href="#">descargar</a></p>
+									</div>
+									<div id="divdocumentos" style='display:none;'>
+										<p>hola mundo documentos  <a href="#">descargar</a></p>
+									</div>
+								</div>
+							</div>
+						</div> 
+    					<div class="col-sm-2 col-xs-2">
+    						<button type="button" class="btn btn-primary" id="agregar_nombres">
+    							<span class="fa fa-plus"></span>
+                        		<span class="hidden-xs"> Agregar Items</span> 
+    						</button>
+    					</div> 
     				</div>
     				<div class="modal-footer">
     					<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -164,40 +146,41 @@
     	</div>
     </div>
 
-    <div id="ModalAgregarNombre" class="modal fade" role="dialog"> 
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-    			<div class="modal-header"> 
-    				<h4 class="modal-tittle">Agregar</h4>
-    			</div> 
-    			<form class="form-horizontal" role="form" id="form-agregar">
-    				<div class="modal-body"> 
-    					<div class="form-group col-md-12">
-    						<label for="agregar_nombre" class="control-label col-sm-4">Nombre: </label>
-    						<div class="col-sm-8">
-    							<input type="text" class="form-control" id="agregar_nombre" name="agregar_nombre">
-    						</div>
-    					</div> 
-    				</div>
-    				<div class="modal-footer">
-    					<button type="button" class="btn btn-default" data-dismiss="modal">
-    						<span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
-    					</button>
-    					<button type="button" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
-    						<span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
+<div id="ModalAgregarNombre" class="modal fade" role="dialog"> 
+    <div class="modal-dialog">
+    	<div class="modal-content">
+    		<div class="modal-header"> 
+    			<h4 class="modal-tittle">Agregar</h4>
+    		</div> 
+    		<form class="form-horizontal" role="form" id="form-agregar">
+    			<div class="modal-body"> 
+    				<div class="form-group col-md-12">
+    					<label for="agregar_nombre" class="control-label col-sm-4">Nombre: </label>
+    					<div class="col-sm-8">
+    						<input type="text" class="form-control" id="agregar_nombre" name="agregar_nombre">
+    					</div>
+    				</div> 
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-default" data-dismiss="modal">
+    					<span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
+    				</button>
+    				<button type="button" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
+    					<span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
                           
-    					</button>
-    				</div>
-    			</form>
-    		</div>
+    				</button>
+    			</div>
+    		</form>
     	</div>
     </div>
-    <script>
-        $(document).on('click', '#Crear', function() {
-        $('#ModalCrear').modal('show');
-    });
-
-    $(document).on('click', '#agregar_nombres', function() {
+</div>
+<script>
+    $(document).on('click', '#Crear', function() 
+	{
+    	$('#ModalCrear').modal('show');
+	});
+    $(document).on('click', '#agregar_nombres', function() 
+	{
         $('#ModalAgregarNombre').modal('show');
     });
-        </script>
+</script>
