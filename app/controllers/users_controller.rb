@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     def index
         render 'index', layout: 'application'
     end
+    
    
     def ganadoresTemplodelamoda
         render 'ganadoresTemplodelaModa'
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
                session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Usuarios","register"],["pais","Gestion Pais","index"],
                ["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],["users","Salir","index"] ]
             elsif(user.perfil_id==3)
-                session[:menu]=[["novedades","Gestionar  Novedades","index"],["users","Salir","index"]]
+                session[:menu]=[["novedades","Gestionar  Novedades","index"], ["novedades", "Crear Novedades", "createnovedad"], ["users","Salir","index"] ]
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
             duser=Interesado.where(:id_interesado => user.id_interesado) 

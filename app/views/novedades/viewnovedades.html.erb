@@ -1,27 +1,29 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!--script para mostrar o ocultar los archivos adjuntos-->
 <script> 
-		function actimagenes() 
-		{
-			document.getElementById("divdocumentos").style.display = 'none';
-			document.getElementById("divimagenes").style.display = 'block';
-		}
-	</script>
-	<script> 
-		function actdocumentos() 
+	function actimagenes() 
+	{
+		document.getElementById("divdocumentos").style.display = 'none';
+		document.getElementById("divimagenes").style.display = 'block';
+	}
+	function actdocumentos() 
 		{
 			document.getElementById("divdocumentos").style.display = 'block';
 			document.getElementById("divimagenes").style.display = 'none';
 		}
-	</script>
+</script>
 
-
-<p><h1><bolt>Novedades Reportadas Para el Area: <%= session[:area] %></bolt></h1></p>
+<center><p><h1><b>Novedades Reportadas Para el Area: <%= session[:area] %></b></h1></p></center>
 <br style="clear:both;">
 <br style="clear:both;">
+<!--configuracion de datos para consulta de novedades-->
 <%= form_tag(:controller => "novedades", :action => "getnovedades", :method => "post") do |j| %>			                 
     <div class="col-sm-3" >
-       <span class="focus-input100"><b>Fecha Inicio  </b></span>
-        <input class="input100" type="text" name="fecha_inicio" id="fecha_inicio" >
+    	<span class="focus-input100"><b>Fecha Inicio  </b></span>
+    	<input class="input100" type="text" name="fecha_inicio" id="fecha_inicio" >
 	</div>
 	<div class="col-sm-3" >
         <span class="focus-input100"><b>Fecha Final  </b></span>
@@ -51,101 +53,100 @@
 <br style="clear:both;">
 <br style="clear:both;">
 <br style="clear:both;">
+
 <button type="button" id="Crear" class="btn btn-primary">
     <span class="fa fa-plus"></span> Novedad # Titulo ... Sitio... Fecha...
 </button>
-    <div id="ModalCrear" class="modal fade" role="dialog" style="overflow-y: scroll;"> 
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-    			<div class="modal-header"> 
-    				<h4 class="modal-tittle">Novedad: # Origen:...</h4> 
-    			</div> 
-    			<form class="form-horizontal" role="form" id="form-crear">
-    				<div class="modal-body"> 
-
-    					<div class="row form-group col-md-12">
-							<div class="col-md-4">
-							<label></label><i class="fa fa-user"></i><b>  Autor: </b></label>
-							</div>
-    						<div class="col-md-8">
-    							<label id="Autor" >Autor </label>
-    						</div>
-						</div> 
-						<div class="row form-group col-md-12">
-							<div class="col-md-4">
-    							<label><i class="fa fa-calendar-o"></i><b>  Fecha: </b></label>
-							</div>
-							<div class="col-md-8">
-    							<label id="Fecha" >Fecha </label>
-    						</div>
-						</div> 
-						<div class="row form-group col-md-12">
-							<div class="col-md-4">
-								<label><i class="fa fa-exclamation-circle"></i><b>  Tipo de Novedad: </b></label>
-							</div>
-    						<div class="col-md-8">
-    							<label id="TNovedad" >TNovedad </label>
-    						</div>
-    					</div> 
-						<div class="row form-group col-md-12">
-							<div class="col-md-4">
-    							<label><b>Estado: </b></label>
-							</div>
-								<div class="col-md-8">
-    							<label id="Estado">Estado </label>
-    						</div>
-    					</div> 
-						<br style="clear:both;">
-						<div class="panel panel-default box-body">
-							<div class="panel-heading">
-								<h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Descripcion </b></label></h3>   
-							</div>
-							<div class="panel-body">
-								Panel content
-							</div>
+<!--modal para la visualizacion de las noveddes-->
+<div id="ModalCrear" class="modal fade" role="dialog" style="overflow-y: scroll;"> 
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header"> 
+				<div class="col-md-11">
+					<h4>Novedad: # Origen:...</h4>
+				</div>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-primary" id="agregar_nombres">
+						<span class="fa fa-cogs"></span>
+					</button>
+				</div>
+			</div> 
+			<form class="form-horizontal" role="form" id="form-crear">
+				<div class="modal-body"> 
+					<div class="row form-group col-md-12">
+						<div class="col-md-4">
+						<label></label><i class="fa fa-user"></i><b>  Autor: </b></label>
 						</div>
-						<div class="panel panel-default box-body">
-							<div class="panel-heading">
-								<label ><i class="fa fa-clipboard"></i><b>  Adjuntos </b></label>
-							</div>
-							<div class="panel-body">
-								<div class="col-md-8">
-									<ul class="nav nav-tabs">
-								  		<li role="presentation" class="active"><button class="btn btn-light" onclick="actimagenes()">Imagenes</button></li>
-								  		<li role="presentation"><button class="btn btn-light" onclick="actdocumentos()">Documentos</button></li>
-									</ul>
-									<br style="clear:both;">
-									<div id="divimagenes" >
-										<p>hola mundo imagenes  <a href="#">descargar</a></p>
-									</div>
-									<div id="divdocumentos" style='display:none;'>
-										<p>hola mundo documentos  <a href="#">descargar</a></p>
-									</div>
+						<div class="col-md-8">
+							<label id="Autor" >Autor </label>
+						</div>
+					</div> 
+					<div class="row form-group col-md-12">
+						<div class="col-md-4">
+							<label><i class="fa fa-calendar-o"></i><b>  Fecha: </b></label>
+						</div>
+						<div class="col-md-8">
+							<label id="Fecha" >Fecha </label>
+						</div>
+					</div> 
+					<div class="row form-group col-md-12">
+						<div class="col-md-4">
+							<label><i class="fa fa-exclamation-circle"></i><b>  Tipo de Novedad: </b></label>
+						</div>
+						<div class="col-md-8">
+							<label id="TNovedad" >TNovedad </label>
+						</div>
+					</div> 
+					<div class="row form-group col-md-12">
+						<div class="col-md-4">
+							<label><b>Estado: </b></label>
+						</div>
+							<div class="col-md-8">
+							<label id="Estado">Estado </label>
+						</div>
+					</div> 
+					<br style="clear:both;">
+					<div class="panel panel-default box-body">
+						<div class="panel-heading">
+							<h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Descripcion </b></label></h3>   
+						</div>
+						<div class="panel-body">
+							Panel content
+						</div>
+					</div>
+					<div class="panel panel-default box-body">
+						<div class="panel-heading">
+							<label ><i class="fa fa-clipboard"></i><b>  Adjuntos </b></label>
+						</div>
+						<div class="panel-body">
+							<div class="col-md-8">
+								<ul class="nav nav-tabs">
+							  		<li role="presentation" class="active"><button class="btn btn-light" onclick="actimagenes()">Imagenes</button></li>
+							  		<li role="presentation"><button class="btn btn-light" onclick="actdocumentos()">Documentos</button></li>
+								</ul>
+								<br style="clear:both;">
+								<div id="divimagenes" >
+									<p>hola mundo imagenes  <a href="#">descargar</a></p>
+								</div>
+								<div id="divdocumentos" style='display:none;'>
+									<p>hola mundo documentos  <a href="#">descargar</a></p>
 								</div>
 							</div>
-						</div> 
-    					<div class="col-sm-2 col-xs-2">
-    						<button type="button" class="btn btn-primary" id="agregar_nombres">
-    							<span class="fa fa-plus"></span>
-                        		<span class="hidden-xs"> Agregar Items</span> 
-    						</button>
-    					</div> 
-    				</div>
-    				<div class="modal-footer">
+						</div>
+					</div> 
+					
+				</div>
+				<div class="modal-footer">
     					<button type="button" class="btn btn-default" data-dismiss="modal">
     						<span class="glyphicon glyphicon-remove"></span>
                         	<span class="hidden-xs"> Cerrar</span> 
     					</button>
-    					<button type="button" id="Guardar" name="Guardar" class="btn btn-primary">
-    						<span class="fa fa-save"></span>
-                        	<span class="hidden-xs"> Guardar</span> 
-    					</button>
-    				</div>
-    			</form>
-    		</div>
-    	</div>
-    </div>
-
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--modal para cambiar el estado de la novedad-->
 <div id="ModalAgregarNombre" class="modal fade" role="dialog"> 
     <div class="modal-dialog">
     	<div class="modal-content">
@@ -174,6 +175,7 @@
     	</div>
     </div>
 </div>
+<!--script para mostrar los modales-->
 <script>
     $(document).on('click', '#Crear', function() 
 	{

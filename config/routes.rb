@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "index" => "landing_pages#index"
   post "users/delete_user"
   get "novedades" => "novedades#index"
+  get "createnovedades" => "novedades#createnovedad"
   post "novedades/getnovedades"
   get "GanadoresTDM" => "users#ganadoresTemplodelamoda"
 end
