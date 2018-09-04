@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get "novedades" => "novedades#index"
   get "createnovedades" => "novedades#createnovedad"
   post "novedades/getnovedades"
-  get "GanadoresTDM" => "users#ganadoresTemplodelamoda"
+  post "novedades/insertNovedad"
 end

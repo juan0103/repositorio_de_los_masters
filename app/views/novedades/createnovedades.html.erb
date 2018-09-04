@@ -1,13 +1,16 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <!--select tipo de visita-->
 <div class="col-md-4">
-    <h2><b>Visita Numero:  <label id="numero_de_visita"></label></b></h2>
+    <h2><b>Visita Numero:  <label id="numero_de_visita" ><%= @numvisita+1%></label></b></h2>
     <br style="clear:both;">
     <div class="col-sm-8" >
         <span class="focus-input100"><b>Tipo De Visita  </b></span>
-        <select id="selectTipoVisita" class="form-control">
+        <select id="selectTipoVisita" class="form-control" onchange="masbarra();" name="selectTipoVisita">
+            <option>Seleccione..</option>
             <option>Periodica</option>
             <option>Programada</option>
             <option>Repentina</option>
@@ -40,10 +43,10 @@
             <form class="form-inline">
                 <div class="form-group">
                     <div class="col-md-2">
-                        <label for="selectTipoVisita" class="control-label">Empresa</label>
+                        <label for="selectEmpresa" class="control-label">Empresa</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectTipoVisita" class="form-control" onchange="habilitarpais();">
+                        <select id="selectEmpresa" class="form-control" onchange="habilitarpais();masbarra();">
                             <option value=0>Seleccione..</option>
                             <% @empresa.each do |listempresa| %>
                                 <option  value="<%= listempresa.id_empresa%>"><%= listempresa.nombre_empresa%> </option>
@@ -54,7 +57,7 @@
                         <label for="selectPais" class="control-label">Pais</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectPais" class="form-control" disabled onchange="habilitarDpto();">
+                        <select id="selectPais" class="form-control" disabled onchange="habilitarDpto();masbarra();">
                             <option>Seleccione..</option>
                             <% @Pai.each do |listpais| %>
                                 <option  value="<%= listpais.id_pais%>"><%= listpais.nombre_pais%> </option>
@@ -65,7 +68,7 @@
                         <label for="selectDpto" class="control-label">Departamento</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectDpto" class="form-control" disabled onchange="habilitarCiudad();">
+                        <select id="selectDpto" class="form-control" disabled onchange="habilitarCiudad();masbarra();">
                                 <option>Seleccione..</option>
                             <% @Departamento.each do |listDpto| %>
                                 <option  value="<%= listDpto.id_departamento%>"><%= listDpto.desc_departamento%> </option>
@@ -76,7 +79,7 @@
                         <label for="selectCiudad" class="control-label">Ciudad</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectCiudad" class="form-control" disabled onchange="habilitarSucursal();">
+                        <select id="selectCiudad" class="form-control" disabled onchange="habilitarSucursal();masbarra();">
                                 <option>Seleccione..</option>
                             <% @Ciudad.each do |listCiudad| %>
                                 <option  value="<%= listCiudad.id_ciudad%>"><%= listCiudad.desc_ciudad%> </option>
@@ -87,7 +90,7 @@
                         <label for="selectSucursal" class="control-label">Sucursal</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectSucursal" class="form-control" disabled>
+                        <select id="selectSucursal" class="form-control" disabled onchange="masbarra();">
                             <option>Seleccione..</option>
                             <% @BranchOffice.each do |listSucursales| %>
                                 <option  value="<%= listSucursales.id_sucursal%>"><%= listSucursales.desc_sucursal%> </option>
@@ -103,7 +106,7 @@
 <!-- Barra de Progreso del formulario-->
 <br style="clear:both;">
 <div class="progress progress-striped">
-    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+    <div id="barraformcreatenovedad" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100" style="width: 0.5%">
         <span class="sr-only">40% completado (éxito)</span>
     </div>
 </div>
@@ -123,28 +126,28 @@
             </tr>
             <tr>
                 <td class="col-md-10"><b>Estado de Pago de Facturas en el Establecimiento</b></td>
-                <td class="col-md-1"><input type="radio" value="" name="radiofac"></td>
-                <td class="col-md-1"><input type="radio" value="" name="radiofac" onclick="" id="novedad"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofac" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofac" onclick="masbarra();" id="novedad"></td>
             </tr>
             <tr>
                 <td class="col-md-10"><b>Estado de Pago de Impuestos del Establecimiento</b></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioimp"></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioimp" onclick="" id="novedad"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioimp" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioimp" onclick="masbarra();" id="novedad"></td>
             </tr>
             <tr>
                 <td class="col-md-10"><b>Estado de Registros de Sanidad del Establecimiento</b></td>
-                <td class="col-md-1"><input type="radio" value="" name="radiosanidad"></td>
-                <td class="col-md-1"><input type="radio" value="" name="radiosanidad" onclick="" id="novedad"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiosanidad" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiosanidad" onclick="masbarra();" id="novedad"></td>
             </tr>
             <tr>
                 <td class="col-md-10"><b>Estado de Resoluciones Dian del Establecimiento</b></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioresolu"></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioresolu" onclick="" id="novedad"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioresolu" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioresolu" onclick="masbarra();" id="novedad"></td>
             </tr>
             <tr>
                 <td class="col-md-10"><b>Estado de Agotamiento de Consecutivos Del Establecimiento</b></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioconsec"></td>
-                <td class="col-md-1"><input type="radio" value="" name="radioconsec" onclick="" id="novedad"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioconsec" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioconsec" onclick="masbarra();" id="novedad"></td>
             </tr>
         </table>
          <hr/>
@@ -168,11 +171,140 @@
         </script>
 
         <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_legal();">
-            <span class="fa fa-chevron-down"></span> Novedades
+            <span class="fa fa-chevron-down"></span> Novedades legales
         </button>
 
     </div>
 </div>
+<!-- Estado Locativo-->
+<div class="panel panel-default box-body col-md-10">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-university"></i>  <label><b>Estado Locativo </b></label></h3>   
+    </div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>Concepto</td>
+                <td>OK</td>
+                <td>Novedad</td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado fisico del terreno en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofterreno" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofterreno" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado fisico de activos fijos no electricos del Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioafne" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioafne" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado fisico de activos fisicos electronicos del Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioafe" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioafe" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado de luminosidad del Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiolumi" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiolumi" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado fisico del producto exhibido en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofproduc" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiofproduc" onclick="masbarra();" id="novedad"></td>
+            </tr>
+        </table>
+         <hr/>
+        <div id="locativas" style='display:none'>
+            hola mundo deplegando novedades locativas
+        </div>
+        <script>
+            var contador2=0;
+            function vernovedades_estado_locativo()
+            {
+                if(contador2%2==0)
+                {
+                    document.getElementById('locativas').style.display = 'block';
+                        
+                }else 
+                {
+                    document.getElementById('locativas').style.display = 'none';
+                }
+                contador2++;
+            }
+        </script>
+
+        <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_locativo();">
+            <span class="fa fa-chevron-down"></span> Novedades locativas
+        </button>
+
+    </div>
+</div>
+
+<div class="panel panel-default box-body col-md-10">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-users"></i>  <label><b>Estado Laboral </b></label></h3>   
+    </div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>Concepto</td>
+                <td>OK</td>
+                <td>Novedad</td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado Presentacion Personal de Empleados el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioeppe" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioeppe" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado Porte de Identificacion Personal del Empleado</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiopidpeEm" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiopidpeEm" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado Reporte de Horas de llegada Tarde</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiollegadastarde" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiollegadastarde" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado Cumplimiento de funciones del Cargo Asisgando al Empleado</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiocumfunciones" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiocumfunciones" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado Conformidad De Empleados</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioConformidadEmp" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioConformidadEmp" onclick="masbarra();" id="novedad"></td>
+            </tr>
+        </table>
+         <hr/>
+        <div id="locativas" style='display:none'>
+            hola mundo deplegando novedades locativas
+        </div>
+        <script>
+            var contador2=0;
+            function vernovedades_estado_locativo()
+            {
+                if(contador2%2==0)
+                {
+                    document.getElementById('locativas').style.display = 'block';
+                        
+                }else 
+                {
+                    document.getElementById('locativas').style.display = 'none';
+                }
+                contador2++;
+            }
+        </script>
+
+        <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_locativo();">
+            <span class="fa fa-chevron-down"></span> Novedades locativas
+        </button>
+
+    </div>
+</div>
+
 
 <!--modal para insertar novedad-->
 <div id="AgregarNovedad" class="modal fade" role="dialog" data-backdrop="static"> 
@@ -182,7 +314,7 @@
                 <h4 class="modal-tittle">NOVEDAD PARA LA VISITA #</h4>
                 <h4 class="modal-tittle"># NOVEDAD (#)</h4>
             </div> 
-            <form class="form-horizontal" role="form" id="form-agregar">
+            
                 <div class="modal-body"> 
                    
                     <div class="col-md-4">
@@ -215,12 +347,12 @@
                                 <h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Titulo </b></label></h3>
                             </div>
                             <div class="col-md-9">
-                                <input class="form-control" type="text" name="titulo" id="titulonovedad" > 
+                                <input class="form-control" type="text"  id="titulonovedad" > 
                             </div>
                         </div>
                         <div class="panel-body">
                             Panel content
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea id="detallenovedad" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
 
@@ -231,14 +363,53 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                         <span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
                     </button>
-                    <button type="button" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
+                    <button type="submit" id="GuardarNombre"  class="btn btn-primary">
                         <span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
                               
                     </button>
                 </div>
-            </form>
+            
         </div>
     </div>
 </div>
- 
+
+<%= form_tag(:controller => "novedades", :action => "insertNovedad", :method => "get") do |g| %>
+
+<div id="prueba" >
+        <input type="text" id='interesados' name='interesados' value='1'>
+        <button type="submit" id="GuardarNombre"  class="btn btn-primary">asdfasfdgasfgasfd</button>
     
+</div>
+<% end %>
+
+
+<script>
+    
+        var selectinteresados = document.getElementById('selectInteresados');
+        var selectedOption="";
+        selectinteresados.addEventListener('change',function()  {
+                                                                    selectedOption = this.options[selectinteresados.selectedIndex];
+                                                                    console.log(selectedOption.value + ': ' + selectedOption.text);
+                                                                    insertHtml();
+                                                                });
+
+        function insertHtml()
+        {
+            var interesadosSelect= selectedOption.value.toString();//aqui convierto a string la opcion de interesados
+            var div=document.getElementById('prueba').innerHTML
+            $("#prueba").html(div+"<input type='text' id='interesados' name='interesados' value='"+interesadosSelect+"'></label>");//aqui inserto en un label el valor
+
+        };
+    
+</script>
+
+<!--script para aumentar la barra de progreso-->
+<script>
+    var estadobarra=0;
+    function masbarra()
+    {
+        estadobarra=estadobarra+4.76;
+        String(estadobarra);
+        document.getElementById('barraformcreatenovedad').style.width=estadobarra+"%";
+    }
+</script>

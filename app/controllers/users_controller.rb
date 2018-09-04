@@ -8,10 +8,6 @@ class UsersController < ApplicationController
         render 'index', layout: 'application'
     end
     
-   
-    def ganadoresTemplodelamoda
-        render 'ganadoresTemplodelaModa'
-    end
     def login
        #byebug
        user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
