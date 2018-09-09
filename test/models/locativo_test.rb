@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TipoDeNovedadTest < ActiveSupport::TestCase
+class LocativoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

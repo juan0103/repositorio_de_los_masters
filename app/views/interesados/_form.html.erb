@@ -1,0 +1,27 @@
+<%= form_with(model: interesado, local: true) do |form| %>
+  <% if interesado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interesado.errors.count, "error") %> prohibited this interesado from being saved:</h2>
+
+      <ul>
+      <% interesado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_interesado %>
+    <%= form.number_field :id_interesado, id: :interesado_id_interesado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc_interesado %>
+    <%= form.text_field :desc_interesado, id: :interesado_desc_interesado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

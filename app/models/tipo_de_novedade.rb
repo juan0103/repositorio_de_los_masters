@@ -1,4 +1,4 @@
-class TipoDeNovedad < ApplicationRecord
+class TipoDeNovedade < ApplicationRecord
     def self.table_name
         "seguridad.TIPO_DE_NOVEDAD"
     end

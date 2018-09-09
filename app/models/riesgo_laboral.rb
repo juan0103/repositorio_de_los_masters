@@ -1,0 +1,2 @@
+class RiesgoLaboral < ApplicationRecord
+end

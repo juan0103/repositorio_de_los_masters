@@ -13,8 +13,13 @@ class UsersController < ApplicationController
        user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
         if user!=nil 
             if(user.perfil_id==1)
-               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Usuarios","register"],["pais","Gestion Pais","index"],
-               ["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],["users","Salir","index"] ]
+               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","register"],
+               ["pais","Gestion Pais","index"],["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],
+                ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["users","Salir","index"]]
+            
+            
+            
+            
             elsif(user.perfil_id==3)
                 session[:menu]=[["novedades","Gestionar  Novedades","index"], ["novedades", "Crear Novedades", "createnovedad"], ["users","Salir","index"] ]
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
@@ -43,7 +48,7 @@ class UsersController < ApplicationController
        else
           user = User.new         
           user.id = User.maximum('id')+1
-       end                
+       end    
         user.login = params[:login]
         user.password = params[:password]
         user.nombre=params[:nombre ]
@@ -51,16 +56,18 @@ class UsersController < ApplicationController
         user.cedula=params[:cedula]
         user.perfil_id=params[:perfil]
         user.email=params[:email]
-        cuerpoemail='Te damos la bienvenida a la plataforma 
-        Hola! #####
+
+        cuerpo1="Te damos la bienvenida a Audit!
+        Hola! '"+user.nombre+"'
         recuerda que tus datos para la plataforma son:
-        usuario: '+user.login+'
-        nombre: '+user.nombre+'
-        appellido: '+user.apellido+'
-        numero de cedula: '+user.cedula+'
-        Gracias por registrar tus datos.'
+        usuario: '"+user.login+"'
+        nombre: '"+user.nombre+"'
+        apellido: '"+user.apellido+"'
+        numero de cedula: '"+user.cedula+"'
+        Gracias por registrar tus datos.'"
+
         if (user.save==true)
-            NotifyMailer.send_mail(params[:email], 'BIENVENIDO!', cuerpoemail).deliver
+            NotifyMailer.send_mail(params[:email], 'BIENVENIDO!', cuerpo1, "", "", "").deliver
             listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
             respond_to do |format|           
                format.html 
@@ -114,9 +121,26 @@ class UsersController < ApplicationController
         res=RestorePassword.where(:id_usuario => @id_usuario) 
         @codigo=res[0].codigo_url                            #saco el odigo generado para enviarlo en el link
         codigostring=@codigo.to_s
-        cuerpo="http://localhost:3000/users/restaurarkey?codigo=#{codigostring}"
+
+        @cuerpo1=""
+        @cuerpo2=""
+        @clickaqui=""
+        @enlace=""
+
+        cuerpo1="Hemos recibido una solicitud de restablecimiento de contraseña asociada a esta dirección de correo electrónico. Si has realizado esta solicitud, sigue las siguientes instrucciones.
+        Para restablecer la contraseña de tu cuenta, simplemente tienes que hacer clic en el siguiente vínculo."
+
+        enlace="http://localhost:3000/users/restaurarkey?codigo=#{codigostring}"
+
+        cuerpo2="Este vínculo te dirigirá a una página Web en la que podrás establecer una nueva contraseña. 
+        Ten en cuenta que el vínculo caducará en 24 horas a partir del momento en el que se envió este correo electrónico. Si el vínculo no funciona cuando haces clic en él, puedes copiarlo y pegarlo en la barra de direcciones del navegador. 
+        Ha sido un placer ayudarte."
+
+        clickaqui="Click aqui!"
+
+        
         #una vez que ya tengo los datos email con el codigo generado y todo, llamo la acccion que envia el correo
-        NotifyMailer.send_mail(@email, 'Restauracion de Contraseña', cuerpo ).deliver
+        NotifyMailer.send_mail(@email, 'Restauracion de Contraseña', cuerpo1, cuerpo2, enlace, clickaqui ).deliver
         @message = "Por favor revise el correo que le ha sido enviado"
         @tipo="success"
         render 'index', layout: 'application'

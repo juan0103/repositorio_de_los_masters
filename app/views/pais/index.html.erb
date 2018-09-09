@@ -16,8 +16,8 @@
   <tbody>
     <% @pais.each do |pai| %>
       <tr>
-        <td><%= pai.nombre %></td>
-        <td><%= pai.id %></td>
+        <td><%= pai.id_pais %></td>
+        <td><%= pai.nombre_pais %></td>
         <td><%= link_to 'Show', pai %></td>
         <td><%= link_to 'Edit', edit_pai_path(pai) %></td>
         <td><%= link_to 'Destroy', pai, method: :delete, data: { confirm: 'Are you sure?' } %></td>

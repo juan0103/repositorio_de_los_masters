@@ -1,0 +1,27 @@
+<%= form_with(model: tipo_de_novedade, local: true) do |form| %>
+  <% if tipo_de_novedade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_de_novedade.errors.count, "error") %> prohibited this tipo_de_novedade from being saved:</h2>
+
+      <ul>
+      <% tipo_de_novedade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_tnovedad %>
+    <%= form.number_field :id_tnovedad, id: :tipo_de_novedade_id_tnovedad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc_tnovedad %>
+    <%= form.text_field :desc_tnovedad, id: :tipo_de_novedade_desc_tnovedad %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

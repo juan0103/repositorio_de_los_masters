@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_visita: 1
+  estado_salidas_emergencia: MyString
+  estado_extintores: MyString
+  estado_alarmas: MyString
+  estado_personal_contra_riesgoz: MyString
+  estado_botiquin: MyString
+
+two:
+  id_visita: 1
+  estado_salidas_emergencia: MyString
+  estado_extintores: MyString
+  estado_alarmas: MyString
+  estado_personal_contra_riesgoz: MyString
+  estado_botiquin: MyString

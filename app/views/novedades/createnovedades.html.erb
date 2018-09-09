@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/cargar.js"></script>
 
 <!--select tipo de visita-->
 <div class="col-md-4">
@@ -9,12 +12,8 @@
     <br style="clear:both;">
     <div class="col-sm-8" >
         <span class="focus-input100"><b>Tipo De Visita  </b></span>
-        <select id="selectTipoVisita" class="form-control" onchange="masbarra();" name="selectTipoVisita">
-            <option>Seleccione..</option>
-            <option>Periodica</option>
-            <option>Programada</option>
-            <option>Repentina</option>
-        </select>
+        
+        <label class="form-control"  id="tipovisita"><%= @tipovisita %></label>
     </div>
 </div>
 <!-- Script para habilitar los select de ubicacion-->
@@ -46,56 +45,31 @@
                         <label for="selectEmpresa" class="control-label">Empresa</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectEmpresa" class="form-control" onchange="habilitarpais();masbarra();">
-                            <option value=0>Seleccione..</option>
-                            <% @empresa.each do |listempresa| %>
-                                <option  value="<%= listempresa.id_empresa%>"><%= listempresa.nombre_empresa%> </option>
-                            <% end %>
-                        </select>
+                        <label class="form-control"  id="sucursal"><%= @empresa %></label>
                     </div>
                     <div class="col-md-2">
                         <label for="selectPais" class="control-label">Pais</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectPais" class="form-control" disabled onchange="habilitarDpto();masbarra();">
-                            <option>Seleccione..</option>
-                            <% @Pai.each do |listpais| %>
-                                <option  value="<%= listpais.id_pais%>"><%= listpais.nombre_pais%> </option>
-                            <% end %>
-                        </select>
+                        <label class="form-control"  id="sucursal"><%= @pais %></label>
                     </div>
                     <div class="col-md-2">
                         <label for="selectDpto" class="control-label">Departamento</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectDpto" class="form-control" disabled onchange="habilitarCiudad();masbarra();">
-                                <option>Seleccione..</option>
-                            <% @Departamento.each do |listDpto| %>
-                                <option  value="<%= listDpto.id_departamento%>"><%= listDpto.desc_departamento%> </option>
-                            <% end %>
-                        </select>
+                        <label class="form-control"  id="sucursal"><%= @departamento %></label>
                     </div>
                     <div class="col-md-2">
                         <label for="selectCiudad" class="control-label">Ciudad</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectCiudad" class="form-control" disabled onchange="habilitarSucursal();masbarra();">
-                                <option>Seleccione..</option>
-                            <% @Ciudad.each do |listCiudad| %>
-                                <option  value="<%= listCiudad.id_ciudad%>"><%= listCiudad.desc_ciudad%> </option>
-                            <% end %>
-                        </select>
+                        <label class="form-control"  id="sucursal"><%= @ciudad %></label>
                     </div>
                     <div class="col-md-2">
                         <label for="selectSucursal" class="control-label">Sucursal</label>
                     </div>
                     <div class="col-md-4">
-                        <select id="selectSucursal" class="form-control" disabled onchange="masbarra();">
-                            <option>Seleccione..</option>
-                            <% @BranchOffice.each do |listSucursales| %>
-                                <option  value="<%= listSucursales.id_sucursal%>"><%= listSucursales.desc_sucursal%> </option>
-                            <% end %>
-                        </select>
+                        <label class="form-control"  id="sucursal"><%= @sucursal %></label>
                     </div>
                 </div>
             </form>
@@ -240,7 +214,7 @@
 
     </div>
 </div>
-
+<!-- Estado laboral-->
 <div class="panel panel-default box-body col-md-10">
     <div class="panel-heading">
         <h3 class="panel-title"><i class="fa fa-users"></i>  <label><b>Estado Laboral </b></label></h3>   
@@ -279,32 +253,119 @@
             </tr>
         </table>
          <hr/>
-        <div id="locativas" style='display:none'>
-            hola mundo deplegando novedades locativas
+        <div id="laborales" style='display:none'>
+            hola mundo deplegando novedades laborales
         </div>
         <script>
             var contador2=0;
-            function vernovedades_estado_locativo()
+            function vernovedades_estado_laboral()
             {
                 if(contador2%2==0)
                 {
-                    document.getElementById('locativas').style.display = 'block';
+                    document.getElementById('laborales').style.display = 'block';
                         
                 }else 
                 {
-                    document.getElementById('locativas').style.display = 'none';
+                    document.getElementById('laborales').style.display = 'none';
                 }
                 contador2++;
             }
         </script>
 
-        <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_locativo();">
-            <span class="fa fa-chevron-down"></span> Novedades locativas
+        <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_laboral();">
+            <span class="fa fa-chevron-down"></span> Novedades laborales
+        </button>
+
+    </div>
+</div>
+<!-- Estado laboral-->
+<div class="panel panel-default box-body col-md-10">
+    <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i>  <label><b>Riesgos Laborales </b></label></h3>   
+    </div>
+    <div class="panel-body">
+        <table>
+            <tr>
+                <td>Concepto</td>
+                <td>OK</td>
+                <td>Novedad</td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado salidas de emergencia en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiosalidas" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="raidosalidas" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado extintores de fuego en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioextintores" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioesxtintores" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado alarma contra incendios en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioalarma" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radioalarma" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado personal capacitado contra riesgoz en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiopersonalcap" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiopersonalcap" onclick="masbarra();" id="novedad"></td>
+            </tr>
+            <tr>
+                <td class="col-md-10"><b>Estado botiquin de primeros auxilios en el Establecimiento</b></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiobotiquin" onclick="masbarra();"></td>
+                <td class="col-md-1"><input type="radio" value="" name="radiobotiquin" onclick="masbarra();" id="novedad"></td>
+            </tr>
+        </table>
+         <hr/>
+        <div id="riesgos" style='display:none'>
+            hola mundo deplegando riesgos laborales
+        </div>
+        <script>
+            var contador2=0;
+            function vernovedades_estado_riesgos()
+            {
+                if(contador2%2==0)
+                {
+                    document.getElementById('riesgos').style.display = 'block';
+                        
+                }else 
+                {
+                    document.getElementById('riesgos').style.display = 'none';
+                }
+                contador2++;
+            }
+        </script>
+
+        <button type="button" id="despliegalo" class="btn btn-primary col-md-12" onclick="vernovedades_estado_riesgos();">
+            <span class="fa fa-chevron-down"></span> Riesgos Laborales
         </button>
 
     </div>
 </div>
 
+
+<script>
+function init() {
+  var inputFile = document.getElementById('inputFile1');
+  inputFile.addEventListener('change', mostrarImagen, false);
+}
+
+function mostrarImagen(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = document.getElementById('img1');
+    img.src= event.target.result;
+  }
+  reader.readAsDataURL(file);
+}
+
+
+
+    window.addEventListener('load', init, false);
+
+
+</script>
 
 <!--modal para insertar novedad-->
 <div id="AgregarNovedad" class="modal fade" role="dialog" data-backdrop="static"> 
@@ -357,6 +418,33 @@
                     </div>
 
 
+                    <div class="panel panel-default">
+                        <div class="panel-heading col-md-12">
+                            <div class="col-md-12">
+                                <h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Imagenes & Documentos </b></label></h3>
+                            </div>
+                            
+                        </div>
+                        <div class="panel-body">
+                                
+                            <form name="frmSubir" method="post" enctype="multipart/form-data" action="procesar-subida.php">
+                            <p>Subir imagen</p>
+                            <P><input type="file" name="imagenes"/></P>
+                            <p><input type="submit" class="btn_enviar" value="Guardar Imagen"/></p>
+                            </form>
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                  
+                    
                    
                 </div>
                 <div class="modal-footer">
@@ -368,48 +456,24 @@
                               
                     </button>
                 </div>
-            
+                
         </div>
     </div>
 </div>
 
-<%= form_tag(:controller => "novedades", :action => "insertNovedad", :method => "get") do |g| %>
 
-<div id="prueba" >
-        <input type="text" id='interesados' name='interesados' value='1'>
-        <button type="submit" id="GuardarNombre"  class="btn btn-primary">asdfasfdgasfgasfd</button>
-    
-</div>
-<% end %>
-
-
-<script>
-    
-        var selectinteresados = document.getElementById('selectInteresados');
-        var selectedOption="";
-        selectinteresados.addEventListener('change',function()  {
-                                                                    selectedOption = this.options[selectinteresados.selectedIndex];
-                                                                    console.log(selectedOption.value + ': ' + selectedOption.text);
-                                                                    insertHtml();
-                                                                });
-
-        function insertHtml()
-        {
-            var interesadosSelect= selectedOption.value.toString();//aqui convierto a string la opcion de interesados
-            var div=document.getElementById('prueba').innerHTML
-            $("#prueba").html(div+"<input type='text' id='interesados' name='interesados' value='"+interesadosSelect+"'></label>");//aqui inserto en un label el valor
-
-        };
-    
-</script>
 
 <!--script para aumentar la barra de progreso-->
 <script>
     var estadobarra=0;
     function masbarra()
     {
-        estadobarra=estadobarra+4.76;
+        estadobarra=estadobarra+5;
         String(estadobarra);
         document.getElementById('barraformcreatenovedad').style.width=estadobarra+"%";
     }
 </script>
+
+
+
+
