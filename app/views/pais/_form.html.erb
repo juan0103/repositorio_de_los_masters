@@ -11,33 +11,16 @@
     </div>
   <% end %>
 
-   
- <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>
-                <strong>Crear Pais</strong></h4>
-        </div>
-        <div class="panel-body">
-  
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Id:</strong>
-     </label>
-   <div class="col-md-6">
-    <%= form.text_field :nombre, id: :pai_nombre %>
+  <div class="field">
+    <%= form.label :id_pais %>
+    <%= form.number_field :id_pais, id: :pai_id_pais %>
   </div>
-</div>
 
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Nombre:</strong>
-     </label>
-   <div class="col-md-6">
-    <%= form.number_field :id, id: :pai_id %>
+  <div class="field">
+    <%= form.label :nombre_pais %>
+    <%= form.text_field :nombre_pais, id: :pai_nombre_pais %>
   </div>
-</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

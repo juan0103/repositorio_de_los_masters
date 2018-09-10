@@ -5,24 +5,20 @@ class PaisController < ApplicationController
   # GET /pais.json
   def index
     @pais = Pai.all
-    render 'index', layout: 'mailer'
   end
 
   # GET /pais/1
   # GET /pais/1.json
   def show
-    render 'show', layout: 'mailer'
   end
 
   # GET /pais/new
   def new
     @pai = Pai.new
-    render 'new', layout: 'mailer'    
   end
 
   # GET /pais/1/edit
-  def edit    
-    render 'edit', layout: 'mailer'
+  def edit
   end
 
   # POST /pais
@@ -73,6 +69,6 @@ class PaisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pai_params
-      params.require(:pai).permit(:nombre, :id)
+      params.require(:pai).permit(:id_pais, :nombre_pais)
     end
 end

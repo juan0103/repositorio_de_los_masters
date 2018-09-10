@@ -1,23 +1,14 @@
 <p id="notice"><%= notice %></p>
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Nombre:</strong>
-     </label>
-   <div class="col-md-6">
-  <%= @pai.nombre %>
-</div>
-</div>
 
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Id:</strong>
-     </label>
-   <div class="col-md-6">
-  <%= @pai.id %>
-</div>
-</div>
+<p>
+  <strong>Id pais:</strong>
+  <%= @pai.id_pais %>
+</p>
+
+<p>
+  <strong>Nombre pais:</strong>
+  <%= @pai.nombre_pais %>
+</p>
 
 <%= link_to 'Edit', edit_pai_path(@pai) %> |
 <%= link_to 'Back', pais_path %>
