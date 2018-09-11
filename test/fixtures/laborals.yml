@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_visita: 1
+  estado_presentacion_personal: MyString
+  estado_identificacion_personal: MyString
+  estado_llegadas_tarde: MyString
+  estado_cumplimiento_de_cargo: MyString
+  estado_conformidad_empleado: MyString
+
+two:
+  id_visita: 1
+  estado_presentacion_personal: MyString
+  estado_identificacion_personal: MyString
+  estado_llegadas_tarde: MyString
+  estado_cumplimiento_de_cargo: MyString
+  estado_conformidad_empleado: MyString

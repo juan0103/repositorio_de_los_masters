@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_visita: 1
+  estado_terreno: MyString
+  estado_activos_noelectricos: MyString
+  estado_activos_electronicos: MyString
+  estado_luminocidad: MyString
+  estado_producto: MyString
+
+two:
+  id_visita: 1
+  estado_terreno: MyString
+  estado_activos_noelectricos: MyString
+  estado_activos_electronicos: MyString
+  estado_luminocidad: MyString
+  estado_producto: MyString

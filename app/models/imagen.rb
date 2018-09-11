@@ -1,5 +1,5 @@
 class Imagen < ApplicationRecord
-    def self.table_name
-        "seguridad.IMAGEN"
-    end
+    mount_uploader :imagen_det, PictureUploader
+    
+    
 end

@@ -1,0 +1,2 @@
+class Locativo < ApplicationRecord
+end

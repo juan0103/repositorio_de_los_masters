@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1>Interesados</h1>      
+</section>   
+<div class="box">
+  <div class="box-body">
+    <table class="table table-bordered table-striped filterTable">
+      <thead>
+        <tr>
+          <th>Id interesado</th>
+          <th>Desc interesado</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @interesados.each do |interesado| %>
+          <tr>
+            <td><%= interesado.id_interesado %></td>
+            <td><%= interesado.desc_interesado %></td>
+            <td><%= link_to 'Show', interesado %></td>
+            <td><%= link_to 'Edit', edit_interesado_path(interesado) %></td>
+            <td><%= link_to 'Destroy', interesado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New Interesado', new_interesado_path %>
