@@ -1,3 +1,6 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <p id="notice"><%= notice %></p>
 
     <section class="content-header">
@@ -33,3 +36,31 @@
 <br>
 
 <%= link_to 'New Empresa', new_empresa_path %>
+
+<!---->
+
+<div class="container">
+  <!-- Modal -->
+  
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+			<%= form_tag(:controller => "users", :action => "restorekey", :method => "get") do |g| %>
+        <div class="modal-header">
+          <h4 class="modal-title">Recuperar Contraseña</h4>
+        </div>
+        <div class="modal-body">
+				
+					
+					
+        </div>
+        <div class="modal-footer">
+				<button type="submit" class="btn btn-success" disabled="true" id="sendbtn">Enviar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+	  </div>
+	  <% end %>
+    </div>
+  </div>
+</div>
