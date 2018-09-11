@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   get "novedades" => "novedades#index"
   get "createnovedades" => "novedades#createnovedad"
   post "novedades/getnovedades"
-  post "novedades/insertNovedad"
+  post "novedades/insertNovedad"  
   get "images" => "imagenes#index"
+
+
+  get "visita_auditores" => "visita_auditores#index" # crea un alias y con la asignacion indico controlador y accion
+  get "visita_auditores/getInfo" 
+
 end

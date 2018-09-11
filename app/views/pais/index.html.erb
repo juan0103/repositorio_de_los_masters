@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Pais</h1>
-   <div class="box">
-            <!-- /.box-header -->
-            <div class="box-body">
-<table class="table table-bordered table-striped filterTable" >
+
+<table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Id</th>
+      <th>Id pais</th>
+      <th>Nombre pais</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,8 +23,7 @@
     <% end %>
   </tbody>
 </table>
-</div>
-</div>
+
 <br>
 
-<%= link_to 'New Pai', new_pai_path, { class: "btn btn-success btn-sm" }%>
+<%= link_to 'New Pai', new_pai_path %>
