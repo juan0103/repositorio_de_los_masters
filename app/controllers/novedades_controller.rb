@@ -34,12 +34,6 @@ class NovedadesController < ApplicationController
         empresa=Empresa.where(:id_empresa => tipoVisita[0].id_empresa)
         @empresa=empresa[0].nombre_empresa
 
-
-
-
-
-
-
         render 'createnovedades', layout: 'mailer'
     end
 
@@ -53,9 +47,24 @@ class NovedadesController < ApplicationController
     insertn.id_visita = @numvisita
     puts "inserto numvisita"
     insertn.id_tipo_novedad = params[:selectTnovedad]
-    puts "inserto tipo de novedad"
-    insertn.save  
+    puts "inserto tipo de novedad"     
     puts "guardo"
+
+    if (insertn.save==true)               
+        respond_to do |format|           
+           format.html 
+           format.json do
+            render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success"}.to_json
+            end
+        end
+    else
+        respond_to do |format|           
+            format.html 
+            format.json do
+                render json:{title: "Error", mensaje:"Sucedio un Problema Procesando su solictud por favor intentelo de nuevo",tipo:"error"}.to_json
+             end
+         end
+    end
         
     end
 end

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    validator();
 
 
 
@@ -12,4 +12,8 @@ window.addEventListener('load', function(){//Metodo para cargar los datos inicia
 function getInfoInicial(jsonResponse){  //funcion para cargar la informacion inicial
     console.log(jsonResponse); 
     //getCalendar(jsonResponse.visitas);    
+ }
+
+ function showModalRegister(idAccion){
+    showModal('ventana');
  }

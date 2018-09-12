@@ -1,10 +1,5 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/js/cargar.js"></script>
+<script src="/JsViews/createNovedad.js" type="text/javascript"></script>
 
 <!--select tipo de visita-->
 <div class="col-md-4">
@@ -16,21 +11,7 @@
         <label class="form-control"  id="tipovisita"><%= @tipovisita %></label>
     </div>
 </div>
-<!-- Script para habilitar los select de ubicacion-->
-<script type="text/javascript">
-    function habilitarpais(){ document.getElementById('selectPais').disabled=false;}
-    function habilitarDpto(){ document.getElementById('selectDpto').disabled=false;}
-    function habilitarCiudad(){ document.getElementById('selectCiudad').disabled=false;}
-    function habilitarSucursal(){ document.getElementById('selectSucursal').disabled=false;}
-    function alerta(){alert('hola mundo alerta de check');}
 
-     $(document).on('click', '#novedad', function() 
-	{
-    	$('#AgregarNovedad').modal('show');
-    });
-    
-
-</script>
 
 <!-- parametros de ubicacion-->
 <div class="col-md-8">
@@ -86,6 +67,70 @@
 </div>
 <br style="clear:both;">
 
+
+   <!-- Estado legal-->
+<div class="box collapsed-box box-success">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h3 class="panel-title"><i class="fa fa-gavel"></i>  <label><b>Estado Legal </b></label></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+          <!--Cuerpo -->
+
+    <!-- Facturas Establecimiento-->
+        <div class="box collapsed-box box-warning">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado de Pago de Facturas en el Establecimiento </b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible">
+            <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+
+           <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('1');"></button>	
+             
+
+        </div>
+        </div >
+    <!-- Termino Facturas Establecimiento-->
+
+
+ <!-- Pago Impuestos  Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado de Pago de Impuestos del Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible">
+            <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+
+        </div>
+        </div >
+    <!-- Termino Impuesto Establecimiento-->
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+
+
+
+<div style="display:none">
 <!-- Apartado Legal-->
 <div class="panel panel-default box-body col-md-10">
     <div class="panel-heading">
@@ -366,34 +411,40 @@ function mostrarImagen(event) {
 
 
 </script>
+</div>
+
 
 <!--modal para insertar novedad-->
 <div id="AgregarNovedad" class="modal fade" role="dialog" data-backdrop="static"> 
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header"> 
-                <h4 class="modal-tittle">NOVEDAD PARA LA VISITA #</h4>
-                <h4 class="modal-tittle"># NOVEDAD (#)</h4>
+                <h4 class="modal-tittle">NOVEDAD PARA LA VISITA</h4>                
             </div> 
             
                 <div class="modal-body"> 
-                   
+                   <input type="text" id="idAcion"/>
+                   <input type="text" id="idMod"/>
+
+            <div class="form-horizontal">  
+                   <div class="form-group"> 
                     <div class="col-md-4">
                         <i class="fa fa-users"></i><label>  Area ó Interesados: </label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <select id="selectInteresados" class="form-control">
-                            <option value=0>Seleccione..</option>
+                            <option value="">Seleccione..</option>
                             <% @Interesado.each do |lisinteresados| %>
                                 <option  value="<%= lisinteresados.id_interesado%>"><%= lisinteresados.desc_interesado%> </option>
                             <% end %>
                         </select>
                     </div>
-                    <br style="clear:both;">
+                  </div>
+                    <div class="form-group"> 
                     <div class="col-md-4">
                         <i class="fa fa-file-o"></i><label>  Tipo de Novedad </label>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-8">
                         <select id="selectTnovedad" class="form-control">
                             <option value=0>Seleccione..</option>
                             <% @TipoDeNovedad.each do |listTnovedad| %>
@@ -401,7 +452,8 @@ function mostrarImagen(event) {
                             <% end %>
                         </select>
                     </div>
-                    <br style="clear:both;">
+                    </div>
+                 
                     <div class="panel panel-default">
                         <div class="panel-heading col-md-12">
                             <div class="col-md-3">
@@ -412,11 +464,11 @@ function mostrarImagen(event) {
                             </div>
                         </div>
                         <div class="panel-body">
-                            Panel content
+                            Descripcion
                             <textarea id="detallenovedad" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
-
+                   </div>
 
                     <div class="panel panel-default">
                         <div class="panel-heading col-md-12">
@@ -432,13 +484,6 @@ function mostrarImagen(event) {
                             <P><input type="file" name="imagenes"/></P>
                             <p><input type="submit" class="btn_enviar" value="Guardar Imagen"/></p>
                             </form>
-
-
-
-
-
-
-
 
 
                         </div>
