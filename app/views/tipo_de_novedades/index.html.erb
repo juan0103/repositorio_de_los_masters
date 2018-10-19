@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 <section class="content-header">
-  <h1>Tipo De Novedades</h1>    
+  <h1><b>Tipo De Novedades</b></h1>    
 </section>   
 <div class="box">
   <div class="box-body">
     <table class="table table-bordered table-striped filterTable">
       <thead>
         <tr>
-          <th>Id tnovedad</th>
-          <th>Desc tnovedad</th>
+          <th>Id Novedad</th>
+          <th>Descripcion Novedad</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -18,9 +18,24 @@
           <tr>
             <td><%= tipo_de_novedade.id_tnovedad %></td>
             <td><%= tipo_de_novedade.desc_tnovedad %></td>
-            <td><%= link_to 'Show', tipo_de_novedade %></td>
-            <td><%= link_to 'Edit', edit_tipo_de_novedade_path(tipo_de_novedade) %></td>
-            <td><%= link_to 'Destroy', tipo_de_novedade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+                <%= link_to 'Ver', tipo_de_novedade,  { class: "btn btn-primary btn-sm", id: "myid"}%>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+                <%= link_to 'Editar', edit_tipo_de_novedade_path(tipo_de_novedade), {class: "btn btn-success btn-sm"}%>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+                <%= link_to 'Destroy', tipo_de_novedade,  method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm" %>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -29,4 +44,4 @@
   </div>
 <br>
 
-<%= link_to 'New Tipo De Novedade', new_tipo_de_novedade_path %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Agregar', new_tipo_de_novedade_path, class: "btn btn-warning" %>

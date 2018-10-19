@@ -12,16 +12,29 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :id_interesado %>
-    <%= form.number_field :id_interesado, id: :interesado_id_interesado %>
+    <div class="col-md-2">
+      <%= form.label :id_interesado %>
+    </div>
+    <div class="col-md-4">
+      <%= form.number_field :id_interesado, id: :interesado_id_interesado %>
+    </div>
   </div>
-
+  <br style="clear:both;">
+  <br style="clear:both;">
   <div class="field">
-    <%= form.label :desc_interesado %>
-    <%= form.text_field :desc_interesado, id: :interesado_desc_interesado %>
+    <div class="col-md-2">
+      <%= form.label :desc_interesado %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :desc_interesado, id: :interesado_desc_interesado %>
+    </div>
   </div>
-
+<br style="clear:both;">
+<br style="clear:both;">
+<div class="col-md-2"></div>
+<div class="col-md-4">
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-success"%>
   </div>
+</div>
 <% end %>

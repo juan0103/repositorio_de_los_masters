@@ -24,7 +24,7 @@ class UsersController < ApplicationController
                 session[:menu]=[["novedades","Gestionar  Novedades","index"], ["novedades", "Crear Novedades", "createnovedad"], ["users","Salir","index"] ]
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
-            duser=Interesado.where(:id_interesado => user.id_interesado) 
+            duser=Interesado.where(:id_interesado => user.id) 
             session[:area]=duser[0].desc_interesado
             session[:usuario]=user.login.to_s
             render 'home', layout: 'mailer'            

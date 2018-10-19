@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :interesados
   resources :tipo_de_novedades
+  resources :interesados
   resources :empresas
   resources :pais
   resources :branch_offices

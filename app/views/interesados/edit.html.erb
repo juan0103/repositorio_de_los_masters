@@ -1,6 +1,30 @@
-<h1>Editing Interesado</h1>
-
-<%= render 'form', interesado: @interesado %>
-
-<%= link_to 'Show', @interesado %> |
-<%= link_to 'Back', interesados_path %>
+<div class="col-md-1"></div>
+    <div class=" container col-md-10" style="align: center">
+        <div class="panel panel-primary">
+          <div class="panel-heading" ><h1><h1>Editing Interesado</h1></div>
+          <div class="panel-body" >
+            <%= render 'form', interesado: @interesado %>
+            <br style="clear:both;">
+            <br style="clear:both;">
+            <div class="col-md-8">
+                <div class="input-group margin-bottom-md">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i><%= link_to 'Show', @interesado, class: "btn btn-success btn-xs" %> </span>
+                                
+                            </td>
+                       
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Back', interesados_path, class: "btn btn-success btn-xs" %></span>
+                                
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1"></div>
