@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -1282,3 +1283,808 @@ function mostrarImagen(event) {
 
 
 >>>>>>> 741a1a986d30e0fac37d8b9910b45a70a053eaeb
+=======
+
+<script src="/JsViews/createNovedad.js" type="text/javascript"></script>
+ 
+
+<div class="row">
+<div class="col-md-6">
+<div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Informacion Empresa</h3>
+            </div>
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#"><i class="fa fa-book"></i> Empresa
+                  <span class="label label-primary pull-right"><%= @empresa %></span></a></li>
+
+                <li class="active"><a href="#"><i class="fa  fa-home"></i> Pais
+                  <span class="label label-success pull-right"><%= @pais %></span></a></li>
+
+                  <li class="active"><a href="#"><i class="fa  fa-home"></i> Departamento
+                  <span class="label label-warning pull-right"><%= @departamento %></span></a></li>
+
+                   <li class="active"><a href="#"><i class="fa  fa-home"></i> Ciudad
+                  <span class="label label-primary pull-right"><%= @ciudad %></span></a></li>
+            
+            <li class="active"><a href="#"><i class="fa  fa-home"></i> Sucursal
+                  <span class="label label-success pull-right"><%= @ciudad %></span></a></li>
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+</div>
+
+<div class="col-md-6">
+<div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Visita</h3>
+            </div>
+            <div class="box-body no-padding">
+              <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Numero Vsita
+                  <span class="label label-primary pull-right"><%= @numvisita%></span></a></li>
+                <li class="active"><a href="#"><i class="fa fa-calendar-plus-o"></i> Tipo Visita
+                  <span class="label label-success pull-right"><%= @tipovisita %></span></a></li>          
+              </ul>
+            </div>
+            <!-- /.box-body -->
+          </div>
+</div>
+</div>
+
+
+
+<!-- parametros de ubicacion-->
+
+
+<!-- Barra de Progreso del formulario-->
+
+<br style="clear:both;">
+
+
+   <!-- Inicio Agrupacion Estado legal-->
+<div class="box collapsed-box box-success">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h3 class="panel-title"><i class="fa fa-gavel"></i>  <label><b>Estado Legal </b></label></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+          <!--Cuerpo -->
+
+    <!-- Facturas Establecimiento-->
+        <div class="box collapsed-box box-warning">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado de Pago de Facturas en el Establecimiento </b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableEstaPagosNotify">
+            <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+ 
+           <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('1','','tableEstaPagos');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableEstaPagos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+
+        </div>
+        </div >
+    <!-- Termino Facturas Establecimiento-->
+
+
+ <!-- Pago Impuestos  Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado de Pago de Impuestos del Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableImpuestoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('2','','tableImpuesto');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableImpuesto" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Impuesto Establecimiento-->
+
+
+ <!-- Registro Sanidad-->
+        <div class="box collapsed-box box-warning ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Registro Sanidad Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableSanidadNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('3','','tableSanidad');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableSanidad" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Registro Sanidad-->
+
+
+ <!-- Estado Resoluciones Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado de Resoluciones Dian del Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableDianNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('4','','tableDian');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableDian" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Establecimiento Dian-->
+
+
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+<!--termino primera agrupacion estado legal-->
+
+<!--Inicio Argupacion estado Locativo-->
+<div class="box collapsed-box box-success">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h3 class="panel-title"><i class="fa fa-gavel"></i>  <label><b>Estado Locativo </b></label></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+   
+    <!-- Estado Resoluciones Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado fisico del terreno en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableFisicoTerrenoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('5','','tableFisicoTerreno');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableFisicoTerreno" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Establecimiento Dian-->
+   
+   <!-- Estado fisico de activos  del Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado fisico de activos  del Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableFisicoActivoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('6','','tableFisicoActivo');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableFisicoActivo" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado fisico de activos fijos no electricos del Establecimiento-->
+   
+   
+ <!-- Estado fisico del producto exhibido en el Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado fisico del producto exhibido en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableProductoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('7','','tableProducto');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableProducto" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Productos exhibidos-->
+
+   </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+<!--Termino Argupacion estado Locativo-->
+
+<!--Inicio Argupacion Estado Laboral-->
+<div class="box collapsed-box box-success">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h3 class="panel-title"><i class="fa fa-gavel"></i>  <label><b>Estado Laboral </b></label></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+      <!-- Estado Reporte de Horas de llegada Tarde-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado Reporte de Horas de llegada Tarde</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableReporteHorasNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('8','','tableReporteHoras');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableReporteHoras" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado Reporte de Horas de llegada Tarde-->
+      
+
+
+<!-- Estado Cumplimiento de funciones del Cargo Asisgando al Empleado-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado Cumplimiento de funciones del Cargo Asisgando al Empleado</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableCargoAsignadoEmpleadoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('9','','tableCargoAsignadoEmpleado');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableCargoAsignadoEmpleado" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado Reporte de Horas de llegada Tarde-->
+
+<!-- Estado Cumplimiento de funciones del Cargo Asisgando al Empleado-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado Conformidad De Empleados</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableConformidadEmpleadoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('10','','tableConformidadEmpleado');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableConformidadEmpleado" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado Cumplimiento de funciones del Cargo Asisgando al Empleado-->
+
+
+       </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+<!--Fin Estado Laboral-->
+
+
+<!--Inicio Argupacion Riesgos Laborales-->
+<div class="box collapsed-box box-success">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h3 class="panel-title"><i class="fa fa-gavel"></i>  <label><b>Riesgos Laborales </b></label></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+
+<!-- Estado Cumplimiento de funciones del Cargo Asisgando al Empleado-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado salidas de emergencia en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableSalidasEmergenciaNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('11','','tableSalidasEmergencia');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableSalidasEmergencia" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado Cumplimiento de funciones del Cargo Asisgando al Empleado-->
+
+
+<!-- Estado extintores de fuego en el Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado extintores de fuego en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableFuegoEstabNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('12','','tableFuegoEstab');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableFuegoEstab" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado extintores de fuego en el Establecimiento-->
+
+ 
+<!-- Estado alarma contra incendios en el Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado alarma contra incendios en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tableIncendiosNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('13','','tableIncendios');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tableIncendios" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Termino Estado extintores de fuego en el Establecimiento-->
+
+
+<!-- Estado personal capacitado contra riesgoz en el Establecimiento-->
+        <div class="box collapsed-box box-primary ">
+        <div class="box-header with-border" style="background-color: #f5f5f5">
+          <h4 class="panel-title"><b>Estado personal capacitado contra riesgoz en el Establecimiento</b></label></h4>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" >
+              <i class="fa fa-plus"></i></button>           
+          </div>
+        </div>
+        <div class="box-body">
+            <div class="alert alert-info alert-dismissible" id="tablePersonalCapacitadoNotify">
+              <strong>Informacion!</strong> No hay novedades registradas.
+            </div>
+              
+          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('14','','tablePersonalCapacitado');"></button>	
+             <br/>
+             <div class="box-body">
+              <table id="tablePersonalCapacitado" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                    <th style="text-align:center">Id</th>
+                    <th style="text-align:center">Id Interesado</th>  
+                    <th style="text-align:center">Interesado</th> 
+                    <th style="text-align:center">Id Tipo Novedad</th>                  
+                    <th style="text-align:center">Tipo Novedad</th>                  
+                    <th style="text-align:center">Titulo</th>                  
+                    <th style="text-align:center">Detalle</th>                    
+                    <th style="text-align:center">Archivo</th>               
+                    <th style="text-align:center; width:12px"></th>  
+                    <th style="text-align:center;width:12px"></th>                  
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tfoot>
+            </table> 
+            </div>
+        </div>
+        </div >
+    <!-- Estado personal capacitado contra riesgoz en el Establecimiento-->
+       </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+          Footer
+        </div>
+        <!-- /.box-footer-->
+      </div>
+<!--Fin Agrupacion Riesgos Laborales-->
+
+
+
+
+<!--modal para insertar novedad-->
+<div id="AgregarNovedad" class="modal fade" role="dialog" data-backdrop="static"> 
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"> 
+                <h4 class="modal-tittle">NOVEDAD PARA LA VISITA</h4>                
+            </div> 
+            
+                <div class="modal-body"> 
+                   <input type="text" id="idProceso"/>
+                   <input type="text" id="idNovedad"/>
+                   <input type="text" id="idTable"/>
+
+            <div class="form-horizontal">  
+                   <div class="form-group"> 
+                    <div class="col-md-4">
+                        <i class="fa fa-users"></i><label>  Area ó Interesados: </label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="selectInteresados" class="form-control  validator" group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar los interesados">
+                            <option value="">Seleccione..</option>
+                            <% @Interesado.each do |lisinteresados| %>
+                                <option  value="<%= lisinteresados.id_interesado%>"><%= lisinteresados.desc_interesado%> </option>
+                            <% end %>
+                        </select>
+                    </div>
+                  </div>
+                    <div class="form-group"> 
+                    <div class="col-md-4">
+                        <i class="fa fa-file-o"></i><label>  Tipo de Novedad </label>
+                    </div>
+                    <div class="col-md-8">
+                        <select id="selectTnovedad" class="form-control validator" group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar la novedad" >
+                            <option value="">Seleccione..</option>
+                            <% @TipoDeNovedad.each do |listTnovedad| %>
+                                <option  value="<%= listTnovedad.id_tnovedad%>"><%= listTnovedad.desc_tnovedad%> </option>
+                            <% end %>
+                        </select>
+                    </div>
+                    </div>
+                 
+                    <div class="panel panel-default">
+                        <div class="panel-heading col-md-12">
+                            <div class="col-md-3">
+                                <h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Titulo </b></label></h3>
+                            </div>
+                            <div class="col-md-9">
+                                <input class="form-control validator" type="text"  id="titulonovedad" group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar los interesados"> 
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            Descripcion
+                            <textarea id="detallenovedad" class="form-control validator" rows="3"   group-validator="grupo1" requiredFm="true"  validatorMssg="Por favor digitar los interesados"></textarea>
+                        </div>
+                    </div>
+                   </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading col-md-12">
+                            <div class="col-md-12">
+                                <h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Imagenes & Documentos </b></label></h3>
+                            </div>
+                            
+                        </div>
+                        <div class="panel-body">
+                                
+                            <form name="frmSubir" method="post" enctype="multipart/form-data" action="procesar-subida.php">
+                            <p>Subir imagen</p>
+                            <P><input type="file" name="imagenes"/></P>
+                            <p><input type="submit" class="btn_enviar" value="Guardar Imagen"/></p>
+                            </form>
+
+
+                        </div>
+                    </div>
+                  
+                    
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
+                    </button>
+                    <button type="submit" id="btnRegister"  class="btn btn-primary">
+                        <span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
+                              
+                    </button>
+                </div>
+                
+        </div>
+    </div>
+</div>
+
+
+>>>>>>> df949d41a1260745f04ff09370c081a41e4946ff

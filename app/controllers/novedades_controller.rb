@@ -1,6 +1,6 @@
 class NovedadesController < ApplicationController
     skip_before_action :verify_authenticity_token
-
+    @cover 
     def initialize     
         @visita=1 
         @listProcesos=nil      
@@ -146,6 +146,28 @@ class NovedadesController < ApplicationController
         end
    end
    
+   
+   attr_accessor :cover 
+   
+
+   def save_image 
+    puts "prueba"
+    filename = "prueba2.jpg"      
+    folder = "public/"    
+    FileUtils::mkdir_p folder  
+    puts params[:image].to_s
+    File.open("#{folder}#{filename}", 'wb' ) do |output|
+        output << params[:image]
+     end
+    
+    #puts "inicio archivo"
+    #f = File.open File.join(folder, filename), "wb"
+    #puts "previo escritura"
+    #f.write params[:image]
+    #f.close
+    #puts "fin escritura"
+
+end
 
 private
     def getProceso idProceso 

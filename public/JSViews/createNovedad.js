@@ -1,6 +1,6 @@
 $(document).ready(function() {
     validator();
-
+ 
     $( "#btnRegister" ).click(function() {//evento para registrar o modificar un usuario                      
            var dataRequest= {id_novedad:$("#idNovedad").val(),detallenovedad:$("#detallenovedad").val(),interesado:$("#selectInteresados").val(),
            selectTnovedad:$("#selectTnovedad").val(),proceso:$("#idProceso").val(),titulo:$("#titulonovedad").val()};
@@ -14,7 +14,35 @@ $(document).ready(function() {
            });                              
     });
 
+    
+    $( "#myBtn" ).click(function() {
+        //var myFile = $('#myInput').prop('files');
+        //console.log(myFile);
+        var files = myInput.files[0];
+        var reader = new FileReader();
+        reader.onload = processFile(files);
+        reader.readAsArrayBuffer(files);
+        console.log(reader)
+        /*var fileReader = new FileReader();
+        fileReader.onload = function () {
+          var data = fileReader.result;  // data <-- in this var you have the file data in Base64 format          
+        };
+        fileReader.readAsDataURL($('#myInput').prop('files')[0]);
+        console.log(fileReader);
+        //requestAjax('/novedades/save_image',{image:fileReader},'POST',function(jsonResponse){});*/
 });
+
+
+});
+var fileByteArray = [];
+function processFile(theFile){
+    return function(e) { 
+      var theBytes = e.target.result; //.split('base64,')[1]; // use with uploadFile2
+      //fileByteArray.push(theBytes);
+      console.log(theBytes);
+     requestAjax('/novedades/save_image',{image:theBytes},'POST',function(jsonResponse){});           
+    }
+  }
 
 window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla   
      requestAjax('/novedades/loadInformacion',{},'POST',function(jsonResponse){       
