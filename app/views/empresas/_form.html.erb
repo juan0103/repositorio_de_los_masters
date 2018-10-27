@@ -2,53 +2,47 @@
   <% if empresa.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(empresa.errors.count, "error") %> prohibited this empresa from being saved:</h2>
-
       <ul>
-      <% empresa.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% empresa.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
- 
- <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>
-                <strong>Crear Empresa</strong></h4>
-        </div>
-        <div class="panel-body">
-  
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Id empresa:</strong>
-     </label>
-   <div class="col-md-6">
-    <%= form.number_field :id_empresa, id: :empresa_id_empresa, class: "form-control"   %>
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :id_empresa %>
+    </div>
+    <div class="col-md-4">
+      <%= form.number_field :id_empresa, id: :empresa_id_empresa, class: "form-control"   %>
+    </div>
   </div>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :descricion_empresa %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :nombre_empresa, id: :empresa_nombre_empresa %>
+    </div>
   </div>
-
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Nombre:</strong>
-     </label>
-   <div class="col-md-6">
-    <%= form.text_field :nombre_empresa, id: :empresa_nombre_empresa %>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :direccion_empresa %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :dir_empresa, id: :empresa_dir_empresa %>
+    </div>
   </div>
-</div>
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Direccion:</strong>
-     </label>
-   <div class="col-md-6">  
-    <%= form.text_field :dir_empresa, id: :empresa_dir_empresa %>
-  </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <div class="actions">
+      <%= form.submit class: "btn btn-success"%>
+    </div>
   </div>
 <% end %>

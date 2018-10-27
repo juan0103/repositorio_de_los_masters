@@ -1,16 +1,26 @@
-<div class="container">
-    <div class="card mx-auto mt-5">
-        <div class="card-header">Editar Empresa</div>
-        <div class="card-body">
+<div class="col-md-1"></div>
+    <div class=" container col-md-10" style="align: center">
+        <div class="panel panel-success">
+          <div class="panel-heading" ><h1>Editar Empresa</h1></div>
+          <div class="panel-body" >
             <%= render 'form', empresa: @empresa %>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <%= link_to 'Show', @empresa,{ class: "btn btn-info btn-sm" } %> |
-                        <%= link_to 'Back', empresas_path,{ class: "btn btn-info btn-sm" } %>
-                    </div>
+            <br style="clear:both;">
+            <br style="clear:both;">
+            <div class="col-md-8">
+                <div class="input-group margin-bottom-md">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i><%= link_to 'Show', @empresa,{ class: "btn btn-success btn-xs" } %></span>
+                            </td>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Back', empresas_path,{ class: "btn btn-success btn-xs" } %>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="col-md-1"></div>

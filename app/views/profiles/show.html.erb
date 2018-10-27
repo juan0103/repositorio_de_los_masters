@@ -1,32 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
-  <div class="card mx-auto mt-5">
-    <div class="card-header">Detalle</div>
-    <div class="card-body">
-
-       <div class="form-group">
-        <div class="form-row">
-          <div class="col-md-6">
-            <strong>Id:</strong>
-            <%= @profile.id %>
-          </div>
-          <div class="col-md-6">
-            <strong>Descripcion:</strong>
-            <%= @profile.descripcion %>
-          </div>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+  <div class="panel panel-info">
+    <div class="panel-heading" ><h1>Ver Perfiles</div>
+    <div class="panel-body" >
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Id:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @profile.id %>
         </div>
       </div>
-      <div class="form-group">
-        <div class="form-row">
-            <div class="col-md-6">
-                <%= link_to 'Editar', edit_profile_path(@profile),{ class: "btn btn-info btn-sm" } %> 
-                <%= link_to 'Volver', profiles_path,{ class: "btn btn-info btn-sm" } %>
-            </div>
-        </div> 
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Descripcion:</strong>
+        </div>
+        <div class="col-md-4">
+            <%= @profile.descripcion %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="col-md-8">
+        <div class="input-group margin-bottom-md">
+          <table>
+            <tr>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-lg"></i><%= link_to 'Editar', edit_profile_path(@profile),{ class: "btn btn-info btn-sm" } %> </span>
+              </td>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Volver', profiles_path,{ class: "btn btn-info btn-sm" } %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
-  </div> 
+  </div>
 </div>
-
-
+<div class="col-md-1"></div>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <section class="content-header">
-  <h1>Empresas</h1>      
+  <h1><b>Empresas</b></h1>      
 </section>   
 <div class="box">
   <div class="box-body">
@@ -19,14 +19,29 @@
             <td><%= empresa.id_empresa %></td>
             <td><%= empresa.nombre_empresa %></td>
             <td><%= empresa.dir_empresa %></td>
-            <td><%= link_to 'Show', empresa %></td>
-            <td><%= link_to 'Edit', edit_empresa_path(empresa) %></td>
-            <td><%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+                <%= link_to 'Show', empresa,  { class: "btn btn-primary btn-sm", id: "myid"} %></td>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+                <%= link_to 'Edit', edit_empresa_path(empresa), {class: "btn btn-success btn-sm"} %></td>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+                <%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm" %></td>
+              </div>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    </div>
   </div>
-</div>
 <br>
-<%= link_to 'New Empresa', new_empresa_path %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'New Empresa', new_empresa_path, class: "btn btn-warning" %>

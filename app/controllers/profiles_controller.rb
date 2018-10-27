@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    render 'show', layout: 'mailer'
   end
 
   # GET /profiles/new
@@ -21,6 +22,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    render 'edit', layout: 'mailer'
   end
 
   # POST /profiles

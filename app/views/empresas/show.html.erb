@@ -1,45 +1,53 @@
-<p id="notice"><%= notice %></p>
-
-<div class="panel panel-default">
-        <div class="panel-heading">
-            <h4>
-                <strong>Ver Empresa</strong></h4>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+  <div class="panel panel-info">
+    <div class="panel-heading" ><h1>Ver Empresa</h1></h4></div>
+    <div class="panel-body" >
+        <div class="field">
+          <div class="col-md-2">
+            <strong>Id empresa:</strong>
+          </div>
+          <div class="col-md-4">
+            <%= @empresa.id_empresa %>
+          </div>
         </div>
-        <div class="panel-body">
-
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Id empresa:</strong>
-     </label>
-   <div class="col-md-6">
-      <%= @empresa.id_empresa %>
+        <br style="clear:both;">
+        <br style="clear:both;">
+        <div class="field">
+          <div class="col-md-2">
+            <strong>Nombre:</strong>  
+          </div>
+          <div class="col-md-4">
+            <%= @empresa.nombre_empresa %>
+          </div>
+        </div>
+        <br style="clear:both;">
+        <br style="clear:both;">
+        <div class="field">
+          <div class="col-md-2">
+            <strong>Direccion:</strong>  
+          </div>
+          <div class="col-md-4">
+            <%= @empresa.dir_empresa %>
+          </div>
+        </div>
+        <br style="clear:both;">
+        <br style="clear:both;">
+        <div class="col-md-8">
+          <div class="input-group margin-bottom-md">
+            <table>
+              <tr>
+                <td>
+                  <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-lg"></i><%= link_to 'Edit', edit_empresa_path(@empresa), class: "btn btn-info btn-xs" %></span>
+                </td>
+                <td>
+                  <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Back', empresas_path, class: "btn btn-info btn-xs" %></span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-<div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-      <strong>Nombre:</strong>  
-    </label>
-   <div class="col-md-6">
-    <%= @empresa.nombre_empresa %>
-    </div>
-    </div>
-
-
-<div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-      <strong>Direccion:</strong>  
-    </label>
-   <div class="col-md-6">
-  <%= @empresa.dir_empresa %>
-</div>
-</div>
-
-<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
-<%= link_to 'Back', empresas_path %>
-
-</div>
-</div>
+<div class="col-md-1"></div>  

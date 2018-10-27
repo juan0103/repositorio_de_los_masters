@@ -1,46 +1,46 @@
 <p id="notice"><%= notice %></p>
-
-<div class="container row col-lg-6 ">
-  <div class="card mx-auto mt-5">
-    <div class="card-header">Perfiles</div>
-    <div class="card-body">
-
- <div class="form-group">
-    <div class="form-row">
-      <div class="col-md-6">
-        <%= link_to 'Nuevo', new_profile_path,{ class: "btn btn-warning btn-sm" } %>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-row">
-      <div class="col-md-6">
-
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Descripcion</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @profiles.each do |profile| %>
-              <tr>
-                <td><%= profile.id %></td>
-                <td><%= profile.descripcion %></td>
-                <td><%= link_to 'Ver', profile,{ class: "btn btn-info btn-sm" } %></td>
-                <td><%= link_to 'Editar', edit_profile_path(profile),{ class: "btn btn-success btn-sm" } %></td>
-                <td><%= link_to 'Eliminar', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-
-      </div>
-    </div>
-  </div>
-
-    </div>
+<section class="content-header">
+ <h1><b1>Perfiles</b1></h1>
+ </section>
+ <div class="box">
+  <div class="box-body">
+    <table class="table table-bordered table-striped filterTable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Descripcion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |profile| %>
+          <tr>
+            <td><%= profile.id %></td>
+            <td><%= profile.descripcion %></td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+                <%= link_to 'Ver', profile,  { class: "btn btn-primary btn-sm", id: "myid"}%>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+                <%= link_to 'Editar', edit_profile_path(profile), {class: "btn btn-success btn-sm"}%>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+                <%= link_to 'Destroy', Profile,  method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm" %>
+              </div>
+            </td>
+          <tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+<br>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nuevo', new_profile_path,{ class: "btn btn-warning btn-sm" } %>
+
