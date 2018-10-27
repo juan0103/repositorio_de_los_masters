@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   post "novedades/insertNovedad" 
   post "novedades/loadInformacion"
   post "novedades/delete_novedad"
+  post "novedades/save_image"
+  
+
   get "images" => "imagenes#index"
 
 
