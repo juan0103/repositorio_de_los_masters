@@ -40,42 +40,42 @@ class NovedadesController < ApplicationController
     end
 
     def insertNovedad
-    if(params[:id_novedad]!=nil and  !params[:id_novedad].eql?(""))
-        insertn=Novedad.find(params[:id_novedad])
-    else
-        insertn=Novedad.new
-        idNovedad= Novedad.maximum('id_novedad');
-        if(idNovedad==nil)
-           idNovedad=1;
+        if(params[:id_novedad]!=nil and  !params[:id_novedad].eql?(""))
+            insertn=Novedad.find(params[:id_novedad])
         else
-            idNovedad=idNovedad+1
-        end
-
-        insertn.id_novedad = idNovedad
-    end 
-    @numvisita=1  
-    insertn.detalle_novedad = params[:detallenovedad]
-    insertn.id_interesado = params[:interesado]    
-    insertn.id_visita = @numvisita
-    insertn.id_tipo_novedad = params[:selectTnovedad]
-    insertn.id_proceso_auditoria = params[:proceso]    
-    insertn.titulo = params[:titulo]    
-    if (insertn.save==true)               
-        respond_to do |format|           
-           format.html 
-           format.json do
-            getProceso insertn.id_proceso_auditoria
-            render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success", list:@listProcesos}.to_json
+            insertn=Novedad.new
+            idNovedad= Novedad.maximum('id_novedad');
+            if(idNovedad==nil)
+               idNovedad=1;
+            else
+                idNovedad=idNovedad+1
             end
-        end
-    else
-        respond_to do |format|           
-            format.html 
-            format.json do
-                render json:{title: "Error", mensaje:"Sucedio un Problema Procesando su solictud por favor intentelo de nuevo",tipo:"error"}.to_json
+        
+            insertn.id_novedad = idNovedad
+        end 
+        @numvisita=1  
+        insertn.detalle_novedad = params[:detallenovedad]
+        insertn.id_interesado = params[:interesado]    
+        insertn.id_visita = @numvisita
+        insertn.id_tipo_novedad = params[:selectTnovedad]
+        insertn.id_proceso_auditoria = params[:proceso]    
+        insertn.titulo = params[:titulo]    
+        if (insertn.save==true)               
+            respond_to do |format|           
+               format.html 
+               format.json do
+                getProceso insertn.id_proceso_auditoria
+                render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success", list:@listProcesos}.to_json
+                end
+            end
+        else
+            respond_to do |format|           
+                format.html 
+                format.json do
+                    render json:{title: "Error", mensaje:"Sucedio un Problema Procesando su solictud por favor intentelo de nuevo",tipo:"error"}.to_json
+                 end
              end
-         end
-    end
+        end
         
     end
 

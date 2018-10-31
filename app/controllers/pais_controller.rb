@@ -5,6 +5,7 @@ class PaisController < ApplicationController
   # GET /pais.json
   def index
     @pais = Pai.all
+    render 'index', layout: 'mailer'
   end
 
   # GET /pais/1
