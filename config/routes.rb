@@ -32,5 +32,6 @@ Rails.application.routes.draw do
 
   get "visita_auditores" => "visita_auditores#index" # crea un alias y con la asignacion indico controlador y accion
   get "visita_auditores/getInfo" 
-
+  get "visita_auditores/getSucursales" 
+  post "visita_auditores/createVisita"   
 end

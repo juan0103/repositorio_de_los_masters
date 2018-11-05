@@ -2,6 +2,7 @@ class NovedadesController < ApplicationController
     skip_before_action :verify_authenticity_token
     @cover 
     def initialize     
+        puts "iniciando"        
         @visita=1 
         @listProcesos=nil      
     end
@@ -151,21 +152,15 @@ class NovedadesController < ApplicationController
    
 
    def save_image 
-    puts "prueba"
-    filename = "prueba2.jpg"      
-    folder = "public/"    
-    FileUtils::mkdir_p folder  
-    puts params[:image].to_s
-    File.open("#{folder}#{filename}", 'wb' ) do |output|
-        output << params[:image]
-     end
-    
-    #puts "inicio archivo"
-    #f = File.open File.join(folder, filename), "wb"
-    #puts "previo escritura"
-    #f.write params[:image]
-    #f.close
-    #puts "fin escritura"
+    puts "Inicio" 
+    @id=18
+    puts "Inicio"
+    puts params[:bytes]
+    insertn=Novedad.find(params[:id_novedad])
+    puts "consulta"
+   
+    insertn.bytesImages=params[:bytes]    
+    insertn.save
 
 end
 

@@ -22,7 +22,7 @@ $(document).ready(function() {
         var reader = new FileReader();
         reader.onload = processFile(files);
         reader.readAsArrayBuffer(files);
-        console.log(reader)
+        //console.log(reader)
         /*var fileReader = new FileReader();
         fileReader.onload = function () {
           var data = fileReader.result;  // data <-- in this var you have the file data in Base64 format          
@@ -40,7 +40,10 @@ function processFile(theFile){
       var theBytes = e.target.result; //.split('base64,')[1]; // use with uploadFile2
       //fileByteArray.push(theBytes);
       console.log(theBytes);
-     requestAjax('/novedades/save_image',{image:theBytes},'POST',function(jsonResponse){});           
+      requestAjax('/novedades/save_image',{bytes:theBytes,id_novedad:18},'POST',function(jsonResponse){
+           //console.log(jsonResponse.respuesta);
+
+      });           
     }
   }
 
