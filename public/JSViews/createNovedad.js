@@ -3,7 +3,7 @@ $(document).ready(function() {
  
     $( "#btnRegister" ).click(function() {//evento para registrar o modificar un usuario                      
            var dataRequest= {id_novedad:$("#idNovedad").val(),detallenovedad:$("#detallenovedad").val(),interesado:$("#selectInteresados").val(),
-           selectTnovedad:$("#selectTnovedad").val(),proceso:$("#idProceso").val(),titulo:$("#titulonovedad").val()};
+           selectTnovedad:$("#selectTnovedad").val(),proceso:$("#idProceso").val(),titulo:$("#titulonovedad").val(),numVisita:$("#idNumVisita").val()};
            requestAjax('/novedades/insertNovedad',dataRequest,'POST',function(jsonResponse){
             swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
             if(jsonResponse.tipo=="success"){
@@ -47,8 +47,8 @@ function processFile(theFile){
     }
   }
 
-window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla   
-     requestAjax('/novedades/loadInformacion',{},'POST',function(jsonResponse){       
+window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla     
+  requestAjax('/novedades/loadInformacion',{numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){             
      console.log(jsonResponse);
      loadNovedades(jsonResponse.listFacturas,"tableEstaPagos");
      loadNovedades(jsonResponse.listImpuestos,"tableImpuesto");      
@@ -69,7 +69,7 @@ window.addEventListener('load', function(){//Metodo para cargar los datos inicia
 }, false);
 
 function deleteNovedad(idNovedad,idTable){//metodo para eliminar una noverdad
-        requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad},'POST',function(jsonResponse){       
+        requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad,numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){       
         swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
         if(jsonResponse.tipo=="success"){           
            loadNovedades(jsonResponse.list,idTable);               

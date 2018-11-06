@@ -5,8 +5,8 @@ $(document).ready(function() {
         if(!Fmvalidators('grupo1'))
            return;
         createRowsCalendar();  
-        $('#date').text($("#month option:selected" ).text()+" "+$("#year").val());         
-        requestAjax('/visita_auditores/getInfo',{year:$("#year").val(),mes:$("#month").val()},'GET',printVisitasCalendar(jsonResponse));                        
+        $('#date').text($("#month option:selected" ).text()+" "+$("#year").val());                 
+        requestAjax('/visita_auditores/getInfo',{year:$("#year").val(),mes:$("#month").val()},'GET',printVisitasCalendar);                                
     });
 
     $("#selectEmpresa").change(function() {//evento de seleccion empresa
@@ -15,8 +15,15 @@ $(document).ready(function() {
 
     $( "#btnRegister" ).click(function() {//registrar la visita
         if(!Fmvalidators('grupo2'))
-           return;                   
-        requestAjax('/visita_auditores/createVisita',{id_sucursal:$("#selectSucursal").val(),id_empresa:$("#selectEmpresa").val(), fecha_visita:$("#hiddenDay").val()+"/"+$("#hiddenMes").val()+$("#hiddenYear").val()},'POST',function(jsonResponse){
+           return;   
+           
+           if($("#hiddenYear").val()==''){
+              swal("Error","Solo es posible realizar una auditoria para una misma fecha","error");   
+              return;
+           }
+           //var fechaVis=new Date($("#hiddenYear").val(),$("#hiddenMes").val(), $("#hiddenDay").val(), 0, 0, 0, 0);
+           var fechaVis=$("#hiddenDay").val()+"/"+$("#hiddenMes").val()+"/"+$("#hiddenYear").val();
+           requestAjax('/visita_auditores/createVisita',{id_sucursal:$("#selectSucursal").val(),id_empresa:$("#selectEmpresa").val(), fecha_visita:fechaVis,year:$("#hiddenYear").val(),mes:$("#hiddenMes").val()},'POST',function(jsonResponse){
             swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
             if(jsonResponse.tipo=="success"){
                cleanFields();
@@ -29,9 +36,11 @@ $(document).ready(function() {
 
 window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla
     //se cargan los años de la lista
-    for (i = new Date().getFullYear(); i > 1900; i--){
+    for (i = new Date().getFullYear()+1; i > 1900; i--){
         $('#year').append($('<option>',{ value: i, text:  i}));
     }
+
+
 
 }, false);
 function cleanFields(){        
@@ -52,14 +61,14 @@ function showModalCreate(day,month,year){
     showModal('createVisita');
  }
 
- 
+ var arrayDias=[31,28,31,30,31,30,31,31,30,31,30,31];
 //se crean los cuadros del calendario
  function createRowsCalendar(){
-     var numDias=30;
+     var numDias=arrayDias[document.getElementById("month").selectedIndex-1];
      var html;     
      var numDiaAdd=1;
      $( ".fc-row " ).remove();       
-     for (var i = 1; i <= 5; i++) { 
+     for (var i = 1; i <= 6; i++) { 
         html="";  
         html+=" <div class='fc-row fc-week fc-widget-content' style='height: 80px;'>";
           //se crean los encabezados para los calendarios
@@ -85,7 +94,7 @@ function showModalCreate(day,month,year){
 
                 html+="<a  id='btnadd2_"+numDiaAdd+"' class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:#00a65a;border-color:#fff'>";
                 html+="<div class='fc-content'>";                    
-                html+="Martes"                 
+                html+=getNameDay(numDiaAdd,$("#month").val(),$("#year").val());                 
                 html+="</div></a>";
 
                 html+="</td>";
@@ -107,13 +116,14 @@ function showModalCreate(day,month,year){
         var day=parseInt(jsonResponse.visitas[i].dia);              
         $("#btnadd_"+day).remove();  
         $("#btnadd2_"+day).remove();  
-        var html="<a class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:#fff;border-color:#fff'>";
+        $("#btnCita_"+day).remove();  
+        var html="<a id='btnCita_"+day+"' class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:#fff;border-color:#fff'>";
         html+="<div class='fc-content'>";                    
         html+="<button  class='btn btn-warning'  data-toggle='tooltip' data-placement='top' title='Empresa:"+jsonResponse.visitas[i].nombre_empresa+"   Sucursal: "+jsonResponse.visitas[i].desc_sucursal+"' onclick='location.href =\"createnovedades?numVisita="+jsonResponse.visitas[i].id_visita+"\";'> <i class='fa fa-calendar-o'></i> </button>"            
         html+="</div></a>";
         html+="<a  id='btnadd2_"+day+"' class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:#00a65a;border-color:#fff'>";
         html+="<div class='fc-content'>";                    
-        html+="Martes"                 
+        html+=getNameDay(day,$("#month").val(),$("#year").val());                
         html+="</div></a>";
         $("#td_"+day).append(html);
         $("div").addClass("important");
@@ -131,3 +141,10 @@ function showModalCreate(day,month,year){
            }
        });
  }
+
+ var arrayNameDays = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+function getNameDay(day,month,year){ 
+    var fecha = new Date(parseInt(year), parseInt(month)-1,parseInt(day), 0, 0, 0, 0);
+    var dayName = arrayNameDays[fecha.getDay()];
+    return dayName;
+}

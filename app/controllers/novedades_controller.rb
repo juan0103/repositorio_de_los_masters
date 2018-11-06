@@ -13,7 +13,9 @@ class NovedadesController < ApplicationController
    end
 
     def createnovedad
-        @numvisita=1          
+        ##puts "numero visita:"
+        ##puts params[:numVisita]
+        @numvisita=params[:numVisita]          
         @empresa=Empresa.all
         @Pai=Pai.all
         @Departamento=Departamento.all
@@ -54,7 +56,7 @@ class NovedadesController < ApplicationController
 
         insertn.id_novedad = idNovedad
     end 
-    @numvisita=1  
+    @numvisita=params[:numVisita] 
     insertn.detalle_novedad = params[:detallenovedad]
     insertn.id_interesado = params[:interesado]    
     insertn.id_visita = @numvisita
@@ -82,7 +84,7 @@ class NovedadesController < ApplicationController
 
 
     def delete_novedad
-        @numvisita=1
+        @numvisita=params[:numVisita]
         novedad=Novedad.find(params[:id_novedad])
         getProceso novedad.id_proceso_auditoria            
         novedad.destroy()                
@@ -96,7 +98,8 @@ class NovedadesController < ApplicationController
     
 
    def loadInformacion
-        @numvisita=1 
+        @numvisita=params[:numVisita]
+
         getProceso 1   
         listFacturas=@listProcesos
 

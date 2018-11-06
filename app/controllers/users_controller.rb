@@ -27,6 +27,7 @@ class UsersController < ApplicationController
             duser=Interesado.where(:id_interesado => user.id_interesado) 
             session[:area]=duser[0].desc_interesado
             session[:usuario]=user.login.to_s
+            session[:usuario_id]=user.id
             render 'home', layout: 'mailer'            
         else
             

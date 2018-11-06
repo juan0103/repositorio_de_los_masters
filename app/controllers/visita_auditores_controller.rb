@@ -17,17 +17,18 @@ class VisitaAuditoresController < ApplicationController
 
         insertVisita.id_visita= idVisita
         insertVisita.tipo_visita= 'Programada'
-        insertVisita.id_usuario= session[:usuario]
+        insertVisita.id_usuario= session[:usuario_id]
         insertVisita.id_sucursal= params[:id_sucursal]
         insertVisita.id_empresa= params[:id_empresa]
         insertVisita.fecha_visita= params[:fecha_visita]
-        listVisitas=VisitaAuditor.select('VA.*,EMP.NOMBRE_EMPRESA,SUC.DESC_SUCURSAL,to_char(VA.FECHA_VISITA, \'DD/MM/YYYY\') FECHA_STR,to_char(VA.FECHA_VISITA,\'DD\') DIA').joins('VA  JOIN "seguridad"."EMPRESA" EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  JOIN "seguridad"."SUCURSAL" SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL').where(" to_char(VA.FECHA_VISITA,'YYYY')='#{params[:year]}'  AND to_char(VA.FECHA_VISITA,'MM')='#{params[:mes]}' ")
+        puts  "fecha "
+        puts  params[:fecha_visita]
+        listVisitas=VisitaAuditor.select('VA.*,EMP.NOMBRE_EMPRESA,SUC.DESC_SUCURSAL,to_char(VA.FECHA_VISITA, \'DD/MM/YYYY\') FECHA_STR,to_char(VA.FECHA_VISITA,\'DD\') DIA').joins('VA  JOIN "seguridad"."EMPRESA" EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  JOIN "seguridad"."SUCURSAL" SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL').where(" to_char(VA.FECHA_VISITA,'YYYY')='#{params[:year]}'  AND to_char(VA.FECHA_VISITA,'MM')='#{params[:mes]}' AND VA.id_usuario='#{session[:usuario_id]}' ")
         if (insertVisita.save==true)               
             respond_to do |format|           
                format.html 
-               format.json do
-                getProceso insertn.id_proceso_auditoria
-                render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success", visitas:@listVisitas}.to_json
+               format.json do                
+                render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success", visitas:listVisitas}.to_json
                 end
             end
         else
@@ -41,7 +42,7 @@ class VisitaAuditoresController < ApplicationController
     end
 
     def getInfo
-        listVisitas=VisitaAuditor.select('VA.*,EMP.NOMBRE_EMPRESA,SUC.DESC_SUCURSAL,to_char(VA.FECHA_VISITA, \'DD/MM/YYYY\') FECHA_STR,to_char(VA.FECHA_VISITA,\'DD\') DIA').joins('VA  JOIN "seguridad"."EMPRESA" EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  JOIN "seguridad"."SUCURSAL" SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL').where(" to_char(VA.FECHA_VISITA,'YYYY')='#{params[:year]}'  AND to_char(VA.FECHA_VISITA,'MM')='#{params[:mes]}' ")
+        listVisitas=VisitaAuditor.select('VA.*,EMP.NOMBRE_EMPRESA,SUC.DESC_SUCURSAL,to_char(VA.FECHA_VISITA, \'DD/MM/YYYY\') FECHA_STR,to_char(VA.FECHA_VISITA,\'DD\') DIA').joins('VA  JOIN "seguridad"."EMPRESA" EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  JOIN "seguridad"."SUCURSAL" SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL').where(" to_char(VA.FECHA_VISITA,'YYYY')='#{params[:year]}'  AND to_char(VA.FECHA_VISITA,'MM')='#{params[:mes]}' AND VA.id_usuario='#{session[:usuario_id]}'")
         respond_to do |format|           
             format.html 
             format.json do
