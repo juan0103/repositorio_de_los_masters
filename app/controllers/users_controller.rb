@@ -25,9 +25,12 @@ class UsersController < ApplicationController
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
             duser=Interesado.where(:id_interesado => user.id)
-            session[:id_area]=duser[0].id_interesado
             session[:area]=duser[0].desc_interesado
             session[:usuario]=user.login.to_s
+            session[:usuario_id]=user.id
+            session[:id_area]=duser[0].id_interesado
+            
+            
             render 'Bienvenido', layout: 'mailer'            
         else
             
