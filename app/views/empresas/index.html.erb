@@ -22,19 +22,19 @@
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
-                <%= link_to 'Show', empresa,  { class: "btn btn-primary btn-sm", id: "myid"} %></td>
+                <%= link_to 'Ver', empresa,  { class: "btn btn-primary btn-sm"} %></td>
               </div>
             </td>
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
-                <%= link_to 'Edit', edit_empresa_path(empresa), {class: "btn btn-success btn-sm"} %></td>
+                <%= link_to 'Editar', edit_empresa_path(empresa), {class: "btn btn-success btn-sm"} %></td>
               </div>
             </td>
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
-                <%= link_to 'Destroy', empresa, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm" %></td>
+                <%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?' } , class: "btn btn-danger btn-sm" %>
               </div>
             </td>
           </tr>
@@ -44,4 +44,4 @@
     </div>
   </div>
 <br>
-<label class="fa fa-plus fa-lg" ></label><%= link_to 'New Empresa', new_empresa_path, class: "btn btn-warning" %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nueva Empresa', new_empresa_path, class: "btn btn-warning" %>

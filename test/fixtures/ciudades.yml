@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_ciudad: 1
+  desc_ciudad: MyString
+  id_departamento: 1
+
+two:
+  id_ciudad: 1
+  desc_ciudad: MyString
+  id_departamento: 1

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1><b>Ciudades</b></h1>      
+</section>   
+<div class="box">
+  <div class="box-body">
+    <table class="table table-bordered table-striped filterTable" >
+      <thead>
+        <tr>
+      <th>Id ciudad</th>
+      <th>Desc ciudad</th>
+      <th>Id departamento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ciudades.each do |ciudade| %>
+      <tr>
+        <td><%= ciudade.id_ciudad %></td>
+        <td><%= ciudade.desc_ciudad %></td>
+        <td><%= ciudade.id_departamento %>
+          <td>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+              <%= link_to 'Ver', ciudade,  { class: "btn btn-primary btn-sm"} %></td>
+            </div>
+          </td>
+          <td>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+              <%= link_to 'Editar', edit_ciudade_path(ciudade), {class: "btn btn-success btn-sm"} %></td>
+            </div>
+          </td>
+          <td>
+            <div class="input-group margin-bottom-sm">
+              <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+              <%= link_to 'Eliminar', ciudade, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?'}, class: "btn btn-danger btn-sm" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+<br>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nueva Ciudad', new_ciudade_path, class: "btn btn-warning" %>

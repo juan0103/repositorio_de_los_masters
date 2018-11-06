@@ -1,3 +1,4 @@
+<script src="/JsViews/viewNovedad.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!----><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,47 +28,16 @@
 		}
 </script>
 
+
+
+
+
+
 <center><p><h1><b>Novedades Reportadas Para el Area: <%= session[:area] %></b></h1></p></center>
 <br style="clear:both;">
 <br style="clear:both;">
 <!--configuracion de datos para consulta de novedades-->
 <%= form_tag(:controller => "novedades", :action => "getnovedades", :method => "post") do |j| %>	
-<div class="container">
-		<div class='col-md-5'>
-			<div class="form-group">
-				<div class='input-group date' id='datetimepicker6'>
-					<input type='text' class="form-control" />
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
-			</div>
-		</div>
-		<div class='col-md-5'>
-			<div class="form-group">
-				<div class='input-group date' id='datetimepicker7'>
-					<input type='text' class="form-control" />
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(function () {
-			$('#datetimepicker6').datetimepicker();
-			$('#datetimepicker7').datetimepicker({
-				useCurrent: false //Important! See issue #1075
-			});
-			$("#datetimepicker6").on("dp.change", function (e) {
-				$('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-			});
-			$("#datetimepicker7").on("dp.change", function (e) {
-				$('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-			});
-		});
-	</script>		                 
     <div class="col-sm-3" >
 		<span class="focus-input100"><b>Fecha Inicio  </b></span>
 		<div class='input-group date' id='datetimepicker1'>
@@ -111,9 +81,151 @@
 <br style="clear:both;">
 <br style="clear:both;">
 
-<button type="button" id="Crear" class="btn btn-primary">
-    <span class="fa fa-plus"></span> Novedad # Titulo ... Sitio... Fecha...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="box-body">
+		<table id="tablenovedad" class="table table-bordered table-striped">
+		  <thead>
+			  <tr>
+			  <th style="text-align:center">Autor</th>
+			  <th style="text-align:center">Titulo</th>  
+			  <th style="text-align:center">Tipo de novedad</th> 
+			  <th style="text-align:center">Estado</th>                  
+			  <th style="text-align:center">Empresa</th>                  
+			  <th style="text-align:center">Sucursal</th>                  
+			  <th style="text-align:center">fecha de Novedad</th>                    
+			  <th style="text-align:center; width:12px"></th>  
+			  </tr>
+		  </thead>
+		  <tbody>                            
+		  </tfoot>
+	  </table> 
+	  </div>
+
+
+
+
+
+<button type="button" class="btn btn-primary" id="Crear">
+    <span class="fa fa-clipboard"></span> Novedad #
 </button>
+
+
+<br style="clear:both;">
+<br style="clear:both;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--modal para la visualizacion de las noveddes-->
 <div id="ModalCrear" class="modal fade" role="dialog" style="overflow-y: scroll;" data-backdrop="static"> 
 	<div class="modal-dialog">

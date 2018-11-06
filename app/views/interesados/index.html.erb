@@ -21,19 +21,19 @@
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
-                <%= link_to 'Show', interesado,  { class: "btn btn-primary btn-sm"} %>
+                <%= link_to 'Ver', interesado,  { class: "btn btn-primary btn-sm"} %>
               </div>
             </td>
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
-                <%= link_to 'Edit', edit_interesado_path(interesado), {class: "btn btn-success btn-sm"} %>
+                <%= link_to 'Editar', edit_interesado_path(interesado), {class: "btn btn-success btn-sm"} %>
               </div>
             </td>
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
-                <%= link_to 'Destroy', interesado, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+                <%= link_to 'Eliminar', interesado, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?' }, class: "btn btn-danger btn-sm" %>
               </div>
             </td>
           </tr>
@@ -45,4 +45,4 @@
 
 <br>
 
-<label class="fa fa-plus fa-lg" ></label><%= link_to 'New Interesado', new_interesado_path, class: "btn btn-warning" %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nuevo Interesado', new_interesado_path, class: "btn btn-warning" %>

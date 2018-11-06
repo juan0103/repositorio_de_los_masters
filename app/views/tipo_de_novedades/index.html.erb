@@ -32,7 +32,7 @@
             <td>
               <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
-                <%= link_to 'Destroy', tipo_de_novedade,  method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger btn-sm" %>
+                <%= link_to 'Eliminar', tipo_de_novedade,  method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?' } , class: "btn btn-danger btn-sm" %>
               </div>
             </td>
           </tr>
@@ -42,4 +42,4 @@
     </div>
   </div>
 <br>
-<label class="fa fa-plus fa-lg" ></label><%= link_to 'Agregar', new_tipo_de_novedade_path, class: "btn btn-warning" %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nuevo', new_tipo_de_novedade_path, class: "btn btn-warning" %>

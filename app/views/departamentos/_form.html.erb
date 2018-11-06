@@ -1,0 +1,48 @@
+<%= form_with(model: departamento, local: true) do |form| %>
+  <% if departamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(departamento.errors.count, "error") %> prohibited this departamento from being saved:</h2>
+      <ul>
+      <% departamento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :id_departamento %>
+    </div>
+    <div class="col-md-4">
+      <%= form.number_field :id_departamento, id: :departamento_id_departamento %>
+    </div>
+  </div>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :desc_departamento %>
+    </div>
+    <div class="col-md-4">
+    <%= form.text_field :desc_departamento, id: :departamento_desc_departamento %>
+  </div>
+</div>
+<br style="clear:both;">
+<br style="clear:both;">
+<div class="field">
+  <div class="col-md-2">
+    <%= form.label :id_pais %>
+  </div>
+  <div class="col-md-4">
+    <%= form.number_field :id_pais, id: :departamento_id_pais %>
+  </div>
+</div>
+<br style="clear:both;">
+<br style="clear:both;">
+<div class="col-md-2"></div>
+<div class="col-md-4">
+  <div class="actions">
+    <%= form.submit class: "btn btn-success"%>
+  </div>
+</div>
+<% end %>

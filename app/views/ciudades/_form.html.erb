@@ -1,0 +1,49 @@
+<%= form_with(model: ciudade, local: true) do |form| %>
+  <% if ciudade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ciudade.errors.count, "error") %> prohibited this ciudade from being saved:</h2>
+
+      <ul>
+      <% ciudade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :id_ciudad %>
+    </div>
+    <div class="col-md-4">
+      <%= form.number_field :id_ciudad, id: :ciudade_id_ciudad %>
+    </div>
+  </div>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :desc_ciudad %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :desc_ciudad, id: :ciudade_desc_ciudad %>
+    </div>
+  </div>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="field">
+    <div class="col-md-2">
+      <%= form.label :id_departamento %>
+    </div>
+    <div class="col-md-4">
+    <%= form.number_field :id_departamento, id: :ciudade_id_departamento %>
+  </div>
+</div>
+<br style="clear:both;">
+<br style="clear:both;">
+<div class="col-md-2"></div>
+<div class="col-md-4">
+  <div class="actions">
+    <%= form.submit class: "btn btn-success" %>
+  </div>
+</div>
+<% end %>

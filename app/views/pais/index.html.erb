@@ -1,29 +1,46 @@
 <p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1><b>Pais</b></h1>      
+</section>   
+<div class="box">
+  <div class="box-body">
+    <table class="table table-bordered table-striped filterTable" >
+      <thead>
+        <tr>
+          <th>Id pais</th>
+          <th>Nombre pais</th>
+          <th colspan="3"></th>
+        </tr> 
+      </thead>
 
-<h1>Pais</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id pais</th>
-      <th>Nombre pais</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pais.each do |pai| %>
-      <tr>
-        <td><%= pai.id_pais %></td>
-        <td><%= pai.nombre_pais %></td>
-        <td><%= link_to 'Show', pai %></td>
-        <td><%= link_to 'Edit', edit_pai_path(pai) %></td>
-        <td><%= link_to 'Destroy', pai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @pais.each do |pai| %>
+          <tr>
+            <td><%= pai.id_pais %></td>
+            <td><%= pai.nombre_pais %></td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+                <%= link_to 'Ver', pai,  { class: "btn btn-primary btn-sm"} %>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+                <%= link_to 'Editar', edit_pai_path(pai), {class: "btn btn-success btn-sm"} %>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+                <%= link_to 'Eliminar', pai, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?'}, class: "btn btn-danger btn-sm"  %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
-
-<%= link_to 'New Pai', new_pai_path %>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nuevo Pais', new_pai_path, class: "btn btn-warning" %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+<section class="content-header">
+  <h1><b>Departamentos</b></h1>      
+</section>   
+<div class="box">
+  <div class="box-body">
+    <table class="table table-bordered table-striped filterTable" >
+      <thead>
+        <tr>
+          <th>Id departamento</th>
+          <th>Desc departamento</th>
+          <th>Id pais</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @departamentos.each do |departamento| %>
+          <tr>
+            <td><%= departamento.id_departamento %></td>
+            <td><%= departamento.desc_departamento %></td>
+            <td><%= departamento.id_pais %></td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i></span>
+                <%= link_to 'Ver', departamento,  { class: "btn btn-primary btn-sm"} %></td>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-edit fa-lg"></i></span>
+                <%= link_to 'Editar', edit_departamento_path(departamento), {class: "btn btn-success btn-sm"} %></td>
+              </div>
+            </td>
+            <td>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-trash-o fa-lg"></i></span>
+                <%= link_to 'Eliminar', departamento, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este registro?' }, class: "btn btn-danger btn-sm" %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<label class="fa fa-plus fa-lg" ></label><%= link_to 'Nuevo Departamento', new_departamento_path, class: "btn btn-warning" %>

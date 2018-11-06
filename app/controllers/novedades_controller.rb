@@ -6,9 +6,19 @@ class NovedadesController < ApplicationController
         @listProcesos=nil      
     end
     def index
+      
+    @novxarea=Novedad.where(:id_interesado => idnov )  
         render 'viewnovedades', layout: 'mailer'
     end
    def getnovedades
+    idnov= session[:id_area]
+    puts "hola mundo"
+    puts idnov
+    @novxarea=Novedad.where(:id_interesado => idnov )  
+
+
+    # getnv=Novedad.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
+
    end
 
     def createnovedad

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ciudades
+  resources :departamentos
   resources :interesados
   resources :tipo_de_novedades
   resources :empresas
@@ -10,7 +12,8 @@ Rails.application.routes.draw do
   get "users" => "users#index" # crea un alias y con la asignacion indico controlador y accion
   post "users/login" #indico directo el controlador y la accion
   post "users/save_register"
-  get "users/register"
+  get "users/Bienvenido"
+  get "users/usuarios"
   post "users/prueba"
   get "users/getInfo"
   post "users/restorekey"

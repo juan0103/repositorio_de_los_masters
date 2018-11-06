@@ -1,0 +1,53 @@
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+  <div class="panel panel-info">
+    <div class="panel-heading" ><h1>Ver Ciudad</h1></h4></div>
+    <div class="panel-body" >
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Id ciudad:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @ciudade.id_ciudad %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Desc ciudad:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @ciudade.desc_ciudad %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Id departamento:</strong>
+        </div>
+      <div class="col-md-4">
+        <%= @ciudade.id_departamento %>
+      </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="col-md-8">
+        <div class="input-group margin-bottom-md">
+          <table>
+            <tr>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-lg"></i><%= link_to 'Editar', edit_ciudade_path(@ciudade), class: "btn btn-info btn-xs" %></span>
+              </td>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', ciudades_path, class: "btn btn-info btn-xs" %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-1"></div>  

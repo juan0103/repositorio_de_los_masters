@@ -13,8 +13,8 @@ class UsersController < ApplicationController
        user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
         if user!=nil 
             if(user.perfil_id==1)
-               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","register"],
-               ["pais","Gestion Pais","index"],["users","Gestion Departamentos","index"],["users","Gestion Ciudades","index"],
+               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","usuarios"],
+               ["pais","Gestion Pais","index"],["departamentos","Gestion Departamentos","index"],["ciudades","Gestion Ciudades","index"],
                 ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["users","Salir","index"]]
             
             
@@ -24,10 +24,11 @@ class UsersController < ApplicationController
                 session[:menu]=[["novedades","Gestionar  Novedades","index"], ["novedades", "Crear Novedades", "createnovedad"], ["users","Salir","index"] ]
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
-            duser=Interesado.where(:id_interesado => user.id) 
+            duser=Interesado.where(:id_interesado => user.id)
+            session[:id_area]=duser[0].id_interesado
             session[:area]=duser[0].desc_interesado
             session[:usuario]=user.login.to_s
-            render 'home', layout: 'mailer'            
+            render 'Bienvenido', layout: 'mailer'            
         else
             
             @message = "Usuario o contraseña incorrecta"
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def register
-        render 'home', layout:"mailer"
+        render 'usuarios', layout:"mailer"
     end
 
     def save_register
@@ -147,11 +148,31 @@ class UsersController < ApplicationController
     end
 
     def insertpass
-        usuario_code=RestorePassword.where(:codigo_url => params[:code])                 
-        @id_usuario_code=usuario_code[0].id_usuario       
-        User.update(@id_usuario_code, :password => params[:txtcontraseña])
-        @message = "Su contraseña ha sido reestablecida correctamente"
-        @tipo="success"                  
+        begin    
+            usuario_code=RestorePassword.where(:codigo_url => params[:code])
+            @id_usuario_code=usuario_code[0].id_usuario
+            if (@id_usuario_code.to_s != "1")
+                
+                User.update(@id_usuario_code, :password => params[:txtcontraseña])
+                @message = "Su contraseña ha sido reestablecida correctamente"
+                @tipo="success"
+                #eliminar el token aqui
+                #raise genera un error
+                one = RestorePassword.where(:id_usuario => @id_usuario_code)#obtengo el registro que quiero eliminar
+                RestorePassword.delete(one)#se procede a eliminar el registro
+                # luego actualizar el primer registro para leerlo
+                RestorePassword.update(1, :codigo_url => usuario_code[0].codigo_url )
+            else 
+                raise
+            
+            end
+
+        rescue Exception => e
+            @message = "ha expirado el tiempo del enlace o ya ha reestablecido la contraseña"
+            @tipo="error"
+        end
+            
+                        
         render 'index', layout: 'application'
     end
 end 
