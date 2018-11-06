@@ -13,7 +13,7 @@ class UsersController < ApplicationController
        user=User.where("login=:nombre and password=:pass ",{nombre:params[:txtuser],pass:params[:txtpassword]}).first
         if user!=nil 
             if(user.perfil_id==1)
-               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","usuarios"],
+               session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","register"],
                ["pais","Gestion Pais","index"],["departamentos","Gestion Departamentos","index"],["ciudades","Gestion Ciudades","index"],
                 ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["users","Salir","index"]]
             
