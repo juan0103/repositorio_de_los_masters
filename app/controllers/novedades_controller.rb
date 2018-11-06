@@ -68,6 +68,7 @@ class NovedadesController < ApplicationController
     insertn.id_tipo_novedad = params[:selectTnovedad]
     insertn.id_proceso_auditoria = params[:proceso]    
     insertn.titulo = params[:titulo]    
+    insertn.estado_novedad="Abierto"
     if (insertn.save==true)               
         respond_to do |format|           
            format.html 
