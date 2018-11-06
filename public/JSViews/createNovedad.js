@@ -71,7 +71,7 @@ window.addEventListener('load', function(){//Metodo para cargar los datos inicia
 function deleteNovedad(idNovedad,idTable){//metodo para eliminar una noverdad
         requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad,numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){       
         swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
-        if(jsonResponse.tipo=="success"){           
+        if(jsonResponse.tipo=="success"){            
            loadNovedades(jsonResponse.list,idTable);               
          }   
         
@@ -125,10 +125,20 @@ function loadNovedades(jsonResponse,idTabla){
         var onclick1="onclick=\"showModalUpdate('"+jsonResponse[i].id_proceso_auditoria+"', '"+jsonResponse[i].id_novedad+"','"+idTabla+"',this,"+(i+1)+");\" ";          
         var onclick2="onclick=\"deleteNovedad('"+jsonResponse[i].id_novedad+"', '"+idTabla+"');\" ";          
         
+        var colorEstado="";
+        if(jsonResponse[i].estado_novedad=='Cerrado')
+           colorEstado="#F92C00";
+        else if(jsonResponse[i].estado_novedad=='Abierto') 
+            colorEstado="#00a65a";
+
+        var estado="<a   class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:"+colorEstado+";border-color:#fff'>";
+        estado+="<div class='fc-content'>";                    
+        estado+=jsonResponse[i].estado_novedad;                 
+        estado+="</div></a>";
         var row="<tr><td>"+jsonResponse[i].id_novedad+"</td><td>"+jsonResponse[i].id_interesado+"</td><td>"+jsonResponse[i].desc_interesado+"</td><td>"+jsonResponse[i].id_tipo_novedad+"</td><td>"+
-        jsonResponse[i].id_tipo_novedad+"</td><td>"+jsonResponse[i].titulo+"</td><td>"+jsonResponse[i].detalle_novedad+"</td><td>"+""+"</td><td>"+
-        "<button type='button' class='btn btn-sm btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>"+"</td><td>"+
-        "<button type='button' class='btn btn-sm btn-danger delete' "+onclick2+"><i class='fa   fa-remove' /></button></tr>";
+        jsonResponse[i].id_tipo_novedad+"</td><td>"+jsonResponse[i].titulo+"</td><td>"+jsonResponse[i].detalle_novedad+"</td><td>"+""+"</td> <td>"+estado+"</td><td>"+
+        "<button type='button' class='btn btn-xs btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>"+"</td><td>"+
+        "<button type='button' class='btn btn-xs btn-danger delete' "+onclick2+"><i class='fa   fa-remove' /></button></tr>";
         $(idTablaQ+' tr:last').after(row);         
        }
       
