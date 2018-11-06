@@ -2,6 +2,7 @@ class NovedadesController < ApplicationController
     skip_before_action :verify_authenticity_token
     @cover 
     def initialize     
+        puts "iniciando"        
         @visita=1 
         @listProcesos=nil      
     end
@@ -22,7 +23,9 @@ class NovedadesController < ApplicationController
    end
 
     def createnovedad
-        @numvisita=1          
+        ##puts "numero visita:"
+        ##puts params[:numVisita]
+        @numvisita=params[:numVisita]          
         @empresa=Empresa.all
         @Pai=Pai.all
         @Departamento=Departamento.all
@@ -53,12 +56,24 @@ class NovedadesController < ApplicationController
         if(params[:id_novedad]!=nil and  !params[:id_novedad].eql?(""))
             insertn=Novedad.find(params[:id_novedad])
         else
-            insertn=Novedad.new
-            idNovedad= Novedad.maximum('id_novedad');
-            if(idNovedad==nil)
-               idNovedad=1;
-            else
-                idNovedad=idNovedad+1
+            idNovedad=idNovedad+1
+        end
+
+        insertn.id_novedad = idNovedad
+    end 
+    @numvisita=params[:numVisita] 
+    insertn.detalle_novedad = params[:detallenovedad]
+    insertn.id_interesado = params[:interesado]    
+    insertn.id_visita = @numvisita
+    insertn.id_tipo_novedad = params[:selectTnovedad]
+    insertn.id_proceso_auditoria = params[:proceso]    
+    insertn.titulo = params[:titulo]    
+    if (insertn.save==true)               
+        respond_to do |format|           
+           format.html 
+           format.json do
+            getProceso insertn.id_proceso_auditoria
+            render json:{title: "Registro", mensaje:"Se guardo correctamente",tipo:"success", list:@listProcesos}.to_json
             end
         
             insertn.id_novedad = idNovedad
@@ -91,7 +106,7 @@ class NovedadesController < ApplicationController
 
 
     def delete_novedad
-        @numvisita=1
+        @numvisita=params[:numVisita]
         novedad=Novedad.find(params[:id_novedad])
         getProceso novedad.id_proceso_auditoria            
         novedad.destroy()                
@@ -105,7 +120,8 @@ class NovedadesController < ApplicationController
     
 
    def loadInformacion
-        @numvisita=1 
+        @numvisita=params[:numVisita]
+
         getProceso 1   
         listFacturas=@listProcesos
 
@@ -161,21 +177,15 @@ class NovedadesController < ApplicationController
    
 
    def save_image 
-    puts "prueba"
-    filename = "prueba2.jpg"      
-    folder = "public/"    
-    FileUtils::mkdir_p folder  
-    puts params[:image].to_s
-    File.open("#{folder}#{filename}", 'wb' ) do |output|
-        output << params[:image]
-     end
-    
-    #puts "inicio archivo"
-    #f = File.open File.join(folder, filename), "wb"
-    #puts "previo escritura"
-    #f.write params[:image]
-    #f.close
-    #puts "fin escritura"
+    puts "Inicio" 
+    @id=18
+    puts "Inicio"
+    puts params[:bytes]
+    insertn=Novedad.find(params[:id_novedad])
+    puts "consulta"
+   
+    insertn.bytesImages=params[:bytes]    
+    insertn.save
 
 end
 

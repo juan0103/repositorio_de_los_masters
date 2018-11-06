@@ -3,7 +3,7 @@ $(document).ready(function() {
  
     $( "#btnRegister" ).click(function() {//evento para registrar o modificar un usuario                      
            var dataRequest= {id_novedad:$("#idNovedad").val(),detallenovedad:$("#detallenovedad").val(),interesado:$("#selectInteresados").val(),
-           selectTnovedad:$("#selectTnovedad").val(),proceso:$("#idProceso").val(),titulo:$("#titulonovedad").val()};
+           selectTnovedad:$("#selectTnovedad").val(),proceso:$("#idProceso").val(),titulo:$("#titulonovedad").val(),numVisita:$("#idNumVisita").val()};
            requestAjax('/novedades/insertNovedad',dataRequest,'POST',function(jsonResponse){
             swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
             if(jsonResponse.tipo=="success"){
@@ -22,7 +22,7 @@ $(document).ready(function() {
         var reader = new FileReader();
         reader.onload = processFile(files);
         reader.readAsArrayBuffer(files);
-        console.log(reader)
+        //console.log(reader)
         /*var fileReader = new FileReader();
         fileReader.onload = function () {
           var data = fileReader.result;  // data <-- in this var you have the file data in Base64 format          
@@ -40,12 +40,15 @@ function processFile(theFile){
       var theBytes = e.target.result; //.split('base64,')[1]; // use with uploadFile2
       //fileByteArray.push(theBytes);
       console.log(theBytes);
-     requestAjax('/novedades/save_image',{image:theBytes},'POST',function(jsonResponse){});           
+      requestAjax('/novedades/save_image',{bytes:theBytes,id_novedad:18},'POST',function(jsonResponse){
+           //console.log(jsonResponse.respuesta);
+
+      });           
     }
   }
 
-window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla   
-     requestAjax('/novedades/loadInformacion',{},'POST',function(jsonResponse){       
+window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla     
+  requestAjax('/novedades/loadInformacion',{numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){             
      console.log(jsonResponse);
      loadNovedades(jsonResponse.listFacturas,"tableEstaPagos");
      loadNovedades(jsonResponse.listImpuestos,"tableImpuesto");      
@@ -66,7 +69,7 @@ window.addEventListener('load', function(){//Metodo para cargar los datos inicia
 }, false);
 
 function deleteNovedad(idNovedad,idTable){//metodo para eliminar una noverdad
-        requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad},'POST',function(jsonResponse){       
+        requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad,numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){       
         swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
         if(jsonResponse.tipo=="success"){           
            loadNovedades(jsonResponse.list,idTable);               
