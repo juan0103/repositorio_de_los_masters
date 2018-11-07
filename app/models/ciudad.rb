@@ -1,4 +1,4 @@
-class Ciudade < ApplicationRecord
+class Ciudad < ApplicationRecord
     def self.table_name
         "seguridad.CIUDAD"
     end

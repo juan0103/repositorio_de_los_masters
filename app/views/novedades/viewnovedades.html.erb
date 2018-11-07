@@ -1,4 +1,6 @@
 <script src="/JsViews/viewNovedad.js" type="text/javascript"></script>
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!----><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -27,24 +29,77 @@
 			document.getElementById("divimagenes").style.display = 'none';
 		}
 </script>
-
-
-
-
+<script>
+$(function () {
+	var bindDatePicker = function() {
+		 $(".date").datetimepicker({
+		 format:'YYYY-MM-DD',
+			 icons: {
+				 time: "fa fa-clock-o",
+				 date: "fa fa-calendar",
+				 up: "fa fa-arrow-up",
+				 down: "fa fa-arrow-down"
+			 }
+		 }).find('input:first').on("blur",function () {
+			 // check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+			 // update the format if it's yyyy-mm-dd
+			 var date = parseDate($(this).val());
+ 
+			 if (! isValidDate(date)) {
+				 //create date based on momentjs (we have that)
+				 date = moment().format('YYYY-MM-DD');
+			 }
+ 
+			 $(this).val(date);
+		 });
+	 }
+	
+	var isValidDate = function(value, format) {
+		 format = format || false;
+		 // lets parse the date to the best of our knowledge
+		 if (format) {
+			 value = parseDate(value);
+		 }
+ 
+		 var timestamp = Date.parse(value);
+ 
+		 return isNaN(timestamp) == false;
+	}
+	
+	var parseDate = function(value) {
+		 var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+		 if (m)
+			 value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+ 
+		 return value;
+	}
+	
+	bindDatePicker();
+  });
+</script>
 
 
 <center><p><h1><b>Novedades Reportadas Para el Area: <%= session[:area] %></b></h1></p></center>
 <br style="clear:both;">
 <br style="clear:both;">
 <!--configuracion de datos para consulta de novedades-->
-<%= form_tag(:controller => "novedades", :action => "getnovedades", :method => "post") do |j| %>	
+
     <div class="col-sm-3" >
 		<span class="focus-input100"><b>Fecha Inicio  </b></span>
-		<div class='input-group date' id='datetimepicker1'>
-			<input type='text' class="form-control" />
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-calendar"></span>
-			</span>
+		<div class="form-group">
+			<div class="container">
+				<div class="row">
+					<div class='col-sm-3'>
+						<div class="form-group">
+							<div class='input-group date' id='datetimepicker1'>
+								<input type='text' class="form-control" />
+								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="col-sm-3" >
@@ -60,7 +115,10 @@
 	<br style="clear:both;">
  
     <div class="col-md-1 " >
-        <button type="submit" class="btn btn-light">Ver Hoy</button>
+		<%= form_tag(:controller => "novedades", :action => "verhoy", :method => "post") do |j| %>	
+		
+			<button type="submit" class="btn btn-light">Ver Hoy</button>
+		<% end %>
 	</div>
 
 	<div class="dropdown col-md-2">
@@ -74,7 +132,6 @@
 	<div class="col-md-1 " >
 			<button type="button" class="btn btn-success">Generar</button>
 	</div>	
-<% end %>
 
 <br style="clear:both;">
 <br style="clear:both;">
@@ -127,23 +184,23 @@
 
 
 <div class="box-body">
-		<table id="tablenovedad" class="table table-bordered table-striped">
-		  <thead>
-			  <tr>
-			  <th style="text-align:center">Autor</th>
-			  <th style="text-align:center">Titulo</th>  
-			  <th style="text-align:center">Tipo de novedad</th> 
-			  <th style="text-align:center">Estado</th>                  
-			  <th style="text-align:center">Empresa</th>                  
-			  <th style="text-align:center">Sucursal</th>                  
-			  <th style="text-align:center">fecha de Novedad</th>                    
-			  <th style="text-align:center; width:12px"></th>  
-			  </tr>
-		  </thead>
-		  <tbody>                            
-		  </tfoot>
-	  </table> 
-	  </div>
+	<table id="tablenovedad" class="table table-bordered table-striped">
+	  <thead>
+		  <tr>
+		  <th style="text-align:center">Autor</th>
+		  <th style="text-align:center">Titulo</th>  
+		  <th style="text-align:center">Tipo de novedad</th> 
+		  <th style="text-align:center">Estado</th>                  
+		  <th style="text-align:center">Empresa</th>                  
+		  <th style="text-align:center">Sucursal</th>                  
+		  <th style="text-align:center">fecha de Novedad</th>                    
+		  <th style="text-align:center; width:12px"></th>  
+		  </tr>
+	  </thead>
+	  <tbody>                            
+	  </tfoot>
+	</table> 
+</div>
 
 
 
@@ -247,7 +304,7 @@
 						<label></label><i class="fa fa-user"></i><b>  Autor: </b></label>
 						</div>
 						<div class="col-md-8">
-							<label id="Autor" >Autor </label>
+							<label id="Autor" > </label>
 						</div>
 					</div> 
 					<div class="row form-group col-md-12">
@@ -280,8 +337,7 @@
 							<h3 class="panel-title"><i class="fa fa-comments"></i>  <label><b>Descripcion </b></label></h3>   
 						</div>
 						<div class="panel-body">
-							Panel content
-							<textarea class="form-control" rows="3"></textarea>
+							<textarea class="form-control" rows="3" id="descripcion"></textarea>
 						</div>
 					</div>
 					<div class="panel panel-default box-body">
@@ -357,19 +413,6 @@
     });
 </script>
 
-<script type="text/javascript">
-	$(function () {
-		$('#datetimepicker1').datetimepicker();
-	});
-</script>
-
-
-
-<script type="text/javascript">
-	$(function () {
-		$('#datetimepicker2').datetimepicker();
-	});
-</script>
 
 
 

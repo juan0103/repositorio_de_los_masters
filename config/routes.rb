@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "novedades" => "novedades#index"
   get "createnovedades" => "novedades#createnovedad"
   post "novedades/getnovedades"
+  post "novedades/verhoy"
   post "novedades/insertNovedad" 
   post "novedades/loadInformacion"
   post "novedades/delete_novedad"

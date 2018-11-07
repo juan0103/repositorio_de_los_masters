@@ -2,36 +2,44 @@
 var fileByteArray = [];
 
 window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla   
-     requestAjax('/novedades/loadInformacion',{},'POST',function(jsonResponse){       
+     requestAjax('/novedades/getnovedades',{},'POST',function(jsonResponse){       
      console.log(jsonResponse);
-     loadNovedades(jsonResponse.listFacturas,"tablenovedad");        
+     loadNovedades(jsonResponse.listnovedades, 'tablenovedad');
    });      
    
 }, false);
 
-
-function showModalRegister(idProceso,idNovedad,idTabla){
+/**metodo para visualizar el modal previo a un regsitro de novedad*/
+function showModalRegister(autor,fecha,tnovedad,estado,detalle,idTabla){
     cleanCampos();
     showModal('ModalCrear');
-    document.getElementById("idProceso").value=idProceso;
-    document.getElementById("idNovedad").value=idNovedad;
-    document.getElementById("idTable").value=idTabla;
+    document.getElementById("Autor").innerHTML = autor;
+    document.getElementById("Fecha").innerHTML=fecha;
+    document.getElementById("TNovedad").innerHTML=tnovedad;
+    document.getElementById("Estado").innerHTML=estado;
+    document.getElementById("descripcion").innerHTML=detalle;
  }
 
-
-
-
-
-function showModalUpdate(idProceso,idNovedad,idTabla,button,fila){
-    showModalRegister(idProceso,idNovedad,idTabla);
+/**metodo para visualizar el modal en edicion */
+function showModalUpdate(autor,fecha,tnovedad,estado,detalle,idTabla,button,fila){
+    showModalRegister(autor,fecha,tnovedad,estado,detalle,idTabla);
     var $d = $(button).parent("td");
     var Grid_Table = document.getElementById(idTabla);        
-    $('#selectInteresados').val(Grid_Table.rows[fila].cells[1].textContent);
+    $('#Autor').val(Grid_Table.rows[fila].cells[1].textContent);
     $('#selectTnovedad').val(Grid_Table.rows[fila].cells[3].textContent);
     $('#titulonovedad').val(Grid_Table.rows[fila].cells[5].textContent);
     $('#detallenovedad').val(Grid_Table.rows[fila].cells[6].textContent);        
  }
 
+ function cleanCampos(){
+    // document.getElementById("idProceso").value='';
+     document.getElementById("Autor").innerHTMl='';
+     document.getElementById("Fecha").innerHTMl='';
+     document.getElementById("TNovedad").innerHTMl='';
+     document.getElementById("Estado").innerHTMl='';
+     document.getElementById("descripcion").innerHTMl='';
+    
+ }
 
 
 function loadNovedades(jsonResponse,idTabla){  
@@ -46,21 +54,24 @@ function loadNovedades(jsonResponse,idTabla){
 
     //$(idTablaQ+' tbody tr').remove(); 
     for(i = 0; i < jsonResponse.length; i++) { //se llenan las novedades
-        var onclick1="onclick=\"showModalUpdate('"+jsonResponse[i].id_proceso_auditoria+"', '"+jsonResponse[i].id_novedad+"','"+idTabla+"',this,"+(i+1)+");\" ";          
-        var onclick2="onclick=\"deleteNovedad('"+jsonResponse[i].id_novedad+"', '"+idTabla+"');\" ";          
+        var onclick1="onclick=\"showModalUpdate('"+jsonResponse[i].nombre+"', '"+jsonResponse[i].fecha_visita+"', '"+jsonResponse[i].desc_tnovedad+"', '"+jsonResponse[i].estado_novedad+"', '"+jsonResponse[i].detalle_novedad+"','"+idTabla+"',this,"+(i+1)+");\" ";          
         
-        var row="<tr><td>"+jsonResponse[i].id_novedad+"</td><td>"+jsonResponse[i].id_interesado+"</td><td>"+jsonResponse[i].desc_interesado+"</td><td>"+jsonResponse[i].id_tipo_novedad+"</td><td>"+
-        jsonResponse[i].id_tipo_novedad+"</td><td>"+jsonResponse[i].titulo+"</td><td>"+jsonResponse[i].detalle_novedad+"</td><td>"+""+"</td><td>"+
-        "<button type='button' class='btn btn-sm btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>"+"</td><td>"+
-        "<button type='button' class='btn btn-sm btn-danger delete' "+onclick2+"><i class='fa   fa-remove' /></button></tr>";
+        
+        var colorEstado="";
+        if(jsonResponse[i].estado_novedad=='Cerrado')
+           colorEstado="#F92C00";
+        else if(jsonResponse[i].estado_novedad=='Abierto') 
+            colorEstado="#00a65a";
+
+        var estado="<a   class='fc-day-grid-event fc-event fc-start fc-end fc-draggable' style='background-color:"+colorEstado+";border-color:#fff'>";
+        estado+="<div class='fc-content'>";                    
+        estado+=jsonResponse[i].estado_novedad;                 
+        estado+="</div></a>";
+        var row="<tr><td>"+jsonResponse[i].nombre+"</td><td>"+jsonResponse[i].titulo+"</td><td>"+jsonResponse[i].desc_tnovedad+"</td><td>"+jsonResponse[i].estado_novedad+"</td><td>"+
+        jsonResponse[i].nombre_empresa+"</td><td>"+jsonResponse[i].desc_sucursal+"</td><td>"+jsonResponse[i].fecha_visita+"</td><td>"+
+        "<button type='button' class='btn btn-xs btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>";
         $(idTablaQ+' tr:last').after(row);         
        }
       
-     if(jsonResponse.length>0){//en caso de tener registros se oculta en mensaje de no hay novedades 
-        document.getElementById(idTabla+"Notify").style.display = "none"; 
-        document.getElementById(idTabla).style.display = ""; 
-     }else{//en caso de no tener registros se oculta la tabla de datos
-        document.getElementById(idTabla+"Notify").style.display = ""; 
-        document.getElementById(idTabla).style.display = "none"; 
-     }
+     
 }
