@@ -3,7 +3,6 @@ class NovedadesController < ApplicationController
     @cover 
     def initialize     
         puts "iniciando"        
-        @visita=1 
         @listProcesos=nil      
     end
     def index
@@ -24,8 +23,16 @@ class NovedadesController < ApplicationController
         @Interesado= Interesado.all
         @TipoDeNovedad= TipoDeNovedade.all
         
-        tipoVisita=VisitaAuditor.where(:id_visita => @visita)
-        @tipovisita=tipoVisita[0].tipo_visita
+        tipoVisita=VisitaAuditor.where(:id_visita => @numvisita)
+        @tipovisita=tipoVisita[0].tipo_visita        
+        @estadoVisita=tipoVisita[0].estado
+        puts "Estado visita:"
+        puts @estadoVisita
+        if(@estadoVisita=='Iniciada')
+            @class='success'
+        else
+            @class='danger'
+        end
         sucursal=BranchOffice.where(:id_sucursal => tipoVisita[0].id_sucursal)
         @sucursal=sucursal[0].desc_sucursal
         ciudad=Ciudad.where(:id_ciudad => sucursal[0].id_ciudad)
@@ -97,6 +104,26 @@ class NovedadesController < ApplicationController
            end
        end
     
+       def finalizarVisita
+        @numvisita=params[:numVisita]
+        visita=VisitaAuditor.find(params[:numVisita])                
+        visita.estado='Finalizada'                
+        if (visita.save==true)               
+            respond_to do |format|           
+               format.html 
+               format.json do
+                render json:{title: "Registro", mensaje:"Se actualizo correctamente",tipo:"success"}.to_json
+                end
+            end
+        else
+            respond_to do |format|           
+                format.html 
+                format.json do
+                    render json:{title: "Error", mensaje:"Sucedio un Problema Procesando su solictud por favor intentelo de nuevo",tipo:"error"}.to_json
+                 end
+             end
+        end
+       end
 
    def loadInformacion
         @numvisita=params[:numVisita]

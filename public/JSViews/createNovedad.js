@@ -14,6 +14,17 @@ $(document).ready(function() {
            });                              
     });
 
+
+    $( "#btnFinalzar" ).click(function() {//evento para finalizar la visita                    
+      requestAjax('/novedades/finalizarVisita',{numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){
+      swal(jsonResponse.title,jsonResponse.mensaje,jsonResponse.tipo);
+       if(jsonResponse.tipo=="success"){          
+         cambiarViewFinalizado();        
+         cargarView();           
+        }   
+        console.log(jsonResponse);
+      });                              
+})
     
     $( "#myBtn" ).click(function() {
         //var myFile = $('#myInput').prop('files');
@@ -47,26 +58,44 @@ function processFile(theFile){
     }
   }
 
-window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla     
-  requestAjax('/novedades/loadInformacion',{numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){             
-     console.log(jsonResponse);
-     loadNovedades(jsonResponse.listFacturas,"tableEstaPagos");
-     loadNovedades(jsonResponse.listImpuestos,"tableImpuesto");      
-     loadNovedades(jsonResponse.listSanidad,"tableSanidad");
-     loadNovedades(jsonResponse.listDian,"tableDian");
-     loadNovedades(jsonResponse.listFisicoTerreno,"tableFisicoTerreno");
-     loadNovedades(jsonResponse.listFisicoActivo,"tableFisicoActivo"); 
-     loadNovedades(jsonResponse.listProductos,"tableProducto");  
-     loadNovedades(jsonResponse.listaReporteHoras,"tableReporteHoras");  
-     loadNovedades(jsonResponse.listCargoEmp,"tableCargoAsignadoEmpleado");  
-     loadNovedades(jsonResponse.listConformidadEmpleado,"tableConformidadEmpleado");
-     loadNovedades(jsonResponse.listSalidasEmergencia,"tableSalidasEmergencia"); 
-     loadNovedades(jsonResponse.listFuegoEstab,"tableFuegoEstab");
-     loadNovedades(jsonResponse.listIncendios,"tableIncendios");
-     loadNovedades(jsonResponse.listPersonalCapacitado,"tablePersonalCapacitado");          
-   });      
-   
+window.addEventListener('load', function(){//Metodo para cargar los datos iniciales en la pantalla          
+ cargarView();  
 }, false);
+
+
+function cargarView(){
+  requestAjax('/novedades/loadInformacion',{numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){             
+    console.log(jsonResponse);
+    loadNovedades(jsonResponse.listFacturas,"tableEstaPagos");
+    loadNovedades(jsonResponse.listImpuestos,"tableImpuesto");      
+    loadNovedades(jsonResponse.listSanidad,"tableSanidad");
+    loadNovedades(jsonResponse.listDian,"tableDian");
+    loadNovedades(jsonResponse.listFisicoTerreno,"tableFisicoTerreno");
+    loadNovedades(jsonResponse.listFisicoActivo,"tableFisicoActivo"); 
+    loadNovedades(jsonResponse.listProductos,"tableProducto");  
+    loadNovedades(jsonResponse.listaReporteHoras,"tableReporteHoras");  
+    loadNovedades(jsonResponse.listCargoEmp,"tableCargoAsignadoEmpleado");  
+    loadNovedades(jsonResponse.listConformidadEmpleado,"tableConformidadEmpleado");
+    loadNovedades(jsonResponse.listSalidasEmergencia,"tableSalidasEmergencia"); 
+    loadNovedades(jsonResponse.listFuegoEstab,"tableFuegoEstab");
+    loadNovedades(jsonResponse.listIncendios,"tableIncendios");
+    loadNovedades(jsonResponse.listPersonalCapacitado,"tablePersonalCapacitado"); 
+    var estadoVisita=$("#campoEstado").val();
+    if(estadoVisita=='Iniciada'){
+       document.getElementById("btnFinalzar").style.display = "";        
+       $('.btnAddNovedad').show();        
+    } else{
+      document.getElementById("btnFinalzar").style.display = "none"; 
+      $('.btnAddNovedad').hide();
+    }        
+  }); 
+}
+
+function cambiarViewFinalizado(){
+  $("#campoEstado").val("Finalizada")
+  $("#infoEstado").empty();
+  $("#infoEstado").append("<i class='fa  fa-home'></i> Estado <span class='label label-danger pull-right'>Finalizada</span>");
+}
 
 function deleteNovedad(idNovedad,idTable){//metodo para eliminar una noverdad
         requestAjax('/novedades/delete_novedad',{id_novedad:idNovedad,numVisita:$("#idNumVisita").val()},'POST',function(jsonResponse){       
@@ -77,6 +106,9 @@ function deleteNovedad(idNovedad,idTable){//metodo para eliminar una noverdad
         
      }); 
 }
+
+
+
 
 /**metodo para visualizar el modal previo a un regsitro de novedad*/
 function showModalRegister(idProceso,idNovedad,idTabla){
@@ -119,12 +151,17 @@ function loadNovedades(jsonResponse,idTabla){
     for(i = lenght-1; i >0 ; i--){        
         document.getElementById(idTabla).deleteRow(i);
     }     
-
-    //$(idTablaQ+' tbody tr').remove(); 
+    var estadoVisita=$("#campoEstado").val();        
     for(i = 0; i < jsonResponse.length; i++) { //se llenan las novedades
         var onclick1="onclick=\"showModalUpdate('"+jsonResponse[i].id_proceso_auditoria+"', '"+jsonResponse[i].id_novedad+"','"+idTabla+"',this,"+(i+1)+");\" ";          
         var onclick2="onclick=\"deleteNovedad('"+jsonResponse[i].id_novedad+"', '"+idTabla+"');\" ";          
         
+        var buttonModify="";
+        var buttonDelete="";
+        if(estadoVisita=='Iniciada'){
+            buttonModify="<button type='button' class='btn btn-xs btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>";
+            buttonDelete="<button type='button' class='btn btn-xs btn-danger delete' "+onclick2+"><i class='fa   fa-remove' /></button>";
+        }
         var colorEstado="";
         if(jsonResponse[i].estado_novedad=='Cerrado')
            colorEstado="#F92C00";
@@ -137,8 +174,8 @@ function loadNovedades(jsonResponse,idTabla){
         estado+="</div></a>";
         var row="<tr><td>"+jsonResponse[i].id_novedad+"</td><td>"+jsonResponse[i].id_interesado+"</td><td>"+jsonResponse[i].desc_interesado+"</td><td>"+jsonResponse[i].id_tipo_novedad+"</td><td>"+
         jsonResponse[i].id_tipo_novedad+"</td><td>"+jsonResponse[i].titulo+"</td><td>"+jsonResponse[i].detalle_novedad+"</td><td>"+""+"</td> <td>"+estado+"</td><td>"+
-        "<button type='button' class='btn btn-xs btn-success edit' "+onclick1+" \" ><i class='fa  fa-pencil' /></button>"+"</td><td>"+
-        "<button type='button' class='btn btn-xs btn-danger delete' "+onclick2+"><i class='fa   fa-remove' /></button></tr>";
+        buttonModify+"</td><td>"+
+        buttonDelete+"</td></tr>";
         $(idTablaQ+' tr:last').after(row);         
        }
       

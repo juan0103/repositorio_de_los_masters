@@ -1,4 +1,6 @@
 <script src="/JsViews/createNovedad.js" type="text/javascript"></script>
+<input type="text" value="<%= @estadoVisita%>" id="campoEstado" style="display:none">
+<input type="text" id='idNumVisita' value="<%=@numvisita%>" style="display:none">
 <div class="row">
 <div class="col-md-6">
 <div class="box box-solid">
@@ -20,13 +22,16 @@
                   <span class="label label-primary pull-right"><%= @ciudad %></span></a></li>
             
             <li class="active"><a href="#"><i class="fa  fa-home"></i> Sucursal
-                  <span class="label label-success pull-right"><%= @ciudad %></span></a></li>
+                  <span class="label label-warning pull-right"><%=@sucursal%></span></a></li>
+
+               <li class="active"><a href="#" id="infoEstado"><i class="fa  fa-home"></i> Estado
+                  <span class="label label-<%=@class%> pull-right"><%=@estadoVisita%></span></a></li>   
               </ul>
             </div>
             <!-- /.box-body -->
           </div>
 </div>
-<input type="text" id='idNumVisita' value="<%=@numvisita%>" style="display:none"> 
+ 
 <div class="col-md-6">
 <div class="box box-solid">
             <div class="box-header with-border">
@@ -81,7 +86,7 @@
             <strong>Informacion!</strong> No hay novedades registradas.
             </div>
  
-           <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('1','','tableEstaPagos');"></button>	
+           <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('1','','tableEstaPagos');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableEstaPagos" class="table table-bordered table-striped">
@@ -123,7 +128,7 @@
             <div class="alert alert-info alert-dismissible" id="tableImpuestoNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('2','','tableImpuesto');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('2','','tableImpuesto');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableImpuesto" class="table table-bordered table-striped">
@@ -164,7 +169,7 @@
             <div class="alert alert-info alert-dismissible" id="tableSanidadNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('3','','tableSanidad');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('3','','tableSanidad');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableSanidad" class="table table-bordered table-striped">
@@ -205,7 +210,7 @@
             <div class="alert alert-info alert-dismissible" id="tableDianNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('4','','tableDian');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('4','','tableDian');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableDian" class="table table-bordered table-striped">
@@ -267,7 +272,7 @@
             <div class="alert alert-info alert-dismissible" id="tableFisicoTerrenoNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('5','','tableFisicoTerreno');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('5','','tableFisicoTerreno');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableFisicoTerreno" class="table table-bordered table-striped">
@@ -307,7 +312,7 @@
             <div class="alert alert-info alert-dismissible" id="tableFisicoActivoNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('6','','tableFisicoActivo');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('6','','tableFisicoActivo');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableFisicoActivo" class="table table-bordered table-striped">
@@ -348,7 +353,7 @@
             <div class="alert alert-info alert-dismissible" id="tableProductoNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('7','','tableProducto');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('7','','tableProducto');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableProducto" class="table table-bordered table-striped">
@@ -407,7 +412,7 @@
             <div class="alert alert-info alert-dismissible" id="tableReporteHorasNotify">
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('8','','tableReporteHoras');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('8','','tableReporteHoras');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableReporteHoras" class="table table-bordered table-striped">
@@ -450,7 +455,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('9','','tableCargoAsignadoEmpleado');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('9','','tableCargoAsignadoEmpleado');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableCargoAsignadoEmpleado" class="table table-bordered table-striped">
@@ -491,7 +496,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('10','','tableConformidadEmpleado');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('10','','tableConformidadEmpleado');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableConformidadEmpleado" class="table table-bordered table-striped">
@@ -554,7 +559,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('11','','tableSalidasEmergencia');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('11','','tableSalidasEmergencia');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableSalidasEmergencia" class="table table-bordered table-striped">
@@ -596,7 +601,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('12','','tableFuegoEstab');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('12','','tableFuegoEstab');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableFuegoEstab" class="table table-bordered table-striped">
@@ -638,7 +643,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('13','','tableIncendios');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('13','','tableIncendios');"></button>	
              <br/>
              <div class="box-body">
               <table id="tableIncendios" class="table table-bordered table-striped">
@@ -680,7 +685,7 @@
               <strong>Informacion!</strong> No hay novedades registradas.
             </div>
               
-          <button type="button" class="btn btn-default fa  fa-user" onclick="showModalRegister('14','','tablePersonalCapacitado');"></button>	
+          <button type="button" class="btn btn-default fa  fa-user btnAddNovedad" onclick="showModalRegister('14','','tablePersonalCapacitado');"></button>	
              <br/>
              <div class="box-body">
               <table id="tablePersonalCapacitado" class="table table-bordered table-striped">
@@ -714,7 +719,9 @@
         <!-- /.box-footer-->
       </div>
 <!--Fin Agrupacion Riesgos Laborales-->
-
+<button type="button" id="btnFinalzar"  class="btn btn-danger">
+                        <span class="fa fa-check-square-o"> Finalizar</span>
+    </button>
 
 
 

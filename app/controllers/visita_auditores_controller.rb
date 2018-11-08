@@ -21,6 +21,7 @@ class VisitaAuditoresController < ApplicationController
         insertVisita.id_sucursal= params[:id_sucursal]
         insertVisita.id_empresa= params[:id_empresa]
         insertVisita.fecha_visita= params[:fecha_visita]
+        insertVisita.estado= 'Iniciada'
         puts  "fecha "
         puts  params[:fecha_visita]
         listVisitas=VisitaAuditor.select('VA.*,EMP.NOMBRE_EMPRESA,SUC.DESC_SUCURSAL,to_char(VA.FECHA_VISITA, \'DD/MM/YYYY\') FECHA_STR,to_char(VA.FECHA_VISITA,\'DD\') DIA').joins('VA  JOIN "seguridad"."EMPRESA" EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  JOIN "seguridad"."SUCURSAL" SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL').where(" to_char(VA.FECHA_VISITA,'YYYY')='#{params[:year]}'  AND to_char(VA.FECHA_VISITA,'MM')='#{params[:mes]}' AND VA.id_usuario='#{session[:usuario_id]}' ")
