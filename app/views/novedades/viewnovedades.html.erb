@@ -14,7 +14,17 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
 
 
-
+<% if @message != nil %>
+<input type="text" id="txtMensaje" hidden='' value="<%= @message %>" />
+<input type="text" id="txtTipo" hidden='' value="<%= @tipo %>" />
+    <script>
+        swal("Mensaje",
+        document.getElementById("txtMensaje").value,
+        document.getElementById("txtTipo").value
+        );
+	</script>
+	
+<% end %>
 
 <!--script para mostrar o ocultar los archivos adjuntos-->
 <script> 
@@ -83,37 +93,42 @@ $(function () {
 <br style="clear:both;">
 <br style="clear:both;">
 <!--configuracion de datos para consulta de novedades-->
-
-    <div class="col-sm-3" >
-		<span class="focus-input100"><b>Fecha Inicio  </b></span>
-		<div class="form-group">
-			<div class="container">
-				<div class="row">
-					<div class='col-sm-3'>
-						<div class="form-group">
-							<div class='input-group date' id='datetimepicker1'>
-								<input type='text' class="form-control" />
-								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<%= form_tag(:controller => "novedades", :action => "entre", :method => "post") do |h| %>
+   
+	<div class="col-sm-3" >
+		<span class="focus-input100"><b>Fecha inicial  </b></span>
+		<div class='input-group date' id='datetimepicker1'>
+			<input type='text' class="form-control" id="datetimepickerfecha1" name="datetimepickerfecha1"/>
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+			</span>
 		</div>
 	</div>
 	<div class="col-sm-3" >
         <span class="focus-input100"><b>Fecha Final  </b></span>
         <div class='input-group date' id='datetimepicker2'>
-				<input type='text' class="form-control" />
-				<span class="input-group-addon">
-					<span class="glyphicon glyphicon-calendar"></span>
-				</span>
-			</div>
+			<input type='text' class="form-control" id="datetimepickerfecha2" name="datetimepickerfecha2"/>
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-calendar"></span>
+			</span>
+		</div>
     </div>
 	<br style="clear:both;">
 	<br style="clear:both;">
- 
+
+	<div class="dropdown col-md-2">
+		<select class="btn btn-default dropdown-toggle"  id="estadolist" name="estadolist"  >
+			<option>Todas</option>
+			<option>Abiertas</option>
+			<option>Cerradas</option>
+		</select>
+	</div>
+	 
+	<div class="col-md-1 " >
+			<button type="submit" class="btn btn-info">Generar</button>
+	</div>	
+
+<% end %>
     <div class="col-md-1 " >
 		<%= form_tag(:controller => "novedades", :action => "verhoy", :method => "post") do |j| %>	
 		
@@ -121,167 +136,39 @@ $(function () {
 		<% end %>
 	</div>
 
-	<div class="dropdown col-md-2">
-		<select class="btn btn-default dropdown-toggle"  id="dropdownMenu1"  >
-			<option>Todas</option>
-			<option>Abiertas</option>
-			<option>Cerradas</option>
-		</select>
-	</div>
- 
-	<div class="col-md-1 " >
-			<button type="button" class="btn btn-success">Generar</button>
-	</div>	
+	
 
 <br style="clear:both;">
 <br style="clear:both;">
 <br style="clear:both;">
 <br style="clear:both;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="box-body">
-	<table id="tablenovedad" class="table table-bordered table-striped">
-	  <thead>
-		  <tr>
-		  <th style="text-align:center">Autor</th>
-		  <th style="text-align:center">Titulo</th>  
-		  <th style="text-align:center">Tipo de novedad</th> 
-		  <th style="text-align:center">Estado</th>                  
-		  <th style="text-align:center">Empresa</th>                  
-		  <th style="text-align:center">Sucursal</th>                  
-		  <th style="text-align:center">fecha de Novedad</th>                    
-		  <th style="text-align:center; width:12px"></th>  
-		  </tr>
-	  </thead>
-	  <tbody>                            
-	  </tfoot>
-	</table> 
+	<div class="table-responsive-sm">
+		<table id="tablenovedad" class="table">
+		  <thead>
+			  <tr>
+			  <th style="text-align:center">#Novedad</th>
+			  <th style="text-align:center">Autor</th>
+			  <th style="text-align:center">Titulo</th>  
+			  <th style="text-align:center">Tipo de novedad</th> 
+			  <th style="text-align:center">Estado</th>                  
+			  <th style="text-align:center">Empresa</th>                  
+			  <th style="text-align:center">Sucursal</th>                  
+			  <th style="text-align:center">fecha de Novedad</th>       
+			  <th style="text-align:center">Detallar</th>   
+			  <th style="text-align:center">Cerrar</th>   
+			  <th style="text-align:center">Escalar</th>                
+			  <th style="text-align:center; width:12px"></th>  
+			  </tr>
+		  </thead>
+		  <tbody>                            
+		  </tfoot>
+		</table> 
+	</div>
 </div>
-
-
-
-
-
-<button type="button" class="btn btn-primary" id="Crear">
-    <span class="fa fa-clipboard"></span> Novedad #
-</button>
-
-
 <br style="clear:both;">
 <br style="clear:both;">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!--modal para la visualizacion de las noveddes-->
 <div id="ModalCrear" class="modal fade" role="dialog" style="overflow-y: scroll;" data-backdrop="static"> 
@@ -289,7 +176,7 @@ $(function () {
 		<div class="modal-content">
 			<div class="modal-header"> 
 				<div class="col-md-11">
-					<h4>Novedad: # Origen:...</h4>
+					<h4>Novedad: <label id="idnovedad"></label> Origen:...</h4>
 				</div>
 				<div class="col-md-1">
 					<button type="button" class="btn btn-primary" id="agregar_nombres">
@@ -372,19 +259,25 @@ $(function () {
 		</div>
 	</div>
 </div>
-<!--modal para cambiar el estado de la novedad-->
-<div id="ModalAgregarNombre" class="modal fade" role="dialog"> 
+<!--modal para escalar la novedad-->
+<%= form_tag(:controller => "novedades", :action => "escalar", :method => "post") do |e| %>
+<div id="ModalEscalar" class="modal fade" role="dialog"> 
     <div class="modal-dialog">
     	<div class="modal-content">
     		<div class="modal-header"> 
-    			<h4 class="modal-tittle">Agregar</h4>
+    			<h4 class="modal-tittle">Escalar Novedad # <label id="lblidescalarnovedad"></label> <input type="text" id="txtidescalarnovedad" name="txtidescalarnovedad" hidden /></h4>
     		</div> 
     		<form class="form-horizontal" role="form" id="form-agregar">
     			<div class="modal-body"> 
     				<div class="form-group col-md-12">
-    					<label for="agregar_nombre" class="control-label col-sm-4">Nombre: </label>
+    					<label  class="control-label col-sm-4">Area a asignar: </label>
     					<div class="col-sm-8">
-    						<input type="text" class="form-control" id="agregar_nombre" name="agregar_nombre">
+								<select id="selectInteresado" name="selectInteresado" class="form-control  validator" group-validator="grupo2" requiredFm="true"  validatorMssg="Por favor Seleccionar el Area">
+										<option value="">Seleccione..</option>
+										<% @selectarea.each do |area| %>
+											<option  value="<%= area.desc_interesado%>"><%= area.desc_interesado%> </option>
+										<% end %>                            
+									</select>
     					</div>
     				</div> 
     			</div>
@@ -392,7 +285,7 @@ $(function () {
     				<button type="button" class="btn btn-default" data-dismiss="modal">
     					<span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
     				</button>
-    				<button type="button" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
+    				<button type="submit" id="GuardarNombre" name="GuardarNombre" class="btn btn-primary">
     					<span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
                           
     				</button>
@@ -401,17 +294,40 @@ $(function () {
     	</div>
     </div>
 </div>
+<% end %>   
+<!--modal para cerrar la novedad-->
+<%= form_tag(:controller => "novedades", :action => "cerrarnovedad", :method => "post") do |c| %>
+<div id="Modalclose" class="modal fade" role="dialog"> 
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"> 
+					<h4 class="modal-tittle">Cerrar Novedad #<label id="closenovedad"></label></h4><input type="text" id="closenov" name="closenov" hidden />
+				</div> 
+				<form class="form-horizontal" role="form" id="form-agregar">
+					<div class="modal-body"> 
+						<div class="form-group col-md-12">
+							<center><label>Detalles de la Solucion: </label></center>
+							<br style="clear:both;">
+							<div class="col-sm-12">
+								<textarea class="form-control" rows="6" id="solucionnovedad" name="solucionnovedad"></textarea>
+							</div>
+						</div> 
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove"></span><span class="hidden-xs"> Cerrar</span>
+						</button>
+						<button type="submit" id="btncerrarnovedad" name="btncerrarnovedad" class="btn btn-primary">
+							<span class="fa fa-save"></span><span class="hidden-xs"> Guardar</span>
+							  
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>  
 <!--script para mostrar los modales-->
-<script>
-    $(document).on('click', '#Crear', function() 
-	{
-    	$('#ModalCrear').modal('show');
-	});
-    $(document).on('click', '#agregar_nombres', function() 
-	{
-        $('#ModalAgregarNombre').modal('show');
-    });
-</script>
 
 
 
