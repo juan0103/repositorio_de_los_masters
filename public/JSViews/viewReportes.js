@@ -34,7 +34,7 @@ $(document).ready(function() {
                 var efectividad=parseInt((jsonResponse.listReporte[i].total_novedades_resueltas/totalNov)*100);
                 
                 var colorEfectividad="#dd4b39";
-                if(efectividad>50){
+                if(efectividad>49){
                     colorEfectividad="#00a65a";
                 }
                 

@@ -5,6 +5,8 @@ class UsersController < ApplicationController
    end
    
     def index
+        session[:menu]=nil
+        session[:usuario]=nil
         render 'index', layout: 'application'
     end
     
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
             if(user.perfil_id==1)
                session[:menu]=[["profiles","Gestion Perfiles","index"],["empresas","Gestion Empresa","index"],["users","Gestion Usuarios","register"],
                ["pais","Gestion Pais","index"],["departamentos","Gestion Departamentos","index"],["ciudades","Gestion Ciudades","index"],
-               ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["users","Salir","index"],]
+               ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["visita_auditores", "Reportes", "viewReportes"],["users","Salir","index"]]
             
             elsif(user.perfil_id==2)
                 session[:menu]=[["novedades","Gestionar  Novedades","index"], ["visita_auditores", "Crear Visita", "index"], ["users","Salir","index"] ]
@@ -62,6 +64,7 @@ class UsersController < ApplicationController
         user.cedula=params[:cedula]
         user.perfil_id=params[:perfil]
         user.email=params[:email]
+        user.id_interesado=params[:area]
 
         cuerpo1="Te damos la bienvenida a Audit!
         Hola! '"+user.nombre+"'
@@ -74,7 +77,7 @@ class UsersController < ApplicationController
 
         if (user.save==true)
             NotifyMailer.send_mail(params[:email], 'BIENVENIDO!', cuerpo1, "", "", "").deliver
-            listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
+            listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId,int.desc_interesado ').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id  JOIN "seguridad"."INTERESADO" int on int.id_interesado=tbU.id_interesado')
             respond_to do |format|           
                format.html 
                format.json do
@@ -94,7 +97,7 @@ class UsersController < ApplicationController
     def delete_user
      user=User.find(params[:id])
      user.destroy()
-     listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')  
+     listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId,int.desc_interesado ').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id  JOIN "seguridad"."INTERESADO" int on int.id_interesado=tbU.id_interesado')
      respond_to do |format|           
         format.html 
         format.json do
@@ -104,11 +107,11 @@ class UsersController < ApplicationController
     end
  
     def getInfo
-        listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id')
+        listUsers=User.select('tbU.*,tbP.descripcion perfil,tbP.id perfilId,int.desc_interesado ').joins('tbU JOIN "seguridad"."tbperfil"  tbP ON tbP.id=tbU.perfil_id  JOIN "seguridad"."INTERESADO" int on int.id_interesado=tbU.id_interesado')
         respond_to do |format|           
             format.html 
             format.json do
-                render json:{users:listUsers,profiles:Profile.all}.to_json
+                render json:{users:listUsers,profiles:Profile.all,areas:Interesado.all}.to_json
              end
          end
     end
@@ -153,18 +156,24 @@ class UsersController < ApplicationController
     end
 
     def insertpass
-        begin    
+        begin
+            puts "inicio"    
             usuario_code=RestorePassword.where(:codigo_url => params[:code])
             @id_usuario_code=usuario_code[0].id_usuario
+            puts "medio"    
             if (@id_usuario_code.to_s != "1")
-                
+                puts "if"    
                 User.update(@id_usuario_code, :password => params[:txtcontraseña])
+                puts "udate"   
                 @message = "Su contraseña ha sido reestablecida correctamente"
                 @tipo="success"
+                puts "mensaje"   
                 #eliminar el token aqui
                 #raise genera un error
                 one = RestorePassword.where(:id_usuario => @id_usuario_code)#obtengo el registro que quiero eliminar
+                puts "consulta"  
                 RestorePassword.delete(one)#se procede a eliminar el registro
+                puts "eliminar"   
                 # luego actualizar el primer registro para leerlo
                 RestorePassword.update(1, :codigo_url => usuario_code[0].codigo_url )
             else 

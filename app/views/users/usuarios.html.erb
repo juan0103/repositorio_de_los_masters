@@ -10,8 +10,8 @@
     
    
         <!-- /.box-header -->
-        
-            <table id="tableUser" class="table table-bordered table-striped filterTable">
+        <div style="overflow-x: auto">
+            <table id="tableUser" class="table table-bordered table-striped filterTable" >
                 <thead>
                     <tr>
                     <th style="text-align:center">Id</th>
@@ -21,16 +21,18 @@
                     <th style="text-align:center">Apellido</th>                  
                     <th style="text-align:center">Cedula</th>
                     <th style="text-align:center">Perfil</th> 
-                    <th style="text-align:center;">Perfil Id</th> 
+                    <th style="text-align:center;">Id</th> 
                     <th style="text-align:center;">Email</th> 
-                    <th style="text-align:center; width:12px"></th>  
-                    <th style="text-align:center;width:12px"></th>                  
+                    <th style="text-align:center;">Id</th> 
+                    <th style="text-align:center;">Area</th>
+                    <th style="text-align:center; width:5px"></th>  
+                    <th style="text-align:center;width:5px"></th>                  
                     </tr>
                 </thead>
                 <tbody>                            
                 </tfoot>
             </table>
-        
+        </div>
         <!-- /.box-body -->
         <div class="container">	
         <button type="button" class="btn btn-default fa  fa-user" onclick="showModal('ventana');clean();"></button>	
@@ -117,6 +119,17 @@
                                Perfil</label>
                             <div class="col-md-8">
                                 <select id="slProfiles"  class="form-control validator" group-validator="grupo1" requiredFm="true" validatorMssg="Por favor seleccionar el perfil" >
+                                <option value="">Seleccionar</option>
+                                </select >                                
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-2">
+                              Area</label>
+                            <div class="col-md-8">
+                                <select id="slArea"  class="form-control validator" group-validator="grupo1" requiredFm="true" validatorMssg="Por favor seleccionar el perfil" >
                                 <option value="">Seleccionar</option>
                                 </select >                                
                             </div>

@@ -22,7 +22,7 @@ class NovedadesController < ApplicationController
         @empresa=Empresa.all
         @Pai=Pai.all
         @Departamento=Departamento.all
-        @Ciudad=Ciudad.all
+        @Ciudad=Ciudade.all
         @BranchOffice= BranchOffice.all
         @Interesado= Interesado.all
         @TipoDeNovedad= TipoDeNovedade.all
@@ -39,7 +39,7 @@ class NovedadesController < ApplicationController
         end
         sucursal=BranchOffice.where(:id_sucursal => tipoVisita[0].id_sucursal)
         @sucursal=sucursal[0].desc_sucursal
-        ciudad=Ciudad.where(:id_ciudad => sucursal[0].id_ciudad)
+        ciudad=Ciudade.where(:id_ciudad => sucursal[0].id_ciudad)
         @ciudad=ciudad[0].desc_ciudad
         departamento=Departamento.where(:id_departamento => ciudad[0].id_departamento)
         @departamento=departamento[0].desc_departamento
@@ -213,7 +213,7 @@ def entre
             @estadolist="1"
     end
     if (params[:estadolist].to_s == "Abiertas")
-        @estadolist="Cerrado"
+        @estadolist="Cerrada"
     end
     if (params[:estadolist].to_s == "Cerradas")
         @estadolist="Abierto"

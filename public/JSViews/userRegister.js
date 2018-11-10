@@ -13,7 +13,7 @@ $(document).ready(function() {
              return;
            }
            var dataRequest= {id:$("#txtId").val(),cedula:$("#txtCedula").val(),nombre:$("#txtNombre").val(),apellido:$("#txtApellido").val(),
-                             login:$("#txtLogin").val(),password:$("#txtPass").val(),perfil:$('#slProfiles').val(),email:$('#txtEmail').val()};
+                             login:$("#txtLogin").val(),password:$("#txtPass").val(),perfil:$('#slProfiles').val(),email:$('#txtEmail').val(),area:$('#slArea').val()};
            requestAjax('/users/save_register',dataRequest,'POST',saveRegister);           
            clean();
         }
@@ -35,6 +35,7 @@ $(document).ready(function() {
         $('#txtCedula').val(Grid_Table.rows[row].cells[5].textContent);
         $('#slProfiles').val(Grid_Table.rows[row].cells[7].textContent);
         $('#txtEmail').val(Grid_Table.rows[row].cells[8].textContent);
+        $('#slArea').val(Grid_Table.rows[row].cells[9].textContent);
     });
 
 
@@ -86,12 +87,14 @@ $(document).ready(function() {
         $("#txtConfirm").val("");
         $("#txtEmail").val("");
         $('#slProfiles').val("");
+        $('#slArea').val("");
     }
 
 function getInfoInicial(jsonResponse){  //funcion para cargar la informacion inicial
  console.log(jsonResponse); 
  getUsers(jsonResponse.users);
  getProfiles(jsonResponse.profiles);  
+ getAreas(jsonResponse.areas); 
 }
 
  function getUsers(jsonResponse){  //funcion para cargar los usuario
@@ -100,9 +103,9 @@ function getInfoInicial(jsonResponse){  //funcion para cargar la informacion ini
     for (i = 0; i < jsonResponse.length; i++) { //se llenan los perfiles           
             table.row.add( [jsonResponse[i].id,jsonResponse[i].login,jsonResponse[i].password,
                           jsonResponse[i].nombre,jsonResponse[i].apellido,jsonResponse[i].cedula,jsonResponse[i].perfil,
-                          jsonResponse[i].perfilid,jsonResponse[i].email,
-                          "<button type='button' class='btn btn-success edit' ><i class='fa  fa-pencil' /></button>",
-                          "<button type='button' class='btn btn-danger delete'><i class='fa   fa-remove' /></button>"]).draw(false);
+                          jsonResponse[i].perfilid,jsonResponse[i].email,jsonResponse[i].id_interesado,jsonResponse[i].desc_interesado,
+                          "<button type='button' class='btn btn-sm btn-success edit' ><i class='fa  fa-pencil' /></button>",
+                          "<button type='button' class='btn btn-sm btn-danger delete'><i class='fa   fa-remove' /></button>"]).draw(false);
      }                
 }
 
@@ -114,6 +117,16 @@ function getProfiles(jsonResponse){//funcion para cargar los perfiles
                     text:  jsonResponse[i].descripcion
                 }));
             }                
+}
+
+
+function getAreas(jsonResponse){//funcion para cargar los perfiles                 
+    for (i = 0; i < jsonResponse.length; i++) {            
+            $('#slArea').append($('<option>',{
+                value: jsonResponse[i].id_interesado,
+                text:  jsonResponse[i].desc_interesado
+            }));
+        }                
 }
 
 
