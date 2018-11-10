@@ -18,14 +18,15 @@ class UsersController < ApplicationController
                ["pais","Gestion Pais","index"],["departamentos","Gestion Departamentos","index"],["ciudades","Gestion Ciudades","index"],
                 ["tipo_de_novedades", "Gestion Tipo Novedades", "index"], ["interesados", "Gestion de Interesados", "index"], ["users","Salir","index"]]
             
-            
-            
+            elsif(user.perfil_id==2)
+                session[:menu]=[["novedades","Gestionar  Novedades","index"], ["visita_auditores", "Crear Visita", "index"], ["users","Salir","index"] ]
+                
             
             elsif(user.perfil_id==3)
-                session[:menu]=[["novedades","Gestionar  Novedades","index"], ["novedades", "Crear Novedades", "createnovedad"], ["users","Salir","index"] ]
+                session[:menu]=[["novedades","Gestionar  Novedades","index"], ["users","Salir","index"] ]
               #  session[:menu]=[["profiles","Gestionar  Auditorias","index"],["users","Salir","index"]]
             end
-            duser=Interesado.where(:id_interesado => user.id)
+            duser=Interesado.where(:id_interesado => user.id_interesado)
             session[:area]=duser[0].desc_interesado
             session[:usuario]=user.login.to_s
             session[:usuario_id]=user.id

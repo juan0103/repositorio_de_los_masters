@@ -13,11 +13,10 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: postgres
-  password: 123
+  password: Paradisecity1
   host: localhost  
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  port: 5435
 
 development:
   <<: *default
