@@ -1,5 +1,23 @@
-<h1>New Interesado</h1>
-
-<%= render 'form', interesado: @interesado %>
-
-<%= link_to 'Back', interesados_path %>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+    <div class="panel panel-warning">
+        <div class="panel-heading" ><h1>Nuevo Interesado</h1></div>
+        <div class="panel-body" >
+            <%= render 'form', interesado: @interesado %>
+            <br style="clear:both;">
+            <br style="clear:both;">
+            <div class="col-md-8">
+                <div class="input-group margin-bottom-md">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', interesados_path, class: "btn btn-warning btn-xs" %></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1"></div>  

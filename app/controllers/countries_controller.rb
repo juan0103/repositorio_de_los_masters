@@ -5,20 +5,24 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     @countries = Country.all
+    render 'index', layout: 'mailer'
   end
 
   # GET /countries/1
   # GET /countries/1.json
   def show
+    render 'show', layout: 'mailer'
   end
 
   # GET /countries/new
   def new
     @country = Country.new
+    render 'new', layout: 'mailer'
   end
 
   # GET /countries/1/edit
   def edit
+    render 'edit', layout: 'mailer'
   end
 
   # POST /countries

@@ -2,7 +2,6 @@
   <% if pai.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(pai.errors.count, "error") %> prohibited this pai from being saved:</h2>
-
       <ul>
       <% pai.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,18 +9,30 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :id_pais %>
-    <%= form.number_field :id_pais, id: :pai_id_pais %>
+    <div class="col-md-2">
+      <%= form.label :id_pais %>
+    </div>
+    <div class="col-md-4">
+      <%= form.number_field :id_pais, id: :pai_id_pais %>
+    </div>
   </div>
-
+  <br style="clear:both;">
+  <br style="clear:both;">
   <div class="field">
-    <%= form.label :nombre_pais %>
-    <%= form.text_field :nombre_pais, id: :pai_nombre_pais %>
+    <div class="col-md-2">
+      <%= form.label :nombre_pais %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :nombre_pais, id: :pai_nombre_pais %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br style="clear:both;">
+  <br style="clear:both;">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <div class="actions">
+      <%= form.submit class: "btn btn-success"%>
+    </div>
   </div>
 <% end %>

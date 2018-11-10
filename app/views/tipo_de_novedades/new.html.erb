@@ -1,5 +1,23 @@
-<h1>New Tipo De Novedade</h1>
-
-<%= render 'form', tipo_de_novedade: @tipo_de_novedade %>
-
-<%= link_to 'Back', tipo_de_novedades_path %>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+    <div class="panel panel-warning">
+        <div class="panel-heading" ><h1>Nuevo Tipo De Novedad</h1></div>
+        <div class="panel-body" >
+            <%= render 'form', tipo_de_novedade: @tipo_de_novedade %>
+            <br style="clear:both;">
+            <br style="clear:both;">
+            <div class="col-md-8">
+                <div class="input-group margin-bottom-md">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', tipo_de_novedades_path, class: "btn btn-warning btn-xs" %></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1"></div>

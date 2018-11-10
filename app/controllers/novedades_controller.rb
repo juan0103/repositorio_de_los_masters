@@ -4,12 +4,16 @@ class NovedadesController < ApplicationController
     def initialize     
         puts "iniciando"        
         @listProcesos=nil      
+        @visita=1 
+        @listProcesos=nil 
+        @selectarea=Interesado.all 
     end
     def index
+        @id_area=session[:id_area]
+        session[:listnovedades]=Novedad.select('nv.id_novedad,us.nombre, nv.titulo, tp.desc_tnovedad, nv.estado_novedad, e.nombre_empresa, s.desc_sucursal, va.fecha_visita, nv.detalle_novedad').joins('nv JOIN "seguridad"."VISITA_AUDITOR" va on va.id_visita=nv.id_visita JOIN "seguridad"."tbusuario" us on us.id=va.id_usuario JOIN "seguridad"."TIPO_DE_NOVEDAD" tp on tp.id_tnovedad=nv.id_tipo_novedad  JOIN "seguridad"."SUCURSAL" s on s.id_sucursal=va.id_sucursal JOIN "seguridad"."EMPRESA" e on e.id_empresa=s.id_empresa' ).where("nv.id_interesado=#{@id_area}")
         render 'viewnovedades', layout: 'mailer'
     end
-   def getnovedades
-   end
+   
 
     def createnovedad
         ##puts "numero visita:"
@@ -195,9 +199,91 @@ class NovedadesController < ApplicationController
 
 end
 
+def verhoy
+    @id_area=session[:id_area]
+    session[:fecha]=Time.now
+    session[:listnovedades]=Novedad.select('nv.id_novedad, us.nombre, nv.titulo, tp.desc_tnovedad, nv.estado_novedad, e.nombre_empresa, s.desc_sucursal, va.fecha_visita, nv.detalle_novedad').joins('nv JOIN "seguridad"."VISITA_AUDITOR" va on va.id_visita=nv.id_visita JOIN "seguridad"."tbusuario" us on us.id=va.id_usuario JOIN "seguridad"."TIPO_DE_NOVEDAD" tp on tp.id_tnovedad=nv.id_tipo_novedad  JOIN "seguridad"."SUCURSAL" s on s.id_sucursal=va.id_sucursal JOIN "seguridad"."EMPRESA" e on e.id_empresa=s.id_empresa' ).where("nv.id_interesado=#{@id_area} and va.fecha_visita ='#{session[:fecha].year}-#{session[:fecha].month}-#{session[:fecha].day}'")
+    render 'viewnovedades', layout: 'mailer'
+end
+def entre
+    @id_area=session[:id_area]
+    @fecha1=params[:datetimepickerfecha1].to_s
+    @fecha2=params[:datetimepickerfecha2].to_s
+    if (params[:estadolist].to_s == "Todas")
+            @estadolist="1"
+    end
+    if (params[:estadolist].to_s == "Abiertas")
+        @estadolist="Cerrado"
+    end
+    if (params[:estadolist].to_s == "Cerradas")
+        @estadolist="Abierto"
+    end
+    session[:listnovedades]=Novedad.select('nv.id_novedad, us.nombre, nv.titulo, tp.desc_tnovedad, nv.estado_novedad, e.nombre_empresa, s.desc_sucursal, va.fecha_visita, nv.detalle_novedad').joins('nv JOIN "seguridad"."VISITA_AUDITOR" va on va.id_visita=nv.id_visita JOIN "seguridad"."tbusuario" us on us.id=va.id_usuario JOIN "seguridad"."TIPO_DE_NOVEDAD" tp on tp.id_tnovedad=nv.id_tipo_novedad  JOIN "seguridad"."SUCURSAL" s on s.id_sucursal=va.id_sucursal JOIN "seguridad"."EMPRESA" e on e.id_empresa=s.id_empresa' ).where("nv.id_interesado=#{@id_area} and va.fecha_visita between '#{@fecha1}' and '#{@fecha2}' and nv.estado_novedad !='#{@estadolist}'")
+    render 'viewnovedades', layout: 'mailer'
+end
+
+def getnovedades
+    @id_area=session[:id_area]
+    respond_to do |format|           
+        format.html 
+        format.json do
+            render json:{listnovedades:session[:listnovedades]}.to_json
+        end
+    end
+
+end
+
+
+def escalar
+    begin
+        idnovedad=params[:txtidescalarnovedad]
+        nameinteresado=params[:selectInteresado]
+        idinteresadoescalar=Interesado.where(:desc_interesado => nameinteresado)
+        @idinteresadoescalar=idinteresadoescalar[0].id_interesado
+        Novedad.update(idnovedad, :id_interesado => @idinteresadoescalar )
+        @message = "se ha Escalado correctamente la novedad"
+        @tipo="success"
+        render 'viewnovedades', layout: 'mailer'
+    rescue => exception
+        @message = "Ha fallado el proceso por favor inetente nuevamente "
+        @tipo="error"
+        render 'viewnovedades', layout: 'mailer'
+    end
+     
+    #  Novedad.update(idnovedad, :)
+end
+def cerrarnovedad
+    begin
+        idnovedad=params[:closenov]
+        solucionNovedad=params[:solucionnovedad]
+        Novedad.update(idnovedad, :solucion_novedad => params[:solucionnovedad], :estado_novedad => 'Cerrado')
+        @message = "se ha Cerrado la novedad Correctamente"
+        @tipo="success"
+        render 'viewnovedades', layout: 'mailer'
+    rescue => exception
+        @message = "Ha fallado el proceso por favor inetente nuevamente "
+        @tipo="error"
+        render 'viewnovedades', layout: 'mailer'
+    end
+    
+end
+
+
+def viewUploadImage    
+    render 'viewnovedades', layout: 'mailer'
+end
+
+attr_accessor :upload 
+   def uploadImage
+    ImageNovedadesUploader.uploadImageLogic(params[:upload]) 
+    render 'uploadImage', layout: 'mailer' 
+end
+
+
 private
     def getProceso idProceso 
         @listProcesos=Novedad.select('nv.*,inte.desc_interesado,tp.desc_tnovedad').joins('nv  JOIN "seguridad"."INTERESADO" inte on inte.id_interesado=nv.id_interesado JOIN "seguridad"."TIPO_DE_NOVEDAD" tp on tp.id_tnovedad=nv.id_tipo_novedad').where(" nv.id_visita=#{@numvisita} and nv.id_proceso_auditoria=#{idProceso}").order("id_novedad ASC")
     end
 
 end
+

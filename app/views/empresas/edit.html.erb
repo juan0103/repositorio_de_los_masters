@@ -1,6 +1,26 @@
-<h1>Editing Empresa</h1>
-
-<%= render 'form', empresa: @empresa %>
-
-<%= link_to 'Show', @empresa %> |
-<%= link_to 'Back', empresas_path %>
+<div class="col-md-1"></div>
+    <div class=" container col-md-10" style="align: center">
+        <div class="panel panel-success">
+          <div class="panel-heading" ><h1>Editar Empresa</h1></div>
+          <div class="panel-body" >
+            <%= render 'form', empresa: @empresa %>
+            <br style="clear:both;">
+            <br style="clear:both;">
+            <div class="col-md-8">
+                <div class="input-group margin-bottom-md">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-search fa-lg"></i><%= link_to 'Ver', @empresa,{ class: "btn btn-success btn-xs" } %></span>
+                            </td>
+                            <td>
+                                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', empresas_path,{ class: "btn btn-success btn-xs" } %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-1"></div>

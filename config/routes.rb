@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :branch_offices
   resources :countries
   resources :profiles
+  resources :ciudades
+  resources :departamentos
+  resources :tipo_de_novedades
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "users" => "users#index" # crea un alias y con la asignacion indico controlador y accion
   post "users/login" #indico directo el controlador y la accion
@@ -16,8 +22,12 @@ Rails.application.routes.draw do
   post "users/restorekey"
   get "users/restaurarkey"
   post "users/insertpass"
-  get "index" => "landing_pages#index"
+  get "users/Bienvenido"
+  get "users/usuarios"
   post "users/delete_user"
+
+  get "index" => "landing_pages#index"
+
   get "novedades" => "novedades#index"
   get "createnovedades" => "novedades#createnovedad"
   post "novedades/getnovedades"
@@ -26,13 +36,24 @@ Rails.application.routes.draw do
   post "novedades/delete_novedad"
   post "novedades/save_image"
   post "novedades/finalizarVisita"
+  post "novedades/verhoy"
+  post "novedades/entre"
+  post "novedades/escalar"
+  post "novedades/cerrarnovedad"
+  post "novedades/insertNovedad" 
+  post "novedades/save_image"
+  get "novedades/uploadImage"
+ 
   
-
+  
   get "images" => "imagenes#index"
 
 
   get "visita_auditores" => "visita_auditores#index" # crea un alias y con la asignacion indico controlador y accion
   get "visita_auditores/getInfo" 
   get "visita_auditores/getSucursales" 
-  post "visita_auditores/createVisita"   
+  post "visita_auditores/createVisita" 
+  get "visita_auditores/viewReportes"   
+  get "visita_auditores/getReport"
+  
 end

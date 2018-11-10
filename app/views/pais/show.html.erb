@@ -1,23 +1,44 @@
-<p id="notice"><%= notice %></p>
-  <div class="form-horizontal">                      
-  <div class="form-group">
-     <label class="col-md-2 col-sm-4">
-       <strong>Nombre:</strong>
-     </label>
-   <div class="col-md-6">
-  <%= @pai.nombre_pais %>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+  <div class="panel panel-info">
+    <div class="panel-heading" ><h1>Ver Paises</div>
+    <div class="panel-body" >
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Nombre pais:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @pai.nombre_pais %>
+        </div>
+      </div>  
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Id pais:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @pai.id_pais %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="col-md-8">
+        <div class="input-group margin-bottom-md">
+          <table>
+            <tr>
+              <td>
+
+                <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-lg"></i><%= link_to 'Editar', edit_pai_path(@pai),{ class: "btn btn-info btn-sm" } %> |</span>
+              </td>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', pais_path,{ class: "btn btn-info btn-sm" } %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-
-<p>
-  <strong>Id pais:</strong>
-  <%= @pai.id_pais %>
-</p>
-
-<p>
-  <strong>Nombre pais:</strong>
-  <%= @pai.nombre_pais %>
-</p>
-
-<%= link_to 'Edit', edit_pai_path(@pai) %> |
-<%= link_to 'Back', pais_path %>
+<div class="col-md-1"></div>

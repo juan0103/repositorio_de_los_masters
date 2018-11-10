@@ -1,14 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id tnovedad:</strong>
-  <%= @tipo_de_novedade.id_tnovedad %>
-</p>
-
-<p>
-  <strong>Desc tnovedad:</strong>
-  <%= @tipo_de_novedade.desc_tnovedad %>
-</p>
-
-<%= link_to 'Edit', edit_tipo_de_novedade_path(@tipo_de_novedade) %> |
-<%= link_to 'Back', tipo_de_novedades_path %>
+<div class="col-md-1"></div>
+<div class=" container col-md-10" style="align: center">
+  <div class="panel panel-info">
+    <div class="panel-heading" ><h1>Ver Tipo De Novedades</h1></div>
+    <div class="panel-body" >
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Id tnovedad:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @tipo_de_novedade.id_tnovedad %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="field">
+        <div class="col-md-2">
+          <strong>Desc tnovedad:</strong>
+        </div>
+        <div class="col-md-4">
+          <%= @tipo_de_novedade.desc_tnovedad %>
+        </div>
+      </div>
+      <br style="clear:both;">
+      <br style="clear:both;">
+      <div class="col-md-8">
+        <div class="input-group margin-bottom-md">
+          <table>
+            <tr>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-pencil-square-o fa-lg"></i><%= link_to 'Editar', edit_tipo_de_novedade_path(@tipo_de_novedade), class: "btn btn-info btn-xs" %> </span>
+              </td>
+              <td>
+                <span class="input-group-addon"><i class="fa fa-mail-reply fa-lg"></i><%= link_to 'Atras', tipo_de_novedades_path, class: "btn btn-info btn-xs" %></span>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-1"></div>

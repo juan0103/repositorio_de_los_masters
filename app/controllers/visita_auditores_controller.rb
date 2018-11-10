@@ -52,6 +52,36 @@ class VisitaAuditoresController < ApplicationController
          end
     end
 
+    def viewReportes    
+        render 'reporteVisitas', layout: 'mailer'
+    end
+
+    
+    def getReport
+        
+        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}'"
+        totalVisitas = ActiveRecord::Base.connection.execute(query)
+
+        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}'"
+        totalNovedades = ActiveRecord::Base.connection.execute(query)
+                
+        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD='Cerrada'"
+        totalNovedadesR = ActiveRecord::Base.connection.execute(query)
+
+        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD!='Cerrada'"
+        totalNovedadesN = ActiveRecord::Base.connection.execute(query)
+
+        query="SELECT ceiling((CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD='Cerrada')AS FLOAT )/CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' )AS FLOAT)*100)) porcentaje" 
+        porcentaje = ActiveRecord::Base.connection.execute(query)
+
+        respond_to do |format|           
+            format.html 
+            format.json do
+                render json:{totalVisitas:totalVisitas,totalNovedades:totalNovedades,totalNovedadesR:totalNovedadesR,totalNovedadesN:totalNovedadesN,porcentaje:porcentaje}.to_json
+             end
+         end
+    end
+
 
     def getSucursales
         listSucursales=Sucursal.where(:id_empresa => params[:idEmpresa])

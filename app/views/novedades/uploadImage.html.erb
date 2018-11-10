@@ -1,0 +1,4 @@
+ <%= form_tag(:controller => "novedades", :action => "uploadImage", :method => "post") do |f| %>
+     <%=file_field 'upload', 'datafile' %></p> 
+     <%= submit_tag "Upload" %> 
+<% end %> 
