@@ -34,6 +34,7 @@ $(document).ready(function() {
         $('#txtApellido').val(Grid_Table.rows[row].cells[4].textContent);
         $('#txtCedula').val(Grid_Table.rows[row].cells[5].textContent);
         $('#slProfiles').val(Grid_Table.rows[row].cells[7].textContent);
+        $('#txtEmail').val(Grid_Table.rows[row].cells[8].textContent);
     });
 
 

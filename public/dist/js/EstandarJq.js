@@ -34,8 +34,11 @@ function filterTable(){
 }
    
 
-function datePicker(){
-	$('.datePicker').datetimepicker();
+function datePicker(){	
+	$('.datepicker').datepicker({
+		autoclose: true,
+		format: 'dd/mm/yyyy'
+	  });
 }
 
 function money(){

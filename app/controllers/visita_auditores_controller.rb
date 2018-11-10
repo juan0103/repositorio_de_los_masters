@@ -68,16 +68,20 @@ class VisitaAuditoresController < ApplicationController
         query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD='Cerrada'"
         totalNovedadesR = ActiveRecord::Base.connection.execute(query)
 
-        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD!='Cerrada'"
+        query="SELECT count(1) cantidad FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA  WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and (NV.ESTADO_NOVEDAD!='Cerrada' or NV.ESTADO_NOVEDAD is null)"
         totalNovedadesN = ActiveRecord::Base.connection.execute(query)
 
-        query="SELECT ceiling((CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD='Cerrada')AS FLOAT )/CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' )AS FLOAT)*100)) porcentaje" 
-        porcentaje = ActiveRecord::Base.connection.execute(query)
+        #query="SELECT ceiling((CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' and NV.ESTADO_NOVEDAD='Cerrada')AS FLOAT )/CAST((SELECT count(1)  FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV JOIN #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""}  VA ON VA.ID_VISITA=NV.ID_VISITA WHERE fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}' )AS FLOAT)*100)) porcentaje" 
+        #porcentaje = ActiveRecord::Base.connection.execute(query)
+
+        query="SELECT VA.*,SUC.DESC_SUCURSAL,EMP.NOMBRE_EMPRESA,(SELECT COUNT(1) FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV WHERE NV.ID_VISITA=VA.ID_VISITA) total_novedades, (SELECT COUNT(1) FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV WHERE NV.ID_VISITA=VA.ID_VISITA AND NV.ESTADO_NOVEDAD='Cerrada') total_novedades_resueltas, (SELECT COUNT(1) FROM #{"\"seguridad\""}.#{"\"NOVEDAD\""} NV WHERE NV.ID_VISITA=VA.ID_VISITA AND (NV.ESTADO_NOVEDAD!='Cerrada' or NV.ESTADO_NOVEDAD is null)) total_novedades_no FROM #{"\"seguridad\""}.#{"\"VISITA_AUDITOR\""} VA  INNER JOIN #{"\"seguridad\""}.#{"\"SUCURSAL\""} SUC ON SUC.ID_SUCURSAL=VA.ID_SUCURSAL  INNER JOIN #{"\"seguridad\""}.#{"\"EMPRESA\""} EMP ON EMP.ID_EMPRESA=VA.ID_EMPRESA  where VA.fecha_visita between '#{params[:fechaInicio]}' and  '#{params[:fechaFin]}'"
+        listReporte=ActiveRecord::Base.connection.execute(query)
+
 
         respond_to do |format|           
             format.html 
             format.json do
-                render json:{totalVisitas:totalVisitas,totalNovedades:totalNovedades,totalNovedadesR:totalNovedadesR,totalNovedadesN:totalNovedadesN,porcentaje:porcentaje}.to_json
+                render json:{totalVisitas:totalVisitas,totalNovedades:totalNovedades,totalNovedadesR:totalNovedadesR,totalNovedadesN:totalNovedadesN,listReporte:listReporte}.to_json
              end
          end
     end
